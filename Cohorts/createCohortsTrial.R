@@ -27,7 +27,15 @@ cdm$prostate_cancer_cohort <- CohortConstructor::conceptCohort(cdm,
   CohortConstructor::requireDemographics(sex = "Male",
                                          ageRange = list(c(50, 69)),
                                          minPriorObservation = 365,
-                                         indexDate = "cohort_start_date") |>
+                                         indexDate = "cohort_start_date")
+
+
+cdm$optima_pc_tte <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_treatment, name = "optima_pc_tte", subsetCohort = "prostate_cancer_cohort") |>
+  CohortConstructor::requireIsFirstEntry() |>
+  CohortConstructor::requireCohortIntersect(targetCohortTable = "prostate_cancer_cohort",
+                                            window = c(-180,0),
+                                            intersections = c(1, Inf)) |>
+  omopgenerics::recordCohortAttrition(reason = "a condition occurrence of prostate cancer between age 50 and 69 and between 180 & 0 days before cohort_start_date") |>
   CohortConstructor::requireCohortIntersect(
     targetCohortTable = "psa_cohort",
     window = c(-180, 0),
@@ -47,6 +55,7 @@ cdm$prostate_cancer_cohort <- CohortConstructor::conceptCohort(cdm,
     targetStartDate = "cohort_start_date",
     targetEndDate = "cohort_end_date",
   ) |>
+  omopgenerics::recordCohortAttrition(reason = "at least one measurement of both cT1-T2 and M0 or of Stage I-II any day before cohort start date") |>
   CohortConstructor::requireConceptIntersect(
     conceptSet = list("Malignancy except non-melanoma skin cancer" = codelist$`Malignancy except non-melanoma skin cancer`),
     window = c(-Inf, 0),
@@ -82,7 +91,7 @@ cdm$prostate_cancer_cohort <- CohortConstructor::conceptCohort(cdm,
       indexDate = "cohort_start_date",
       targetStartDate = "event_start_date",
       targetEndDate = "event_end_date",
-    )|>
+    ) |>
     CohortConstructor::requireConceptIntersect(
       conceptSet = list("stroke" = codelist$`[OPTIMA PCa RQ4] Stroke`) ,
       window = c(-365, 0),
@@ -111,9 +120,7 @@ cdm$prostate_cancer_cohort <- CohortConstructor::conceptCohort(cdm,
     targetEndDate = "event_end_date",
   )
 
-attrition(cdm$prostate_cancer_cohort)
 
-cdm$optima_pc_tte <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_treatment, name = "optima_pc_tte", subsetCohort = "prostate_cancer_cohort") |>
-  CohortConstructor::requireIsFirstEntry()
 
-attrition(cdm$optima_pc_tte)
+res <- CohortCharacteristics::summariseCohortAttrition(cdm$optima_pc_tte)
+CohortCharacteristics::plotCohortAttrition(res)
