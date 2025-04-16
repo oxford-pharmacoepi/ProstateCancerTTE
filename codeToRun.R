@@ -55,6 +55,7 @@ if (create_cohorts) {
     dplyr::filter(.data$period_type_concept_id == 32882)
 
   source("Cohorts/createCohortsTrial.R")
+  source("Cohorts/createCohortsRwd.R")
 
 
 }
