@@ -1,4 +1,4 @@
-folder_path <- here::here("Diagnostics/Cohorts/codelists")
+folder_path <- here::here("CodelistDiagnostics/Codelist/codelists")
 
 
 codelists_rp_rwd <- omopgenerics::importCodelist(paste0(folder_path,"/rp_rwd"), "csv")
@@ -31,6 +31,16 @@ cdm$pc_cohort <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist, na
 
 result <- PhenotypeR::phenotypeDiagnostics(cdm$pc_cohort)
 
-omopgenerics::exportSummarisedResult(result_codelist, fileName = "result_codelist_{cdm_name}.csv",path = here::here("Diagnostics/Results"))
+omopgenerics::exportSummarisedResult(result_codelist, fileName = "result_codelist_{cdm_name}.csv", path = here::here("CodelistDiagnostics/Results"))
+
+codelists_rp_rwd$`[OPTIMA PCa RQ4] cT1-T2` <- codelists_rp_trial$`[OPTIMA PCa RQ4] cT1-T2`
+codelists_rp_rwd$`[OPTIMA PCa RQ4] M0` <-codelists_rp_trial$`[OPTIMA PCa RQ4] M0`
+codelists_rt_rwd$`[OPTIMA PCa RQ4] cT1-T2` <- codelists_rt_trial$`[OPTIMA PCa RQ4] cT1-T2`
+codelists_rt_rwd$`[OPTIMA PCa RQ4] M0` <-codelists_rt_trial$`[OPTIMA PCa RQ4] M0`
 
 
+codelists_rp_rwd |> omopgenerics::exportCodelist(path = paste0(folder_path,"/rp_rwd") , type = "csv")
+
+codelists_rt_rwd |> omopgenerics::exportCodelist(path = paste0(folder_path,"/rt_rwd"), type = "csv")
+
+omopgenerics::exportCodelist(c(codelists_rp_rwd, codelists_rt_rwd, codelists_rp_trial, codelists_rt_trial), type = "csv", path = paste0(folder_path,"/total"))

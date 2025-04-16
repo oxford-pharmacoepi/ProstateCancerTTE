@@ -29,7 +29,9 @@ characterise_op <- FALSE
 
 characterise_clinical_tables <- FALSE
 
-diagnostics <- TRUE
+diagnostics <- FALSE
+
+create_cohorts <- TRUE
 
 if (characterise_op || characterise_clinical_tables) {
 
@@ -42,6 +44,17 @@ if (diagnostics){
   cdm$observation_period<- cdm$observation_period |>
     dplyr::filter(.data$period_type_concept_id == 32882)
 
-  source("Diagnostics/runDiagnostics.R")
+  source("CodelistDiagnostics/runDiagnostics.R")
+
+}
+
+
+if (create_cohorts) {
+
+  cdm$observation_period<- cdm$observation_period |>
+    dplyr::filter(.data$period_type_concept_id == 32882)
+
+  source("Cohorts/createCohortsTrial.R")
+
 
 }
