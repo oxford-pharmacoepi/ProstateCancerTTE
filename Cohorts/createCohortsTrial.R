@@ -30,7 +30,7 @@ cdm$prostate_cancer_cohort <- CohortConstructor::conceptCohort(cdm,
                                          indexDate = "cohort_start_date")
 
 
-cdm$optima_pc_tte <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_treatment, name = "optima_pc_tte", subsetCohort = "prostate_cancer_cohort") |>
+cdm$optima_pc_tte <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_treatment, name = "optima_pc_tte") |>
   CohortConstructor::requireIsFirstEntry() |>
   CohortConstructor::requireCohortIntersect(targetCohortTable = "prostate_cancer_cohort",
                                             window = c(-180,0),
