@@ -1,6 +1,7 @@
 #cohort rwd
 
-folder_path <- here::here("Diagnostics/Cohorts/codelists/total")
+folder_path <- here::here("CodelistDiagnostics/Codelist/codelists/total")
+
 
 
 codelist <- omopgenerics::importCodelist(paste0(folder_path), "csv")
