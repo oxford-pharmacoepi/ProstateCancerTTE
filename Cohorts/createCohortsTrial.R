@@ -18,7 +18,7 @@ cdm$stage <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_stage, 
                                              window = c(-Inf, Inf),
                                              cohortId = "c_t1_t2",
                                              intersections = c(1, Inf)) |>
-  CohortConstructor::unionCohorts(cohortId = c(1,2), name = "stage")
+  CohortConstructor::unionCohorts(cohortId = c(1,2), name = "stage", gap = 0 cohortName = "stage")
 
 
 cdm$prostate_cancer_cohort <- CohortConstructor::conceptCohort(cdm,
@@ -120,7 +120,37 @@ cdm$optima_pc_tte <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist
     targetEndDate = "event_end_date",
   )
 
+count <- CohortCharacteristics::summariseCohortCount(cdm$optima_pc_tte)
 
 
-res <- CohortCharacteristics::summariseCohortAttrition(cdm$optima_pc_tte)
-CohortCharacteristics::plotCohortAttrition(res)
+attrition <- CohortCharacteristics::summariseCohortAttrition(cdm$optima_pc_tte)
+
+
+characteristics <- CohortCharacteristics::summariseCharacteristics(cdm$optima_pc_tte,
+                                                                 tableIntersectCount = list(
+                                                                   "Conditions any time prior" = list(
+                                                                     tableName = "condition_occurrence",
+                                                                     window = c(-Inf, 0)
+                                                                   ),
+                                                                   "Drugs in the year prior" = list(
+                                                                     tableName = "drug_exposure",
+                                                                     window = c(-365, 0)
+                                                                   )
+
+                                                                 )
+                                                                 )
+
+
+lsc <- CohortCharacteristics::summariseLargeScaleCharacteristics(cdm$optima_pc_tte,
+                                                                 eventInWindow = c("condition_occurrence", "observation", "procedure_occurrence", "device_exposure"),
+                                                                 episodeInWindow = "drug_exposure",
+                                                                 window = list(c(-Inf, -366), c(-365, -31), c(-30, -1), c(0, 0), c(1, 30), c(31, 365), c(366, Inf)),
+                                                                 minimumFrequency = 0.1
+                                                                 )
+
+
+
+
+overlap <- CohortCharacteristics::summariseCohortOverlap(cdm$optima_pc_tte)
+
+omopgenerics::exportSummarisedResult(count, attrition, overlap, characteristics, lsc, fileName =  "prostateCancerTrialCohort_characteristics_{cdm_name}.csv", path = here::here("Cohorts/Results")  )

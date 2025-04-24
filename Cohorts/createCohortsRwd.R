@@ -2,8 +2,6 @@
 
 folder_path <- here::here("CodelistDiagnostics/Codelist/codelists/total")
 
-
-
 codelist <- omopgenerics::importCodelist(paste0(folder_path), "csv")
 
 codelist_treatment <- list("EBRT" = codelist$`[OPTIMA RQ4] EBRT`, "Radical prostatectomy" = codelist$`[OPTIMA RQ4] Radical prostatectomy`)
@@ -20,8 +18,8 @@ cdm$prostate_cancer_first_diagnosis_cohort <- CohortConstructor::conceptCohort(c
 
 
 cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_treatment, name = "optima_pc_rwd") |>
-  CohortConstructor::requirePriorObservation(minPriorObservation = 365) |>
   CohortConstructor::requireIsFirstEntry() |>
+  CohortConstructor::requirePriorObservation(minPriorObservation = 365) |>
   CohortConstructor::requireConceptIntersect(conceptSet = list("Prostate cancer conditions" = codelist$`[OPTIMA RQ1] Prostate cancer conditions`),
                                              window = c(-Inf,Inf),
                                              intersections = c(1, Inf)) |>
