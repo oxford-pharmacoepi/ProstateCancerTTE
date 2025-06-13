@@ -1,5 +1,5 @@
 start_time <- Sys.time()
-outputFolder <-  here::here("DatabaseCharacterisation/ClinicalTables")
+outputFolder <-  here::here("Results/DatabaseCharacterisation")
 
 logfile <- file.path( paste0(outputFolder,
                              "/log_", dbName, "_", format(Sys.time(), "%d_%m_%Y_%H_%M_%S"),".txt"

@@ -9,9 +9,9 @@ library(RPostgres)
 library(CDMConnector)
 
 minCellCount <- 5
-dbName <-"gold_p22_00186"
+dbName <-"aurum_pc"
 con <- dbConnect(drv = Postgres(),
-                 dbname = "cdm_gold_p22_001867",
+                 dbname = "cdm_aurum_p22_001867",
                  host = host,
                  port = port,
                  user = username,
@@ -31,31 +31,13 @@ characterise_clinical_tables <- FALSE
 
 diagnostics <- FALSE
 
-create_cohorts <- TRUE
+cohorts <- TRUE
 
-if (characterise_op || characterise_clinical_tables) {
+propensity_scores <- TRUE
 
-source("DatabaseCharacterisation/databaseCharacterisaton.R")
-
-}
-
-if (diagnostics){
-
-  cdm$observation_period<- cdm$observation_period |>
-    dplyr::filter(.data$period_type_concept_id == 32882)
-
-  source("CodelistDiagnostics/runDiagnostics.R")
-
-}
+source("RunAnalysis.R")
 
 
-if (create_cohorts) {
 
-  cdm$observation_period<- cdm$observation_period |>
-    dplyr::filter(.data$period_type_concept_id == 32882)
+CDMConnector::cdmDisconnect(cdm)
 
-  source("Cohorts/createCohortsTrial.R")
-  source("Cohorts/createCohortsRwd.R")
-
-
-}
