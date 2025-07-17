@@ -1,0 +1,101 @@
+concept_id,concept_name,domain_id,vocabulary
+1633709,AJCC/UICC 6th clinical M1a Category,Measurement,Cancer Modifier
+1634442,AJCC/UICC 6th clinical M1b Category,Measurement,Cancer Modifier
+1634829,AJCC/UICC 6th clinical M1 Category,Measurement,Cancer Modifier
+1635067,AJCC/UICC 6th clinical M1c Category,Measurement,Cancer Modifier
+1634427,AJCC/UICC 6th clinical M1d Category,Measurement,Cancer Modifier
+1635019,AJCC/UICC 6th M1a Category,Measurement,Cancer Modifier
+1635669,AJCC/UICC 6th M1b Category,Measurement,Cancer Modifier
+1635380,AJCC/UICC 6th M1 Category,Measurement,Cancer Modifier
+1633309,AJCC/UICC 6th M1c Category,Measurement,Cancer Modifier
+1635212,AJCC/UICC 6th M1d Category,Measurement,Cancer Modifier
+1634637,AJCC/UICC 6th pathological M1a Category,Measurement,Cancer Modifier
+1635160,AJCC/UICC 6th pathological M1b Category,Measurement,Cancer Modifier
+1633469,AJCC/UICC 6th pathological M1 Category,Measurement,Cancer Modifier
+1634424,AJCC/UICC 6th pathological M1c Category,Measurement,Cancer Modifier
+1635303,AJCC/UICC 6th pathological M1d Category,Measurement,Cancer Modifier
+1633533,AJCC/UICC 6th post therapy clinical M1a Category,Measurement,Cancer Modifier
+1635684,AJCC/UICC 6th post therapy clinical M1b Category,Measurement,Cancer Modifier
+1635154,AJCC/UICC 6th post therapy clinical M1 Category,Measurement,Cancer Modifier
+1633729,AJCC/UICC 6th post therapy clinical M1c Category,Measurement,Cancer Modifier
+1635791,AJCC/UICC 6th post therapy clinical M1d Category,Measurement,Cancer Modifier
+1633466,AJCC/UICC 6th post therapy pathological M1a Category,Measurement,Cancer Modifier
+1633646,AJCC/UICC 6th post therapy pathological M1b Category,Measurement,Cancer Modifier
+1634446,AJCC/UICC 6th post therapy pathological M1 Category,Measurement,Cancer Modifier
+1633284,AJCC/UICC 6th post therapy pathological M1c Category,Measurement,Cancer Modifier
+1635260,AJCC/UICC 6th post therapy pathological M1d Category,Measurement,Cancer Modifier
+1635878,AJCC/UICC 7th clinical M1a Category,Measurement,Cancer Modifier
+1635302,AJCC/UICC 7th clinical M1b Category,Measurement,Cancer Modifier
+1633276,AJCC/UICC 7th clinical M1 Category,Measurement,Cancer Modifier
+1635461,AJCC/UICC 7th clinical M1c Category,Measurement,Cancer Modifier
+1633666,AJCC/UICC 7th clinical M1d Category,Measurement,Cancer Modifier
+1634775,AJCC/UICC 7th M1a Category,Measurement,Cancer Modifier
+1635747,AJCC/UICC 7th M1b Category,Measurement,Cancer Modifier
+1633696,AJCC/UICC 7th M1 Category,Measurement,Cancer Modifier
+1635843,AJCC/UICC 7th M1c Category,Measurement,Cancer Modifier
+1633866,AJCC/UICC 7th M1d Category,Measurement,Cancer Modifier
+1634268,AJCC/UICC 7th pathological M1a Category,Measurement,Cancer Modifier
+1635008,AJCC/UICC 7th pathological M1b Category,Measurement,Cancer Modifier
+1635336,AJCC/UICC 7th pathological M1 Category,Measurement,Cancer Modifier
+1634188,AJCC/UICC 7th pathological M1c Category,Measurement,Cancer Modifier
+1634325,AJCC/UICC 7th pathological M1d Category,Measurement,Cancer Modifier
+1633304,AJCC/UICC 7th post therapy clinical M1a Category,Measurement,Cancer Modifier
+1634795,AJCC/UICC 7th post therapy clinical M1b Category,Measurement,Cancer Modifier
+1635457,AJCC/UICC 7th post therapy clinical M1 Category,Measurement,Cancer Modifier
+1633585,AJCC/UICC 7th post therapy clinical M1c Category,Measurement,Cancer Modifier
+1635704,AJCC/UICC 7th post therapy clinical M1d Category,Measurement,Cancer Modifier
+1634583,AJCC/UICC 7th post therapy pathological M1a Category,Measurement,Cancer Modifier
+1635753,AJCC/UICC 7th post therapy pathological M1b Category,Measurement,Cancer Modifier
+1634407,AJCC/UICC 7th post therapy pathological M1 Category,Measurement,Cancer Modifier
+1634652,AJCC/UICC 7th post therapy pathological M1c Category,Measurement,Cancer Modifier
+1635606,AJCC/UICC 7th post therapy pathological M1d Category,Measurement,Cancer Modifier
+1635149,AJCC/UICC 8th clinical M1a Category,Measurement,Cancer Modifier
+1633375,AJCC/UICC 8th clinical M1b Category,Measurement,Cancer Modifier
+1633974,AJCC/UICC 8th clinical M1 Category,Measurement,Cancer Modifier
+1633784,AJCC/UICC 8th clinical M1c Category,Measurement,Cancer Modifier
+1633799,AJCC/UICC 8th clinical M1d Category,Measurement,Cancer Modifier
+1634082,AJCC/UICC 8th M1a Category,Measurement,Cancer Modifier
+1634661,AJCC/UICC 8th M1b Category,Measurement,Cancer Modifier
+1633498,AJCC/UICC 8th M1 Category,Measurement,Cancer Modifier
+1634975,AJCC/UICC 8th M1c Category,Measurement,Cancer Modifier
+1634259,AJCC/UICC 8th M1d Category,Measurement,Cancer Modifier
+1635097,AJCC/UICC 8th pathological M1a Category,Measurement,Cancer Modifier
+1634712,AJCC/UICC 8th pathological M1b Category,Measurement,Cancer Modifier
+1634891,AJCC/UICC 8th pathological M1 Category,Measurement,Cancer Modifier
+1634657,AJCC/UICC 8th pathological M1c Category,Measurement,Cancer Modifier
+1634526,AJCC/UICC 8th pathological M1d Category,Measurement,Cancer Modifier
+1634834,AJCC/UICC 8th post therapy clinical M1a Category,Measurement,Cancer Modifier
+1634262,AJCC/UICC 8th post therapy clinical M1b Category,Measurement,Cancer Modifier
+1633795,AJCC/UICC 8th post therapy clinical M1 Category,Measurement,Cancer Modifier
+1634300,AJCC/UICC 8th post therapy clinical M1c Category,Measurement,Cancer Modifier
+1634798,AJCC/UICC 8th post therapy clinical M1d Category,Measurement,Cancer Modifier
+1634142,AJCC/UICC 8th post therapy pathological M1a Category,Measurement,Cancer Modifier
+1634339,AJCC/UICC 8th post therapy pathological M1b Category,Measurement,Cancer Modifier
+1634083,AJCC/UICC 8th post therapy pathological M1 Category,Measurement,Cancer Modifier
+1635390,AJCC/UICC 8th post therapy pathological M1c Category,Measurement,Cancer Modifier
+1635465,AJCC/UICC 8th post therapy pathological M1d Category,Measurement,Cancer Modifier
+1633777,AJCC/UICC clinical M1a Category,Measurement,Cancer Modifier
+1635090,AJCC/UICC clinical M1b Category,Measurement,Cancer Modifier
+1635085,AJCC/UICC clinical M1 Category,Measurement,Cancer Modifier
+1635255,AJCC/UICC clinical M1c Category,Measurement,Cancer Modifier
+1634048,AJCC/UICC clinical M1d Category,Measurement,Cancer Modifier
+1635100,AJCC/UICC M1a Category,Measurement,Cancer Modifier
+1634463,AJCC/UICC M1b Category,Measurement,Cancer Modifier
+1635142,AJCC/UICC M1 Category,Measurement,Cancer Modifier
+1635519,AJCC/UICC M1c Category,Measurement,Cancer Modifier
+1634064,AJCC/UICC M1d Category,Measurement,Cancer Modifier
+1634312,AJCC/UICC pathological M1a Category,Measurement,Cancer Modifier
+1634093,AJCC/UICC pathological M1b Category,Measurement,Cancer Modifier
+1635505,AJCC/UICC pathological M1 Category,Measurement,Cancer Modifier
+1635338,AJCC/UICC pathological M1c Category,Measurement,Cancer Modifier
+1635373,AJCC/UICC pathological M1d Category,Measurement,Cancer Modifier
+1634836,AJCC/UICC post therapy clinical M1a Category,Measurement,Cancer Modifier
+1635850,AJCC/UICC post therapy clinical M1b Category,Measurement,Cancer Modifier
+1633413,AJCC/UICC post therapy clinical M1 Category,Measurement,Cancer Modifier
+1633352,AJCC/UICC post therapy clinical M1c Category,Measurement,Cancer Modifier
+1634293,AJCC/UICC post therapy clinical M1d Category,Measurement,Cancer Modifier
+1633657,AJCC/UICC post therapy pathological M1a Category,Measurement,Cancer Modifier
+1635829,AJCC/UICC post therapy pathological M1b Category,Measurement,Cancer Modifier
+1634355,AJCC/UICC post therapy pathological M1 Category,Measurement,Cancer Modifier
+1635498,AJCC/UICC post therapy pathological M1c Category,Measurement,Cancer Modifier
+1634003,AJCC/UICC post therapy pathological M1d Category,Measurement,Cancer Modifier

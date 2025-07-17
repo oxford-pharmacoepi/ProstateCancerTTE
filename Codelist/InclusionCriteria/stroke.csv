@@ -1,0 +1,71 @@
+concept_id,concept_name,domain_id,vocabulary
+4048784,Anterior cerebral circulation hemorrhagic infarction,condition,SNOMED
+4045735,Anterior cerebral circulation infarction,condition,SNOMED
+4031045,Anterior choroidal artery syndrome,condition,SNOMED
+761110,Bilateral cerebral infarction due to precererbral arterial occlusion,condition,SNOMED
+4319331,Cerebellar infarction,condition,SNOMED
+372924,Cerebral artery occlusion,condition,SNOMED
+4110189,Cerebral infarct due to thrombosis of precerebral arteries,condition,SNOMED
+443454,Cerebral infarction,condition,SNOMED
+762951,Cerebral infarction due to anterior cerebral artery occlusion,condition,SNOMED
+765515,Cerebral infarction due to basilar artery stenosis,condition,SNOMED
+43530683,Cerebral infarction due to carotid artery occlusion,condition,SNOMED
+762933,Cerebral infarction due to cerebral artery occlusion,condition,SNOMED
+762937,Cerebral infarction due to cerebral venous thrombosis,condition,SNOMED
+4111714,"Cerebral infarction due to cerebral venous thrombosis, non-pyogenic",condition,SNOMED
+4108356,Cerebral infarction due to embolism of cerebral arteries,condition,SNOMED
+45772786,Cerebral infarction due to embolism of middle cerebral artery,condition,SNOMED
+4110190,Cerebral infarction due to embolism of precerebral arteries,condition,SNOMED
+762935,Cerebral infarction due to internal carotid artery occlusion,condition,SNOMED
+763015,Cerebral infarction due to middle cerebral artery occlusion,condition,SNOMED
+46273649,Cerebral infarction due to occlusion of basilar artery,condition,SNOMED
+35610084,Cerebral infarction due to occlusion of cerebral artery,condition,SNOMED
+46270031,Cerebral infarction due to occlusion of precerebral artery,condition,SNOMED
+762934,Cerebral infarction due to posterior cerebral artery occlusion,condition,SNOMED
+43531607,Cerebral infarction due to stenosis of carotid artery,condition,SNOMED
+35610085,Cerebral infarction due to stenosis of cerebral artery,condition,SNOMED
+46270381,Cerebral infarction due to stenosis of precerebral artery,condition,SNOMED
+4110192,Cerebral infarction due to thrombosis of cerebral arteries,condition,SNOMED
+45767658,Cerebral infarction due to thrombosis of middle cerebral artery,condition,SNOMED
+44782773,Cerebral infarction due to vertebral artery occlusion,condition,SNOMED
+46270380,Cerebral infarction due to vertebral artery stenosis,condition,SNOMED
+37110678,Cerebral ischemic stroke due to occlusion of extracranial large artery,condition,SNOMED
+37110679,Cerebral ischemic stroke due to stenosis of extracranial large artery,condition,SNOMED
+4045734,CVA - cerebrovascular accident due to cerebral artery occlusion,condition,SNOMED
+4046362,Hemorrhagic cerebral infarction,condition,SNOMED
+4131383,Infarction of basal ganglia,condition,SNOMED
+4046237,Infarction of optic radiation,condition,SNOMED
+4119140,Infarction of visual cortex,condition,SNOMED
+4043731,Infarction - precerebral,condition,SNOMED
+4046360,Lacunar infarction,condition,SNOMED
+4141405,Left sided cerebral infarction,condition,SNOMED
+37116473,Multifocal cerebral infarction due to and following procedure on cardiovascular system,condition,SNOMED
+4077086,Occipital cerebral infarction,condition,SNOMED
+4046359,Partial anterior cerebral circulation infarction,condition,SNOMED
+4319146,Pituitary infarction,condition,SNOMED
+4043732,Posterior cerebral circulation hemorrhagic infarction,condition,SNOMED
+4045737,Pure motor lacunar infarction,condition,SNOMED
+4146185,Right sided cerebral infarction,condition,SNOMED
+4112026,Sequelae of cerebral infarction,condition,SNOMED
+36717605,Silent cerebral infarct,condition,SNOMED
+4142739,Thalamic infarction,condition,SNOMED
+4046358,Total anterior cerebral circulation infarction,condition,SNOMED
+381316,Cerebrovascular accident,condition,SNOMED
+4045738,Pure sensory lacunar infarction,condition,SNOMED
+40479572,Infarct of cerebrum due to iatrogenic cerebrovascular accident,condition,SNOMED
+443551,Apraxia due to cerebrovascular accident,condition,SNOMED
+4111710,Brainstem stroke syndrome,condition,SNOMED
+4111711,Cerebellar stroke syndrome,condition,SNOMED
+443465,Dysphagia as a late effect of cerebrovascular accident,condition,SNOMED
+44782781,Hemiplegia and/or hemiparesis following stroke,condition,SNOMED
+4110194,Middle cerebral artery syndrome,condition,SNOMED
+197303,Monoplegia of dominant lower limb as a late effect of cerebrovascular accident,condition,SNOMED
+443525,Monoplegia of dominant upper limb as a late effect of cerebrovascular accident,condition,SNOMED
+40480946,Monoplegia of nondominant lower limb as a late effect of cerebrovascular accident,condition,SNOMED
+372654,Paralytic syndrome as late effect of stroke,condition,SNOMED
+443609,Paralytic syndrome of dominant side as late effect of stroke,condition,SNOMED
+443599,Paralytic syndrome of nondominant side as late effect of stroke,condition,SNOMED
+43530742,Paralytic syndrome on one side of the body as late effect of cerebrovascular accident,condition,SNOMED
+40482301,Residual cognitive deficit as late effect of cerebrovascular accident,condition,SNOMED
+40481354,Speech and language deficit as late effect of cerebrovascular accident,condition,SNOMED
+43530744,Weakness of face muscles as sequela of stroke,condition,SNOMED

@@ -1,0 +1,61 @@
+concept_id,concept_name,vocabulary_id
+255573,Chronic obstructive lung disease,SNOMED
+257004,Acute exacerbation of chronic obstructive airways disease,SNOMED
+258780,Emphysematous bronchitis,SNOMED
+259043,Emphysematous bleb of lung,SNOMED
+261325,Pulmonary emphysema,SNOMED
+261895,Compensatory emphysema,SNOMED
+440748,Interstitial emphysema of lung,SNOMED
+605066,Emphysema of left lung,SNOMED
+605067,Emphysema of right lung,SNOMED
+3654571,Chronic emphysema due to vapor,SNOMED
+3654836,Chronic obliterative bronchiolitis due to chemical fumes,SNOMED
+3654837,Chronic obliterative bronchiolitis due to vapor,SNOMED
+4046986,End stage chronic obstructive airways disease,SNOMED
+4050732,Pulmonary emphysema in alpha-1 PI deficiency,SNOMED
+4050733,Toxic emphysema,SNOMED
+4050734,Scar emphysema,SNOMED
+4050961,Giant bullous emphysema,SNOMED
+4056405,Obstructive emphysema,SNOMED
+4110048,Chronic bullous emphysema,SNOMED
+4110056,Chronic obstructive pulmonary disease with acute lower respiratory infection,SNOMED
+4110635,Segmental bullous emphysema,SNOMED
+4112828,Zonal bullous emphysema,SNOMED
+4112836,Chronic emphysema due to chemical fumes,SNOMED
+4115044,Acute infective exacerbation of chronic obstructive airways disease,SNOMED
+4136683,Paraseptal emphysema,SNOMED
+4145496,Bullous emphysema with collapse,SNOMED
+4148124,Atrophic (senile) emphysema,SNOMED
+4166508,Congenital emphysema,SNOMED
+4166517,Chronic obliterative bronchiolitis,SNOMED
+4177944,Panacinar emphysema,SNOMED
+4193588,Moderate chronic obstructive pulmonary disease,SNOMED
+4196712,Mild chronic obstructive pulmonary disease,SNOMED
+4209097,Severe chronic obstructive pulmonary disease,SNOMED
+4246105,Hemolytic anemia with emphysema AND cutis laxa,SNOMED
+4281815,Congenital lobar emphysema,SNOMED
+4286497,Centriacinar emphysema,SNOMED
+4315386,Ruptured emphysematous bleb of lung,SNOMED
+4321845,Bronchial atresia with segmental pulmonary emphysema,SNOMED
+37161191,Bronchiolitis obliterans syndrome due to and following allogeneic stem cell transplant,SNOMED
+42538810,Bronchiolitis obliterans syndrome due to and after lung transplantation,SNOMED
+43530693,Acute exacerbation of chronic obstructive airways disease with asthma,SNOMED
+44791725,Very severe chronic obstructive pulmonary disease,SNOMED
+44807895,Acute non-infective exacerbation of chronic obstructive pulmonary disease,SNOMED
+45769389,Pulmonary emphysema co-occurrent with fibrosis of lung,SNOMED
+46269701,Chronic obstructive lung disease co-occurrent with acute bronchitis,SNOMED
+46270376,Acute exacerbation of chronic obstructive bronchitis,SNOMED
+46274062,Asthma-chronic obstructive pulmonary disease overlap syndrome,SNOMED
+255841,Chronic bronchitis,SNOMED
+4137525,Acute exacerbation of chronic bronchitis,SNOMED
+4169883,Emphysema,SNOMED
+4189168,Emergency chronic obstructive pulmonary disease admission since last appointment,SNOMED
+4190882,Chronic obstructive pulmonary disease monitoring,SNOMED
+4211648,Chronic obstructive pulmonary disease accident and emergency attendance since last visit,SNOMED
+4215256,Chronic obstructive pulmonary disease follow-up,SNOMED
+4215257,Chronic obstructive pulmonary disease annual review,SNOMED
+4269178,Chronic obstructive pulmonary disease monitoring by nurse,SNOMED
+4295034,Chronic obstructive pulmonary disease monitoring by doctor,SNOMED
+44804958,Chronic obstructive pulmonary disease 3 monthly review,SNOMED
+44804959,Chronic obstructive pulmonary disease 6 monthly review,SNOMED
+45766868,Step down change in chronic obstructive pulmonary disease management plan,SNOMED

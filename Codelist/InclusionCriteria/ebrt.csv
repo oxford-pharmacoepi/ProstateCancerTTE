@@ -1,0 +1,54 @@
+concept_id,concept_name,vocabulary_id
+603130,Intensity modulated external beam neutron radiation therapy,SNOMED
+603131,Mixed beam external beam radiation therapy,SNOMED
+603132,Two dimensional external beam radiation therapy,SNOMED
+603133,External beam radiation therapy using particle spot scanning technique,SNOMED
+603134,External beam radiation therapy using particle passive scattering technique,SNOMED
+607995,External beam radiation therapy using carbon ions,SNOMED
+607996,External beam radiation therapy using photons,SNOMED
+2108724,External beam radiotherapy as primary therapy to prostate with or without nodal irradiation (PRCA),CPT4
+2108725,External beam radiotherapy with or without nodal irradiation as adjuvant or salvage therapy for prostate cancer patient (PRCA),CPT4
+2211856,"Stereotactic body radiation therapy, treatment delivery, per fraction to 1 or more lesions, including image guidance, entire course not to exceed 5 fractions",CPT4
+2211863,"Radiation treatment delivery, >/=1 MeV; intermediate",CPT4
+2211864,"Radiation treatment delivery, 2 separate treatment areas, 3 or more ports on a single treatment area, use of multiple blocks; 6-10 MeV",CPT4
+2211865,"Radiation treatment delivery, 2 separate treatment areas, 3 or more ports on a single treatment area, use of multiple blocks; 11-19 MeV",CPT4
+2211866,"Radiation treatment delivery, 2 separate treatment areas, 3 or more ports on a single treatment area, use of multiple blocks; 20 MeV or greater",CPT4
+2211867,"Radiation treatment delivery, >/=1 MeV; complex",CPT4
+2211868,"Radiation treatment delivery, 3 or more separate treatment areas, custom blocking, tangential ports, wedges, rotational beam, compensators, electron beam; 6-10 MeV",CPT4
+2211869,"Radiation treatment delivery, 3 or more separate treatment areas, custom blocking, tangential ports, wedges, rotational beam, compensators, electron beam; 11-19 MeV",CPT4
+2211870,"Radiation treatment delivery, 3 or more separate treatment areas, custom blocking, tangential ports, wedges, rotational beam, compensators, electron beam; 20 MeV or greater",CPT4
+2211872,"Intensity modulated treatment delivery, single or multiple fields/arcs, via narrow spatially and temporally modulated beams, binary, dynamic MLC, per treatment session",CPT4
+2211879,"Stereotactic body radiation therapy, treatment management, per treatment course, to 1 or more lesions, including image guidance, entire course not to exceed 5 fractions",CPT4
+2211882,"Proton treatment delivery; simple, without compensation",CPT4
+2211883,"Proton treatment delivery; simple, with compensation",CPT4
+2211884,Proton treatment delivery; intermediate,CPT4
+2211885,Proton treatment delivery; complex,CPT4
+2211892,Intracavitary radiation source application; simple,CPT4
+2211893,Intracavitary radiation source application; intermediate,CPT4
+2211894,Intracavitary radiation source application; complex,CPT4
+4014410,External beam radiation therapy particulate radiation,SNOMED
+4021989,Stereotactic radiosurgery,SNOMED
+4024005,External beam radiation therapy protons,SNOMED
+4058600,Proton therapy,SNOMED
+4060645,High-energy beam therapy,SNOMED
+4060646,Linear accelerator photon therapy,SNOMED
+4141448,External beam radiation therapy procedure,SNOMED
+4215577,Stereotactic radiotherapy,SNOMED
+4242373,External beam radiation therapy by linear accelerator,SNOMED
+4250900,External beam radiation therapy of 1 to 25 MEV (mega electronvolt) protons,SNOMED
+4263596,Megavoltage radiation therapy,SNOMED
+37156151,Three dimensional external beam radiation therapy,SNOMED
+37156211,Ultra high dose rate radiotherapy,SNOMED
+37158181,Fractionated dose stereotactic radiation therapy,SNOMED
+37159111,Real-time tumor-tracking external beam radiotherapy,SNOMED
+37159112,External beam radiotherapy using internal target volume approach,SNOMED
+40486247,Megavoltage radiation therapy using photons and electrons,SNOMED
+40487080,Fractionated dose stereotactic radiosurgery using linear accelerator system,SNOMED
+40487927,Stereotactic destruction of lesion using gamma radiation,SNOMED
+40489482,Megavoltage radiation therapy using photons,SNOMED
+40489956,Stereotactic radiation therapy using megavoltage radiation,SNOMED
+44793224,Megavoltage treatment for adaptive radiotherapy,SNOMED
+44793225,Megavoltage treatment for simple radiotherapy,SNOMED
+44793226,Megavoltage treatment for complex radiotherapy,SNOMED
+44809885,Hypofractionated stereotactic radiotherapy using megavoltage radiation,SNOMED
+4029715,Radiation oncology AND/OR radiotherapy,SNOMED
