@@ -108,7 +108,7 @@ wide_data_gold <- wide_data_gold |>
   )
 y <- wide_data_gold$y
 X <- wide_data_gold |>
-  dplyr::select(-c("y"))
+  dplyr::select(-c("y", "value_as_number"))
 X <- stats::model.matrix(
   ~ . - cohort_definition_id - cohort_start_date - cohort_end_date - subject_id + age + year ,
   data = X
@@ -119,7 +119,6 @@ lasso_fit <- glmnet::cv.glmnet(
   family = "binomial",
   alpha = 1
 )
-
 
 coefs_gold <- glmnet::coef.glmnet(lasso_fit, s = "lambda.1se")
 selectedLassoFeatures <- names(coefs_gold[(coefs_gold[,1]!=0),1])
@@ -229,7 +228,7 @@ wide_data_aurum <- wide_data_aurum |>
   )
 y <- wide_data_aurum$y
 X <- wide_data_aurum |>
-  dplyr::select(-c("y"))
+  dplyr::select(-c("y", "value_as_number"))
 X <- stats::model.matrix(
   ~ . - cohort_definition_id - cohort_start_date - cohort_end_date - subject_id + age + year ,
   data = X
@@ -336,7 +335,7 @@ wide_data <- wide_data |>
   )
 y <- wide_data$y
 X <- wide_data |>
-  dplyr::select(-c("y"))
+  dplyr::select(-c("y", "value_as_number"))
 X <- stats::model.matrix(
   ~ . - cohort_definition_id - cohort_start_date - cohort_end_date - subject_id - source+ age + year ,
   data = X
