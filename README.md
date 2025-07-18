@@ -8,3 +8,17 @@ The repo is organised as follows:
 - `Study` contains the code to conduct the Target Trial Emulation study.
 - `DML` contains the code to conduct the Double Machine Learning study.
 - `CloneCensorWeight` contains the code to conduct the Cloning-Censoring-Weighting study.
+
+## Instructions to run
+
+### Diagnostics
+
+.....
+
+```
+```
+### Study
+
+### DML
+
+### CCW
