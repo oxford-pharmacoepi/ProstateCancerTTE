@@ -1,0 +1,20 @@
+concept_id,concept_name,vocabulary_id
+2110038,"Prostatectomy, retropubic radical, with or without nerve sparing; with lymph node biopsy(s) (limited pelvic lymphadenectomy)",CPT4
+2110039,"Prostatectomy, retropubic radical, with or without nerve sparing; with bilateral pelvic lymphadenectomy, including external iliac, hypogastric, and obturator nodes",CPT4
+2110044,"Laparoscopy, surgical prostatectomy, retropubic radical, including nerve sparing, includes robotic assistance, when performed",CPT4
+4071666,Radical prostatectomy with pelvic lymphadenectomy,SNOMED
+4073008,Radical prostatectomy without pelvic node excision,SNOMED
+4073695,Radical prostatectomy with pelvic node sampling,SNOMED
+4096783,Radical prostatectomy,SNOMED
+4102465,Radical retropubic prostatectomy with lymph node biopsy,SNOMED
+4187904,Radical retropubic prostatectomy with bilateral pelvic lymphadenectomy,SNOMED
+4219099,Radical perineal prostatectomy with lymph node biopsy,SNOMED
+4243467,Radical perineal prostatectomy with bilateral pelvic lymphadenectomy,SNOMED
+4276520,Radical retropubic prostatectomy,SNOMED
+4338373,Radical perineal prostatectomy,SNOMED
+44809585,Laparoscopic radical prostatectomy,SNOMED
+46270921,Robot assisted laparoscopic radical prostatectomy,SNOMED
+4194172,Retropubic prostatectomy,SNOMED
+4211496,Perineal prostatectomy,SNOMED
+4235738,Prostatectomy,SNOMED
+44808725,Laparoscopic prostatectomy,SNOMED

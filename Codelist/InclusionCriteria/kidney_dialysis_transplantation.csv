@@ -1,0 +1,78 @@
+concept_id,concept_name,vocabulary_id
+604484,Dependence on prolonged intermittent renal replacement therapy due to renal failure,SNOMED
+619390,Prolonged intermittent renal replacement therapy,SNOMED
+2101833,"Hemodialysis plan of care documented (ESRD, P-ESRD)",CPT4
+2108564,Hemodialysis via functioning arteriovenous (AV) fistula (ESRD),CPT4
+2108566,Hemodialysis via functioning arteriovenous (AV) graft (ESRD),CPT4
+2108567,Hemodialysis via catheter (ESRD),CPT4
+2109580,"Backbench standard preparation of cadaver donor renal allograft prior to transplantation, including dissection and removal of perinephric fat, diaphragmatic and retroperitoneal attachments, excision of adrenal gland, and preparation of ureter(s), renal ve",CPT4
+2109581,"Backbench standard preparation of living donor renal allograft (open or laparoscopic) prior to transplantation, including dissection and removal of perinephric fat and preparation of ureter(s), renal vein(s), and renal artery(s), ligating branches, as nec",CPT4
+2109582,"Backbench reconstruction of cadaver or living donor renal allograft prior to transplantation; venous anastomosis, each",CPT4
+2109583,"Backbench reconstruction of cadaver or living donor renal allograft prior to transplantation; arterial anastomosis, each",CPT4
+2109584,"Backbench reconstruction of cadaver or living donor renal allograft prior to transplantation; ureteral anastomosis, each",CPT4
+2109586,"Renal allotransplantation, implantation of graft; without recipient nephrectomy",CPT4
+2213572,Hemodialysis procedure with single evaluation by a physician or other qualified health care professional,CPT4
+2213573,Hemodialysis procedure requiring repeated evaluation(s) with or without substantial revision of dialysis prescription,CPT4
+2213575,Hemodialysis access flow study to determine blood flow in grafts and arteriovenous fistulae by an indicator method,CPT4
+4002872,Stabilizing hemodialysis,SNOMED
+4019967,Dependence on renal dialysis,SNOMED
+4021107,Cadaveric renal transplant,SNOMED
+4022474,Autotransplantation of kidney,SNOMED
+4022805,Live donor renal transplant,SNOMED
+4049844,Continuous arteriovenous hemofiltration,SNOMED
+4049845,Hemodiafiltration,SNOMED
+4049846,Continuous venovenous hemodiafiltration,SNOMED
+4050862,Intermittent hemodialysis with continuous ultrafiltration,SNOMED
+4050863,Continuous hemodialysis,SNOMED
+4050864,Hemofiltration,SNOMED
+4050865,Intermittent hemofiltration,SNOMED
+4050866,Continuous hemodiafiltration,SNOMED
+4050867,Continuous arteriovenous hemodiafiltration,SNOMED
+4051326,Intermittent hemodialysis,SNOMED
+4051327,Intermittent hemodialysis with sequential ultrafiltration,SNOMED
+4051328,Continuous arteriovenous hemodialysis,SNOMED
+4051329,Continuous venovenous hemodialysis,SNOMED
+4051330,Continuous venovenous hemofiltration,SNOMED
+4052537,Continuous hemofiltration,SNOMED
+4052538,Intermittent hemodiafiltration,SNOMED
+4120120,Hemodialysis,SNOMED
+4121921,Extracorporeal kidney,SNOMED
+4140589,Extracorporeal albumin hemodialysis,SNOMED
+4146536,Renal dialysis,SNOMED
+4146649,"Hemodialysis, maintenance in hospital",SNOMED
+4177685,Dependence on peritoneal dialysis due to end stage renal disease,SNOMED
+4179226,Dependence on dialysis due to end stage renal disease,SNOMED
+4180416,Renal homotransplantation excluding donor and recipient nephrectomy,SNOMED
+4181476,Dependence on hemodialysis due to end stage renal disease,SNOMED
+4195714,"Hemodialysis, maintenance at home",SNOMED
+4197300,Donor renal transplantation,SNOMED
+4238836,Initial hemodialysis,SNOMED
+4286500,"Hemodialysis, supervision at home",SNOMED
+4322471,Transplant of kidney,SNOMED
+4343000,Xenograft renal transplant,SNOMED
+35623146,Allotransplantation of left kidney,SNOMED
+35623147,Allotransplantation of right kidney,SNOMED
+36717743,Transplantation of kidney and pancreas,SNOMED
+37018292,Continuous renal replacement therapy,SNOMED
+37157733,Nocturnal home hemodialysis,SNOMED
+37204160,Laparoscopic transplant of kidney using robotic assistance,SNOMED
+37209515,Dependence on continuous ambulatory peritoneal dialysis due to end stage renal disease,SNOMED
+37396069,Emergency hemofiltration,SNOMED
+40480136,Dependence on hemodialysis,SNOMED
+40482357,Dependence on peritoneal dialysis,SNOMED
+44511721,Other specified transplantation of kidney,OPCS4
+44783963,Sustained low-efficiency dialysis,SNOMED
+46269984,Dependence on continuous ambulatory peritoneal dialysis,SNOMED
+46269985,Dependence on continuous cycling peritoneal dialysis,SNOMED
+46270524,Increase dialyzer size for hemodialysis,SNOMED
+46270932,Maintenance hemodiafiltration,SNOMED
+46270933,Emergency hemodialysis,SNOMED
+46270934,Emergency hemodiafiltration,SNOMED
+46270935,Maintenance hemofiltration,SNOMED
+46272953,Allotransplantation of kidney from beating heart cadaver,SNOMED
+46273700,Maintenance hemodialysis,SNOMED
+46273963,Allotransplantation of kidney from non-beating heart cadaver,SNOMED
+193782,End-stage renal disease,SNOMED
+4032243,Dialysis procedure,SNOMED
+42539502,Transplanted kidney present,SNOMED
+4309006,Kidney transplant failure and rejection,SNOMED

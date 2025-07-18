@@ -1,0 +1,301 @@
+concept_id,concept_name,domain_id,vocabulary
+1635848,AJCC/UICC 6th clinical Stage 3,Measurement,Cancer Modifier
+1634996,AJCC/UICC 6th clinical Stage 3A,Measurement,Cancer Modifier
+1634871,AJCC/UICC 6th clinical Stage 3A1,Measurement,Cancer Modifier
+1633894,AJCC/UICC 6th clinical Stage 3A2,Measurement,Cancer Modifier
+1635728,AJCC/UICC 6th clinical Stage 3B,Measurement,Cancer Modifier
+1635214,AJCC/UICC 6th clinical Stage 3C,Measurement,Cancer Modifier
+1635642,AJCC/UICC 6th clinical Stage 3C1,Measurement,Cancer Modifier
+1633639,AJCC/UICC 6th clinical Stage 3C2,Measurement,Cancer Modifier
+1635031,AJCC/UICC 6th clinical Stage 3D,Measurement,Cancer Modifier
+1634307,AJCC/UICC 6th clinical Stage 4,Measurement,Cancer Modifier
+1635535,AJCC/UICC 6th clinical Stage 4A,Measurement,Cancer Modifier
+1634152,AJCC/UICC 6th clinical Stage 4A1,Measurement,Cancer Modifier
+1634480,AJCC/UICC 6th clinical Stage 4A2,Measurement,Cancer Modifier
+1633922,AJCC/UICC 6th clinical Stage 4B,Measurement,Cancer Modifier
+1633270,AJCC/UICC 6th clinical Stage 4C,Measurement,Cancer Modifier
+1633499,AJCC/UICC 6th pathological Stage 3,Measurement,Cancer Modifier
+1635862,AJCC/UICC 6th pathological Stage 3A,Measurement,Cancer Modifier
+1633990,AJCC/UICC 6th pathological Stage 3A1,Measurement,Cancer Modifier
+1635715,AJCC/UICC 6th pathological Stage 3A2,Measurement,Cancer Modifier
+1633759,AJCC/UICC 6th pathological Stage 3B,Measurement,Cancer Modifier
+1635440,AJCC/UICC 6th pathological Stage 3C,Measurement,Cancer Modifier
+1634218,AJCC/UICC 6th pathological Stage 3C1,Measurement,Cancer Modifier
+1635485,AJCC/UICC 6th pathological Stage 3C2,Measurement,Cancer Modifier
+1634135,AJCC/UICC 6th pathological Stage 3D,Measurement,Cancer Modifier
+1634208,AJCC/UICC 6th pathological Stage 4,Measurement,Cancer Modifier
+1634731,AJCC/UICC 6th pathological Stage 4A,Measurement,Cancer Modifier
+1635787,AJCC/UICC 6th pathological Stage 4A1,Measurement,Cancer Modifier
+1635053,AJCC/UICC 6th pathological Stage 4A2,Measurement,Cancer Modifier
+1635370,AJCC/UICC 6th pathological Stage 4B,Measurement,Cancer Modifier
+1635893,AJCC/UICC 6th pathological Stage 4C,Measurement,Cancer Modifier
+1634091,AJCC/UICC 6th post therapy clinical Stage 3,Measurement,Cancer Modifier
+1635477,AJCC/UICC 6th post therapy clinical Stage 3A,Measurement,Cancer Modifier
+1634388,AJCC/UICC 6th post therapy clinical Stage 3A1,Measurement,Cancer Modifier
+1634344,AJCC/UICC 6th post therapy clinical Stage 3A2,Measurement,Cancer Modifier
+1634726,AJCC/UICC 6th post therapy clinical Stage 3B,Measurement,Cancer Modifier
+1633602,AJCC/UICC 6th post therapy clinical Stage 3C,Measurement,Cancer Modifier
+1634061,AJCC/UICC 6th post therapy clinical Stage 3C1,Measurement,Cancer Modifier
+1633983,AJCC/UICC 6th post therapy clinical Stage 3C2,Measurement,Cancer Modifier
+1634284,AJCC/UICC 6th post therapy clinical Stage 3D,Measurement,Cancer Modifier
+1633966,AJCC/UICC 6th post therapy clinical Stage 4,Measurement,Cancer Modifier
+1635246,AJCC/UICC 6th post therapy clinical Stage 4A,Measurement,Cancer Modifier
+1634555,AJCC/UICC 6th post therapy clinical Stage 4A1,Measurement,Cancer Modifier
+1635844,AJCC/UICC 6th post therapy clinical Stage 4A2,Measurement,Cancer Modifier
+1634137,AJCC/UICC 6th post therapy clinical Stage 4B,Measurement,Cancer Modifier
+1634679,AJCC/UICC 6th post therapy clinical Stage 4C,Measurement,Cancer Modifier
+1634007,AJCC/UICC 6th post therapy pathological Stage 3,Measurement,Cancer Modifier
+1634924,AJCC/UICC 6th post therapy pathological Stage 3A,Measurement,Cancer Modifier
+1633319,AJCC/UICC 6th post therapy pathological Stage 3A1,Measurement,Cancer Modifier
+1635389,AJCC/UICC 6th post therapy pathological Stage 3A2,Measurement,Cancer Modifier
+1634803,AJCC/UICC 6th post therapy pathological Stage 3B,Measurement,Cancer Modifier
+1634398,AJCC/UICC 6th post therapy pathological Stage 3C,Measurement,Cancer Modifier
+1635688,AJCC/UICC 6th post therapy pathological Stage 3C1,Measurement,Cancer Modifier
+1633629,AJCC/UICC 6th post therapy pathological Stage 3C2,Measurement,Cancer Modifier
+1633632,AJCC/UICC 6th post therapy pathological Stage 3D,Measurement,Cancer Modifier
+1634859,AJCC/UICC 6th post therapy pathological Stage 4,Measurement,Cancer Modifier
+1634665,AJCC/UICC 6th post therapy pathological Stage 4A,Measurement,Cancer Modifier
+1634001,AJCC/UICC 6th post therapy pathological Stage 4A1,Measurement,Cancer Modifier
+1633463,AJCC/UICC 6th post therapy pathological Stage 4A2,Measurement,Cancer Modifier
+1634692,AJCC/UICC 6th post therapy pathological Stage 4B,Measurement,Cancer Modifier
+1633649,AJCC/UICC 6th post therapy pathological Stage 4C,Measurement,Cancer Modifier
+1634610,AJCC/UICC 6th Stage 3,Measurement,Cancer Modifier
+1634078,AJCC/UICC 6th Stage 3A,Measurement,Cancer Modifier
+1634782,AJCC/UICC 6th Stage 3A1,Measurement,Cancer Modifier
+1635880,AJCC/UICC 6th Stage 3A2,Measurement,Cancer Modifier
+1635238,AJCC/UICC 6th Stage 3B,Measurement,Cancer Modifier
+1635272,AJCC/UICC 6th Stage 3C,Measurement,Cancer Modifier
+1633614,AJCC/UICC 6th Stage 3C1,Measurement,Cancer Modifier
+1634849,AJCC/UICC 6th Stage 3C2,Measurement,Cancer Modifier
+1635330,AJCC/UICC 6th Stage 3D,Measurement,Cancer Modifier
+1635323,AJCC/UICC 6th Stage 4,Measurement,Cancer Modifier
+1635806,AJCC/UICC 6th Stage 4A,Measurement,Cancer Modifier
+1635208,AJCC/UICC 6th Stage 4A1,Measurement,Cancer Modifier
+1635833,AJCC/UICC 6th Stage 4A2,Measurement,Cancer Modifier
+1634488,AJCC/UICC 6th Stage 4B,Measurement,Cancer Modifier
+1634377,AJCC/UICC 6th Stage 4C,Measurement,Cancer Modifier
+1635125,AJCC/UICC 7th clinical Stage 3,Measurement,Cancer Modifier
+1633561,AJCC/UICC 7th clinical Stage 3A,Measurement,Cancer Modifier
+1635098,AJCC/UICC 7th clinical Stage 3A1,Measurement,Cancer Modifier
+1635734,AJCC/UICC 7th clinical Stage 3A2,Measurement,Cancer Modifier
+1634348,AJCC/UICC 7th clinical Stage 3B,Measurement,Cancer Modifier
+1635761,AJCC/UICC 7th clinical Stage 3C,Measurement,Cancer Modifier
+1634333,AJCC/UICC 7th clinical Stage 3C1,Measurement,Cancer Modifier
+1635014,AJCC/UICC 7th clinical Stage 3C2,Measurement,Cancer Modifier
+1634694,AJCC/UICC 7th clinical Stage 3D,Measurement,Cancer Modifier
+1634766,AJCC/UICC 7th clinical Stage 4,Measurement,Cancer Modifier
+1634451,AJCC/UICC 7th clinical Stage 4A,Measurement,Cancer Modifier
+1634875,AJCC/UICC 7th clinical Stage 4A1,Measurement,Cancer Modifier
+1633272,AJCC/UICC 7th clinical Stage 4A2,Measurement,Cancer Modifier
+1635757,AJCC/UICC 7th clinical Stage 4B,Measurement,Cancer Modifier
+1634614,AJCC/UICC 7th clinical Stage 4C,Measurement,Cancer Modifier
+1634947,AJCC/UICC 7th pathological Stage 3,Measurement,Cancer Modifier
+1634842,AJCC/UICC 7th pathological Stage 3A,Measurement,Cancer Modifier
+1635016,AJCC/UICC 7th pathological Stage 3A1,Measurement,Cancer Modifier
+1635510,AJCC/UICC 7th pathological Stage 3A2,Measurement,Cancer Modifier
+1635602,AJCC/UICC 7th pathological Stage 3B,Measurement,Cancer Modifier
+1634299,AJCC/UICC 7th pathological Stage 3C,Measurement,Cancer Modifier
+1635770,AJCC/UICC 7th pathological Stage 3C1,Measurement,Cancer Modifier
+1635054,AJCC/UICC 7th pathological Stage 3C2,Measurement,Cancer Modifier
+1633536,AJCC/UICC 7th pathological Stage 3D,Measurement,Cancer Modifier
+1635230,AJCC/UICC 7th pathological Stage 4,Measurement,Cancer Modifier
+1635745,AJCC/UICC 7th pathological Stage 4A,Measurement,Cancer Modifier
+1634537,AJCC/UICC 7th pathological Stage 4A1,Measurement,Cancer Modifier
+1633372,AJCC/UICC 7th pathological Stage 4A2,Measurement,Cancer Modifier
+1634472,AJCC/UICC 7th pathological Stage 4B,Measurement,Cancer Modifier
+1634492,AJCC/UICC 7th pathological Stage 4C,Measurement,Cancer Modifier
+1633559,AJCC/UICC 7th post therapy clinical Stage 3,Measurement,Cancer Modifier
+1634835,AJCC/UICC 7th post therapy clinical Stage 3A,Measurement,Cancer Modifier
+1634228,AJCC/UICC 7th post therapy clinical Stage 3A1,Measurement,Cancer Modifier
+1634156,AJCC/UICC 7th post therapy clinical Stage 3A2,Measurement,Cancer Modifier
+1633694,AJCC/UICC 7th post therapy clinical Stage 3B,Measurement,Cancer Modifier
+1633654,AJCC/UICC 7th post therapy clinical Stage 3C,Measurement,Cancer Modifier
+1633359,AJCC/UICC 7th post therapy clinical Stage 3C1,Measurement,Cancer Modifier
+1633827,AJCC/UICC 7th post therapy clinical Stage 3C2,Measurement,Cancer Modifier
+1635221,AJCC/UICC 7th post therapy clinical Stage 3D,Measurement,Cancer Modifier
+1633414,AJCC/UICC 7th post therapy clinical Stage 4,Measurement,Cancer Modifier
+1634926,AJCC/UICC 7th post therapy clinical Stage 4A,Measurement,Cancer Modifier
+1633337,AJCC/UICC 7th post therapy clinical Stage 4A1,Measurement,Cancer Modifier
+1633333,AJCC/UICC 7th post therapy clinical Stage 4A2,Measurement,Cancer Modifier
+1633985,AJCC/UICC 7th post therapy clinical Stage 4B,Measurement,Cancer Modifier
+1633638,AJCC/UICC 7th post therapy clinical Stage 4C,Measurement,Cancer Modifier
+1635063,AJCC/UICC 7th post therapy pathological Stage 3,Measurement,Cancer Modifier
+1634410,AJCC/UICC 7th post therapy pathological Stage 3A,Measurement,Cancer Modifier
+1634283,AJCC/UICC 7th post therapy pathological Stage 3A1,Measurement,Cancer Modifier
+1634128,AJCC/UICC 7th post therapy pathological Stage 3A2,Measurement,Cancer Modifier
+1635425,AJCC/UICC 7th post therapy pathological Stage 3B,Measurement,Cancer Modifier
+1634201,AJCC/UICC 7th post therapy pathological Stage 3C,Measurement,Cancer Modifier
+1633592,AJCC/UICC 7th post therapy pathological Stage 3C1,Measurement,Cancer Modifier
+1634885,AJCC/UICC 7th post therapy pathological Stage 3C2,Measurement,Cancer Modifier
+1634644,AJCC/UICC 7th post therapy pathological Stage 3D,Measurement,Cancer Modifier
+1635356,AJCC/UICC 7th post therapy pathological Stage 4,Measurement,Cancer Modifier
+1633523,AJCC/UICC 7th post therapy pathological Stage 4A,Measurement,Cancer Modifier
+1634964,AJCC/UICC 7th post therapy pathological Stage 4A1,Measurement,Cancer Modifier
+1635298,AJCC/UICC 7th post therapy pathological Stage 4A2,Measurement,Cancer Modifier
+1634831,AJCC/UICC 7th post therapy pathological Stage 4B,Measurement,Cancer Modifier
+1634513,AJCC/UICC 7th post therapy pathological Stage 4C,Measurement,Cancer Modifier
+1633382,AJCC/UICC 7th Stage 3,Measurement,Cancer Modifier
+1634603,AJCC/UICC 7th Stage 3A,Measurement,Cancer Modifier
+1635868,AJCC/UICC 7th Stage 3A1,Measurement,Cancer Modifier
+1635662,AJCC/UICC 7th Stage 3A2,Measurement,Cancer Modifier
+1634911,AJCC/UICC 7th Stage 3B,Measurement,Cancer Modifier
+1633957,AJCC/UICC 7th Stage 3C,Measurement,Cancer Modifier
+1634543,AJCC/UICC 7th Stage 3C1,Measurement,Cancer Modifier
+1635086,AJCC/UICC 7th Stage 3C2,Measurement,Cancer Modifier
+1635435,AJCC/UICC 7th Stage 3D,Measurement,Cancer Modifier
+1633902,AJCC/UICC 7th Stage 4,Measurement,Cancer Modifier
+1635234,AJCC/UICC 7th Stage 4A,Measurement,Cancer Modifier
+1633929,AJCC/UICC 7th Stage 4A1,Measurement,Cancer Modifier
+1635273,AJCC/UICC 7th Stage 4A2,Measurement,Cancer Modifier
+1635337,AJCC/UICC 7th Stage 4B,Measurement,Cancer Modifier
+1634250,AJCC/UICC 7th Stage 4C,Measurement,Cancer Modifier
+1634596,AJCC/UICC 8th clinical Stage 3,Measurement,Cancer Modifier
+1635265,AJCC/UICC 8th clinical Stage 3A,Measurement,Cancer Modifier
+1635640,AJCC/UICC 8th clinical Stage 3A1,Measurement,Cancer Modifier
+1634461,AJCC/UICC 8th clinical Stage 3A2,Measurement,Cancer Modifier
+1634006,AJCC/UICC 8th clinical Stage 3B,Measurement,Cancer Modifier
+1634811,AJCC/UICC 8th clinical Stage 3C,Measurement,Cancer Modifier
+1635859,AJCC/UICC 8th clinical Stage 3C1,Measurement,Cancer Modifier
+1635395,AJCC/UICC 8th clinical Stage 3C2,Measurement,Cancer Modifier
+1635533,AJCC/UICC 8th clinical Stage 3D,Measurement,Cancer Modifier
+1635029,AJCC/UICC 8th clinical Stage 4,Measurement,Cancer Modifier
+1634810,AJCC/UICC 8th clinical Stage 4A,Measurement,Cancer Modifier
+1634285,AJCC/UICC 8th clinical Stage 4A1,Measurement,Cancer Modifier
+1633370,AJCC/UICC 8th clinical Stage 4A2,Measurement,Cancer Modifier
+1635708,AJCC/UICC 8th clinical Stage 4B,Measurement,Cancer Modifier
+1635006,AJCC/UICC 8th clinical Stage 4C,Measurement,Cancer Modifier
+1634705,AJCC/UICC 8th pathological Stage 3,Measurement,Cancer Modifier
+1633636,AJCC/UICC 8th pathological Stage 3A,Measurement,Cancer Modifier
+1635408,AJCC/UICC 8th pathological Stage 3A1,Measurement,Cancer Modifier
+1633571,AJCC/UICC 8th pathological Stage 3A2,Measurement,Cancer Modifier
+1634612,AJCC/UICC 8th pathological Stage 3B,Measurement,Cancer Modifier
+1633736,AJCC/UICC 8th pathological Stage 3C,Measurement,Cancer Modifier
+1633393,AJCC/UICC 8th pathological Stage 3C1,Measurement,Cancer Modifier
+1635045,AJCC/UICC 8th pathological Stage 3C2,Measurement,Cancer Modifier
+1634759,AJCC/UICC 8th pathological Stage 3D,Measurement,Cancer Modifier
+1633697,AJCC/UICC 8th pathological Stage 4,Measurement,Cancer Modifier
+1634005,AJCC/UICC 8th pathological Stage 4A,Measurement,Cancer Modifier
+1633786,AJCC/UICC 8th pathological Stage 4A1,Measurement,Cancer Modifier
+1633298,AJCC/UICC 8th pathological Stage 4A2,Measurement,Cancer Modifier
+1634487,AJCC/UICC 8th pathological Stage 4B,Measurement,Cancer Modifier
+1634551,AJCC/UICC 8th pathological Stage 4C,Measurement,Cancer Modifier
+1634337,AJCC/UICC 8th post therapy clinical Stage 3,Measurement,Cancer Modifier
+1633490,AJCC/UICC 8th post therapy clinical Stage 3A,Measurement,Cancer Modifier
+1635785,AJCC/UICC 8th post therapy clinical Stage 3A1,Measurement,Cancer Modifier
+1634999,AJCC/UICC 8th post therapy clinical Stage 3A2,Measurement,Cancer Modifier
+1634106,AJCC/UICC 8th post therapy clinical Stage 3B,Measurement,Cancer Modifier
+1634910,AJCC/UICC 8th post therapy clinical Stage 3C,Measurement,Cancer Modifier
+1634909,AJCC/UICC 8th post therapy clinical Stage 3C1,Measurement,Cancer Modifier
+1635554,AJCC/UICC 8th post therapy clinical Stage 3C2,Measurement,Cancer Modifier
+1635324,AJCC/UICC 8th post therapy clinical Stage 3D,Measurement,Cancer Modifier
+1634358,AJCC/UICC 8th post therapy clinical Stage 4,Measurement,Cancer Modifier
+1634330,AJCC/UICC 8th post therapy clinical Stage 4A,Measurement,Cancer Modifier
+1633641,AJCC/UICC 8th post therapy clinical Stage 4A1,Measurement,Cancer Modifier
+1635818,AJCC/UICC 8th post therapy clinical Stage 4A2,Measurement,Cancer Modifier
+1635696,AJCC/UICC 8th post therapy clinical Stage 4B,Measurement,Cancer Modifier
+1634908,AJCC/UICC 8th post therapy clinical Stage 4C,Measurement,Cancer Modifier
+1634507,AJCC/UICC 8th post therapy pathological Stage 3,Measurement,Cancer Modifier
+1634423,AJCC/UICC 8th post therapy pathological Stage 3A,Measurement,Cancer Modifier
+1634210,AJCC/UICC 8th post therapy pathological Stage 3A1,Measurement,Cancer Modifier
+1635528,AJCC/UICC 8th post therapy pathological Stage 3A2,Measurement,Cancer Modifier
+1633868,AJCC/UICC 8th post therapy pathological Stage 3B,Measurement,Cancer Modifier
+1634833,AJCC/UICC 8th post therapy pathological Stage 3C,Measurement,Cancer Modifier
+1633708,AJCC/UICC 8th post therapy pathological Stage 3C1,Measurement,Cancer Modifier
+1634978,AJCC/UICC 8th post therapy pathological Stage 3C2,Measurement,Cancer Modifier
+1633389,AJCC/UICC 8th post therapy pathological Stage 3D,Measurement,Cancer Modifier
+1635316,AJCC/UICC 8th post therapy pathological Stage 4,Measurement,Cancer Modifier
+1635869,AJCC/UICC 8th post therapy pathological Stage 4A,Measurement,Cancer Modifier
+1635129,AJCC/UICC 8th post therapy pathological Stage 4A1,Measurement,Cancer Modifier
+1633823,AJCC/UICC 8th post therapy pathological Stage 4A2,Measurement,Cancer Modifier
+1635488,AJCC/UICC 8th post therapy pathological Stage 4B,Measurement,Cancer Modifier
+1635853,AJCC/UICC 8th post therapy pathological Stage 4C,Measurement,Cancer Modifier
+1633462,AJCC/UICC 8th Stage 3,Measurement,Cancer Modifier
+1633314,AJCC/UICC 8th Stage 3A,Measurement,Cancer Modifier
+1633811,AJCC/UICC 8th Stage 3A1,Measurement,Cancer Modifier
+1634331,AJCC/UICC 8th Stage 3A2,Measurement,Cancer Modifier
+1634395,AJCC/UICC 8th Stage 3B,Measurement,Cancer Modifier
+1635126,AJCC/UICC 8th Stage 3C,Measurement,Cancer Modifier
+1635437,AJCC/UICC 8th Stage 3C1,Measurement,Cancer Modifier
+1634220,AJCC/UICC 8th Stage 3C2,Measurement,Cancer Modifier
+1633773,AJCC/UICC 8th Stage 3D,Measurement,Cancer Modifier
+1634131,AJCC/UICC 8th Stage 4,Measurement,Cancer Modifier
+1635314,AJCC/UICC 8th Stage 4A,Measurement,Cancer Modifier
+1634295,AJCC/UICC 8th Stage 4A1,Measurement,Cancer Modifier
+1633924,AJCC/UICC 8th Stage 4A2,Measurement,Cancer Modifier
+1635518,AJCC/UICC 8th Stage 4B,Measurement,Cancer Modifier
+1633316,AJCC/UICC 8th Stage 4C,Measurement,Cancer Modifier
+1634876,AJCC/UICC clinical Stage 3,Measurement,Cancer Modifier
+1634922,AJCC/UICC clinical Stage 3A,Measurement,Cancer Modifier
+1634030,AJCC/UICC clinical Stage 3A1,Measurement,Cancer Modifier
+1634232,AJCC/UICC clinical Stage 3A2,Measurement,Cancer Modifier
+1635764,AJCC/UICC clinical Stage 3B,Measurement,Cancer Modifier
+1634571,AJCC/UICC clinical Stage 3C,Measurement,Cancer Modifier
+1633418,AJCC/UICC clinical Stage 3C1,Measurement,Cancer Modifier
+1635253,AJCC/UICC clinical Stage 3C2,Measurement,Cancer Modifier
+1634297,AJCC/UICC clinical Stage 3D,Measurement,Cancer Modifier
+1634447,AJCC/UICC clinical Stage 4,Measurement,Cancer Modifier
+1635450,AJCC/UICC clinical Stage 4A,Measurement,Cancer Modifier
+1634384,AJCC/UICC clinical Stage 4A1,Measurement,Cancer Modifier
+1634350,AJCC/UICC clinical Stage 4A2,Measurement,Cancer Modifier
+1634525,AJCC/UICC clinical Stage 4B,Measurement,Cancer Modifier
+1635404,AJCC/UICC clinical Stage 4C,Measurement,Cancer Modifier
+1635566,AJCC/UICC pathological Stage 3,Measurement,Cancer Modifier
+1633519,AJCC/UICC pathological Stage 3A,Measurement,Cancer Modifier
+1633303,AJCC/UICC pathological Stage 3A1,Measurement,Cancer Modifier
+1635725,AJCC/UICC pathological Stage 3A2,Measurement,Cancer Modifier
+1634789,AJCC/UICC pathological Stage 3B,Measurement,Cancer Modifier
+1635372,AJCC/UICC pathological Stage 3C,Measurement,Cancer Modifier
+1633718,AJCC/UICC pathological Stage 3C1,Measurement,Cancer Modifier
+1633961,AJCC/UICC pathological Stage 3C2,Measurement,Cancer Modifier
+1634918,AJCC/UICC pathological Stage 3D,Measurement,Cancer Modifier
+1634688,AJCC/UICC pathological Stage 4,Measurement,Cancer Modifier
+1635232,AJCC/UICC pathological Stage 4A,Measurement,Cancer Modifier
+1635365,AJCC/UICC pathological Stage 4A1,Measurement,Cancer Modifier
+1634063,AJCC/UICC pathological Stage 4A2,Measurement,Cancer Modifier
+1633577,AJCC/UICC pathological Stage 4B,Measurement,Cancer Modifier
+1635567,AJCC/UICC pathological Stage 4C,Measurement,Cancer Modifier
+1634850,AJCC/UICC post therapy clinical Stage 3,Measurement,Cancer Modifier
+1633865,AJCC/UICC post therapy clinical Stage 3A,Measurement,Cancer Modifier
+1633821,AJCC/UICC post therapy clinical Stage 3A1,Measurement,Cancer Modifier
+1635030,AJCC/UICC post therapy clinical Stage 3A2,Measurement,Cancer Modifier
+1634214,AJCC/UICC post therapy clinical Stage 3B,Measurement,Cancer Modifier
+1635455,AJCC/UICC post therapy clinical Stage 3C,Measurement,Cancer Modifier
+1634441,AJCC/UICC post therapy clinical Stage 3C1,Measurement,Cancer Modifier
+1635782,AJCC/UICC post therapy clinical Stage 3C2,Measurement,Cancer Modifier
+1635286,AJCC/UICC post therapy clinical Stage 3D,Measurement,Cancer Modifier
+1633600,AJCC/UICC post therapy clinical Stage 4,Measurement,Cancer Modifier
+1634733,AJCC/UICC post therapy clinical Stage 4A,Measurement,Cancer Modifier
+1635574,AJCC/UICC post therapy clinical Stage 4A1,Measurement,Cancer Modifier
+1635500,AJCC/UICC post therapy clinical Stage 4A2,Measurement,Cancer Modifier
+1634367,AJCC/UICC post therapy clinical Stage 4B,Measurement,Cancer Modifier
+1635146,AJCC/UICC post therapy clinical Stage 4C,Measurement,Cancer Modifier
+1633837,AJCC/UICC post therapy pathological Stage 3,Measurement,Cancer Modifier
+1633381,AJCC/UICC post therapy pathological Stage 3A,Measurement,Cancer Modifier
+1635460,AJCC/UICC post therapy pathological Stage 3A1,Measurement,Cancer Modifier
+1634164,AJCC/UICC post therapy pathological Stage 3A2,Measurement,Cancer Modifier
+1635674,AJCC/UICC post therapy pathological Stage 3B,Measurement,Cancer Modifier
+1635325,AJCC/UICC post therapy pathological Stage 3C,Measurement,Cancer Modifier
+1633796,AJCC/UICC post therapy pathological Stage 3C1,Measurement,Cancer Modifier
+1634140,AJCC/UICC post therapy pathological Stage 3C2,Measurement,Cancer Modifier
+1633794,AJCC/UICC post therapy pathological Stage 3D,Measurement,Cancer Modifier
+1634077,AJCC/UICC post therapy pathological Stage 4,Measurement,Cancer Modifier
+1633860,AJCC/UICC post therapy pathological Stage 4A,Measurement,Cancer Modifier
+1633555,AJCC/UICC post therapy pathological Stage 4A1,Measurement,Cancer Modifier
+1633385,AJCC/UICC post therapy pathological Stage 4A2,Measurement,Cancer Modifier
+1633973,AJCC/UICC post therapy pathological Stage 4B,Measurement,Cancer Modifier
+1635801,AJCC/UICC post therapy pathological Stage 4C,Measurement,Cancer Modifier
+1633650,AJCC/UICC Stage 3,Measurement,Cancer Modifier
+1635855,AJCC/UICC Stage 3A,Measurement,Cancer Modifier
+1635412,AJCC/UICC Stage 3A1,Measurement,Cancer Modifier
+1634304,AJCC/UICC Stage 3A2,Measurement,Cancer Modifier
+1634411,AJCC/UICC Stage 3B,Measurement,Cancer Modifier
+1634150,AJCC/UICC Stage 3C,Measurement,Cancer Modifier
+1634626,AJCC/UICC Stage 3C1,Measurement,Cancer Modifier
+1634556,AJCC/UICC Stage 3C2,Measurement,Cancer Modifier
+1633431,AJCC/UICC Stage 3D,Measurement,Cancer Modifier
+1633308,AJCC/UICC Stage 4,Measurement,Cancer Modifier
+1633439,AJCC/UICC Stage 4A,Measurement,Cancer Modifier
+1635355,AJCC/UICC Stage 4A1,Measurement,Cancer Modifier
+1635066,AJCC/UICC Stage 4A2,Measurement,Cancer Modifier
+1633748,AJCC/UICC Stage 4B,Measurement,Cancer Modifier
+1633675,AJCC/UICC Stage 4C,Measurement,Cancer Modifier
