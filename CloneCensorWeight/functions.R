@@ -1,0 +1,258 @@
+summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
+  logMessage("Start analysis for outcome: {outcome}")
+  x <- x |>
+    rename(outcome = all_of(outcome)) |>
+    mutate(
+      status = if_else(is.na(outcome) | outcome > censor_time, 0, 1),
+      time = if_else(status == 0, censor_time, outcome),
+      reason = if_else(status == 0, censor_reason, "outcome")
+    ) |>
+    select("cohort_name", "subject_id", "status", "time", "reason", "age")
+
+  sep <- 30
+  weights_time <- seq(from = 0, to = 730, by = sep)
+
+  coefficients <- list()
+  probabilities <- list()
+
+  for (wti in weights_time) {
+    logMessage("Calculating weights at time: {wti}")
+    start_time <- as.numeric(Sys.time())
+
+    xi <- x |>
+      filter(time > wti)
+
+    min_counts_i <- nrow(xi) * min_frequency
+
+    # exposures
+    exposures_i <- exposures |>
+      filter(cov_time <= wti & cov_time + 365 >= wti) |>
+      inner_join(
+        xi |>
+          select("cohort_name", "subject_id"),
+        by = "subject_id",
+        relationship = "many-to-many"
+      ) |>
+      distinct(cohort_name, subject_id, concept_id)
+    exps_i <- exposures_i |>
+      group_by(concept_id) |>
+      tally() |>
+      filter(n >= min_counts_i) |>
+      pull(concept_id)
+    exposures_i <- exposures_i |>
+      filter(concept_id %in% exps_i) |>
+      mutate(value = 1, concept_id = paste0("cov_", concept_id)) |>
+      pivot_wider(names_from = "concept_id", values_from = "value")
+
+    # conditions
+    conditions_i <- conditions |>
+      filter(cov_time <= wti) |>
+      inner_join(
+        xi |>
+          select("cohort_name", "subject_id"),
+        by = "subject_id",
+        relationship = "many-to-many"
+      ) |>
+      distinct(cohort_name, subject_id, concept_id)
+    cond_i <- conditions_i |>
+      group_by(concept_id) |>
+      tally() |>
+      filter(n >= min_counts_i) |>
+      pull(concept_id)
+    conditions_i <- conditions_i |>
+      filter(concept_id %in% cond_i) |>
+      mutate(value = 1, concept_id = paste0("cov_", concept_id)) |>
+      pivot_wider(names_from = "concept_id", values_from = "value")
+
+    # create matrix
+    covs <- paste0("cov_", c(cond_i, exps_i))
+    xi <- xi |>
+      left_join(conditions_i, by = c("cohort_name", "subject_id")) |>
+      left_join(exposures_i, by = c("cohort_name", "subject_id")) |>
+      mutate(across(all_of(covs), \(x) coalesce(x, 0)))
+
+    # lasso to select variables
+    X <- xi |>
+      select(!c("cohort_name", "subject_id", "status", "time", "reason", "age")) |>
+      as.matrix()
+    y <- xi$cohort_name
+    lambdas <- 10^seq(2, -3, by = -.1)
+    lasso_reg <- cv.glmnet(x = X, y = y, lambda = lambdas, standardize = TRUE, nfolds = 5, family = "multinomial", alpha = 1)
+    selected_cov <- coef(lasso_reg, s = lasso_reg$lambda.1se) |>
+      map(\(x) {
+        x <- names(x[(x[,1]!=0),1])
+        x[x != "(Intercept)"]
+      }) |>
+      unlist(use.names = FALSE) |>
+      unique()
+
+    # logistic regression
+    X <- xi |>
+      select(all_of(c("cohort_name", "age", selected_cov)))
+    fit <- multinom(cohort_name ~ ., data = X, trace = FALSE)
+
+    # save model
+    coefficients[[as.character(wti)]] <- fit |>
+      coefficients() |>
+      as_tibble(rownames = "group") |>
+      pivot_longer(!"group", names_to = "covariate", values_to = "value")
+
+    # save weights
+    probs <- predict(fit, type = "probs")
+    probabilities[[as.character(wti)]] <- xi |>
+      select("cohort_name", "subject_id") |>
+      bind_cols(as_tibble(probs))
+
+    elapsed_time <- round(as.numeric(Sys.time()) - start_time)
+    cli_inform(c("i" = "Finished weighting for time = {wti} in {elapsed_time} seconds."))
+  }
+
+  # survival over time
+  logMessage("Summarising survival data")
+  surv_data <- probabilities |>
+    bind_rows(.id = "time_start") |>
+    mutate(
+      weight = case_when(
+        cohort_name == "surveillance" ~ 1 - surveillance,
+        cohort_name == "prostatectomy" ~ 1 - prostatectomy,
+        cohort_name == "radiotheraphy" ~ 1 - radiotheraphy
+      ),
+      time_start = as.numeric(time_start),
+      time_end = time_start + sep
+    ) |>
+    inner_join(
+      x |>
+        select(!"age"),
+      by = c("cohort_name", "subject_id")
+    ) |>
+    mutate(
+      status = if_else(time_start < time & time <= time_end, status, 0),
+      time_end = if_else(time_start < time & time <= time_end, time, time_end)
+    ) |>
+    select(!c("surveillance", "prostatectomy", "radiotheraphy"))
+  fit <- survfit(Surv(time_start, time_end, status) ~ cohort_name, data = surv_data, weights = weight)
+  summary_time <- c(0:max(surv_data$time_end))
+  survival_summary <- summary(fit, times = summary_time)
+  survival_summary <- tibble(
+    time = survival_summary$time,
+    survival = survival_summary$surv,
+    lower_survival = survival_summary$lower,
+    upper_survival = survival_summary$upper,
+    cohort_name = str_replace(survival_summary$strata, "^cohort_name=", "")
+  ) |>
+    mutate(outcome = outcome) |>
+    left_join(
+      summary_time |>
+        map_df(\(st) {
+          lw <- if_else(st == 0, 0.01, st)
+          surv_data |>
+            filter(time_start < lw &  st <= time_end) |>
+            group_by(cohort_name) |>
+            summarise(
+              number_subjects = n(),
+              number_weighted_subjects = sum(weight),
+              .groups = "drop"
+            ) |>
+            mutate(time = st)
+        }),
+      by = c("time", "cohort_name")
+    )
+
+  # number events
+  logMessage("Summarising number of events")
+  events <- surv_data |>
+    group_by(time_start, cohort_name) |>
+    summarise(
+      number_events = sum(status),
+      number_weighted_events = sum(status * weight),
+      .groups = "drop"
+    ) |>
+    mutate(time_end = time_start + sep, outcome = outcome)
+
+  # followup summary
+  logMessage("Summarising follow up summary")
+  followup_summary <- x |>
+    group_by(cohort_name) |>
+    summarise(
+      n = n(),
+      min = min(time),
+      q05 = quantile(time, 0.05),
+      q25 = quantile(time, 0.25),
+      median = median(time),
+      q75 = quantile(time, 0.75),
+      q95 = quantile(time, 0.95),
+      max = max(time),
+      .groups = "drop"
+    ) |>
+    mutate(reason = "overall") |>
+    relocate("cohort_name", "reason") |>
+    union_all(
+      x |>
+        group_by(cohort_name, reason) |>
+        summarise(
+          n = n(),
+          min = min(time),
+          q05 = quantile(time, 0.05),
+          q25 = quantile(time, 0.25),
+          median = median(time),
+          q75 = quantile(time, 0.75),
+          q95 = quantile(time, 0.95),
+          max = max(time),
+          .groups = "drop"
+        )
+    )
+
+  # export coefficients
+  logMessage("Summarising coeficients")
+  coefficients <- coefficients |>
+    bind_rows(.id = "time_start") |>
+    mutate(time_start = as.numeric(time_start), outcome = outcome)
+
+  # export probabilities
+  logMessage("Summarising weights distribution")
+  hist_sep <- 0.01
+  breaks <- seq(from = 0, to = 1, by = hist_sep)
+  labels <- as.character(breaks[-1] - hist_sep/2)
+  probabilities <- probabilities |>
+    map(\(x) {
+      x |>
+        pivot_longer(
+          cols = c("surveillance", "prostatectomy", "radiotheraphy"),
+          names_to = "prob_label",
+          values_to = "prob"
+        ) |>
+        select(!"subject_id")
+    }) |>
+    bind_rows(.id = "time_start") |>
+    mutate(prob_bin = as.character(cut(x = prob, breaks = breaks, labels = labels))) |>
+    group_by(time_start, cohort_name, prob_label, prob_bin) |>
+    summarise(n = n(), .groups = "drop") |>
+    group_by(time_start, cohort_name, prob_label) |>
+    mutate(freq = n / sum(n)) |>
+    ungroup() |>
+    select(!"n") |>
+    full_join(
+      expand_grid(
+        time_start = names(probabilities),
+        cohort_name = c("surveillance", "prostatectomy", "radiotheraphy"),
+        prob_label = c("surveillance", "prostatectomy", "radiotheraphy"),
+        prob_bin = labels
+      ),
+      by = c("time_start", "cohort_name", "prob_label", "prob_bin")
+    ) |>
+    mutate(
+      freq = coalesce(freq, 0),
+      time_start = as.numeric(time_start),
+      prob_bin = as.numeric(prob_bin),
+      outcome = outcome
+    ) |>
+    arrange(time_start, cohort_name, prob_label, prob_bin)
+
+  list(
+    survival_summary = survival_summary,
+    events = events,
+    followup_summary = followup_summary,
+    coefficients = coefficients,
+    probabilities = probabilities
+  )
+}
