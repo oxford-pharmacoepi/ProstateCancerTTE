@@ -1,5 +1,5 @@
 summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
-  logMessage("Start analysis for outcome: {outcome}")
+  logMessage(paste0("Start analysis for outcome: ", outcome))
   x <- x |>
     rename(outcome = all_of(outcome)) |>
     mutate(
@@ -16,8 +16,7 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
   probabilities <- list()
 
   for (wti in weights_time) {
-    logMessage("Calculating weights at time: {wti}")
-    start_time <- as.numeric(Sys.time())
+    logMessage(paste0("Calculating weights at time: ", wti))
 
     xi <- x |>
       filter(time > wti)
@@ -89,7 +88,7 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     # logistic regression
     X <- xi |>
       select(all_of(c("cohort_name", "age", selected_cov)))
-    fit <- multinom(cohort_name ~ ., data = X, trace = FALSE)
+    fit <- multinom(cohort_name ~ ., data = X, trace = FALSE, MaxNWts = 5000)
 
     # save model
     coefficients[[as.character(wti)]] <- fit |>
@@ -102,9 +101,6 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     probabilities[[as.character(wti)]] <- xi |>
       select("cohort_name", "subject_id") |>
       bind_cols(as_tibble(probs))
-
-    elapsed_time <- round(as.numeric(Sys.time()) - start_time)
-    cli_inform(c("i" = "Finished weighting for time = {wti} in {elapsed_time} seconds."))
   }
 
   # survival over time
@@ -158,6 +154,54 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
       by = c("time", "cohort_name")
     )
 
+  # hazard ratio
+  logMessage("Calculating hazard ratio")
+  surv_data <- surv_data |>
+    group_by(cohort_name, subject_id) |>
+    mutate(id = cur_group_id()) |>
+    ungroup()
+  hr_summary <- list("overall" = c(0, Inf), "first year" = c(0, 365), "second year" = c(366, 730)) |>
+    map(\(interval) {
+      data <- surv_data |>
+        filter(interval[1] <= time_end & time_start <= interval[2]) |>
+        mutate(
+          time_start = if_else(time_start <= interval[1], interval[1], time_start),
+          time_end = if_else(interval[2] <= time_end, interval[2], time_end),
+          status = if_else(time == time_end, status, 0)
+        ) |>
+        filter(time_start < time_end)
+      fit1 <- coxph(Surv(time_start, time_end, status) ~ cohort_name,
+                    data = data,
+                    weights = weight,
+                    cluster = id)
+      fit2 <- coxph(Surv(time_start, time_end, status) ~ cohort_name,
+                    data = data |>
+                      filter(cohort_name != "surveillance") |>
+                      mutate(cohort_name = factor(cohort_name, levels = c("prostatectomy", "radiotheraphy"))),
+                    weights = weight,
+                    cluster = id)
+      summary(fit1) |>
+        coefficients() |>
+        as_tibble(rownames = "comparator") |>
+        mutate(reference = "surveillance") |>
+        union_all(
+          summary(fit2) |>
+            coefficients() |>
+            as_tibble(rownames = "comparator") |>
+            mutate(reference = "prostatectomy")
+        ) |>
+        rename(
+          "hazard_ratio" = "exp(coef)",
+          "se_coef" = "se(coef)",
+          "se_coef_robust" = "robust se",
+          "p_value" = "Pr(>|z|)"
+        ) |>
+        mutate(comparator = str_replace(comparator, "cohort_name", ""))
+    }) |>
+    bind_rows(.id = "interval") |>
+    mutate(outcome = outcome) |>
+    relocate("interval", "comparator", "reference", "outcome")
+
   # number events
   logMessage("Summarising number of events")
   events <- surv_data |>
@@ -200,7 +244,8 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
           max = max(time),
           .groups = "drop"
         )
-    )
+    ) |>
+    mutate(outcome = outcome)
 
   # export coefficients
   logMessage("Summarising coeficients")
@@ -249,6 +294,7 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     arrange(time_start, cohort_name, prob_label, prob_bin)
 
   list(
+    hr_summary = hr_summary,
     survival_summary = survival_summary,
     events = events,
     followup_summary = followup_summary,

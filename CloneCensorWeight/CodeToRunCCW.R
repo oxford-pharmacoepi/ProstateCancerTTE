@@ -12,6 +12,7 @@ library(nnet)
 library(cli)
 library(survival)
 library(stringr)
+library(readr)
 
 logFile <- here("CloneCensorWeight", "Results", "log_{date}_{time}.txt")
 createLogFile(logFile = logFile)
@@ -217,8 +218,25 @@ exposures <- exposures |>
 # collect data
 logMessage("Collect data")
 x <- cdm[[nm]] |>
-  select("cohort_name", "subject_id", "age", death = "days_to_death", "censor_time", "censor_reason") |>
+  select("cohort_name", "subject_id", "age", death = "days_to_death", "progression", "censor_time", "censor_reason") |>
   collect() |>
   mutate(cohort_name = factor(cohort_name, levels = c("surveillance", "prostatectomy", "radiotheraphy")))
 
-result <- summaryOutcome(x = x, outcome = "death", conditions = conditions, exposures = exposures, min_frequency = min_frequency)
+outcomes <- c("death", "progression")
+
+# loop through outcomes
+result <- outcomes |>
+  map(\(out) {
+    summaryOutcome(x = x, outcome = out, conditions = conditions, exposures = exposures, min_frequency = min_frequency)
+  })
+
+# export results
+cn <- cdmName(x = cdm)
+for (nm in c("survival_summary", "events", "followup_summary", "coefficients", "probabilities")) {
+  result |>
+    map(\(x) x[[nm]]) |>
+    bind_rows() |>
+    mutate(cdm_name = cn) |>
+    write_csv(file = here("CloneCensorWeight", "Results", paste0(nm, "_", cn, ".csv")))
+}
+
