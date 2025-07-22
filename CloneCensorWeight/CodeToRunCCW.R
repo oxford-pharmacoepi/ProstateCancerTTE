@@ -56,6 +56,15 @@ names(codelist)[names(codelist) == "ebrt"] <- "radiotheraphy"
 names(codelist)[names(codelist) == "radical_prostatectomy"] <- "prostatectomy"
 names(codelist)[names(codelist) == "stage3_4"] <- "progression"
 
+# export codelists
+exportCodelists <- codelist[c("radiotheraphy", "prostatectomy", "progression")] |>
+  map(\(x) tibble(concept_id = x)) |>
+  bind_rows(.id = "codelist_name") |>
+  mutate(codelist_type = "index")
+nm <- uniqueTableName()
+
+write_csv(x = exportCodelists, file = here("CloneCensorWeight", "Results"))
+
 # create cohorts
 logMessage("Create prostate cancer cohort")
 nm <- "prostate_cancer"
@@ -232,7 +241,8 @@ result <- outcomes |>
 
 # export results
 cn <- cdmName(x = cdm)
-for (nm in c("survival_summary", "events", "followup_summary", "coefficients", "probabilities")) {
+nms <- names(result[[1]])
+for (nm in nms) {
   result |>
     map(\(x) x[[nm]]) |>
     bind_rows() |>
@@ -240,3 +250,5 @@ for (nm in c("survival_summary", "events", "followup_summary", "coefficients", "
     write_csv(file = here("CloneCensorWeight", "Results", paste0(nm, "_", cn, ".csv")))
 }
 
+# drop created tables
+dropSourceTable(cdm = cdm, name = everything())
