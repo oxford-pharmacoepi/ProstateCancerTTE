@@ -13,11 +13,19 @@ library(cli)
 library(survival)
 library(stringr)
 library(readr)
+library(OmopSketch)
+library(CodelistGenerator)
+library(CohortCharacteristics)
 
+# create log file
 logFile <- here("CloneCensorWeight", "Results", "log_{date}_{time}.txt")
 createLogFile(logFile = logFile)
+
+# source functions
 source(here("CloneCensorWeight", "functions.R"))
 
+# create cdm object
+logMessage("Create cdm object")
 #cdmName <- "CPRD Aurum"
 cdmName <- "CPRD GOLD"
 
@@ -49,29 +57,59 @@ cdm <- validateCdmArgument(
   checkPerson = TRUE
 )
 
+# snapshot
+snapshot <- summariseOmopSnapshot(cdm = cdm)
+
 # read codelists
 logMessage("Import codelists")
 codelist <- importCodelist(here("Codelist", "InclusionCriteria"), type = "csv")
 names(codelist)[names(codelist) == "ebrt"] <- "radiotheraphy"
 names(codelist)[names(codelist) == "radical_prostatectomy"] <- "prostatectomy"
 names(codelist)[names(codelist) == "stage3_4"] <- "progression"
+codelistConditions <- importCodelist(here("Codelist", "conditions"), type = "csv")
+codelistMedications <- importCodelist(here("Codelist", "medications"), type = "csv")
+codelistOutcomes <- importCodelist(here("Codelist", "Outcomes"), type = "csv")
+exclude <- importCodelist(path = here("Codelist", "ExcludedFromPS"), type = "csv")
+
+codelistOfInterest <- list(
+  index = codelist[c("radiotheraphy", "prostatectomy", "prostate_cancer")],
+  characterisation_conditions = codelistConditions,
+  characterisation_medications = codelistMedications,
+  outcome = c(codelistOutcomes, codelist["progression"]),
+  exclude = exclude
+)
 
 # export codelists
-exportCodelists <- codelist[c("radiotheraphy", "prostatectomy", "progression")] |>
-  map(\(x) tibble(concept_id = x)) |>
-  bind_rows(.id = "codelist_name") |>
-  mutate(codelist_type = "index")
+logMessage("Document and export codelists")
+exportCodelists <- codelistOfInterest |>
+  map(\(codes) {
+    map(codes, \(x) tibble(concept_id = as.integer(x))) |>
+      bind_rows(.id = "codelist_name")
+  }) |>
+  bind_rows(.id = "codelist_type") |>
+  relocate("codelist_type", "codelist_name")
 nm <- uniqueTableName()
+cdm <- insertTable(cdm = cdm, name = nm, table = exportCodelists)
+exportCodelists <- cdm[[nm]] |>
+  inner_join(
+    cdm$concept |>
+      select("concept_name", "concept_id", "domain_id", "vocabulary_id", "concept_class_id", "concept_code"),
+    by = "concept_id"
+  ) |>
+  collect()
+write_csv(x = exportCodelists, file = here("CloneCensorWeight", "Results", "codelists.csv"))
 
-write_csv(x = exportCodelists, file = here("CloneCensorWeight", "Results"))
+# code use
+logMessage("Code use")
+codeUse <- summariseCodeUse(x = flatten(codelistOfInterest), cdm = cdm)
 
 # create cohorts
-logMessage("Create prostate cancer cohort")
-nm <- "prostate_cancer"
-cdm[[nm]] <- conceptCohort(
+logMessage("Create index cohorts")
+cdm$index_cohort <- conceptCohort(
   cdm = cdm,
   conceptSet = codelist["prostate_cancer"],
-  name = nm
+  exit = "event_start_date",
+  name = "index_cohort"
 ) |>
   requireIsFirstEntry() |>
   requirePriorObservation(minPriorObservation = 365) |>
@@ -79,9 +117,9 @@ cdm[[nm]] <- conceptCohort(
   addDemographics(
     sex = FALSE,
     priorObservation = FALSE,
-    name = nm
+    name = "index_cohort"
   ) |>
-  addDeathDays(name = nm) |>
+  addDeathDays(name = "index_cohort") |>
   mutate(future_observation = if_else(
     is.na(days_to_death) | days_to_death >= future_observation,
     future_observation,
@@ -92,35 +130,117 @@ cdm[[nm]] <- conceptCohort(
     window = c(-Inf, Inf),
     nameStyle = "{concept_name}",
     order = "first",
-    name = nm
+    name = "index_cohort"
   ) |>
   filter(is.na(prostatectomy) | prostatectomy >= 0) |>
-  compute(name = nm) |>
+  compute(name = "index_cohort") |>
   recordCohortAttrition(reason = "no prior `prostatectomy` before index date") |>
   filter(is.na(radiotheraphy) | radiotheraphy >= 0) |>
-  compute(name = nm) |>
+  compute(name = "index_cohort") |>
   recordCohortAttrition(reason = "no prior `radiotheraphy` before index date") |>
   filter(is.na(progression) | progression > 0) |>
-  compute(name = nm) |>
+  compute(name = "index_cohort") |>
   recordCohortAttrition(reason = "no prior `progression` before or on index date") |>
-  copyCohorts(name = nm, n = 3) |>
+  copyCohorts(name = "index_cohort", n = 3) |>
   renameCohort(cohortId = "prostate_cancer", newCohortName = "surveillance") |>
   renameCohort(cohortId = "prostate_cancer_1", newCohortName = "prostatectomy") |>
   renameCohort(cohortId = "prostate_cancer_2", newCohortName = "radiotheraphy")
-surveillanceId <- getCohortId(cohort = cdm[[nm]], cohortName = "surveillance")
-prostatectomyId <- getCohortId(cohort = cdm[[nm]], cohortName = "prostatectomy")
-radiotheraphyId <- getCohortId(cohort = cdm[[nm]], cohortName = "radiotheraphy")
-cdm[[nm]] <- cdm[[nm]] |>
+surveillanceId <- getCohortId(cohort = cdm$index_cohort, cohortName = "surveillance")
+prostatectomyId <- getCohortId(cohort = cdm$index_cohort, cohortName = "prostatectomy")
+radiotheraphyId <- getCohortId(cohort = cdm$index_cohort, cohortName = "radiotheraphy")
+cdm$index_cohort <- cdm$index_cohort |>
   addCohortName() |>
   filter(is.na(prostatectomy) | prostatectomy > 0 | cohort_name == "prostatectomy") |>
-  compute(name = nm) |>
+  compute(name = "index_cohort") |>
   recordCohortAttrition(reason = "no `prostatectomy` on index date", cohortId = c(surveillanceId, radiotheraphyId)) |>
   filter(is.na(radiotheraphy) | radiotheraphy > 0 | cohort_name == "radiotheraphy") |>
-  compute(name = nm) |>
+  compute(name = "index_cohort") |>
   recordCohortAttrition(reason = "no `radiotheraphy` on index date", cohortId = c(surveillanceId, prostatectomyId))
 
+# cohorts of interest
+logMessage("Create cohorts of interest")
+cdm$cohort_of_interest <- conceptCohort(
+  cdm = cdm,
+  conceptSet = codelist[c("prostate_cancer", "prostatectomy", "radiotheraphy")],
+  exit = "event_start_date",
+  name = "cohort_of_interest"
+) |>
+  renameCohort("prostate_cancer", "any_prostate_cancer") |>
+  renameCohort("prostatectomy", "any_prostatectomy") |>
+  renameCohort("radiotheraphy", "any_radiotheraphy")
+cdm <- bind(cdm$cohort_of_interest, cdm$index_cohort, name = "cohort_of_interest")
+
+# summarise cohort count
+logMessage("Summarise count")
+summaryCount <- summariseCohortCount(cohort = cdm$cohort_of_interest)
+
+# summarise cohort attrition
+logMessage("Summarise attrition")
+summaryAttrition <- summariseCohortAttrition(cohort = cdm$cohort_of_interest)
+
+# summarise cohort timing
+logMessage("Summarise timing")
+summaryTiming <- summariseCohortTiming(cohort = cdm$cohort_of_interest)
+
+# summarise cohort overlap
+logMessage("Summarise overlap")
+summaryOverlap <- summariseCohortOverlap(cohort = cdm$cohort_of_interest)
+
+# summarise characteristics
+logMessage("Summarise characteristics")
+summaryCharacteristics <- cdm$cohort_of_interest |>
+  addConceptIntersectFlag(
+    conceptSet = list(primary_care = 581477, hospital = 9201, registry = 38004268),
+    window = c(0, 0),
+    nameStyle = "{concept_name}",
+    name = "cohort_of_interest"
+  ) |>
+  mutate(diagnostic = case_when(
+    primary_care == 1 & hospital == 1 & registry == 1 ~ "primary_care, registry and hospital",
+    primary_care == 1 & hospital == 1 ~ "primary_care and hospital",
+    primary_care == 1 & registry == 1 ~ "primary_care and registry",
+    hospital == 1 & registry == 1 ~ "hospital and registry",
+    primary_care == 1 ~ "primary_care",
+    hospital == 1 ~ "hospital",
+    registry == 1 ~ "registry",
+    .default = "none"
+  )) |>
+  select(!c("primary_care", "hospital", "registry")) |>
+  compute(name = "cohort_of_interest") |>
+  summariseCharacteristics(
+    ageGroup = list(c(0, 19), c(20, 39), c(40, 59), c(60, 79), c(80, Inf)),
+    counts = TRUE,
+    demographics = TRUE,
+    conceptIntersectFlag = list(
+      "Conditions any time prior" = list(
+        conceptSet = codelistConditions, window = c(-Inf, 0)
+      ),
+      "Medications year prior" = list(
+        conceptSet = codelistMedications, window = c(-365, 0)
+      )
+    ),
+    conceptIntersectCount = list(
+      "Visit counts in the year prior" = list(
+        conceptSet = list(primary_care = 581477, hospital = 9201, registry = 38004268),
+        window = c(-365, 0)
+      )
+    ),
+    otherVariables = "diagnostic",
+    estimates = list(diagnostic = c("count", "percentage"))
+  )
+
+# summarise large scale characteristics
+logMessage("Summarise lsc")
+summaryLsc <- summariseLargeScaleCharacteristics(
+  cohort = cdm$cohort_of_interest,
+  eventInWindow = c("observation", "condition_occurrence"),
+  episodeInWindow = "drug_exposure",
+  window = list(c(-Inf, -366), c(-365, -1), c(0, 0), c(1, 365), c(366, Inf))
+)
+
 # basic censoring
-cdm[[nm]] <- cdm[[nm]] |>
+logMessage("Add censoring to index cohorts")
+cdm$index_cohort <- cdm$index_cohort |>
   mutate(
     prostatectomy = coalesce(prostatectomy, 9999),
     radiotheraphy = coalesce(radiotheraphy, 9999),
@@ -150,7 +270,7 @@ cdm[[nm]] <- cdm[[nm]] |>
       .default = "error"
     )
   ) |>
-  compute(name = nm)
+  compute(name = "index_cohort")
 
 logMessage("Extract covariates")
 min_frequency <- 0.005
@@ -162,7 +282,6 @@ num_subjects <- cdm[[nm]] |>
 min_subjects <- num_subjects * min_frequency
 
 # eclude concepts from propensity scores
-exclude <- importCodelist(path = here("Codelist", "ExcludedFromPS"), type = "csv")
 conceptsToExclude <- c(
   codelist$radiotheraphy, codelist$prostate_cancer, codelist$prostatectomy,
   unlist(exclude, use.names = FALSE)
@@ -249,6 +368,17 @@ for (nm in nms) {
     mutate(cdm_name = cn) |>
     write_csv(file = here("CloneCensorWeight", "Results", paste0(nm, "_", cn, ".csv")))
 }
+exportSummarisedResult(
+  snapshot,
+  codeUse,
+  summaryCount,
+  summaryAttrition,
+  summaryTiming,
+  summaryOverlap,
+  summaryCharacteristics,
+  summaryLsc,
+  fileName = "snapshot_{cdm_name}.csv"
+)
 
 # drop created tables
 dropSourceTable(cdm = cdm, name = everything())
