@@ -1,5 +1,5 @@
 start_time <- Sys.time()
-output_folder <- here::here("Results/CohortCharacterisation")
+output_folder <- here::here("MainStudy/Results/CohortCharacterisation")
 dir.create(output_folder, showWarnings = FALSE)
 
 log_file <- file.path(output_folder, paste0(
@@ -12,16 +12,17 @@ log4r::info(logger = logger, "Start time recorded.")
 
 log4r::info(logger, "Building general conditions cohort")
 
-conditions_codelist <- omopgenerics::importCodelist(here::here("Cohorts/CodelistFlag/conditions"), type = "csv")
+conditions_codelist <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/conditions"), type = "csv")
 
 cdm$conditions <- CohortConstructor::conceptCohort(cdm, conceptSet = conditions_codelist, name = "conditions")
 
 log4r::info(logger, "Building general medications cohort")
 
-medications_codelist <- omopgenerics::importCodelist(here::here("Cohorts/CodelistFlag/medications"), type = "csv")
+medications_codelist <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/medications"), type = "csv")
 
-cdm$medications <- CohortConstructor::conceptCohort(cdm, conceptSet = conditions_codelist, name = "medications")
+cdm$medications <- CohortConstructor::conceptCohort(cdm, conceptSet = medications_codelist, name = "medications")
 
+N_status_codelist <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/N-status"), type = "csv")
 cohorts <- c("optima_pc_trial", "optima_pc_rwd")
 
 
@@ -39,12 +40,60 @@ result <- purrr::map(cohorts, \(cohort_name){
 
   attrition <- CohortCharacteristics::summariseCohortAttrition(cdm[[cohort_name]])
 
+  log4r::info(logger, "Adding latest gleason score and n status")
+
+  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+    PatientProfiles::addConceptIntersectField(conceptSet = list("gleason_score" = 619648),
+                                            field = "value_as_number",
+                                            indexDate = "cohort_start_date",
+                                            order = "last",
+                                            window = c(-180,0),
+                                            name = cohort_name,
+                                            allowDuplicates = FALSE,
+                                            nameStyle = "gleason") |>
+    PatientProfiles::addCategories(variable = "gleason",
+                                   categories = list("latest_gleason_score_value" = list("<2" = c(0,1),
+                                                                                  "2 to 6" = c(2,6),
+                                                                                  "7" = c(7,7),
+                                                                                  "8 to 10" = c(8,10),
+                                                                                  ">10" = c(11, Inf))
+                                   ),
+                                   name = cohort_name)
+
+
+  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+    PatientProfiles::addConceptIntersectDate(conceptSet = N_status_codelist,
+
+                                              indexDate = "cohort_start_date",
+                                              order = "last",
+                                              window = c(-Inf,0),
+                                              name = cohort_name,
+                                             nameStyle = "{concept_name}"
+                                             ) |>
+   dplyr::mutate(
+     n_date = pmax(n0, nx, n1, n2, n3, na.rm = TRUE),
+     latest_n_status = dplyr::case_when(
+       n0 == n_date ~ "n0",
+       nx == n_date ~ "nx",
+       n1 == n_date ~ "n1",
+       n2 == n_date ~ "n2",
+       n3 == n_date ~ "n3",
+       TRUE ~ NA_character_
+     )
+   ) %>%
+   dplyr::group_by(subject_id) %>%
+   dplyr::filter(n_date == max(n_date, na.rm = TRUE)) %>%
+   dplyr::ungroup() %>%
+   dplyr::select(-n0, -nx, -n1, -n2, -n3) |> dplyr::compute(name = cohort_name)
+
   log4r::info(logger, "Cohort characterisation")
 
   characteristics <- CohortCharacteristics::summariseCharacteristics(cdm[[cohort_name]], cohortIntersectFlag = list(
     "Conditions any time prior" = list(
       targetCohortTable = "conditions", window = c(-Inf, -1)
+
     ),
+
     "Medications in the prior year" = list(
       targetCohortTable = "medications", window = c(-365, -1)
     )
@@ -53,7 +102,8 @@ result <- purrr::map(cohorts, \(cohort_name){
     "Number visits prior year" = list(
       tableName = "visit_occurrence", window = c(-365, -1)
     )
-  )
+  ),
+  otherVariables = c("latest_gleason_score_value", "latest_n_status")
   )
 
   log4r::info(logger, "Large scale characterisation")
@@ -79,8 +129,13 @@ result <- purrr::map(cohorts, \(cohort_name){
 }) |>
   omopgenerics::bind()
 
+log4r::info(logger, "Attrition prostate cancer between age 50 and 69 trial cohort")
+result <- result |> omopgenerics::bind(
+  CohortCharacteristics::summariseCohortAttrition(cdm[["prostate_cancer_age_50_69"]])
+)
 
-omopgenerics::exportSummarisedResult(result, fileName =  paste0("prostateCancer_characteristics_{cdm_name}_", format(Sys.time(), "%d_%m_%Y_%H_%M_%S"),".csv"), path = here::here("Results/CohortCharacterisation")  )
+
+omopgenerics::exportSummarisedResult(result, fileName =  paste0("prostateCancer_characteristics_{cdm_name}_", format(Sys.time(), "%d_%m_%Y_%H_%M_%S"),".csv"), path = output_folder )
 
 
 
