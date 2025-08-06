@@ -114,16 +114,6 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
                                             window = c(-180,0),
                                             intersections = c(1, Inf)) |>
   CohortConstructor::requireCohortIntersect(
-    targetCohortTable = "psa_trial",
-    window = c(-180, 0),
-    intersections = c(1, Inf),
-    cohortId = NULL,
-    targetCohortId = NULL,
-    indexDate = "cohort_start_date",
-    targetStartDate = "cohort_start_date",
-    targetEndDate = "cohort_end_date",
-  ) |>
-  CohortConstructor::requireCohortIntersect(
     targetCohortTable = "early_stage_trial",
     window = c(-180, 0),
     intersections = c(1, Inf),
@@ -137,6 +127,16 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
     window = c(-Inf, 0),
     intersections = 0,
     cohortId = NULL,
+    indexDate = "cohort_start_date",
+    targetStartDate = "cohort_start_date",
+    targetEndDate = "cohort_end_date",
+  ) |>
+  CohortConstructor::requireCohortIntersect(
+    targetCohortTable = "psa_trial",
+    window = c(-180, 0),
+    intersections = c(1, Inf),
+    cohortId = NULL,
+    targetCohortId = NULL,
     indexDate = "cohort_start_date",
     targetStartDate = "cohort_start_date",
     targetEndDate = "cohort_end_date",
@@ -229,7 +229,7 @@ cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist
 
 
   CohortConstructor::requireConceptIntersect(conceptSet = list("Prostate cancer conditions" = codelist$prostate_cancer),
-                                             window = c(-Inf,Inf),
+                                             window = c(-Inf, 0),
                                              intersections = c(1, Inf)) |>
   CohortConstructor::requireCohortIntersect(targetCohortTable = "early_stage_rwd",
                                             window = c(-Inf, 0),
