@@ -103,7 +103,7 @@ result <- purrr::map(cohorts, \(cohort_name){
       tableName = "visit_occurrence", window = c(-365, -1)
     )
   ),
-  otherVariables = c("latest_gleason_score_value", "latest_n_status")
+  otherVariables = c("latest_gleason_score_value", "latest_n_status", "psa_value")
   )
 
   log4r::info(logger, "Large scale characterisation")

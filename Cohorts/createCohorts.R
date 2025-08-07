@@ -239,7 +239,7 @@ cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist
     window = c(-Inf, 0),
     intersections = 0) |>
 
-  dplyr::left_join(cdm$psa_values |> dplyr::select(subject_id, value_as_number), by = "subject_id") |>
+  dplyr::left_join(cdm$psa_values |> dplyr::select("subject_id", "psa_value" = "value_as_number"), by = "subject_id") |>
   dplyr::filter(!(.data$subject_id %in% excluded_subjects)) |>
   omopgenerics::recordCohortAttrition(reason = "Exclude subjects with records related to female conditions") |>
   dplyr::group_by(subject_id) |>
