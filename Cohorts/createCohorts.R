@@ -142,6 +142,33 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
     targetEndDate = "cohort_end_date",
   ) |>
   CohortConstructor::requireConceptIntersect(
+    conceptSet = list("adt_or_antiandrogens" = codelist$adt_or_antiandrogens),
+    window = c(-Inf, 0),
+    intersections = 0,
+    cohortId = "radical_prostatectomy",
+    indexDate = "cohort_start_date",
+    targetStartDate = "event_start_date",
+    targetEndDate = "event_end_date",
+  ) |>
+  CohortConstructor::requireConceptIntersect(
+    conceptSet = list("adt_or_antiandrogens" = codelist$adt_or_antiandrogens),
+    window = c(-Inf, - 181),
+    intersections = 0,
+    cohortId = "ebrt",
+    indexDate = "cohort_start_date",
+    targetStartDate = "event_start_date",
+    targetEndDate = "event_end_date",
+  ) |>
+  CohortConstructor::requireConceptIntersect(
+    conceptSet = list("other hormones" = codelist$other_hormones),
+    window = c(-Inf, 0),
+    intersections = 0,
+    cohortId = NULL,
+    indexDate = "cohort_start_date",
+    targetStartDate = "event_start_date",
+    targetEndDate = "event_end_date",
+  ) |>
+  CohortConstructor::requireConceptIntersect(
     conceptSet = list("Malignancy except non-melanoma skin cancer" = codelist$`Malignancy except non-melanoma skin cancer`),
     window = c(-Inf, 0),
     intersections = 0,
