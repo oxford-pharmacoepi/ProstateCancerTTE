@@ -47,9 +47,9 @@ result <- purrr::map(cohorts, \(cohort_name){
                                             field = "value_as_number",
                                             indexDate = "cohort_start_date",
                                             order = "last",
-                                            window = c(-180,0),
+                                            window = c(-Inf,0),
                                             name = cohort_name,
-                                            allowDuplicates = FALSE,
+                                            allowDuplicates = TRUE,
                                             nameStyle = "gleason") |>
     PatientProfiles::addCategories(variable = "gleason",
                                    categories = list("latest_gleason_score_value" = list("<2" = c(0,1),
@@ -58,10 +58,7 @@ result <- purrr::map(cohorts, \(cohort_name){
                                                                                   "8 to 10" = c(8,10),
                                                                                   ">10" = c(11, Inf))
                                    ),
-                                   name = cohort_name)
-
-
-  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+                                   name = cohort_name) |>
     PatientProfiles::addConceptIntersectDate(conceptSet = N_status_codelist,
 
                                               indexDate = "cohort_start_date",
@@ -84,7 +81,13 @@ result <- purrr::map(cohorts, \(cohort_name){
    dplyr::group_by(subject_id) %>%
    dplyr::filter(n_date == max(n_date, na.rm = TRUE)) %>%
    dplyr::ungroup() %>%
-   dplyr::select(-n0, -nx, -n1, -n2, -n3) |> dplyr::compute(name = cohort_name)
+   dplyr::select(-n0, -nx, -n1, -n2, -n3) |> dplyr::compute(name = cohort_name) |>
+  dplyr::mutate(
+    missing_psa_value =
+      dplyr::if_else(is.na(.data$psa_value), "Yes", "No")
+    )
+
+
 
   log4r::info(logger, "Cohort characterisation")
 
@@ -103,7 +106,7 @@ result <- purrr::map(cohorts, \(cohort_name){
       tableName = "visit_occurrence", window = c(-365, -1)
     )
   ),
-  otherVariables = c("latest_gleason_score_value", "latest_n_status", "psa_value")
+  otherVariables = c("latest_gleason_score_value", "latest_n_status", "psa_value", "missing_psa_value")
   )
 
   log4r::info(logger, "Large scale characterisation")
