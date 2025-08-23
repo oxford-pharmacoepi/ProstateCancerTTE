@@ -44,8 +44,7 @@ ui <- page_navbar(
   nav_panel(
     title = "Codelists",
     div(
-      height = "100px",
-      style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px;",
+      style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px; height: 60px",
       div(
         style = "display:inline-block;",
         span("Select codelist", style = "font-weight: bold; margin-right: 20px;"),
@@ -53,9 +52,9 @@ ui <- page_navbar(
         div(
           pickerInput(
             inputId = "select_codelist_type",
-            selected = "index",
-            choices = c("index", "outcome", "exclude", "characterisation_conditions", "characterisation_medications"),
-            multiple = TRUE,
+            selected = names(codelists)[1],
+            choices = names(codelists),
+            multiple = FALSE,
             options = optPicker,
             width = "150px"
           ),
@@ -67,17 +66,13 @@ ui <- page_navbar(
             inputId = "select_codelist",
             selected = NULL,
             choices = NULL,
-            multiple = TRUE,
+            multiple = FALSE,
             options = optPicker,
             width = "150px"
           ),
           style = "display:inline-block; margin-right: 20px;"
         ),
-        actionButton(
-          inputId = "update_codelists",
-          label = "Update",
-          style = "background-color: var(--bs-secondary); color: white;"
-        )
+        downloadButton(outputId = "download_codelist", label = "Download codelist")
       )
     ),
     card(

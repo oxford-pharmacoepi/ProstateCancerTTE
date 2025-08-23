@@ -50,4 +50,6 @@ rsconnect/
 
 **/Results/*.csv
 *.txt
-.DS_Store
+*.DS_Store
+*.RData
+*.html

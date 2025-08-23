@@ -6,7 +6,7 @@
 
 **Affiliations:** <sup>1</sup>Health Data Sciences, NDORMS, University of Oxford.
 
-**Corresponding:** [marti.catalasabate\@ndorms.ox.ac.uk](mailto:marti.catalasabate@ndorms.ox.ac.uk)
+**Contact:** [marti.catalasabate\@ndorms.ox.ac.uk](mailto:marti.catalasabate@ndorms.ox.ac.uk)
 
 <div style="text-align: center;">
   <img src="hds_logo.svg" alt="HDS Logo" height="70" style="vertical-align: middle; margin-right: 10px;">
