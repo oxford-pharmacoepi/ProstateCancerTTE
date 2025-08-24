@@ -18,8 +18,26 @@ cohortDefinitionPanel <- nav_panel(
       options = list(trigger = "hover")
     )
   ),
-  card_title("A plotly plot"),
-  "fghj"
+  card(
+    uiOutput(outputId = "ui_cohort_definition")
+  )
+)
+
+# cohort count
+cohortCountPanel <- nav_panel(
+  title = span(
+    "Cohort count",
+    popover(
+      icon("circle-info"),
+      title = "Cohort count",
+      "This panel contains the counts of each one of the cohorts",
+      options = list(trigger = "hover")
+    )
+  ),
+  card(
+    card_header(downloadButton(outputId = "dwn_cohort_count")),
+    gt_output(outputId = "cohort_count")
+  )
 )
 
 # cohort attrition
@@ -33,8 +51,10 @@ cohortAttritionPanel <- nav_panel(
       options = list(trigger = "hover")
     )
   ),
-  card_title("A plotly plot"),
-  "fghj"
+  card(
+    card_header(downloadButton(outputId = "dwn_cohort_attrition")),
+    grVizOutput(outputId = "cohort_attrition")
+  )
 )
 
 ui <- page_navbar(
@@ -81,15 +101,41 @@ ui <- page_navbar(
   ),
   nav_panel(
     title = "Cohorts",
+    div(
+      style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px; height: 60px",
+      div(
+        style = "display:inline-block;",
+        span("Select cohort(s)", style = "font-weight: bold; margin-right: 20px;"),
+        div(
+          pickerInput(
+            inputId = "select_cohort",
+            selected = cohorts[1],
+            choices = cohorts,
+            multiple = TRUE,
+            options = optPicker,
+            width = "250px"
+          ),
+          style = "display:inline-block; margin-right: 20px;"
+        ),
+        span("Select database(s)", style = "font-weight: bold; margin-right: 20px;"),
+        div(
+          pickerInput(
+            inputId = "select_cdm_cohort",
+            selected = cdms,
+            choices = cdms,
+            multiple = TRUE,
+            options = optPicker,
+            width = "250px"
+          ),
+          style = "display:inline-block; margin-right: 20px;"
+        )
+      )
+    ),
     navset_card_tab(
       full_screen = TRUE,
       title = "Cohorts",
       cohortDefinitionPanel,
-      nav_panel(
-        title = "Cohort count",
-        card_title("A leaflet plot"),
-        "fghjmkd"
-      ),
+      cohortCountPanel,
       cohortAttritionPanel
     )
   ),

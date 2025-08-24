@@ -13,7 +13,7 @@ result <- importSummarisedResult(path = here("..", "Results"))
 # clean results
 toTidy <- c("hr_summary", "survival_summary", "events", "followup_summary", "coefficients", "probabilities", "summarise_log_file")
 resultType <- unique(settings(result)$result_type)
-results<- resultType |>
+results <- resultType |>
   set_names() |>
   map(\(rt) {
     res <- filterSettings(result, result_type == rt)
@@ -49,4 +49,4 @@ codelists <- codelists |>
   map(\(x) splitByColumn(x = x, col = "codelist_name"))
 names(codelists) <- str_to_sentence(str_replace_all(string = names(codelists), pattern = "_", replacement = " "))
 
-save(codelists, result, file = here("data", "shinyData.RData"))
+save(codelists, results, file = here("data", "shinyData.RData"))

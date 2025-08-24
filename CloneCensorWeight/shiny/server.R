@@ -31,4 +31,23 @@ server <- function(input, output, session) {
     }
   )
 
+  # cohorts ----
+  output$ui_cohort_definition <- renderUI({
+    paste0(cohort_definitions[input$select_cohort], collapse = "\n\n----\n\n") |>
+      markdownToHTML(fragment.only = TRUE) |>
+      HTML()
+  })
+  output$cohort_count <- render_gt({
+    results$summarise_cohort_count |>
+      filterGroup(cohort_name %in% input$select_cohort) |>
+      filter(cdm_name %in% input$select_cdm_cohort) |>
+      tableCohortCount(header = c("cdm_name"))
+  })
+  output$cohort_attrition <- renderDiagrammeR({
+    results$summarise_cohort_attrition |>
+      filterGroup(cohort_name %in% input$select_cohort) |>
+      filter(cdm_name %in% input$select_cdm_cohort) |>
+      plotCohortAttrition()
+  })
+
 }
