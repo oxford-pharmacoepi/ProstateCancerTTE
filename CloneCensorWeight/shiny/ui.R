@@ -1,13 +1,13 @@
 
 optPicker <- list(`actions-box` = TRUE, `selected-text-format` = "count > 1", `deselect-all-text` = "None", `select-all-text` = "All")
 
-# study
+# study ----
 studyCard <- markdownToHTML(file = here("study.md"), fragment.only = TRUE) |>
   HTML() |>
   card_body() |>
   card()
 
-# codelists
+# codelists ----
 headerCodelists <- div(
   style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px; height: 60px",
   div(
@@ -69,7 +69,7 @@ codelistCodeUsePanel <- nav_panel(
   card(gt_output(outputId = "codelist_code_use"))
 )
 
-# cohorts
+# cohorts ----
 headerCohorts <- div(
   style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px; height: 60px",
   div(
@@ -149,6 +149,55 @@ cohortAttritionPanel <- nav_panel(
   )
 )
 
+# characterisation ----
+headerCharacteristics <- div(
+  style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px; height: 60px",
+  div(
+    style = "display:inline-block;",
+    span("Select cohort(s)", style = "font-weight: bold; margin-right: 20px;"),
+    div(
+      pickerInput(
+        inputId = "select_cohort_char",
+        selected = cohorts[1],
+        choices = cohorts,
+        multiple = TRUE,
+        options = optPicker,
+        width = "250px"
+      ),
+      style = "display:inline-block; margin-right: 20px;"
+    ),
+    span("Select database(s)", style = "font-weight: bold; margin-right: 20px;"),
+    div(
+      pickerInput(
+        inputId = "select_cdm_cohort_char",
+        selected = cdms,
+        choices = cdms,
+        multiple = TRUE,
+        options = optPicker,
+        width = "250px"
+      ),
+      style = "display:inline-block; margin-right: 20px;"
+    )
+  )
+)
+
+characteristicsPanel <- nav_panel(
+  title = span(
+    "Cohort characteristics",
+    popover(
+      icon("circle-info"),
+      title = "Cohort characteristics",
+      "This panel contains the characterisation for the cohorts of interest",
+      options = list(trigger = "hover")
+    )
+  ),
+  card(
+    card_header(downloadButton(outputId = "dwn_cohort_characterisatics")),
+    gt_output(outputId = "cohort_characteristics")
+  )
+)
+
+# ui ----
 ui <- page_navbar(
   title = "Clone-Censor-Weight",
   theme = bs_theme(bootswatch = "flatly"),
@@ -176,13 +225,11 @@ ui <- page_navbar(
   ),
   nav_panel(
     title = "Characterisation",
-    navset_bar(
-      nav_panel(
-        title = "Cohort Characteristics"
-      ),
-      nav_panel(
-        title = "Large Scale Characteristics"
-      )
+    headerCharacteristics,
+    navset_card_tab(
+      full_screen = TRUE,
+      title = "Characterisation",
+      characteristicsPanel
     )
   ),
   nav_panel(

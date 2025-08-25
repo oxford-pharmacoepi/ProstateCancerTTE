@@ -33,7 +33,6 @@ server <- function(input, output, session) {
   output$codelist_code_use <- render_gt({
     results$code_use |>
       filterGroup(codelist_name == input$select_codelist) |>
-      arrange(desc(as.numeric(estimate_value))) |>
       tableCodeUse(groupColumn = "codelist_name")
   })
 
@@ -54,6 +53,14 @@ server <- function(input, output, session) {
       filterGroup(cohort_name %in% input$select_cohort) |>
       filter(cdm_name %in% input$select_cdm_cohort) |>
       plotCohortAttrition()
+  })
+
+  # characteristics ----
+  output$cohort_characteristics <- render_gt({
+    results$summarise_characteristics |>
+      filterGroup(cohort_name %in% input$select_cohort_char) |>
+      filter(cdm_name %in% input$select_cdm_cohort_char) |>
+      tableCharacteristics()
   })
 
 }

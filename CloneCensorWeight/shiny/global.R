@@ -22,6 +22,6 @@ library(CodelistGenerator)
 
 load(file = here("data", "shinyData.RData"))
 
-# cohorts
+# variables
 cohorts <- unique(results$summarise_cohort_count$group_level)
 cdms <- unique(results$summarise_cohort_count$cdm_name)
