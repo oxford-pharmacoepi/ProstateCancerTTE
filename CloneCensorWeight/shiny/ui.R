@@ -7,6 +7,100 @@ studyCard <- markdownToHTML(file = here("study.md"), fragment.only = TRUE) |>
   card_body() |>
   card()
 
+# codelists
+headerCodelists <- div(
+  style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px; height: 60px",
+  div(
+    style = "display:inline-block;",
+    span("Select codelist", style = "font-weight: bold; margin-right: 20px;"),
+    span("Type:"),
+    div(
+      pickerInput(
+        inputId = "select_codelist_type",
+        selected = names(codelists)[1],
+        choices = names(codelists),
+        multiple = FALSE,
+        options = optPicker,
+        width = "150px"
+      ),
+      style = "display:inline-block; margin-right: 20px;"
+    ),
+    span("Codelist:"),
+    div(
+      pickerInput(
+        inputId = "select_codelist",
+        selected = NULL,
+        choices = NULL,
+        multiple = FALSE,
+        options = optPicker,
+        width = "150px"
+      ),
+      style = "display:inline-block; margin-right: 20px;"
+    ),
+    downloadButton(outputId = "download_codelist", label = "Download codelist")
+  )
+)
+
+# codelist definition
+codelistDefinitionPanel <- nav_panel(
+  title = span(
+    "Codelist definition",
+    popover(
+      icon("circle-info"),
+      title = "Codelist definition",
+      "This panel contains the standard concept ids included in each codelist definition",
+      options = list(trigger = "hover")
+    )
+  ),
+  card(reactableOutput(outputId = "codelist_definition"))
+)
+
+# codelist code use
+codelistCodeUsePanel <- nav_panel(
+  title = span(
+    "Codelist code use",
+    popover(
+      icon("circle-info"),
+      title = "Codelist code use",
+      "This panel contains the record count for each standard-source concept id pair for a desired codelist.",
+      options = list(trigger = "hover")
+    )
+  ),
+  card(gt_output(outputId = "codelist_code_use"))
+)
+
+# cohorts
+headerCohorts <- div(
+  style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px; height: 60px",
+  div(
+    style = "display:inline-block;",
+    span("Select cohort(s)", style = "font-weight: bold; margin-right: 20px;"),
+    div(
+      pickerInput(
+        inputId = "select_cohort",
+        selected = cohorts[1],
+        choices = cohorts,
+        multiple = TRUE,
+        options = optPicker,
+        width = "250px"
+      ),
+      style = "display:inline-block; margin-right: 20px;"
+    ),
+    span("Select database(s)", style = "font-weight: bold; margin-right: 20px;"),
+    div(
+      pickerInput(
+        inputId = "select_cdm_cohort",
+        selected = cdms,
+        choices = cdms,
+        multiple = TRUE,
+        options = optPicker,
+        width = "250px"
+      ),
+      style = "display:inline-block; margin-right: 20px;"
+    )
+  )
+)
+
 # cohort definition
 cohortDefinitionPanel <- nav_panel(
   title = span(
@@ -18,9 +112,7 @@ cohortDefinitionPanel <- nav_panel(
       options = list(trigger = "hover")
     )
   ),
-  card(
-    uiOutput(outputId = "ui_cohort_definition")
-  )
+  card(uiOutput(outputId = "ui_cohort_definition"))
 )
 
 # cohort count
@@ -63,74 +155,17 @@ ui <- page_navbar(
   nav_panel(title = "Study", studyCard),
   nav_panel(
     title = "Codelists",
-    div(
-      style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px; height: 60px",
-      div(
-        style = "display:inline-block;",
-        span("Select codelist", style = "font-weight: bold; margin-right: 20px;"),
-        span("Type:"),
-        div(
-          pickerInput(
-            inputId = "select_codelist_type",
-            selected = names(codelists)[1],
-            choices = names(codelists),
-            multiple = FALSE,
-            options = optPicker,
-            width = "150px"
-          ),
-          style = "display:inline-block; margin-right: 20px;"
-        ),
-        span("Codelist:"),
-        div(
-          pickerInput(
-            inputId = "select_codelist",
-            selected = NULL,
-            choices = NULL,
-            multiple = FALSE,
-            options = optPicker,
-            width = "150px"
-          ),
-          style = "display:inline-block; margin-right: 20px;"
-        ),
-        downloadButton(outputId = "download_codelist", label = "Download codelist")
-      )
-    ),
-    card(
-      reactableOutput(outputId = "codelists")
+    headerCodelists,
+    navset_card_tab(
+      full_screen = TRUE,
+      title = "Codelists",
+      codelistDefinitionPanel,
+      codelistCodeUsePanel
     )
   ),
   nav_panel(
     title = "Cohorts",
-    div(
-      style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px; height: 60px",
-      div(
-        style = "display:inline-block;",
-        span("Select cohort(s)", style = "font-weight: bold; margin-right: 20px;"),
-        div(
-          pickerInput(
-            inputId = "select_cohort",
-            selected = cohorts[1],
-            choices = cohorts,
-            multiple = TRUE,
-            options = optPicker,
-            width = "250px"
-          ),
-          style = "display:inline-block; margin-right: 20px;"
-        ),
-        span("Select database(s)", style = "font-weight: bold; margin-right: 20px;"),
-        div(
-          pickerInput(
-            inputId = "select_cdm_cohort",
-            selected = cdms,
-            choices = cdms,
-            multiple = TRUE,
-            options = optPicker,
-            width = "250px"
-          ),
-          style = "display:inline-block; margin-right: 20px;"
-        )
-      )
-    ),
+    headerCohorts,
     navset_card_tab(
       full_screen = TRUE,
       title = "Cohorts",

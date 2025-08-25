@@ -9,7 +9,7 @@ server <- function(input, output, session) {
       selected = nms[1]
     )
   })
-  output$codelists <- renderReactable({
+  output$codelist_definition <- renderReactable({
     req(input$select_codelist)
     type <- isolate(input$select_codelist_type)
     x <- codelists[[type]][[input$select_codelist]]
@@ -30,10 +30,16 @@ server <- function(input, output, session) {
       write_csv(x = x, file = file)
     }
   )
+  output$codelist_code_use <- render_gt({
+    results$code_use |>
+      filterGroup(codelist_name == input$select_codelist) |>
+      arrange(desc(as.numeric(estimate_value))) |>
+      tableCodeUse(groupColumn = "codelist_name")
+  })
 
   # cohorts ----
   output$ui_cohort_definition <- renderUI({
-    paste0(cohort_definitions[input$select_cohort], collapse = "\n\n----\n\n") |>
+    paste0(results$cohort_definitions[input$select_cohort], collapse = "\n\n----\n\n") |>
       markdownToHTML(fragment.only = TRUE) |>
       HTML()
   })
