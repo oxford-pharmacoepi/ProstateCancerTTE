@@ -49,39 +49,46 @@ result <- purrr::map(cohorts, \(cohort_name){
                                             order = "last",
                                             window = c(-Inf,0),
                                             name = cohort_name,
-                                            allowDuplicates = TRUE,
-                                            nameStyle = "gleason") |>
+                                            allowDuplicates = FALSE,
+                                            nameStyle = "gleason")  |>
+    dplyr::mutate(
+      gleason = dplyr::coalesce(.data$gleason, -1)
+    ) |>
     PatientProfiles::addCategories(variable = "gleason",
                                    categories = list("latest_gleason_score_value" = list("<2" = c(0,1),
                                                                                   "2 to 6" = c(2,6),
                                                                                   "7" = c(7,7),
                                                                                   "8 to 10" = c(8,10),
-                                                                                  ">10" = c(11, Inf))
+                                                                                  ">10" = c(11, Inf),
+                                                                                  "missing" = c(-1,-1))
                                    ),
-                                   name = cohort_name) |>
+                                   name = cohort_name
+                                  )  |>
     PatientProfiles::addConceptIntersectDate(conceptSet = N_status_codelist,
-
                                               indexDate = "cohort_start_date",
                                               order = "last",
                                               window = c(-Inf,0),
-                                              name = cohort_name,
+
                                              nameStyle = "{concept_name}"
                                              ) |>
-   dplyr::mutate(
-     n_date = pmax(n0, nx, n1, n2, n3, na.rm = TRUE),
-     latest_n_status = dplyr::case_when(
-       n0 == n_date ~ "n0",
-       nx == n_date ~ "nx",
-       n1 == n_date ~ "n1",
-       n2 == n_date ~ "n2",
-       n3 == n_date ~ "n3",
-       TRUE ~ NA_character_
-     )
-   ) %>%
-   dplyr::group_by(subject_id) %>%
-   dplyr::filter(n_date == max(n_date, na.rm = TRUE)) %>%
-   dplyr::ungroup() %>%
-   dplyr::select(-n0, -nx, -n1, -n2, -n3) |> dplyr::compute(name = cohort_name) |>
+    dplyr::mutate(
+      n_date = pmax(n0, nx, n1, n2, n3, na.rm = TRUE),
+      latest_n_status = dplyr::case_when(
+        is.na(n0) & is.na(nx) & is.na(n1) & is.na(n2) & is.na(n3) ~ "missing",
+        n0 == n_date ~ "n0",
+        nx == n_date ~ "nx",
+        n1 == n_date ~ "n1",
+        n2 == n_date ~ "n2",
+        n3 == n_date ~ "n3",
+        TRUE ~ NA_character_
+      )
+    ) |>
+    dplyr::group_by(subject_id) |>
+
+    dplyr::filter(.data$latest_n_status == "missing" | .data$n_date == max(n_date, na.rm = TRUE))  |>
+    dplyr::ungroup() |>
+    dplyr::select(-n0, -nx, -n1, -n2, -n3) |>
+    dplyr::compute(name = cohort_name) |>
   dplyr::mutate(
     missing_psa_value =
       dplyr::if_else(is.na(.data$psa_value), "Yes", "No")
