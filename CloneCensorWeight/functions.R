@@ -302,3 +302,52 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     probabilities = probabilities
   )
 }
+bindResults <- function(result, cdmName) {
+  group <- list(
+    "hr_summary" = c("comparator", "reference"),
+    "survival_summary" = "cohort_name",
+    "events" = "cohort_name",
+    "followup_summary" = "cohort_name",
+    "coefficients" = "group",
+    "probabilities" = c("cohort_name", "outcome")
+  )
+  strata <- list(
+    "hr_summary" = "outcome",
+    "survival_summary" = "outcome",
+    "events" = "outcome",
+    "followup_summary" = "outcome",
+    "coefficients" = "outcome",
+    "probabilities" = c("prob_bin", "prob_label")
+  )
+  additional <- list(
+    "hr_summary" = "interval",
+    "survival_summary" = "time",
+    "events" = c("time_start", "time_end"),
+    "followup_summary" = "reason",
+    "coefficients" = c("covariate", "time_start"),
+    "probabilities" = c("time_start")
+  )
+  estimates <- list(
+    "hr_summary" = c("coef", "hazard_ratio", "se_coef", "se_coef_robust", "z", "p_value"),
+    "survival_summary" = c("survival", "lower_survival", "upper_survival", "number_subjects", "number_weighted_subjects"),
+    "events" = c("number_events", "number_weighted_events"),
+    "followup_summary" = c("n", "min", "q05", "q25", "median", "q75", "q95", "max"),
+    "coefficients" = "value",
+    "probabilities" = c("freq")
+  )
+  names(result[[1]]) |>
+    map(\(nm) {
+      x <- result |>
+        map(\(x) x[[nm]]) |>
+        bind_rows() |>
+        mutate(
+          result_type = nm,
+          cdm_name = cdmName
+        ) |>
+        transformToSummarisedResult(
+          group = group[[nm]], strata = strata[[nm]], additional = additional[[nm]],
+          estimates = estimates[[nm]], settings = "result_type"
+        )
+    }) |>
+    bind()
+}

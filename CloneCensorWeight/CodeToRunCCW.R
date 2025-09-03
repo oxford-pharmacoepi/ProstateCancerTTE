@@ -1,3 +1,4 @@
+
 library(RPostgres)
 library(CDMConnector)
 library(omopgenerics, warn.conflicts = FALSE)
@@ -26,8 +27,8 @@ source(here("CloneCensorWeight", "functions.R"))
 
 # create cdm object
 logMessage("Create cdm object")
-#cdmName <- "CPRD Aurum"
-cdmName <- "CPRD GOLD"
+cdmName <- "CPRD Aurum"
+#cdmName <- "CPRD GOLD"
 
 con <- dbConnect(drv = Postgres(),
                  dbname = if_else(cdmName == "CPRD GOLD", "cdm_gold_p22_001867", "cdm_aurum_p22_001867"),
@@ -44,6 +45,20 @@ cdm <- cdmFromCon(
   writePrefix = "mc_pca_",
   .softValidation = TRUE
 )
+
+
+set.seed(1234)
+
+cdm <-cdmSample(cdm, 100)
+cdm <- cdmSubsetCohort(cdm, "my_cohort")
+
+res <- summarisePersonTable(cdm)
+
+res2 <- summariseObservationPeriod(cdm)
+
+
+
+
 
 # filter observation_period
 logMessage("Filter observation periods")
@@ -165,9 +180,14 @@ cdm$cohort_of_interest <- conceptCohort(
   exit = "event_start_date",
   name = "cohort_of_interest"
 ) |>
-  renameCohort("prostate_cancer", "any_prostate_cancer") |>
-  renameCohort("prostatectomy", "any_prostatectomy") |>
-  renameCohort("radiotheraphy", "any_radiotheraphy")
+  copyCohorts(name = "cohort_of_interest", n = 2) |>
+  renameCohort(cohortId = "prostate_cancer", newCohortName = "any_prostate_cancer") |>
+  renameCohort(cohortId = "prostatectomy", newCohortName = "any_prostatectomy") |>
+  renameCohort(cohortId = "radiotheraphy", newCohortName = "any_radiotheraphy") |>
+  renameCohort(cohortId = "prostate_cancer_1", newCohortName = "first_prostate_cancer") |>
+  renameCohort(cohortId = "prostatectomy_1", newCohortName = "first_prostatectomy") |>
+  renameCohort(cohortId = "radiotheraphy_1", newCohortName = "first_radiotheraphy") |>
+  requireIsFirstEntry(cohortId = c("first_prostate_cancer", "first_prostatectomy", "first_radiotheraphy"))
 cdm <- bind(cdm$cohort_of_interest, cdm$index_cohort, name = "cohort_of_interest")
 
 # summarise cohort count
@@ -189,6 +209,12 @@ summaryOverlap <- summariseCohortOverlap(cohort = cdm$cohort_of_interest)
 # summarise characteristics
 logMessage("Summarise characteristics")
 summaryCharacteristics <- cdm$cohort_of_interest |>
+  left_join(
+    cdm$person |>
+      select("subject_id" = "person_id", "year_of_birth"),
+    by = "subject_id"
+  ) |>
+  compute(name = "cohort_of_interest") |>
   addConceptIntersectFlag(
     conceptSet = list(primary_care = 581477, hospital = 9201, registry = 38004268),
     window = c(0, 0),
@@ -225,15 +251,20 @@ summaryCharacteristics <- cdm$cohort_of_interest |>
         window = c(-365, 0)
       )
     ),
-    otherVariables = "diagnostic",
-    estimates = list(diagnostic = c("count", "percentage"))
+    otherVariables = c("diagnostic", "cohort_start_date", "year_of_birth"),
+    estimates = list(
+      diagnostic = c("count", "percentage"),
+      cohort_start_date = "density",
+      age = "density",
+      year_of_birth = "density"
+    )
   )
 
 # summarise large scale characteristics
 logMessage("Summarise lsc")
 summaryLsc <- summariseLargeScaleCharacteristics(
   cohort = cdm$cohort_of_interest,
-  eventInWindow = c("observation", "condition_occurrence"),
+  eventInWindow = c("observation", "condition_occurrence", "procedure_occurrence"),
   episodeInWindow = "drug_exposure",
   window = list(c(-Inf, -366), c(-365, -1), c(0, 0), c(1, 365), c(366, Inf))
 )
@@ -274,7 +305,7 @@ cdm$index_cohort <- cdm$index_cohort |>
 
 logMessage("Extract covariates")
 min_frequency <- 0.005
-num_subjects <- cdm[[nm]] |>
+num_subjects <- cdm$index_cohort |>
   distinct(subject_id) |>
   tally() |>
   pull() |>
@@ -292,7 +323,7 @@ logMessage("Extract conditions")
 conditions <- cdm$condition_occurrence |>
   select(subject_id = "person_id", "condition_start_date", concept_id = "condition_concept_id") |>
   inner_join(
-    cdm[[nm]] |>
+    cdm$index_cohort |>
       group_by(subject_id) |>
       summarise(
         cohort_start_date = min(cohort_start_date, na.rm = TRUE),
@@ -320,7 +351,7 @@ logMessage("Extract exposures")
 exposures <- cdm$drug_exposure |>
   select(subject_id = "person_id", "drug_exposure_start_date", concept_id = "drug_concept_id") |>
   inner_join(
-    cdm[[nm]] |>
+    cdm$index_cohort  |>
       group_by(subject_id) |>
       summarise(
         cohort_start_date = min(cohort_start_date, na.rm = TRUE),
@@ -345,7 +376,7 @@ exposures <- exposures |>
 
 # collect data
 logMessage("Collect data")
-x <- cdm[[nm]] |>
+x <- cdm$index_cohort |>
   select("cohort_name", "subject_id", "age", death = "days_to_death", "progression", "censor_time", "censor_reason") |>
   collect() |>
   mutate(cohort_name = factor(cohort_name, levels = c("surveillance", "prostatectomy", "radiotheraphy")))
@@ -356,18 +387,11 @@ outcomes <- c("death", "progression")
 result <- outcomes |>
   map(\(out) {
     summaryOutcome(x = x, outcome = out, conditions = conditions, exposures = exposures, min_frequency = min_frequency)
-  })
+  }) |>
+  # bind and convert results
+  bindResults(cdmName = cdmName)
 
 # export results
-cn <- cdmName(x = cdm)
-nms <- names(result[[1]])
-for (nm in nms) {
-  result |>
-    map(\(x) x[[nm]]) |>
-    bind_rows() |>
-    mutate(cdm_name = cn) |>
-    write_csv(file = here("CloneCensorWeight", "Results", paste0(nm, "_", cn, ".csv")))
-}
 exportSummarisedResult(
   snapshot,
   codeUse,
@@ -377,7 +401,9 @@ exportSummarisedResult(
   summaryOverlap,
   summaryCharacteristics,
   summaryLsc,
-  fileName = "snapshot_{cdm_name}.csv"
+  result,
+  path = here("CloneCensorWeight", "Results"),
+  fileName = "results_{cdm_name}.csv"
 )
 
 # drop created tables
