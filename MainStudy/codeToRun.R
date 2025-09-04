@@ -41,7 +41,7 @@ cohorts <- TRUE
 
 propensity_scores <- FALSE
 
-source("RunAnalysis.R")
+source("MainStudy/RunAnalysis.R")
 
 
 

@@ -1,0 +1,98 @@
+concept_id,concept_name,domain_id,vocabulary
+45766075,Acute anterior ST segment elevation myocardial infarction,condition,SNOMED
+4178129,Acute anteroapical myocardial infarction,condition,SNOMED
+4267568,Acute anteroseptal myocardial infarction,condition,SNOMED
+312327,Acute myocardial infarction,condition,SNOMED
+44782769,Acute myocardial infarction due to left coronary artery occlusion,condition,SNOMED
+44782712,Acute myocardial infarction due to right coronary artery occlusion,condition,SNOMED
+45766115,Acute myocardial infarction during procedure,condition,SNOMED
+434376,Acute myocardial infarction of anterior wall,condition,SNOMED
+45766150,Acute myocardial infarction of anterior wall involving right ventricle,condition,SNOMED
+438438,Acute myocardial infarction of anterolateral wall,condition,SNOMED
+4243372,Acute myocardial infarction of apical-lateral wall,condition,SNOMED
+4108669,Acute myocardial infarction of atrium,condition,SNOMED
+4151046,Acute myocardial infarction of basal-lateral wall,condition,SNOMED
+4275436,Acute myocardial infarction of high lateral wall,condition,SNOMED
+438170,Acute myocardial infarction of inferior wall,condition,SNOMED
+45771322,Acute myocardial infarction of inferior wall involving right ventricle,condition,SNOMED
+438447,Acute myocardial infarction of inferolateral wall,condition,SNOMED
+441579,Acute myocardial infarction of inferoposterior wall,condition,SNOMED
+436706,Acute myocardial infarction of lateral wall,condition,SNOMED
+4324413,Acute myocardial infarction of posterobasal wall,condition,SNOMED
+4051874,Acute myocardial infarction of posterolateral wall,condition,SNOMED
+4303359,Acute myocardial infarction of septum,condition,SNOMED
+4145721,Acute non-Q wave infarction,condition,SNOMED
+4119944,Acute non-Q wave infarction - anterolateral,condition,SNOMED
+4119456,Acute non-Q wave infarction - anteroseptal,condition,SNOMED
+4119945,Acute non-Q wave infarction - inferior,condition,SNOMED
+4119946,Acute non-Q wave infarction - inferolateral,condition,SNOMED
+4121466,Acute non-Q wave infarction - lateral,condition,SNOMED
+4124685,Acute non-Q wave infarction - widespread,condition,SNOMED
+4270024,Acute non-ST segment elevation myocardial infarction,condition,SNOMED
+35610091,Acute nontransmural myocardial infarction,condition,SNOMED
+319039,Acute posterior myocardial infarction,condition,SNOMED
+4119457,Acute Q wave infarction - anterolateral,condition,SNOMED
+4119943,Acute Q wave infarction - anteroseptal,condition,SNOMED
+4121464,Acute Q wave infarction - inferior,condition,SNOMED
+4121465,Acute Q wave infarction - inferolateral,condition,SNOMED
+4124684,Acute Q wave infarction - lateral,condition,SNOMED
+4119948,Acute Q wave infarction - widespread,condition,SNOMED
+4126801,Acute Q wave myocardial infarction,condition,SNOMED
+4296653,Acute ST segment elevation myocardial infarction,condition,SNOMED
+46270162,Acute ST segment elevation myocardial infarction due to left coronary artery occlusion,condition,SNOMED
+46270163,Acute ST segment elevation myocardial infarction due to right coronary artery occlusion,condition,SNOMED
+43020460,Acute ST segment elevation myocardial infarction involving left anterior descending coronary artery,condition,SNOMED
+45766076,Acute ST segment elevation myocardial infarction of anterior wall involving right ventricle,condition,SNOMED
+761736,Acute ST segment elevation myocardial infarction of anteroapical wall,condition,SNOMED
+46270159,Acute ST segment elevation myocardial infarction of anterolateral wall,condition,SNOMED
+46270160,Acute ST segment elevation myocardial infarction of anteroseptal wall,condition,SNOMED
+45766116,Acute ST segment elevation myocardial infarction of inferior wall,condition,SNOMED
+45766151,Acute ST segment elevation myocardial infarction of inferior wall involving right ventricle,condition,SNOMED
+35611570,Acute ST segment elevation myocardial infarction of inferolateral wall,condition,SNOMED
+35611571,Acute ST segment elevation myocardial infarction of inferoposterior wall,condition,SNOMED
+46274044,Acute ST segment elevation myocardial infarction of lateral wall,condition,SNOMED
+46270161,Acute ST segment elevation myocardial infarction of posterior wall,condition,SNOMED
+46273495,Acute ST segment elevation myocardial infarction of posterobasal wall,condition,SNOMED
+46270158,Acute ST segment elevation myocardial infarction of posterolateral wall,condition,SNOMED
+46270164,Acute ST segment elevation myocardial infarction of septum,condition,SNOMED
+444406,Acute subendocardial infarction,condition,SNOMED
+35610093,Acute transmural myocardial infarction,condition,SNOMED
+4119947,Acute widespread myocardial infarction,condition,SNOMED
+37109912,Arrhythmia due to and following acute myocardial infarction,condition,SNOMED
+438172,Atrial septal defect due to and following acute myocardial infarction,condition,SNOMED
+4124687,Cardiac rupture due to and following acute myocardial infarction,condition,SNOMED
+4215259,First myocardial infarction,condition,SNOMED
+4108678,Hemopericardium due to and following acute myocardial infarction,condition,SNOMED
+4173632,Microinfarct of heart,condition,SNOMED
+45766214,Mitral valve regurgitation due to acute myocardial infarction without papillary muscle and chordal rupture,condition,SNOMED
+45771327,Mitral valve regurgitation due to acute myocardial infarction with papillary muscle and chordal rupture,condition,SNOMED
+4323202,Mixed myocardial ischemia and infarction,condition,SNOMED
+4329847,Myocardial infarction,condition,SNOMED
+37309626,Myocardial infarction due to demand ischemia,condition,SNOMED
+4170094,Myocardial infarction in recovery phase,condition,SNOMED
+4200113,Non-Q wave myocardial infarction,condition,SNOMED
+4030582,Postoperative myocardial infarction,condition,SNOMED
+35610087,Postoperative nontransmural myocardial infarction,condition,SNOMED
+4206867,Postoperative subendocardial myocardial infarction,condition,SNOMED
+35610089,Postoperative transmural myocardial infarction,condition,SNOMED
+4207921,Postoperative transmural myocardial infarction of anterior wall,condition,SNOMED
+4209541,Postoperative transmural myocardial infarction of inferior wall,condition,SNOMED
+37109911,Pulmonary embolism due to and following acute myocardial infarction,condition,SNOMED
+4108679,Rupture of cardiac wall without hemopericardium as current complication following acute myocardial infarction,condition,SNOMED
+4108219,Rupture of chordae tendinae due to and following acute myocardial infarction,condition,SNOMED
+4147223,Rupture of ventricle due to acute myocardial infarction,condition,SNOMED
+4124686,Silent myocardial infarction,condition,SNOMED
+765132,Subendocardial myocardial infarction,condition,SNOMED
+4108217,Subsequent myocardial infarction,condition,SNOMED
+4108677,Subsequent myocardial infarction of anterior wall,condition,SNOMED
+4108218,Subsequent myocardial infarction of inferior wall,condition,SNOMED
+45766241,Subsequent non-ST segment elevation myocardial infarction,condition,SNOMED
+45766114,Subsequent ST segment elevation myocardial infarction,condition,SNOMED
+45766113,Subsequent ST segment elevation myocardial infarction of anterior wall,condition,SNOMED
+45773170,Subsequent ST segment elevation myocardial infarction of inferior wall,condition,SNOMED
+4108680,"Thrombosis of atrium, auricular appendage, and ventricle due to and following acute myocardial infarction",condition,SNOMED
+439693,True posterior myocardial infarction,condition,SNOMED
+37109910,Ventricular aneurysm due to and following acute myocardial infarction,condition,SNOMED
+45766212,Mitral valve regurgitation due to and following acute myocardial infarction,condition,SNOMED
+761737,Acute ST segment elevation myocardial infarction due to occlusion of circumflex coronary artery,condition,SNOMED
+4154704,Myocardial infarction with complication,condition,SNOMED

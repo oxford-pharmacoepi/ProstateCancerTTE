@@ -55,26 +55,49 @@ cdm$psa_trial <- cdm$psa_values |>
   dplyr::compute(name = "psa_trial")
 
 
-
-
 cdm$early_stage <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_early_stage, name = "early_stage") |>
-  PatientProfiles::addConceptIntersectDate(conceptSet = list("treatment" = unname(unlist(codelist_treatment))), nameStyle = "treatment_date", name = "early_stage") |>
+  PatientProfiles::addConceptIntersectDate(conceptSet = list("treatment" = unname(unlist(codelist_treatment))), nameStyle = "treatment_date", name = "early_stage")
+
+cdm$early_stage_trial <- cdm$early_stage |>
+  CohortConstructor::requireConceptIntersect(conceptSet = list("m0" = codelist$m0),
+                                             window = c(-180, 0),
+                                             indexDate = "treatment_date",
+                                             cohortId = "t1_t2",
+                                             intersections = c(1, Inf),
+                                             name = "early_stage_trial"
+                                             ) |>
+  CohortConstructor::unionCohorts(name = "early_stage_trial")
+
+cdm$early_stage_rwd <- cdm$early_stage |>
   CohortConstructor::requireConceptIntersect(conceptSet = list("m0" = codelist$m0),
                                              window = c(-Inf, 0),
                                              indexDate = "treatment_date",
                                              cohortId = "t1_t2",
-                                             intersections = c(1, Inf)) |>
-  CohortConstructor::unionCohorts()
+                                             intersections = c(1, Inf),
+                                             name = "early_stage_rwd"
+  ) |>
+  CohortConstructor::unionCohorts(name = "early_stage_rwd")
 
 cdm$advanced_stage <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_advanced_stage, name = "advanced_stage") |>
-  PatientProfiles::addConceptIntersectDate(conceptSet = list("treatment" = unname(unlist(codelist_treatment))), nameStyle = "{concept_name}_date", name = "advanced_stage") |>
+  PatientProfiles::addConceptIntersectDate(conceptSet = list("treatment" = unname(unlist(codelist_treatment))), nameStyle = "{concept_name}_date", name = "advanced_stage")
+
+cdm$advanced_stage_trial <- cdm$advanced_stage |>
+  CohortConstructor::requireConceptIntersect(conceptSet = list("m1" = codelist$m1),
+                                             window = c(-180, 0),
+                                             indexDate = "treatment_date",
+                                             cohortId = "t3_t4",
+                                             intersections = c(1, Inf),
+                                             name = "advanced_stage_trial") |>
+  CohortConstructor::unionCohorts( name = "advanced_stage_trial")
+
+cdm$advanced_stage_rwd <- cdm$advanced_stage |>
   CohortConstructor::requireConceptIntersect(conceptSet = list("m1" = codelist$m1),
                                              window = c(-Inf, 0),
                                              indexDate = "treatment_date",
                                              cohortId = "t3_t4",
-                                             intersections = c(1, Inf)) |>
-  CohortConstructor::unionCohorts()
-
+                                             intersections = c(1, Inf),
+                                             name = "advanced_stage_rwd") |>
+  CohortConstructor::unionCohorts( name = "advanced_stage_rwd")
 
 
 # tte ----
@@ -91,6 +114,24 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
                                             window = c(-180,0),
                                             intersections = c(1, Inf)) |>
   CohortConstructor::requireCohortIntersect(
+    targetCohortTable = "early_stage_trial",
+    window = c(-180, 0),
+    intersections = c(1, Inf),
+    cohortId = NULL,
+    indexDate = "cohort_start_date",
+    targetStartDate = "cohort_start_date",
+    targetEndDate = "cohort_end_date",
+  ) |>
+  CohortConstructor::requireCohortIntersect(
+    targetCohortTable = "advanced_stage_trial",
+    window = c(-Inf, 0),
+    intersections = 0,
+    cohortId = NULL,
+    indexDate = "cohort_start_date",
+    targetStartDate = "cohort_start_date",
+    targetEndDate = "cohort_end_date",
+  ) |>
+  CohortConstructor::requireCohortIntersect(
     targetCohortTable = "psa_trial",
     window = c(-180, 0),
     intersections = c(1, Inf),
@@ -100,23 +141,32 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
     targetStartDate = "cohort_start_date",
     targetEndDate = "cohort_end_date",
   ) |>
-  CohortConstructor::requireCohortIntersect(
-    targetCohortTable = "early_stage",
-    window = c(-180, 0),
-    intersections = c(1, Inf),
-    cohortId = NULL,
+  CohortConstructor::requireConceptIntersect(
+    conceptSet = list("adt_or_antiandrogens" = codelist$adt_or_antiandrogens),
+    window = c(-Inf, 0),
+    intersections = 0,
+    cohortId = "radical_prostatectomy",
     indexDate = "cohort_start_date",
-    targetStartDate = "cohort_start_date",
-    targetEndDate = "cohort_end_date",
+    targetStartDate = "event_start_date",
+    targetEndDate = "event_end_date",
   ) |>
-  CohortConstructor::requireCohortIntersect(
-    targetCohortTable = "advanced_stage",
+  CohortConstructor::requireConceptIntersect(
+    conceptSet = list("adt_or_antiandrogens" = codelist$adt_or_antiandrogens),
+    window = c(-Inf, - 181),
+    intersections = 0,
+    cohortId = "ebrt",
+    indexDate = "cohort_start_date",
+    targetStartDate = "event_start_date",
+    targetEndDate = "event_end_date",
+  ) |>
+  CohortConstructor::requireConceptIntersect(
+    conceptSet = list("other hormones" = codelist$other_hormones),
     window = c(-Inf, 0),
     intersections = 0,
     cohortId = NULL,
     indexDate = "cohort_start_date",
-    targetStartDate = "cohort_start_date",
-    targetEndDate = "cohort_end_date",
+    targetStartDate = "event_start_date",
+    targetEndDate = "event_end_date",
   ) |>
   CohortConstructor::requireConceptIntersect(
     conceptSet = list("Malignancy except non-melanoma skin cancer" = codelist$`Malignancy except non-melanoma skin cancer`),
@@ -187,9 +237,9 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
   dplyr::filter(dplyr::n() == 1) |>
   dplyr::ungroup() |>
   omopgenerics::recordCohortAttrition(reason = "Exclude subjects both treatment the same day") |>
+  dplyr::left_join(cdm$psa_trial |> dplyr::select("subject_id", "psa_value" = "value_as_number"), by = "subject_id") |>
   dplyr::compute(name = "optima_pc_trial") |>
   CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_trial", "radical_prostatectomy_trial"))
-
 # rwd ----
 
 cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_treatment, name = "optima_pc_rwd") |>
@@ -206,17 +256,17 @@ cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist
 
 
   CohortConstructor::requireConceptIntersect(conceptSet = list("Prostate cancer conditions" = codelist$prostate_cancer),
-                                             window = c(-Inf,Inf),
+                                             window = c(-Inf, 0),
                                              intersections = c(1, Inf)) |>
-  CohortConstructor::requireCohortIntersect(targetCohortTable = "early_stage",
+  CohortConstructor::requireCohortIntersect(targetCohortTable = "early_stage_rwd",
                                             window = c(-Inf, 0),
                                             intersections = c(1, Inf)) |>
   CohortConstructor::requireCohortIntersect(
-    targetCohortTable = "advanced_stage",
+    targetCohortTable = "advanced_stage_rwd",
     window = c(-Inf, 0),
     intersections = 0) |>
 
-  dplyr::left_join(cdm$psa_values |> dplyr::select(subject_id, value_as_number), by = "subject_id") |>
+  dplyr::left_join(cdm$psa_values |> dplyr::select("subject_id", "psa_value" = "value_as_number"), by = "subject_id") |>
   dplyr::filter(!(.data$subject_id %in% excluded_subjects)) |>
   omopgenerics::recordCohortAttrition(reason = "Exclude subjects with records related to female conditions") |>
   dplyr::group_by(subject_id) |>
@@ -225,7 +275,5 @@ cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist
   omopgenerics::recordCohortAttrition(reason = "Exclude subjects both treatment the same day") |>
   dplyr::compute(name = "optima_pc_rwd") |>
   CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_rwd", "radical_prostatectomy_rwd"))
-
-
 
 
