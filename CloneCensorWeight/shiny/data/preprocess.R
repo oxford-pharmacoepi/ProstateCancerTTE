@@ -7,6 +7,7 @@ library(rlang)
 library(purrr)
 library(stringr)
 library(omock)
+library(tidyr)
 
 codelists <- read_csv(here("..", "Results", "codelists.csv"), show_col_types = FALSE)
 result <- importSummarisedResult(path = here("..", "Results"))
