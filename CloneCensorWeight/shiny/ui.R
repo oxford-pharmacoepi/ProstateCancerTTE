@@ -149,6 +149,45 @@ cohortAttritionPanel <- nav_panel(
   )
 )
 
+# cohort overlap
+cohortOverlapPanel <- nav_panel(
+  title = span(
+    "Cohort overlap",
+    popover(
+      icon("circle-info"),
+      title = "Cohort overlap",
+      "This panel contains the overlap of each one of the cohorts",
+      options = list(trigger = "hover")
+    )
+  ),
+  card(
+    plotOutput(outputId = "plt_overlap")
+  )
+)
+
+# cohort timing
+cohortTimingPanel <- nav_panel(
+  title = span(
+    "Cohort timing",
+    popover(
+      icon("circle-info"),
+      title = "Cohort timing",
+      "This panel contains the timing between the first entries of the cohorts",
+      options = list(trigger = "hover")
+    )
+  ),
+  card(
+    Toggle.shinyInput(
+      label = NULL,
+      onText = "Cumulative",
+      offText = "Density",
+      value = FALSE,
+      inputId = "plt_timing_cumulative"
+    ),
+    plotlyOutput(outputId = "plt_timing")
+  )
+)
+
 # characterisation ----
 headerCharacteristics <- div(
   style = "background-color: var(--bs-primary); color: white; padding: 10px; font-weight: normal; gap: 10px; height: 60px",
@@ -683,7 +722,9 @@ ui <- page_navbar(
       title = "Cohorts",
       cohortDefinitionPanel,
       cohortCountPanel,
-      cohortAttritionPanel
+      cohortAttritionPanel,
+      cohortOverlapPanel,
+      cohortTimingPanel
     )
   ),
   nav_panel(

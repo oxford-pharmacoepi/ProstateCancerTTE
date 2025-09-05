@@ -68,6 +68,52 @@ server <- function(input, output, session) {
       filter(cdm_name %in% input$select_cdm_cohort) |>
       plotCohortAttrition()
   })
+  output$plt_overlap <- renderPlot({
+    results$summarise_cohort_overlap |>
+      filterGroup(cohort_name_reference %in% input$select_cohort,
+                  cohort_name_comparator %in% input$select_cohort) |>
+      filter(cdm_name %in% input$select_cdm_cohort) |>
+      plotCohortOverlap(uniqueCombinations = FALSE)
+  })
+  output$plt_timing <- renderPlotly({
+    if (input$plt_timing_cumulative) {
+      p <- results$summarise_cohort_timing |>
+        filter(
+          variable_name == "days_between_cohort_entries",
+          estimate_name %in% c("density_x", "density_y")
+        ) |>
+        filterGroup(cohort_name_reference %in% input$select_cohort,
+                    cohort_name_comparator %in% input$select_cohort) |>
+        filter(cdm_name %in% input$select_cdm_cohort) |>
+        tidy() |>
+        select(!c("variable_name", "restrict_to_first_entry")) |>
+        group_by(cdm_name, cohort_name_reference, cohort_name_comparator) |>
+        mutate(
+          dx = density_x - lag(density_x),
+          density_y = cumsum(density_y) * dx,
+          density_x = density_x / 365.25
+        ) |>
+        ungroup() |>
+        scatterPlot(
+          x = "density_x",
+          y = "density_y",
+          line = TRUE,
+          point = FALSE,
+          ribbon = FALSE,
+          facet = c("cdm_name", "cohort_name_reference"),
+          colour = "cohort_name_comparator"
+        ) +
+        labs(y = "Cumulative density", x = "Years between first entry") +
+        theme_bw()
+    } else {
+      p <- results$summarise_cohort_timing |>
+        filterGroup(cohort_name_reference %in% input$select_cohort,
+                    cohort_name_comparator %in% input$select_cohort) |>
+        filter(cdm_name %in% input$select_cdm_cohort) |>
+        plotCohortTiming(plotType = "densityplot", timeScale = "years", uniqueCombinations = FALSE)
+    }
+    ggplotly(p + scale_x_continuous(breaks = seq(-20, 20, 1)))
+  })
 
   # characteristics ----
   dataCohortCharacteristics <- reactive({
