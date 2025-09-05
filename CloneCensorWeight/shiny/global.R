@@ -24,13 +24,15 @@ library(plotly)
 library(ggplot2)
 library(tidyr)
 library(visOmopResults)
+library(DiagrammeRsvg)
+library(rsvg)
 
 load(file = here("data", "shinyData.RData"))
 
 # variables
 cohorts <- unique(results$summarise_cohort_count$group_level)
 cdms <- unique(results$summarise_cohort_count$cdm_name)
-plt_char_var <- c("Year of birth", "Age", "Prior observation")
+plt_char_var <- unique(results$summarise_characteristics_plot$variable_name)
 cohorts_out <- unique(results$followup_summary$group_level)
 outcomes <- unique(results$followup_summary$strata_level)
 windows <- unique(results$summarise_large_scale_characteristics$variable_level)

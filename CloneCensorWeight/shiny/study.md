@@ -15,11 +15,21 @@
 
 ### Abstract
 
+### Background
+
+Prostate cancer represents one of the most prevalent malignancies affecting men worldwide and constitutes a significant challenge in public health. It accounts for a considerable proportion of cancer diagnoses in men and remains a leading cause of cancer-related mortality, particularly in aging populations. Despite advances in detection and management, the burden of disease extends beyond mortality to encompass quality-of-life issues, healthcare costs, and disparities in access to timely diagnosis and treatment. Screening practices, such as the use of prostate-specific antigen (PSA) testing, have improved early detection but remain controversial due to the risks of overdiagnosis and overtreatment. This duality underscores the importance of evaluating management strategies not only in terms of survival but also their broader clinical and public health implications.
+
+Treatment options for prostate cancer range from conservative approaches to definitive interventions, each carrying distinct risks and benefits. Active surveillance is often considered for low-risk cases to avoid unnecessary morbidity, while radical prostatectomy and radiotherapy are standard curative strategies for localized disease. However, these modalities differ in terms of their impact on long-term mortality, recurrence, and functional outcomes such as urinary, sexual, and bowel health. Given these differences, comparative assessment of treatment outcomes is essential for guiding evidence-based decision-making and optimizing patient-centered care. This study aims to evaluate mortality and a range of clinical and quality-of-life outcomes associated with surveillance, prostatectomy, and radiotherapy, thereby contributing to the ongoing discussion on tailoring management strategies to patient needs and public health priorities.
+
 ### Methods
+
+**Source data**
+
+CPRD GOLD and CPRD Aurum linked to HES and Cancer registry.
 
 **Cohort definition**
 
-We conducted a cloning-censor-weighting study[CITE], we defined 3 cohorts: surveillance, prostatectomy and radiotheraphy. Index date is defined as the first occurrence of prostate cancer ever. Only records with at least 365 days of prior observation are included. Individuals need to have no record of prostatectomy or radiotheraphy before the index date. Individuals in surveillance and prostatectomy cohorts are not allowed to have a record of radiotheraphy on the index date. Individuals in surveillance and radiotheraphy cohorts are not allowed to have a record of prostatectomy on the index date. Counts and Attrition of each cohort can be seen in the [Cohort tab]().
+We conducted a cloning-censor-weighting study[CITE], we defined 3 cohorts: surveillance, prostatectomy and radiotheraphy. Index date is defined as the first ever occurrence of prostate cancer. Only records with at least 365 days of prior observation are included. Individuals need to have no record of prostatectomy or radiotheraphy before the index date. Individuals in surveillance and prostatectomy cohorts are not allowed to have a record of radiotheraphy on the index date. Individuals in surveillance and radiotheraphy cohorts are not allowed to have a record of prostatectomy on the index date. Counts and Attrition of each cohort can be seen in the [Cohort tab]().
 
 **Follow-up**
 

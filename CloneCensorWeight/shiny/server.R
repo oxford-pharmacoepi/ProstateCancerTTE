@@ -48,6 +48,20 @@ server <- function(input, output, session) {
       filter(cdm_name %in% input$select_cdm_cohort) |>
       tableCohortCount(header = c("cdm_name"))
   })
+  output$dwn_cohort_attrition <- downloadHandler(
+    filename = "cohort_attrition.png",
+    content = function(file) {
+      res <- results$summarise_cohort_attrition |>
+        filterGroup(cohort_name %in% input$select_cohort) |>
+        filter(cdm_name %in% input$select_cdm_cohort)
+      n <- length(unique(res$group_level))
+      plotCohortAttrition(result = res, type = "DiagrammeR") |>
+        render_graph() |>
+        export_svg() |>
+        charToRaw() |>
+        rsvg_png(file = file, width = 2000 * n)
+    }
+  )
   output$cohort_attrition <- renderDiagrammeR({
     results$summarise_cohort_attrition |>
       filterGroup(cohort_name %in% input$select_cohort) |>
@@ -69,14 +83,11 @@ server <- function(input, output, session) {
     )
   })
   output$plt_characteristics <- renderPlot({
-    if (input$plt_char_variable %in% c("year_of_birth", "age", "prior_observation", "future_observation")) {
-      pltType <- "densityplot"
-    } else {
-
-    }
-    dataCohortCharacteristics() |>
+    results$summarise_characteristics_plot |>
+      filterGroup(cohort_name %in% input$select_cohort_char) |>
+      filter(cdm_name %in% input$select_cdm_cohort_char) |>
       filter(variable_name == input$plt_char_variable) |>
-      plotCharacteristics(plotType = pltType,
+      plotCharacteristics(plotType = "densityplot",
                           facet = input$plt_char_facet,
                           colour = input$plt_char_colour)
   })

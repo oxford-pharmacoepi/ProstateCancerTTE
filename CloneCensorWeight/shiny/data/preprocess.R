@@ -48,9 +48,23 @@ results$code_use <- results$code_use |>
   newSummarisedResult(settings = set)
 
 # characterisation
+results$summarise_characteristics_plot <- results$summarise_characteristics |>
+  filter(estimate_name %in% c("density_x", "density_y")) |>
+  mutate(
+    estimate_value = if_else(
+      estimate_name == "density_x" & variable_name %in% c("Prior observation", "Future observation"),
+      as.character(suppressWarnings(as.numeric(estimate_value)) / 365.25),
+      estimate_value
+    ),
+    variable_name = if_else(
+      variable_name %in% c("Prior observation", "Future observation"),
+      paste0(variable_name, " (years)"),
+      variable_name
+    )
+  )
 results$summarise_characteristics <- results$summarise_characteristics |>
-  filter(!variable_name %in% c("Cohort start date", "Cohort end date", "Days in cohort")) |>
-  filter(!estimate_name %in% c("mean", "sd")) |>
+  filter(!variable_name %in% c("Cohort end date", "Days in cohort")) |>
+  filter(!estimate_name %in% c("mean", "sd", "density_x", "density_y")) |>
   mutate(
     estimate_value = case_when(
       variable_name %in% c("Future observation", "Prior observation") ~ sprintf("%.1f", suppressWarnings(as.numeric(estimate_value) / 365)),

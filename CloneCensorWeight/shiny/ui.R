@@ -210,15 +210,15 @@ characteristicsPanel <- nav_panel(
           pickerInput(
             inputId = "plt_char_facet",
             label = "Facet",
-            choices = c("variable_name", "cohort_name", "cdm_name"),
-            selected = "variable_name",
+            choices = c("cohort_name", "cdm_name"),
+            selected = "cdm_name",
             multiple = TRUE
           ),
           pickerInput(
             inputId = "plt_char_colour",
             label = "Colour",
-            choices = c("variable_name", "cohort_name", "cdm_name"),
-            selected = c("cohort_name", "cdm_name"),
+            choices = c("cohort_name", "cdm_name"),
+            selected = "cohort_name",
             multiple = TRUE
           )
         ),
