@@ -48,8 +48,15 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
-**/Results/*.csv
+**MainStudy/Results/**/*.csv
+**MainStudy/Results/**/*.png
 *.txt
+<<<<<<< Updated upstream
 *.DS_Store
 *.RData
 *.html
+=======
+.DS_Store
+
+
+>>>>>>> Stashed changes
