@@ -10,7 +10,7 @@ library(CDMConnector)
 
 
 
-source("MainStudy/PropensityScores/functions.R")
+source("MainStudy/Model/functions.R")
 
 excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codelist/ExcludedFromPS", type = "csv") |> unlist() |> unname()
 output_directory = here::here("MainStudy/Results")
@@ -46,7 +46,7 @@ con_aurum <- dbConnect(drv = Postgres(),
 
 
 cdm_a <- cdmFromCon(con = con_aurum, cdmSchema = "public", writeSchema = "results", achillesSchema = "results", writePrefix = "cc_", .softValidation = TRUE, cdmName = dbName_aurum,
-                    cohortTables = c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_long", "optima_pc_rwd_visits", outcome_cohorts))
+                    cohortTables = c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_long", "optima_pc_rwd_visits", "progression"))
 
 
 cdm_a$observation_period <- cdm_a$observation_period |>
@@ -197,10 +197,10 @@ for (out in outcomes){
     )
 }
 
-survival_data <-  cdm_g[["survival_data"]] |>
+survival_data <-  cdm_g[["merged_survival_data"]] |>
   dplyr::mutate(source = "gold") |>
   dplyr::collect() |>
-  dplyr::bind_rows(cdm_a[["survival_data"]] |>
+  dplyr::bind_rows(cdm_a[["merged_survival_data"]] |>
                      dplyr::mutate(source = "aurum") |>
                      dplyr::collect())
 outcomes <- c("death", "progression", outcomes)

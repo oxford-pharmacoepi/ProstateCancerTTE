@@ -1,20 +1,20 @@
 ### propensity scores ----
 
-longDataFromCohort <- function(cdm){
-
-  cdm$optima_pc_rwd_long <- cdm$optima_pc_rwd |>
+longDataFromCohort <- function(cdm, cohort_name = "optima_pc_rwd"){
+  cohort_name_long <- paste(cohort_name, "long", sep = "_")
+  cdm[[cohort_name_long]] <- cdm[[cohort_name]]|>
     dplyr::left_join(cdm$condition_occurrence |> dplyr::select(person_id, condition_concept_id, condition_start_date), by = c("subject_id" = "person_id")) |>
     dplyr::filter(.data$condition_start_date < .data$cohort_start_date) |>
     dplyr::rename("concept_id" = "condition_concept_id")|>
     dplyr::select(!c(condition_start_date))|>
-    dplyr::union_all( cdm$optima_pc_rwd |>
+    dplyr::union_all( cdm[[cohort_name]] |>
                         dplyr::left_join(cdm$drug_exposure |> dplyr::select(person_id, drug_concept_id, drug_exposure_start_date, drug_exposure_end_date), by = c("subject_id" = "person_id")) |>
                         dplyr::mutate(days_diff_start = as.integer(.data$cohort_start_date - .data$drug_exposure_start_date),
                                       days_diff_end = as.integer(.data$cohort_start_date - .data$drug_exposure_end_date)) |>
                         dplyr::filter((.data$days_diff_start <= 365 & .data$days_diff_start > 0 ) | (.data$days_diff_end <= 365 & .data$days_diff_end > 0 ) | (.data$cohort_start_date > .data$drug_exposure_start_date & .data$cohort_start_date < .data$drug_exposure_end_date)) |>
                         dplyr::rename("concept_id" = "drug_concept_id") |>
                         dplyr::select(!c(drug_exposure_start_date, drug_exposure_end_date, days_diff_start, days_diff_end))) |>
-    dplyr::compute(name = "optima_pc_rwd_long")
+    dplyr::compute(name = cohort_name_long)
 
 return(cdm)
 }
@@ -36,8 +36,9 @@ getFrequentConcepts <- function(cohort, excluded_codes){
 return(frequent_concepts)
 }
 
-visitsCount <- function(cdm){
-  cdm$optima_pc_rwd_visits <- cdm$optima_pc_rwd |>
+visitsCount <- function(cdm, cohort_name = "optima_pc_rwd"){
+  cohort_name_visits <- paste(cohort_name, "visits", sep = "_")
+  cdm[[cohort_name_visits]] <- cdm[[cohort_name]] |>
     dplyr::left_join(cdm$visit_occurrence |>
                        dplyr::filter(.data$visit_concept_id != 38004268) |>
                        dplyr::select("person_id", "visit_concept_id", "visit_start_date", "visit_end_date"),
@@ -49,7 +50,7 @@ visitsCount <- function(cdm){
     dplyr::tally() |>
     tidyr::pivot_wider(names_from = "visit_concept_id", values_from = "n", names_prefix = "visit_", values_fill = list(n = 0)) |>
 
-    dplyr::compute(name = "optima_pc_rwd_visits")
+    dplyr::compute(name = cohort_name_visits)
   return(cdm)
 }
 getWideData <- function(cohort, frequent_concepts, visits) {
@@ -88,20 +89,20 @@ getWideData <- function(cohort, frequent_concepts, visits) {
   return(wide_data)
 }
 
-addVariables <- function(cdm) {
-  cols <- colnames(cdm$optima_pc_rwd)
+addVariables <- function(cdm, cohort_name = "optima_pc_rwd" ) {
+  cols <- colnames(cdm[[cohort_name]])
 
   if (!("latest_psa_value" %in% cols)){
-    cdm$optima_pc_rwd |>
+    cdm[[cohort_name]] |>
     PatientProfiles::addCategories(variable = "psa_value", categories = list("latest_psa_value" = list("<3" = c(-Inf, 2.99),
                                                                                                        "3 to 19.99" = c(3,19.99),
                                                                                                        "20 to 39.99" = c(20, 39.99),
                                                                                                        ">40" = c(40, Inf))
-    ), name = "optima_pc_rwd") |>
+    ), name = cohort_name) |>
     dplyr::mutate(latest_psa_value = dplyr::coalesce(.data$latest_psa_value, "none"))
   }
   if (!("latest_gleason_score_value" %in% cols)) {
-  cdm$optima_pc_rwd <- cdm$optima_pc_rwd |>
+  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
     PatientProfiles::addConceptIntersectField(conceptSet = list("gleason_score" = 619648),
                                               field = "value_as_number",
                                               indexDate = "cohort_start_date",
@@ -117,18 +118,18 @@ addVariables <- function(cdm) {
                                                                                          "8 to 10" = c(8,10),
                                                                                          ">10" = c(11, Inf))
                                    ),
-                                   name = "optima_pc_rwd")
+                                   name = cohort_name)
   }
   if (!("latest_n_status" %in% cols)) {
     N_status_codelist <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/N-status"), type = "csv")
 
-  cdm$optima_pc_rwd <- cdm$optima_pc_rwd |>
+  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
     PatientProfiles::addConceptIntersectDate(conceptSet = N_status_codelist,
 
                                              indexDate = "cohort_start_date",
                                              order = "last",
                                              window = c(-Inf,0),
-                                             name = "optima_pc_rwd",
+                                             name = cohort_name,
                                              nameStyle = "{concept_name}"
     ) |>
     dplyr::mutate(
@@ -145,15 +146,15 @@ addVariables <- function(cdm) {
     dplyr::group_by(subject_id) %>%
     dplyr::filter(n_date == max(n_date, na.rm = TRUE)) %>%
     dplyr::ungroup() %>%
-    dplyr::select(-n0, -nx, -n1, -n2, -n3) |> dplyr::compute(name = "optima_pc_rwd")
+    dplyr::select(-n0, -nx, -n1, -n2, -n3) |> dplyr::compute(name = cohort_name)
   }
 
-  cdm$optima_pc_rwd <- cdm$optima_pc_rwd |>
+  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
     dplyr::mutate(latest_psa_value = dplyr::coalesce(.data$latest_psa_value, "none"),
                   latest_n_status = dplyr::coalesce(.data$latest_n_status, "none"),
                   latest_gleason_score_value = dplyr::coalesce(.data$latest_gleason_score_value, "none")) |>
     dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date", dplyr::starts_with("latest") ) |>
-    dplyr::compute(name = "optima_pc_rwd")
+    dplyr::compute(name = cohort_name)
   return(cdm)
 }
 
@@ -181,41 +182,100 @@ getSelectedFeatures <- function(wide_data, directory, cdm, cdm_name) {
     propensity_score = propensity_scores,
     treatment = base::as.factor(y)
   )
-  p <- ggplot2::ggplot(plot_data, ggplot2::aes(x = propensity_score, fill = treatment)) +
-    ggplot2::geom_density(alpha = 0.5) +
-    ggplot2::labs(
-      title = "Distribution of propensity scores by treatment",
-      x = "Propensity score",
-      fill = "Treatment"
-    ) +
-    ggplot2::theme_minimal()
-  ggplot2::ggsave(
-    filename = file.path(directory, paste0(cdm_name, "_propensity_plot.png")),
-    plot = p, width = 7, height = 5, units = "in", dpi = 300
-  )
+
+  density_points <- export_ps_density(plot_data)
 
   concepts <- selectedLassoFeatures[!(selectedLassoFeatures %in% c("age", "year"))]
-  coefs_concepts <- coefs[concepts,]
-  concepts <- gsub("[^0-9]", "", concepts)
+  concepts <-as.integer(as.numeric(gsub("[^0-9]", "", concepts)))
 
-  names(coefs_concepts) <- concepts
 
-  x <- tibble::tibble("concept_id" = as.integer(names(coefs_concepts)), "coefficient" = unname(coefs_concepts))
+  tab <- tibble::enframe(coefs[selectedLassoFeatures, ],
+                         name = "variable",
+                         value = "coefficient") |>
+    dplyr::mutate(variable = dplyr::if_else(.data$variable %in% c("age", "year"), .data$variable, (gsub("[^0-9]", "", .data$variable))))
 
-  res <- cdm$concept |>
+  x <-  cdm$concept |>
     dplyr::filter(.data$concept_id %in% concepts) |>
-    dplyr::select(concept_id, concept_name, domain_id) |>
-    dplyr::collect()|>
-    dplyr::left_join(x, by = "concept_id") |>
+    dplyr::transmute(
+      variable     = as.character(.data$concept_id),
+      concept_name = .data$concept_name,
+      domain_id    = .data$domain_id
+    ) |>
+    dplyr::collect() |>
+    dplyr::right_join(tab, by = "variable") |>
     dplyr::arrange(coefficient)
 
-  utils::write.csv(
-    res,
-    file = file.path(directory, paste0(cdm_name, "_lasso_coefs.csv")),
-    row.names = FALSE
-  )
-  return(gsub("`", "", selectedLassoFeatures))
+
+
+  return(list(selected_columns = gsub("^`|`$", "", selectedLassoFeatures),selected_features = x, density_points = density_points))
 }
+
+export_ps_density <- function(plot_data, bw = "nrd0", n = 256, kernel = "gaussian") {
+
+  rng <- range(plot_data$propensity_score, na.rm = TRUE)  # common x-range
+
+  dens_df <- lapply(split(plot_data, plot_data$treatment), function(df) {
+
+    d <- stats::density(
+      df$propensity_score,
+      from = rng[1], to = rng[2],
+      bw = bw, n = n, kernel = kernel, na.rm = TRUE
+    )
+    data.frame(
+      treatment = as.character(df$treatment[1]),
+      x = d$x,
+      y = d$y
+    )
+  }) |> dplyr::bind_rows()
+
+  return(dens_df)
+
+}
+
+computeASMD <- function(wide_data, features = c()) {
+  features
+  df <- wide_data |>
+    dplyr::select(dplyr::all_of(c("treatment" ="y", features)))
+  treatment <- df$treatment
+  group <- unique(df$treatment)
+  map_names <- c("0" = "ebrt", "1" = "radical_prostatectomy")
+  names(group) <- map_names[as.character(group)]
+
+
+  result <- purrr::map_dfr(features, function(v) {
+    x <- df[[v]]
+    x0 <- x[treatment == group[1]]
+    x1 <- x[treatment == group[2]]
+
+    m0 <- mean(x0, na.rm = TRUE)
+    m1 <- mean(x1, na.rm = TRUE)
+    s0 <- stats::sd(x0, na.rm = TRUE)
+    s1 <- stats::sd(x1, na.rm = TRUE)
+
+    sd_pooled <- sqrt((s0^2 + s1^2) / 2)
+
+    smd <- if (is.finite(sd_pooled) && sd_pooled > 0) {
+      (m1 - m0) / sd_pooled
+    } else if (isTRUE(all.equal(m1, m0))) {
+      0
+    } else {
+      NA_real_
+    }
+
+    tibble::tibble(
+      covariate     = v,
+      smd          = smd,
+      asmd         = abs(smd),
+      reference    = names(group[1]),
+      comparator   = names(group[2])
+    )
+  }) |> dplyr::bind_rows()
+
+  return(result)
+}
+
+
+
 ### matching ----
 getMatchedData <- function(selectedFeatures, wide_data, directory, cdm_name) {
 
@@ -327,35 +387,35 @@ outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times =
       number_events = sum(status),
      .groups = "drop"
     ) |>
-    mutate(outcome)
+    dplyr::mutate(outcome = outcome)
 
   followup_summary <- x |>
     dplyr::group_by(treatment) |>
     dplyr::summarise(
-      n = n(),
+      n = dplyr::n(),
       min = min(time),
-      q05 = quantile(time, 0.05),
-      q25 = quantile(time, 0.25),
-      median = median(time),
-      q75 = quantile(time, 0.75),
-      q95 = quantile(time, 0.95),
+      q05 = stats::quantile(time, 0.05),
+      q25 = stats::quantile(time, 0.25),
+      median = stats::median(time),
+      q75 = stats::quantile(time, 0.75),
+      q95 = stats::quantile(time, 0.95),
       max = max(time),
       .groups = "drop"
     ) |>
     dplyr::mutate(reason = "overall") |>
     dplyr::relocate("treatment", "reason") |>
-    union_all(
+    dplyr::union_all(
       x |>
         dplyr::group_by(treatment, reason) |>
         dplyr::summarise(
-          n = n(),
+          n = dplyr::n(),
 
           min = min(time),
-          q05 = quantile(time, 0.05),
-          q25 = quantile(time, 0.25),
-          median = median(time),
-          q75 = quantile(time, 0.75),
-          q95 = quantile(time, 0.95),
+          q05 = stats::quantile(time, 0.05),
+          q25 = stats::quantile(time, 0.25),
+          median = stats::median(time),
+          q75 = stats::quantile(time, 0.75),
+          q95 = stats::quantile(time, 0.95),
           max = max(time),
           .groups = "drop"
         )
@@ -388,6 +448,9 @@ outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times =
       adjustment = adjustment_label,
       covariates_used = paste(covariates, collapse = "&"),
       outcome = outcome
+    ) |>
+    dplyr::mutate(
+      dplyr::across(dplyr::where(is.numeric), ~ sprintf("%.3f", .x))
     )
 
   group_cols = c("treatment", covariates)
@@ -420,17 +483,17 @@ outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times =
                   covariates_used = paste(covariates, collapse = "&")) |>
     dplyr::left_join(
       risk_times |>
-        purrr::map_df(\(st) {
+        purrr::map_df(\(rt) {
 
           x |>
-            filter(st <= time) |>
+            dplyr::filter(rt <= as.integer(.data$time)) |>
             dplyr::group_by(treatment) |>
             dplyr::summarise(
-              number_subjects = n(),
+              number_subjects = dplyr::n(),
 
               .groups = "drop"
             ) |>
-            dplyr::mutate(time = st)
+            dplyr::mutate(time = rt)
         }),
       by = c("time", "treatment")
     )
@@ -453,9 +516,9 @@ clean_names <- function(x) {
   base::make.unique(x, sep = "_")            # ensure uniqueness
 }
 
-bindResults <- function(result, cdmName) {
+bindResults <- function(result, cdmName, cohort_name) {
 
-  group <- list(
+  variable <- list(
     "hr_summary" = "variable",
     "survival_summary" = "treatment",
     "events_summary" = "treatment",
@@ -490,10 +553,16 @@ bindResults <- function(result, cdmName) {
       x |>
         dplyr::mutate(
           result_type = nm,
-          cdm_name = cdmName
+          cdm_name = cdmName,
+          cohort = cohort_name
+        ) |>
+        tidyr::pivot_longer(
+          cols = variable[[nm]],
+          names_to = "variable_name",
+          values_to = "variable_level"
         ) |>
         omopgenerics::transformToSummarisedResult(
-          group = group[[nm]], strata = strata[[nm]], additional = c(character(0), intersect(colnames(x),additional[[nm]])),
+          group = "cohort", strata = strata[[nm]], additional = c(character(0), intersect(colnames(x),additional[[nm]])),
           estimates = estimates[[nm]], settings = "result_type"
         )
     }) |>
