@@ -15,6 +15,13 @@ source("MainStudy/Model/functions.R")
 excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codelist/ExcludedFromPS", type = "csv") |> unlist() |> unname()
 output_directory = here::here("MainStudy/Results")
 
+cohort_name = "optima_pc_trial"
+cohort_name_long <- paste(cohort_name, "long", sep = "_")
+cohort_name_visits <- paste(cohort_name, "visits", sep = "_")
+cohort_name_matched <- paste(cohort_name, "matched", sep = "_")
+
+
+result <- list()
 
 ### gold ----
 dbName_gold <-"gold_pc"
@@ -27,7 +34,7 @@ con_gold <- dbConnect(drv = Postgres(),
 
 
 cdm_g <- cdmFromCon(con = con_gold, cdmSchema = "public", writeSchema = "results", achillesSchema = "results", writePrefix = "cc_", .softValidation = TRUE, cdmName = dbName_gold,
-                    cohortTables = c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_long", "optima_pc_rwd_visits", "progression"))
+                    cohortTables = c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_long", "optima_pc_rwd_visits","optima_pc_trial_long", "optima_pc_trial_visits", "progression"))
 
 
 cdm_g$observation_period <- cdm_g$observation_period |>
@@ -46,20 +53,20 @@ con_aurum <- dbConnect(drv = Postgres(),
 
 
 cdm_a <- cdmFromCon(con = con_aurum, cdmSchema = "public", writeSchema = "results", achillesSchema = "results", writePrefix = "cc_", .softValidation = TRUE, cdmName = dbName_aurum,
-                    cohortTables = c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_long", "optima_pc_rwd_visits", "progression"))
+                    cohortTables = c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_long", "optima_pc_rwd_visits","optima_pc_trial_long", "optima_pc_trial_visits", "progression"))
 
 
 cdm_a$observation_period <- cdm_a$observation_period |>
   dplyr::filter(.data$period_type_concept_id == 32882)
 
 
-### all ----
+### merged cohort ----
 
-cohort_rwd <- dplyr::bind_rows(cdm_g$optima_pc_rwd_long |>
+cohort_rwd <- dplyr::bind_rows(cdm_g[[cohort_name_long]] |>
                                  dplyr::mutate("source" = "gold") |>
                                  PatientProfiles::addAge() |>
                                  dplyr::collect(),
-                               cdm_a$optima_pc_rwd_long |>
+                               cdm_a[[cohort_name_long]] |>
                                  dplyr::mutate(source = "aurum") |>
                                  PatientProfiles::addAge() |>
                                  dplyr::collect()
@@ -68,23 +75,108 @@ cohort_rwd <- dplyr::bind_rows(cdm_g$optima_pc_rwd_long |>
 frequent_concepts <- getFrequentConcepts(cohort = cohort_rwd, excluded_codes = excluded_codes)
 
 
-visits <- cdm_a$optima_pc_rwd_visits |>
+visits <- cdm_a[[cohort_name_visits]] |>
   dplyr::collect() |>
-  dplyr::bind_rows(cdm_g$optima_pc_rwd_visits |>
+  dplyr::bind_rows(cdm_g[[cohort_name_visits]] |>
                      dplyr::collect())
 
 wide_data <- getWideData(cohort = cohort_rwd, frequent_concepts, visits)
 
-selectedFeatures <- getSelectedFeatures(wide_data = wide_data,
-                                        directory = paste0(output_directory, "/Lasso"),
-                                        cdm = cdm_a,
-                                        cdm_name = "merged")
+### Lasso ----
+
+x <- getSelectedFeatures(wide_data = wide_data,
+                         directory = paste0(output_directory, "/Lasso"),
+                         cdm = cdm_a,
+                         cdm_name = "merged")
 
 
-matched_data <- getMatchedData(selectedFeatures = selectedFeatures,
+
+result[["density_points"]] <- x$density_points |>
+  dplyr::mutate(
+    strata_name  = "treatment",
+    strata_level = as.character(.data$treatment),
+    idx          = dplyr::row_number(),
+    density_x    = .data$x,
+    density_y    = .data$y
+  ) |>
+  tidyr::pivot_longer(
+    cols = c(density_x, density_y),
+    names_to = "estimate_name",
+    values_to = "estimate_value"
+  ) |>
+  dplyr::mutate(
+    estimate_name = paste0(.data$estimate_name, "_", .data$idx),
+    estimate_value = sprintf("%.4f", .data$estimate_value),
+    estimate_type = "numeric",
+    cohort = cohort_name,
+    cdm_name = "merged",
+    variable_name  = NA_character_,
+    variable_level = NA_character_,
+    result_id = 1L
+
+  ) |>
+  dplyr::select(!c("treatment", "x", "y", "idx")) |>
+  omopgenerics::uniteGroup(cols = "cohort") |>
+  omopgenerics::uniteAdditional() |>
+  omopgenerics::newSummarisedResult(settings = tibble::tibble(result_id = 1L, result_type = "distribution_ps"))
+
+result[["selected_features"]] <- x$selected_features |>
+  dplyr::mutate(coefficient = sprintf("%.4f", .data$coefficient),
+                cohort = cohort_name,
+                result_type = "selected_features") |>
+  omopgenerics::transformToSummarisedResult(group = "cohort", strata = "variable", additional = c("concept_name","domain_id"),
+                                            estimates = "coefficient", settings = "result_type") |>
+  dplyr::mutate(cdm_name = "merged")
+
+asmd <- computeASMD(wide_data = wide_data, features = x$selected_columns)
+
+result[["asmd"]] <- asmd |>
+  tidyr::pivot_longer(
+    cols = c(smd, asmd),
+    names_to = "estimate_name",
+    values_to = "estimate_value"
+  ) |>
+  dplyr::mutate(cohort = cohort_name,
+                cdm_name = "merged",
+                estimate_value = sprintf("%.3f", .data$estimate_value),
+                estimate_type = "numeric",
+                variable_name = "covariate",
+                variable_level = .data$covariate,
+                result_id = 1L) |>
+  omopgenerics::uniteAdditional(cols = c("reference", "comparator")) |>
+  omopgenerics::uniteStrata() |>
+  omopgenerics::uniteGroup(cols = "cohort") |>
+  dplyr::select(!"covariate") |>
+  omopgenerics::newSummarisedResult(settings = tibble::tibble(result_id = 1L, result_type = "asmd"))
+
+
+### Matching ----
+
+matched_data <- getMatchedData(selectedFeatures = x$selected_columns,
                                wide_data = wide_data,
                                directory = paste0(output_directory, "/Matching"),
                                cdm_name = "merged")
+
+asmd_matched <- computeASMD(wide_data = matched_data, features = x$selected_columns)
+
+result[["asmd_matched"]] <- asmd_matched |>
+  tidyr::pivot_longer(
+    cols = c(smd, asmd),
+    names_to = "estimate_name",
+    values_to = "estimate_value"
+  ) |>
+  dplyr::mutate(cohort = cohort_name_matched,
+                cdm_name = "merged",
+                estimate_value = sprintf("%.3f", .data$estimate_value),
+                estimate_type = "numeric",
+                variable_name = "covariate",
+                variable_level = .data$covariate,
+                result_id = 1L) |>
+  omopgenerics::uniteAdditional(cols = c("reference", "comparator")) |>
+  omopgenerics::uniteStrata() |>
+  omopgenerics::uniteGroup(cols = "cohort") |>
+  dplyr::select(!"covariate") |>
+  omopgenerics::newSummarisedResult(settings = tibble::tibble(result_id = 1L, result_type = "asmd"))
 
 
 gold_matched_subjects <- matched_data |>
@@ -99,15 +191,15 @@ aurum_matched_subjects <- matched_data |>
 matched_data <- matched_data |>
   dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date",  "cohort_end_date")
 
-
-cdm_g$merged_matched_data <- cdm_g$optima_pc_rwd |>
+marged_matched_cohort_name <- paste("merged", cohort_name_matched, sep = "_")
+cdm_g[[marged_matched_cohort_name]] <- cdm_g[[cohort_name]] |>
   dplyr::filter(.data$subject_id %in% gold_matched_subjects) |>
-  dplyr::compute(name = "merged_matched_data") |>
+  dplyr::compute(name = marged_matched_cohort_name) |>
   omopgenerics::newCohortTable()
 
-cdm_a$merged_matched_data <- cdm_a$optima_pc_rwd |>
+cdm_a[[marged_matched_cohort_name]] <- cdm_a[[cohort_name]] |>
   dplyr::filter(.data$subject_id %in% aurum_matched_subjects) |>
-  dplyr::compute(name = "merged_matched_data")
+  dplyr::compute(name = marged_matched_cohort_name)
 
 
 ### Outcome model ----
@@ -118,7 +210,9 @@ outcome_codelist <- omopgenerics::importCodelist(here::here("Codelist/Outcomes")
 outcomes <- clean_names(names(outcome_codelist))
 names(outcome_codelist) <- outcomes
 
-cdm_g[["merged_survival_data"]] <- cdm_g[["merged_matched_data"]] |>
+
+
+cdm_g[["merged_survival_data"]] <- cdm_g[[marged_matched_cohort_name]] |>
   PatientProfiles::addDeathDays(deathDaysName = "death", name = "merged_survival_data") |>
   PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation", name = "merged_survival_data") |>
   PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression", name = "merged_survival_data" ) |>
@@ -148,7 +242,7 @@ cdm_g[["merged_survival_data"]] <- cdm_g[["merged_matched_data"]] |>
   dplyr::compute(name = "merged_survival_data")
 
 
-cdm_a[["merged_survival_data"]] <- cdm_a[["merged_matched_data"]] |>
+cdm_a[["merged_survival_data"]] <- cdm_a[[marged_matched_cohort_name]] |>
   PatientProfiles::addDeathDays(deathDaysName = "death", name = "merged_survival_data") |>
   PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation", name = "merged_survival_data") |>
   PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression", name = "merged_survival_data" ) |>
@@ -204,13 +298,15 @@ survival_data <-  cdm_g[["merged_survival_data"]] |>
                      dplyr::mutate(source = "aurum") |>
                      dplyr::collect())
 outcomes <- c("death", "progression", outcomes)
-result <- outcomes |>
+res_outcomes <- outcomes |>
   purrr::map(\(out) {
     outcomeModel(survival_data = survival_data, outcome = out)
-  }) |>
-  bindResults(cdmName = "merged")
+  })
+result[["survival"]] <- res_outcomes |>
+  bindResults(cdmName = "merged", cohort_name = cohort_name)
 
-omopgenerics::exportSummarisedResult(result, path = paste0(output_directory, "/Survival"), fileName = "survival_results_{cdm_name}.csv")
+result_to_export <- omopgenerics::bind(result)
+omopgenerics::exportSummarisedResult(result, path = paste0(output_directory, "/Survival"), fileName = paste0("results_{cdm_name}_", cohort_name,".csv"))
 
 
 CDMConnector::cdmDisconnect(cdm_a)
