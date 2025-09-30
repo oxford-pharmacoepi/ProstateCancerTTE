@@ -39,21 +39,19 @@ result[["density_points"]] <- x$density_points |>
     density_x    = .data$x,
     density_y    = .data$y
   ) |>
+  dplyr::mutate(variable_level = paste("density", .data$idx, sep ="_"))|>
   tidyr::pivot_longer(
     cols = c(density_x, density_y),
     names_to = "estimate_name",
     values_to = "estimate_value"
   ) |>
   dplyr::mutate(
-    estimate_name = paste0(.data$estimate_name, "_", .data$idx),
     estimate_value = sprintf("%.4f", .data$estimate_value),
     estimate_type = "numeric",
     cohort = cohort_name,
     cdm_name = dbName,
-    variable_name  = NA_character_,
-    variable_level = NA_character_,
+    variable_name  = "Propensity score distribution",
     result_id = 1L
-
   ) |>
   dplyr::select(!c("treatment", "x", "y", "idx")) |>
   omopgenerics::uniteGroup(cols = "cohort") |>
@@ -63,7 +61,10 @@ result[["density_points"]] <- x$density_points |>
 result[["selected_features"]] <- x$selected_features |>
   dplyr::mutate(coefficient = sprintf("%.4f", .data$coefficient),
                 cohort = cohort_name,
-                result_type = "selected_features") |>
+                result_type = "selected_features",
+                variable_name = "event X=1",
+                variable_level = .data$event) |>
+
   omopgenerics::transformToSummarisedResult(group = "cohort", strata = "variable", additional = c("concept_name","domain_id"),
                                             estimates = "coefficient", settings = "result_type") |>
   dplyr::mutate(cdm_name = dbName)
@@ -83,7 +84,7 @@ result[["asmd"]] <- asmd |>
                 variable_name = "covariate",
                 variable_level = .data$covariate,
                 result_id = 1L) |>
-  omopgenerics::uniteAdditional(cols = c("reference", "comparator")) |>
+  omopgenerics::uniteAdditional(cols = c("event", "comparator")) |>
   omopgenerics::uniteStrata() |>
   omopgenerics::uniteGroup(cols = "cohort") |>
   dplyr::select(!"covariate") |>
@@ -111,7 +112,7 @@ result[["asmd_matched"]] <- asmd_matched |>
                 variable_name = "covariate",
                 variable_level = .data$covariate,
                 result_id = 1L) |>
-  omopgenerics::uniteAdditional(cols = c("reference", "comparator")) |>
+  omopgenerics::uniteAdditional(cols = c("event", "comparator")) |>
   omopgenerics::uniteStrata() |>
   omopgenerics::uniteGroup(cols = "cohort") |>
   dplyr::select(!"covariate") |>
@@ -146,9 +147,9 @@ outcomes <- clean_names(names(outcome_codelist))
 names(outcome_codelist) <- outcomes
 
 cdm[["survival_data"]] <- cdm[[cohort_name_matched]] |>
-  PatientProfiles::addDeathDays(deathDaysName = "death", name = "survival_data") |>
+  PatientProfiles::addDeathDays(deathDaysName = "death", name = "survival_data", window = c(1, Inf)) |>
   PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation", name = "survival_data") |>
-  PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression", name = "survival_data" ) |>
+  PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression", name = "survival_data", window = c(1, Inf) ) |>
   dplyr::mutate(
     death = dplyr::coalesce(.data[["death"]], 999999L),
     progression = dplyr::coalesce(.data[["progression"]], 999999L)
@@ -175,14 +176,33 @@ cdm[["survival_data"]] <- cdm[[cohort_name_matched]] |>
   dplyr::compute(name = "survival_data")
 
 for (out in outcomes){
-
+  washout_name <-paste0(out, "_washout")
   cdm[["survival_data"]] <- cdm[["survival_data"]] |>
     PatientProfiles::addConceptIntersectDays(conceptSet = list(out = outcome_codelist[[out]]),
+                                             window = list(c(1, Inf)),
                                              nameStyle = out,
                                              name = "survival_data") |>
+    PatientProfiles::addConceptIntersectFlag(conceptSet = list(out = outcome_codelist[[out]]),
+                                             window = list(c(-365, 0)),
+                                             targetStartDate = "event_end_date",
+                                             name = "survival_data",
+                                             nameStyle = washout_name, ) |>
+
     dplyr::mutate(
       !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
     )
+
+
+  pairs <- cdm[["survival_data"]] |>
+    dplyr::filter(.data[[ washout_name]] == 1L) |>
+    dplyr::pull(.data$pair_id)
+
+  cdm[["survival_data"]] <- cdm[["survival_data"]] |>
+    dplyr::mutate( !!rlang::sym(out) := dplyr::if_else(.data$pair_id %in% pairs,  999999L ,.data[[out]])) |>
+    dplyr::select(!dplyr::all_of(washout_name)) |>
+    dplyr::compute("survival_data")
+
+
 
 }
 survival_data <-  cdm[["survival_data"]] |>

@@ -16,6 +16,10 @@ longDataFromCohort <- function(cdm, cohort_name = "optima_pc_rwd"){
                         dplyr::select(!c(drug_exposure_start_date, drug_exposure_end_date, days_diff_start, days_diff_end))) |>
     dplyr::compute(name = cohort_name_long)
 
+  cdm[[cohort_name_long]] <- cdm[[cohort_name_long]] |>
+    dplyr::right_join(cdm[[cohort_name]]) |>
+    dplyr::compute(name = cohort_name_long)
+
 return(cdm)
 }
 
@@ -51,6 +55,10 @@ visitsCount <- function(cdm, cohort_name = "optima_pc_rwd"){
     tidyr::pivot_wider(names_from = "visit_concept_id", values_from = "n", names_prefix = "visit_", values_fill = list(n = 0)) |>
 
     dplyr::compute(name = cohort_name_visits)
+
+  cdm[[cohort_name_visits]] <- cdm[[cohort_name_visits]] |>
+    dplyr::right_join(cdm[[cohort_name]]) |>
+    dplyr::compute(name = cohort_name_visits)
   return(cdm)
 }
 getWideData <- function(cohort, frequent_concepts, visits) {
@@ -68,8 +76,7 @@ getWideData <- function(cohort, frequent_concepts, visits) {
     values_from = value,
     values_fill = list(value = 0)
   )|>
-    dplyr::left_join(visits,
-                     by = c("subject_id", "cohort_definition_id", "cohort_start_date", "cohort_end_date")) |>
+    dplyr::left_join(visits) |>
     dplyr::collect() |>
     dplyr::mutate(year = clock::get_year(cohort_start_date),
                   visit_9201 = dplyr::coalesce(visit_9201, 0),
@@ -82,10 +89,6 @@ getWideData <- function(cohort, frequent_concepts, visits) {
       TRUE ~ NA_character_
       ))
 
-  wide_data <- wide_data |>
-    dplyr::distinct() |>
-    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0),
-    )
   return(wide_data)
 }
 
@@ -93,13 +96,18 @@ addVariables <- function(cdm, cohort_name = "optima_pc_rwd" ) {
   cols <- colnames(cdm[[cohort_name]])
 
   if (!("latest_psa_value" %in% cols)){
-    cdm[[cohort_name]] |>
-    PatientProfiles::addCategories(variable = "psa_value", categories = list("latest_psa_value" = list("<3" = c(-Inf, 2.99),
+    cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+      dplyr::mutate(
+        psa_value = dplyr::coalesce(.data$psa_value, -1)
+      ) |>
+      PatientProfiles::addCategories(variable = "psa_value", categories = list("latest_psa_value" = list("<3" = c(0, 2.99),
                                                                                                        "3 to 19.99" = c(3,19.99),
                                                                                                        "20 to 39.99" = c(20, 39.99),
-                                                                                                       ">40" = c(40, Inf))
-    ), name = cohort_name) |>
-    dplyr::mutate(latest_psa_value = dplyr::coalesce(.data$latest_psa_value, "none"))
+                                                                                                       ">40" = c(40, Inf),
+                                                                                                       "missing" = c(-1,-1))
+                                                                               ), name = cohort_name) |>
+
+      dplyr::compute(name = cohort_name)
   }
   if (!("latest_gleason_score_value" %in% cols)) {
   cdm[[cohort_name]] <- cdm[[cohort_name]] |>
@@ -111,48 +119,50 @@ addVariables <- function(cdm, cohort_name = "optima_pc_rwd" ) {
                                               name = cohort_name,
                                               allowDuplicates = FALSE,
                                               nameStyle = "gleason") |>
+    dplyr::mutate(
+      gleason = dplyr::coalesce(.data$gleason, -1)
+    ) |>
     PatientProfiles::addCategories(variable = "gleason",
                                    categories = list("latest_gleason_score_value" = list("<2" = c(0,1),
                                                                                          "2 to 6" = c(2,6),
                                                                                          "7" = c(7,7),
                                                                                          "8 to 10" = c(8,10),
-                                                                                         ">10" = c(11, Inf))
+                                                                                         ">10" = c(11, Inf),
+                                                                                         "missing" = c(-1,-1))
                                    ),
                                    name = cohort_name)
   }
   if (!("latest_n_status" %in% cols)) {
     N_status_codelist <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/N-status"), type = "csv")
 
-  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
-    PatientProfiles::addConceptIntersectDate(conceptSet = N_status_codelist,
+    cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+      PatientProfiles::addConceptIntersectDate(conceptSet = N_status_codelist,
 
                                              indexDate = "cohort_start_date",
                                              order = "last",
                                              window = c(-Inf,0),
                                              name = cohort_name,
                                              nameStyle = "{concept_name}"
-    ) |>
-    dplyr::mutate(
-      n_date = pmax(n0, nx, n1, n2, n3, na.rm = TRUE),
-      latest_n_status = dplyr::case_when(
-        n0 == n_date ~ "n0",
-        nx == n_date ~ "nx",
-        n1 == n_date ~ "n1",
-        n2 == n_date ~ "n2",
-        n3 == n_date ~ "n3",
-        TRUE ~ NA_character_
-      )
-    ) %>%
-    dplyr::group_by(subject_id) %>%
-    dplyr::filter(n_date == max(n_date, na.rm = TRUE)) %>%
-    dplyr::ungroup() %>%
-    dplyr::select(-n0, -nx, -n1, -n2, -n3) |> dplyr::compute(name = cohort_name)
+                                             ) |>
+      dplyr::mutate(
+        n_date = pmax(n0, nx, n1, n2, n3, na.rm = TRUE),
+        latest_n_status = dplyr::case_when(
+          is.na(n0) & is.na(nx) & is.na(n1) & is.na(n2) & is.na(n3) ~ "missing",
+          n0 == n_date ~ "n0",
+          nx == n_date ~ "nx",
+          n1 == n_date ~ "n1",
+          n2 == n_date ~ "n2",
+          n3 == n_date ~ "n3",
+          TRUE ~ NA_character_
+          )) %>%
+      dplyr::group_by(subject_id) %>%
+      dplyr::filter(.data$latest_n_status == "missing" | .data$n_date == max(n_date, na.rm = TRUE))  |>
+      dplyr::ungroup() %>%
+      dplyr::select(-n0, -nx, -n1, -n2, -n3) |>
+      dplyr::compute(name = cohort_name)
   }
 
   cdm[[cohort_name]] <- cdm[[cohort_name]] |>
-    dplyr::mutate(latest_psa_value = dplyr::coalesce(.data$latest_psa_value, "none"),
-                  latest_n_status = dplyr::coalesce(.data$latest_n_status, "none"),
-                  latest_gleason_score_value = dplyr::coalesce(.data$latest_gleason_score_value, "none")) |>
     dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date", dplyr::starts_with("latest") ) |>
     dplyr::compute(name = cohort_name)
   return(cdm)
@@ -160,13 +170,20 @@ addVariables <- function(cdm, cohort_name = "optima_pc_rwd" ) {
 
 
 getSelectedFeatures <- function(wide_data, directory, cdm, cdm_name) {
+  wide_data <- wide_data |>
+    dplyr::distinct() |>
+    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0),
+    )
+
   y <- wide_data$y
   X <- wide_data |>
     dplyr::select(-c("y",dplyr::starts_with("latest"), dplyr::ends_with("group")))
+
   X <- stats::model.matrix(
     ~ . - cohort_definition_id - cohort_start_date - cohort_end_date - subject_id + age + year ,
     data = X
   )[, -1]
+  set.seed(2025)
   lasso_fit <- glmnet::cv.glmnet(
     x = X,
     y = y,
@@ -192,7 +209,8 @@ getSelectedFeatures <- function(wide_data, directory, cdm, cdm_name) {
   tab <- tibble::enframe(coefs[selectedLassoFeatures, ],
                          name = "variable",
                          value = "coefficient") |>
-    dplyr::mutate(variable = dplyr::if_else(.data$variable %in% c("age", "year"), .data$variable, (gsub("[^0-9]", "", .data$variable))))
+    dplyr::mutate(variable = dplyr::if_else(.data$variable %in% c("age", "year"), .data$variable, gsub("[^0-9]", "", .data$variable)),
+                  event = "RP")
 
   x <-  cdm$concept |>
     dplyr::filter(.data$concept_id %in% concepts) |>
@@ -233,26 +251,31 @@ export_ps_density <- function(plot_data, bw = "nrd0", n = 256, kernel = "gaussia
 }
 
 computeASMD <- function(wide_data, features = c()) {
-  features
-  df <- wide_data |>
-    dplyr::select(dplyr::all_of(c("treatment" ="y", features)))
-  treatment <- df$treatment
-  group <- unique(df$treatment)
-  map_names <- c("0" = "ebrt", "1" = "radical_prostatectomy")
-  names(group) <- map_names[as.character(group)]
 
+  df <- wide_data |>
+    dplyr::select(dplyr::all_of(c("treatment" ="y", features)))|>
+    dplyr::mutate(
+      treatment = dplyr::recode(as.character(.data$treatment),
+                                "0" = "EBRT",
+                                "1" = "RP"),
+      treatment = factor(.data$treatment, levels = c("EBRT","RP"))
+    )
+
+  treatment <- df$treatment
 
   result <- purrr::map_dfr(features, function(v) {
     x <- df[[v]]
-    x0 <- x[treatment == group[1]]
-    x1 <- x[treatment == group[2]]
+    x0 <- x[df$treatment == "EBRT"]
+    x1 <- x[df$treatment == "RP"]
+
+
 
     m0 <- mean(x0, na.rm = TRUE)
     m1 <- mean(x1, na.rm = TRUE)
-    s0 <- stats::sd(x0, na.rm = TRUE)
-    s1 <- stats::sd(x1, na.rm = TRUE)
+    v0 <- stats::var(x0, na.rm = TRUE)
+    v1 <- stats::var(x1, na.rm = TRUE)
 
-    sd_pooled <- sqrt((s0^2 + s1^2) / 2)
+    sd_pooled <- sqrt((v0 + v1) / 2)
 
     smd <- if (is.finite(sd_pooled) && sd_pooled > 0) {
       (m1 - m0) / sd_pooled
@@ -266,8 +289,8 @@ computeASMD <- function(wide_data, features = c()) {
       covariate     = v,
       smd          = smd,
       asmd         = abs(smd),
-      reference    = names(group[1]),
-      comparator   = names(group[2])
+      event    = "RP",
+      comparator   = "EBRT"
     )
   }) |> dplyr::bind_rows()
 
@@ -296,7 +319,7 @@ getMatchedData <- function(selectedFeatures, wide_data, directory, cdm_name) {
   exact_vars <- exact_vars[exact_vars %in% colnames(wide_data)]
   exact_formula <- as.formula(paste("~", paste(exact_vars, collapse = " + ")))
 
-
+  set.seed(2025)
   result_matchit <- matchit(data = wide_data,
                             formula = ps_formula,
                             exact = exact_formula,
@@ -309,24 +332,24 @@ getMatchedData <- function(selectedFeatures, wide_data, directory, cdm_name) {
     dplyr::relocate(pair_id, .before = dplyr::everything())
 
   library(ggplot2)
-  p <- ggplot(matched_data, aes(x = factor(y), y = distance)) +
-    geom_jitter(width = 0.2, height = 0, alpha = 0.5) +
-    labs(
-      x = "Treatment Group",
-      y = "Propensity Score",
-      title = "Propensity Score Distribution (Matched Sample)"
-    ) +
-    theme_minimal()
-
-  # Save plot
-  ggsave(
-    filename = file.path(directory, paste0(cdm_name, "_ps_matched.png")),
-    plot = p,
-    width = 7,
-    height = 5,
-    units = "in",
-    dpi = 300
-  )
+  # p <- ggplot(matched_data, aes(x = factor(y), y = distance)) +
+  #   geom_jitter(width = 0.2, height = 0, alpha = 0.5) +
+  #   labs(
+  #     x = "Treatment Group",
+  #     y = "Propensity Score",
+  #     title = "Propensity Score Distribution (Matched Sample)"
+  #   ) +
+  #   theme_minimal()
+  #
+  # # Save plot
+  # ggsave(
+  #   filename = file.path(directory, paste0(cdm_name, "_ps_matched.png")),
+  #   plot = p,
+  #   width = 7,
+  #   height = 5,
+  #   units = "in",
+  #   dpi = 300
+  # )
 
   wide_data <- wide_data |>
     dplyr::mutate(
@@ -340,25 +363,25 @@ getMatchedData <- function(selectedFeatures, wide_data, directory, cdm_name) {
     dplyr::mutate(treatment = factor(y))
 
   # Plot histogram of propensity scores by treatment group and match status
-  p <- ggplot(plot_data, aes(x = distance, fill = treatment)) +
-    geom_histogram(alpha = 0.5, position = "identity", bins = 30) +
-    facet_wrap(~ matched) +
-    labs(
-      x = "Propensity Score",
-      y = "Count",
-      fill = "Treatment",
-      title = "Propensity Score Distribution by Matching Status"
-    ) +
-    theme_minimal()
-
-  ggsave(
-    filename = file.path(directory, paste0(cdm_name, "_ps_matched_vs_unmatched.png")),
-    plot = p,
-    width = 7,
-    height = 5,
-    units = "in",
-    dpi = 300
-  )
+  # p <- ggplot(plot_data, aes(x = distance, fill = treatment)) +
+  #   geom_histogram(alpha = 0.5, position = "identity", bins = 30) +
+  #   facet_wrap(~ matched) +
+  #   labs(
+  #     x = "Propensity Score",
+  #     y = "Count",
+  #     fill = "Treatment",
+  #     title = "Propensity Score Distribution by Matching Status"
+  #   ) +
+  #   theme_minimal()
+  #
+  # ggsave(
+  #   filename = file.path(directory, paste0(cdm_name, "_ps_matched_vs_unmatched.png")),
+  #   plot = p,
+  #   width = 7,
+  #   height = 5,
+  #   units = "in",
+  #   dpi = 300
+  # )
 
 
   return(matched_data)

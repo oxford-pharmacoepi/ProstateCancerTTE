@@ -99,21 +99,19 @@ result[["density_points"]] <- x$density_points |>
     density_x    = .data$x,
     density_y    = .data$y
   ) |>
+  dplyr::mutate(variable_level = paste("density", .data$idx, sep ="_"))|>
   tidyr::pivot_longer(
     cols = c(density_x, density_y),
     names_to = "estimate_name",
     values_to = "estimate_value"
   ) |>
   dplyr::mutate(
-    estimate_name = paste0(.data$estimate_name, "_", .data$idx),
     estimate_value = sprintf("%.4f", .data$estimate_value),
     estimate_type = "numeric",
     cohort = cohort_name,
     cdm_name = "merged",
-    variable_name  = NA_character_,
-    variable_level = NA_character_,
+    variable_name  = "Propensity score distribution",
     result_id = 1L
-
   ) |>
   dplyr::select(!c("treatment", "x", "y", "idx")) |>
   omopgenerics::uniteGroup(cols = "cohort") |>
@@ -178,28 +176,28 @@ result[["asmd_matched"]] <- asmd_matched |>
   dplyr::select(!"covariate") |>
   omopgenerics::newSummarisedResult(settings = tibble::tibble(result_id = 1L, result_type = "asmd"))
 
-
-gold_matched_subjects <- matched_data |>
-  dplyr::filter(.data$source == "gold") |>
-  dplyr::pull(.data$subject_id)
-
-aurum_matched_subjects <- matched_data |>
-  dplyr::filter(.data$source == "aurum") |>
-  dplyr::pull(.data$subject_id)
-
-
 matched_data <- matched_data |>
-  dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date",  "cohort_end_date")
+  dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date",  "cohort_end_date", "pair_id", "source")
+
+
+gold_matched <- matched_data |>
+  dplyr::filter(.data$source == "gold")
+
+aurum_matched <- matched_data |>
+  dplyr::filter(.data$source == "aurum")
 
 marged_matched_cohort_name <- paste("merged", cohort_name_matched, sep = "_")
-cdm_g[[marged_matched_cohort_name]] <- cdm_g[[cohort_name]] |>
-  dplyr::filter(.data$subject_id %in% gold_matched_subjects) |>
-  dplyr::compute(name = marged_matched_cohort_name) |>
-  omopgenerics::newCohortTable()
 
-cdm_a[[marged_matched_cohort_name]] <- cdm_a[[cohort_name]] |>
-  dplyr::filter(.data$subject_id %in% aurum_matched_subjects) |>
-  dplyr::compute(name = marged_matched_cohort_name)
+cdm_g <- omopgenerics::insertTable(cdm = cdm_g, name = marged_matched_cohort_name, table = gold_matched)
+
+cdm_g[[marged_matched_cohort_name]] <- omopgenerics::newCohortTable(table = cdm_g[[marged_matched_cohort_name]])
+
+cdm_a <- omopgenerics::insertTable(cdm = cdm_a, name = marged_matched_cohort_name, table = aurum_matched)
+
+cdm_a[[marged_matched_cohort_name]] <- omopgenerics::newCohortTable(table = cdm_a[[marged_matched_cohort_name]])
+
+
+
 
 
 ### Outcome model ----
@@ -212,10 +210,10 @@ names(outcome_codelist) <- outcomes
 
 
 
-cdm_g[["merged_survival_data"]] <- cdm_g[[marged_matched_cohort_name]] |>
-  PatientProfiles::addDeathDays(deathDaysName = "death", name = "merged_survival_data") |>
-  PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation", name = "merged_survival_data") |>
-  PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression", name = "merged_survival_data" ) |>
+survival_gold <- cdm_g[[marged_matched_cohort_name]] |>
+  PatientProfiles::addDeathDays(deathDaysName = "death") |>
+  PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation") |>
+  PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression") |>
   dplyr::mutate(
     death = dplyr::coalesce(.data[["death"]], 999999L),
     progression = dplyr::coalesce(.data[["progression"]], 999999L)
@@ -239,13 +237,13 @@ cdm_g[["merged_survival_data"]] <- cdm_g[[marged_matched_cohort_name]] |>
       TRUE ~ as.character(.data$cohort_definition_id)
     )
   ) |>
-  dplyr::compute(name = "merged_survival_data")
+  dplyr::collect()
 
 
-cdm_a[["merged_survival_data"]] <- cdm_a[[marged_matched_cohort_name]] |>
-  PatientProfiles::addDeathDays(deathDaysName = "death", name = "merged_survival_data") |>
-  PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation", name = "merged_survival_data") |>
-  PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression", name = "merged_survival_data" ) |>
+survival_aurum <- cdm_a[[marged_matched_cohort_name]] |>
+  PatientProfiles::addDeathDays(deathDaysName = "death") |>
+  PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation") |>
+  PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression" ) |>
   dplyr::mutate(
     death = dplyr::coalesce(.data[["death"]], 999999L),
     progression = dplyr::coalesce(.data[["progression"]], 999999L)
@@ -269,35 +267,39 @@ cdm_a[["merged_survival_data"]] <- cdm_a[[marged_matched_cohort_name]] |>
       TRUE ~ as.character(.data$cohort_definition_id)
     )
   ) |>
-  dplyr::compute(name = "merged_survival_data")
+  dplyr::collect()
 
 
 
 for (out in outcomes){
 
-  cdm_g[["merged_survival_data"]] <- cdm_g[["merged_survival_data"]] |>
-    PatientProfiles::addConceptIntersectDays(conceptSet = list(out = outcome_codelist[[out]]),
-                                             nameStyle = out,
-                                             name = "merged_survival_data") |>
-    dplyr::mutate(
-      !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
+  survival_gold <- survival_gold |>
+    dplyr::left_join( cdm_g[[marged_matched_cohort_name]] |>
+                       PatientProfiles::addConceptIntersectDays(conceptSet = list(out = outcome_codelist[[out]]),
+                                             nameStyle = out) |>
+                       dplyr::collect()|>
+                       dplyr::mutate(
+                         !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
+                         )
     )
-  cdm_a[["merged_survival_data"]] <- cdm_a[["merged_survival_data"]] |>
-    PatientProfiles::addConceptIntersectDays(conceptSet = list(out = outcome_codelist[[out]]),
-                                             nameStyle = out,
-                                             name = "merged_survival_data") |>
-    dplyr::mutate(
-      !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
+  survival_aurum <- survival_aurum |>
+    dplyr::left_join(cdm_a[[marged_matched_cohort_name]] |>
+                        PatientProfiles::addConceptIntersectDays(conceptSet = list(out = outcome_codelist[[out]]),
+                                                                 nameStyle = out) |>
+                        dplyr::collect()|>
+                        dplyr::mutate(
+                          !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
+                        )
     )
 }
 
-survival_data <-  cdm_g[["merged_survival_data"]] |>
+survival_data <-  survival_gold |>
   dplyr::mutate(source = "gold") |>
-  dplyr::collect() |>
-  dplyr::bind_rows(cdm_a[["merged_survival_data"]] |>
-                     dplyr::mutate(source = "aurum") |>
-                     dplyr::collect())
+  dplyr::bind_rows(survival_aurum |>
+                     dplyr::mutate(source = "aurum")
+                     )
 outcomes <- c("death", "progression", outcomes)
+
 res_outcomes <- outcomes |>
   purrr::map(\(out) {
     outcomeModel(survival_data = survival_data, outcome = out)
