@@ -24,6 +24,11 @@ cdm[[cohort_name_long]] <- cdm[[cohort_name_long]] |>
 
 wide_data <- getWideData(cdm[[cohort_name_long]], frequent_concepts, cdm[[cohort_name_visits]])
 
+wide_data <- wide_data |>
+  dplyr::distinct() |>
+  dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0),
+  )
+
 x <- getSelectedFeatures(wide_data = wide_data,
                          directory = paste0(output_directory, "/Lasso"),
                          cdm = cdm,
