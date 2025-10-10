@@ -28,6 +28,11 @@ wide_data <- wide_data |>
   dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0),
   )
 
+wide_data <- wide_data |>
+  dplyr::distinct() |>
+  dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0),
+  )
+
 x <- getSelectedFeatures(wide_data = wide_data,
 
                          cdm = cdm,
