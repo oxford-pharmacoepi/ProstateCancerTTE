@@ -1,91 +1,89 @@
-concept_id,concept_name,vocabulary_id,...4
-200962,Primary malignant neoplasm of prostate,SNOMED,NA
-1553599,Adenocarcinoid tumor of prostate gland,ICDO3,NA
-4082919,Endometrioid carcinoma of prostate,SNOMED,NA
-4116087,Carcinoma of prostate,SNOMED,NA
-4141960,Hormone refractory prostate cancer,SNOMED,exclude
-4161028,Adenocarcinoma of prostate,SNOMED,NA
-4163261,Malignant tumor of prostate,SNOMED,NA
-4164017,Squamous cell carcinoma of prostate,SNOMED,NA
-4200890,Local recurrence of malignant tumor of prostate,SNOMED,exclude
-4288534,Small cell carcinoma of prostate,SNOMED,NA
-36517801,Superficial spreading adenocarcinoma of prostate gland,ICDO3,NA
-36519743,Adenocarcinoma in tubulovillous adenoma of prostate gland,ICDO3,NA
-36520178,"Neuroendocrine tumor, NOS, of prostate gland",ICDO3,NA
-36520903,Adenocarcinoma with cartilaginous and osseous metaplasia of prostate gland,ICDO3,NA
-36525831,Mixed type rhabdomyosarcoma of prostate gland,ICDO3,NA
-36528487,Basaloid carcinoma of prostate gland,ICDO3,NA
-36529044,"Papillary carcinoma, NOS, of prostate gland",ICDO3,NA
-36529897,Giant cell and spindle cell carcinoma of prostate gland,ICDO3,NA
-36530505,Adenocarcinoma with spindle cell metaplasia of prostate gland,ICDO3,NA
-36532395,"Squamous cell carcinoma, microinvasive of prostate gland",ICDO3,NA
-36532454,"Squamous cell carcinoma, small cell, nonkeratinizing of prostate gland",ICDO3,NA
-36533342,"Epithelioid sarcoma, NOS, of prostate gland",ICDO3,NA
-36533689,Pleomorphic carcinoma of prostate gland,ICDO3,NA
-36534013,"Squamous cell carcinoma, keratinizing, NOS, of prostate gland",ICDO3,NA
-36534105,Squamous cell carcinoma with horn formation of prostate gland,ICDO3,NA
-36535056,Adenocarcinoma with squamous metaplasia of prostate gland,ICDO3,NA
-36535925,Giant cell carcinoma of prostate gland,ICDO3,NA
-36538788,Adenocarcinoma in villous adenoma of prostate gland,ICDO3,NA
-36539709,"Solid carcinoma, NOS, of prostate gland",ICDO3,NA
-36540099,"Malignant tumor, giant cell type of prostate gland",ICDO3,NA
-36540664,Adenoid cystic carcinoma of prostate gland,ICDO3,NA
-36543315,"Squamous cell carcinoma, spindle cell of prostate gland",ICDO3,NA
-36543338,Villous adenocarcinoma of prostate gland,ICDO3,NA
-36545616,Glassy cell carcinoma of prostate gland,ICDO3,NA
-36550033,Acinar cell cystadenocarcinoma of prostate gland,ICDO3,NA
-36552560,Adenocarcinoma with apocrine metaplasia of prostate gland,ICDO3,NA
-36552590,"Small cell carcinoma, fusiform cell of prostate gland",ICDO3,NA
-36554023,Basal cell adenocarcinoma of prostate gland,ICDO3,NA
-36554139,Tubular adenocarcinoma of prostate gland,ICDO3,NA
-36554370,"Large cell carcinoma, NOS, of prostate gland",ICDO3,NA
-36564577,"Duct carcinoma, desmoplastic type of prostate gland",ICDO3,NA
-36566722,"Carcinoma, anaplastic, NOS, of prostate gland",ICDO3,NA
-36568174,"Tumor cells, malignant of prostate gland",ICDO3,NA
-36712762,Recurrent malignant neoplasm of prostate,SNOMED,NA
-36716186,Hormone sensitive prostate cancer,SNOMED,NA
-37166255,Primary carcinoma of prostate,SNOMED,NA
-37166455,Primary small cell carcinoma of prostate,SNOMED,NA
-37166518,Primary acinar cell cystadenocarcinoma of prostate,SNOMED,NA
-37166521,Primary infiltrating duct carcinoma of prostate,SNOMED,NA
-37166523,Primary adenocarcinoma of prostate,SNOMED,NA
-37174104,Primary malignant hormone-refractory neoplasm of prostate,SNOMED,NA
-37208188,Non-metastatic prostate cancer,SNOMED,NA
-37311236,Infiltrating duct carcinoma of prostate,SNOMED,NA
-37311683,Acinar cell cystadenocarcinoma of prostate,SNOMED,NA
-37395835,Familial prostate cancer,SNOMED,NA
-42512655,Mixed acinar-ductal carcinoma of prostate gland,ICDO3,NA
-42512952,Mixed adenoneuroendocrine carcinoma of prostate gland,ICDO3,NA
-44499514,"Infiltrating duct carcinoma, NOS, of prostate gland",ICDO3,NA
-44499641,"Papillary adenocarcinoma, NOS, of prostate gland",ICDO3,NA
-44499712,"Carcinoma, undifferentiated, NOS, of prostate gland",ICDO3,NA
-44499820,Adenocarcinoma with neuroendocrine differentiation of prostate gland,ICDO3,NA
-44499864,Large cell neuroendocrine carcinoma of prostate gland,ICDO3,NA
-44500341,Combined small cell carcinoma of prostate gland,ICDO3,NA
-44500459,Signet ring cell carcinoma of prostate gland,ICDO3,NA
-44500494,"Basal cell carcinoma, NOS, of prostate gland",ICDO3,NA
-44500595,Adenocarcinoma with mixed subtypes of prostate gland,ICDO3,NA
-44500716,"Squamous cell carcinoma, adenoid of prostate gland",ICDO3,NA
-44500734,Mixed cell adenocarcinoma of prostate gland,ICDO3,NA
-44501350,Mucinous adenocarcinoma of prostate gland,ICDO3,NA
-44501366,Alveolar rhabdomyosarcoma of prostate gland,ICDO3,NA
-44501528,Mucin-producing adenocarcinoma of prostate gland,ICDO3,NA
-44501627,"Neuroendocrine carcinoma, NOS, of prostate gland",ICDO3,NA
-44501968,Giant cell sarcoma of prostate gland,ICDO3,NA
-44502000,"Neoplasm, malignant of prostate gland",ICDO3,NA
-44502035,Acinar cell carcinoma of prostate gland,ICDO3,NA
-44502766,"Small cell carcinoma, NOS, of prostate gland",ICDO3,NA
-44503133,"Carcinoma, NOS, of prostate gland",ICDO3,NA
-44503145,"Cribriform carcinoma, NOS, of prostate gland",ICDO3,NA
-44503555,Intraductal papillary adenocarcinoma with invasion of prostate gland,ICDO3,NA
-44503558,Adenosquamous carcinoma of prostate gland,ICDO3,NA
-1553105,Adenosarcoma of prostate gland,ICDO3,NA
-1553133,Non-small cell carcinoma of prostate gland,ICDO3,NA
-36543006,"Carcinosarcoma, NOS, of prostate gland",ICDO3,NA
-36547882,Myoepithelial carcinoma of prostate gland,ICDO3,NA
-36548533,"Carcinosarcoma, embryonal of prostate gland",ICDO3,NA
-36550817,Alveolar adenocarcinoma of prostate gland,ICDO3,NA
-36559613,Carcinoma with osteoclast-like giant cells of prostate gland,ICDO3,NA
-37163177,Small cell neuroendocrine carcinoma of prostate,SNOMED,NA
-37166525,Primary endometrioid carcinoma of prostate,SNOMED,NA
-37166560,Primary small cell neuroendocrine carcinoma of prostate,SNOMED,NA
+concept_id
+200962
+1553599
+4082919
+4116087
+4161028
+4163261
+4164017
+4288534
+36517801
+36519743
+36520178
+36520903
+36525831
+36528487
+36529044
+36529897
+36530505
+36532395
+36532454
+36533342
+36533689
+36534013
+36534105
+36535056
+36535925
+36538788
+36539709
+36540099
+36540664
+36543315
+36543338
+36545616
+36550033
+36552560
+36552590
+36554023
+36554139
+36554370
+36564577
+36566722
+36568174
+36712762
+36716186
+37166255
+37166455
+37166518
+37166521
+37166523
+37174104
+37208188
+37311236
+37311683
+37395835
+42512655
+42512952
+44499514
+44499641
+44499712
+44499820
+44499864
+44500341
+44500459
+44500494
+44500595
+44500716
+44500734
+44501350
+44501366
+44501528
+44501627
+44501968
+44502000
+44502035
+44502766
+44503133
+44503145
+44503555
+44503558
+1553105
+1553133
+36543006
+36547882
+36548533
+36550817
+36559613
+37163177
+37166525
+37166560

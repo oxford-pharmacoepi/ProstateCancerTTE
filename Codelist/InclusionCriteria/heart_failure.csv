@@ -1,129 +1,129 @@
-concept_id,concept_name,domain_id,vocabulary
-44782718,Acute combined systolic and diastolic heart failure,Condition,SNOMED
-4023479,Acute congestive heart failure,Condition,SNOMED
-312927,Acute cor pulmonale,Condition,SNOMED
-40481042,Acute diastolic heart failure,Condition,SNOMED
-44782655,Acute exacerbation of chronic congestive heart failure,Condition,SNOMED
-442310,Acute heart failure,Condition,SNOMED
-764877,Acute heart failure co-occurrent with normal ejection fraction,Condition,SNOMED
-4108245,Acute left ventricular failure,Condition,SNOMED
-4327205,Acute left-sided congestive heart failure,Condition,SNOMED
-4267800,Acute left-sided heart failure,Condition,SNOMED
-44782733,Acute on chronic combined systolic and diastolic heart failure,Condition,SNOMED
-40481043,Acute on chronic diastolic heart failure,Condition,SNOMED
-764874,Acute on chronic heart failure co-occurrent with normal ejection fraction,Condition,SNOMED
-37309625,Acute on chronic right-sided congestive heart failure,Condition,SNOMED
-40480602,Acute on chronic systolic heart failure,Condition,SNOMED
-4215446,Acute right-sided congestive heart failure,Condition,SNOMED
-4233424,Acute right-sided heart failure,Condition,SNOMED
-40480603,Acute systolic heart failure,Condition,SNOMED
-439698,Benign hypertensive heart disease with congestive cardiac failure,Condition,SNOMED
-4242669,Biventricular congestive heart failure,Condition,SNOMED
-4205558,Cardiac failure after obstetrical surgery AND/OR other procedure including delivery,Condition,SNOMED
-4146456,Cardiac failure therapy,Procedure,SNOMED
-4233224,Cardiac insufficiency during AND/OR resulting from a procedure,Condition,SNOMED
-4264636,Cardiac insufficiency following cardiac surgery,Condition,SNOMED
-40482857,Cardiorenal syndrome,Condition,SNOMED
-4259490,Cardiorespiratory failure,Condition,SNOMED
-44782719,Chronic combined systolic and diastolic heart failure,Condition,SNOMED
-4229440,Chronic congestive heart failure,Condition,SNOMED
-4195892,Chronic cor pulmonale,Condition,SNOMED
-40479576,Chronic diastolic heart failure,Condition,SNOMED
-444031,Chronic heart failure,Condition,SNOMED
-764876,Chronic heart failure co-occurrent with normal ejection fraction,Condition,SNOMED
-4206009,Chronic left-sided congestive heart failure,Condition,SNOMED
-4009047,Chronic left-sided heart failure,Condition,SNOMED
-4284562,Chronic right-sided congestive heart failure,Condition,SNOMED
-4014159,Chronic right-sided heart failure,Condition,SNOMED
-40479192,Chronic systolic heart failure,Condition,SNOMED
-4108244,Compensated cardiac failure,Condition,SNOMED
-4071869,Congenital cardiac failure,Condition,SNOMED
-319835,Congestive heart failure,Condition,SNOMED
-44784345,Congestive heart failure as early postoperative complication,Condition,SNOMED
-762002,Congestive heart failure as post-operative complication of cardiac surgery,Condition,SNOMED
-762003,Congestive heart failure as post-operative complication of non-cardiac surgery,Condition,SNOMED
-44782428,Congestive heart failure due to cardiomyopathy,Condition,SNOMED
-4139864,Congestive heart failure due to left ventricular systolic dysfunction,Condition,SNOMED
-4142561,Congestive heart failure due to valvular disease,Condition,SNOMED
-36712928,Congestive heart failure stage B due to ischemic cardiomyopathy,Condition,SNOMED
-43021826,Congestive heart failure stage C,Condition,SNOMED
-36712927,Congestive heart failure stage C due to ischemic cardiomyopathy,Condition,SNOMED
-43021825,Congestive heart failure stage D,Condition,SNOMED
-44782713,Congestive heart failure with right heart failure,Condition,SNOMED
-315295,Congestive rheumatic heart failure,Condition,SNOMED
-4307356,Cor pulmonale,Condition,SNOMED
-4111554,Decompensated cardiac failure,Condition,SNOMED
-4311437,Decompensated chronic heart failure,Condition,SNOMED
-443587,Diastolic heart failure,Condition,SNOMED
-43021842,Diastolic heart failure stage C,Condition,SNOMED
-43021841,Diastolic heart failure stage D,Condition,SNOMED
-44805683,Discharge from heart failure nurse service,Observation,SNOMED
-4215511,Emergency hospital admission for heart failure,Observation,SNOMED
-43022068,Exacerbation of congestive heart failure,Condition,SNOMED
-36204172,Felt discouraged or down in the dumps because of heart failure over the past 2 weeks [KCCQ],Observation,LOINC
-44813162,Has heart failure management plan,Observation,SNOMED
-316139,Heart failure,Condition,SNOMED
-44790972,Heart failure 6 month review,Observation,SNOMED
-4193010,Heart failure annual review,Observation,SNOMED
-4124705,Heart failure as a complication of care,Condition,SNOMED
-44808957,Heart failure clinical pathway,Observation,SNOMED
-4215689,Heart failure confirmed,Condition,SNOMED
-43020657,Heart failure due to end stage congenital heart disease,Condition,SNOMED
-44808862,Heart failure initial assessment,Observation,SNOMED
-44789102,Heart failure review completed,Observation,SNOMED
-44806371,Heart failure self-management plan agreed,Observation,SNOMED
-44806125,Heart failure self-management plan review,Procedure,SNOMED
-37311948,Heart failure with mid range ejection fraction,Condition,SNOMED
-40486933,Heart failure with normal ejection fraction,Condition,SNOMED
-45766164,Heart failure with reduced ejection fraction,Condition,SNOMED
-45766167,Heart failure with reduced ejection fraction due to cardiomyopathy,Condition,SNOMED
-45766165,Heart failure with reduced ejection fraction due to coronary artery disease,Condition,SNOMED
-45773075,Heart failure with reduced ejection fraction due to heart valve disease,Condition,SNOMED
-45766166,Heart failure with reduced ejection fraction due to myocarditis,Condition,SNOMED
-4004279,High output heart failure,Condition,SNOMED
-36305423,History of Acute heart failure within 24 hours prior to procedure,Observation,LOINC
-36204171,How would you feel if you had to spend the rest of your life with your heart failure the way it is right now [KCCQ],Observation,LOINC
-36204159,Hurrying or jogging (as if to catch a bus) was limited by heart failure over the past 2 weeks [KCCQ],Observation,LOINC
-44784621,Hypertensive heart and chronic kidney disease,Condition,SNOMED
-44782728,Hypertensive heart AND chronic kidney disease with congestive heart failure,Condition,SNOMED
-439696,Hypertensive heart and renal disease with (congestive) heart failure,Condition,SNOMED
-439694,Hypertensive heart and renal disease with both (congestive) heart failure and renal failure,Condition,SNOMED
-314378,Hypertensive heart disease with congestive heart failure,Condition,SNOMED
-444101,Hypertensive heart failure,Condition,SNOMED
-43530961,Induced termination of pregnancy complicated by cardiac failure,Condition,SNOMED
-439846,Left heart failure,Condition,SNOMED
-4103448,Low output heart failure,Condition,SNOMED
-316994,Malignant hypertensive heart disease with congestive heart failure,Condition,SNOMED
-44782439,Nutrition therapy for congestive heart failure,Procedure,SNOMED
-46269995,Nutritional therapy for congestive heart failure done,Observation,SNOMED
-44811840,On optimal heart failure therapy,Condition,SNOMED
-36204173,"Participation in hobbies, recreational activities limited by heart failure over the past 2 weeks [KCCQ]",Observation,LOINC
-36204176,Participation in intimate relationships with loved ones limited by heart failure over the past 2 weeks [KCCQ],Observation,LOINC
-36204175,Participation in visiting family or friends out of your home limited by heart failure over the past 2 weeks [KCCQ],Observation,LOINC
-36204174,Participation in working or doing household chores limited by heart failure over the past 2 weeks [KCCQ],Observation,LOINC
-4236658,Pleural effusion due to congestive heart failure,Condition,SNOMED
-4293582,Red half-moon nail in congestive heart failure,Condition,SNOMED
-764873,Reduced ejection fraction co-occurrent and due to acute heart failure,Condition,SNOMED
-764871,Reduced ejection fraction co-occurrent and due to acute on chronic heart failure,Condition,SNOMED
-764872,Reduced ejection fraction co-occurrent and due to chronic heart failure,Condition,SNOMED
-4199500,Refractory heart failure,Condition,SNOMED
-44809279,Rehabilitation for heart failure,Observation,SNOMED
-4184497,Rheumatic left ventricular failure,Condition,SNOMED
-4138307,Right heart failure due to pulmonary hypertension,Condition,SNOMED
-4195785,Right heart failure secondary to left heart failure,Condition,SNOMED
-4273632,Right ventricular failure,Condition,SNOMED
-35615055,Saddle embolus of pulmonary artery with acute cor pulmonale,Condition,SNOMED
-4079695,Sepsis-associated left ventricular failure,Condition,SNOMED
-4079296,Sepsis-associated right ventricular failure,Condition,SNOMED
-44784442,Symptomatic congestive heart failure,Condition,SNOMED
-40760358,Symptoms in heart failure patients [CMS Assessment],Observation,LOINC
-443580,Systolic heart failure,Condition,SNOMED
-43020421,Systolic heart failure stage C,Condition,SNOMED
-36712929,Systolic heart failure stage C due to ischemic cardiomyopathy,Condition,SNOMED
-43021840,Systolic heart failure stage D,Condition,SNOMED
-36676642,"X-linked intellectual disability, cardiomegaly, congestive heart failure syndrome",Condition,SNOMED
-4110961,Generalized ischemic myocardial dysfunction,Condition,SNOMED
-4190773,Restrictive cardiomyopathy,Condition,SNOMED
-321319,Cardiomyopathy,Condition,SNOMED
-4163710,Dilated cardiomyopathy,Condition,SNOMED
-43020910,Pulmonary hypertension due to left heart disease,Condition,SNOMED
+concept_id
+44782718
+4023479
+312927
+40481042
+44782655
+442310
+764877
+4108245
+4327205
+4267800
+44782733
+40481043
+764874
+37309625
+40480602
+4215446
+4233424
+40480603
+439698
+4242669
+4205558
+4146456
+4233224
+4264636
+40482857
+4259490
+44782719
+4229440
+4195892
+40479576
+444031
+764876
+4206009
+4009047
+4284562
+4014159
+40479192
+4108244
+4071869
+319835
+44784345
+762002
+762003
+44782428
+4139864
+4142561
+36712928
+43021826
+36712927
+43021825
+44782713
+315295
+4307356
+4111554
+4311437
+443587
+43021842
+43021841
+44805683
+4215511
+43022068
+36204172
+44813162
+316139
+44790972
+4193010
+4124705
+44808957
+4215689
+43020657
+44808862
+44789102
+44806371
+44806125
+37311948
+40486933
+45766164
+45766167
+45766165
+45773075
+45766166
+4004279
+36305423
+36204171
+36204159
+44784621
+44782728
+439696
+439694
+314378
+444101
+43530961
+439846
+4103448
+316994
+44782439
+46269995
+44811840
+36204173
+36204176
+36204175
+36204174
+4236658
+4293582
+764873
+764871
+764872
+4199500
+44809279
+4184497
+4138307
+4195785
+4273632
+35615055
+4079695
+4079296
+44784442
+40760358
+443580
+43020421
+36712929
+43021840
+36676642
+4110961
+4190773
+321319
+4163710
+43020910
