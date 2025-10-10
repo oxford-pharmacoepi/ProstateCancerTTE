@@ -1,19 +1,26 @@
 ### propensity scores ----
 
-longDataFromCohort <- function(cdm, cohort_name = "optima_pc_rwd"){
+longDataFromCohort <- function(cdm, cohort_name = "optima_pc_rwd", excluded_codes){
   cohort_name_long <- paste(cohort_name, "long", sep = "_")
   cdm[[cohort_name_long]] <- cdm[[cohort_name]]|>
     dplyr::left_join(cdm$condition_occurrence |> dplyr::select(person_id, condition_concept_id, condition_start_date), by = c("subject_id" = "person_id")) |>
-    dplyr::filter(.data$condition_start_date < .data$cohort_start_date) |>
-    dplyr::rename("concept_id" = "condition_concept_id")|>
-    dplyr::select(!c(condition_start_date))|>
+    dplyr::filter(.data$condition_start_date <=.data$cohort_start_date) |>
+    dplyr::mutate(days_diff = as.integer(cohort_start_date - condition_start_date)) |>
+    dplyr::mutate( time_window = dplyr::if_else(.data$days_diff < 366, "365_0", "inf_366") ) |>
+    dplyr::rename("concept_id" = "condition_concept_id") |>
+    dplyr::select(!c(condition_start_date, days_diff))|>
+    dplyr::compute(name = cohort_name_long ) |>
     dplyr::union_all( cdm[[cohort_name]] |>
                         dplyr::left_join(cdm$drug_exposure |> dplyr::select(person_id, drug_concept_id, drug_exposure_start_date, drug_exposure_end_date), by = c("subject_id" = "person_id")) |>
                         dplyr::mutate(days_diff_start = as.integer(.data$cohort_start_date - .data$drug_exposure_start_date),
                                       days_diff_end = as.integer(.data$cohort_start_date - .data$drug_exposure_end_date)) |>
                         dplyr::filter((.data$days_diff_start <= 365 & .data$days_diff_start > 0 ) | (.data$days_diff_end <= 365 & .data$days_diff_end > 0 ) | (.data$cohort_start_date > .data$drug_exposure_start_date & .data$cohort_start_date < .data$drug_exposure_end_date)) |>
                         dplyr::rename("concept_id" = "drug_concept_id") |>
+                        dplyr::mutate(time_window = "365_0") |>
                         dplyr::select(!c(drug_exposure_start_date, drug_exposure_end_date, days_diff_start, days_diff_end))) |>
+    dplyr::filter(!(.data$concept_id %in% excluded_codes))|>
+    dplyr::mutate(concept_id = paste(.data$concept_id, .data$time_window, sep = "_")) |>
+    dplyr::select(!"time_window") |>
     dplyr::compute(name = cohort_name_long)
 
   cdm[[cohort_name_long]] <- cdm[[cohort_name_long]] |>
@@ -23,7 +30,7 @@ longDataFromCohort <- function(cdm, cohort_name = "optima_pc_rwd"){
 return(cdm)
 }
 
-getFrequentConcepts <- function(cohort, excluded_codes){
+getFrequentConcepts <- function(cohort){
   n <- cohort |>
     dplyr::distinct(subject_id) |>
     dplyr::tally() |>
@@ -31,7 +38,6 @@ getFrequentConcepts <- function(cohort, excluded_codes){
     as.numeric()
 
   frequent_concepts <- cohort |>
-    dplyr::filter(!(.data$concept_id %in% excluded_codes))|>
     dplyr::group_by(.data$concept_id) |>
     dplyr::summarise(n_subjects = (dplyr::n_distinct(.data$subject_id)), .groups = "drop") |>
     dplyr::mutate(perc = .data$n_subjects / .env$n) |>
@@ -52,12 +58,14 @@ visitsCount <- function(cdm, cohort_name = "optima_pc_rwd"){
     dplyr::filter((.data$days_diff_start <= 365 & .data$days_diff_start >= 0 ) | (.data$days_diff_end <= 365 & .data$days_diff_end >= 0 ) | (.data$cohort_start_date > .data$visit_start_date & .data$cohort_start_date < .data$visit_end_date)) |>
     dplyr::group_by(.data$subject_id, .data$visit_concept_id, .data$cohort_definition_id, .data$cohort_start_date, .data$cohort_end_date) |>
     dplyr::tally() |>
-    tidyr::pivot_wider(names_from = "visit_concept_id", values_from = "n", names_prefix = "visit_", values_fill = list(n = 0)) |>
-
+    tidyr::pivot_wider(names_from = "visit_concept_id", values_from = "n", names_prefix = "visit", values_fill = list(n = 0)) |>
+    dplyr::rename("visit581477_365_0" = "visit581477", "visit9201_365_0" = "visit9201")|>
     dplyr::compute(name = cohort_name_visits)
 
   cdm[[cohort_name_visits]] <- cdm[[cohort_name_visits]] |>
     dplyr::right_join(cdm[[cohort_name]]) |>
+    dplyr::mutate(visit581477_365_0 = dplyr::coalesce(.data$visit581477_365_0, 0),
+                  visit9201_365_0 = dplyr::coalesce(.data$visit9201_365_0, 0)) |>
     dplyr::compute(name = cohort_name_visits)
   return(cdm)
 }
@@ -78,9 +86,7 @@ getWideData <- function(cohort, frequent_concepts, visits) {
   )|>
     dplyr::left_join(visits) |>
     dplyr::collect() |>
-    dplyr::mutate(year = clock::get_year(cohort_start_date),
-                  visit_9201 = dplyr::coalesce(visit_9201, 0),
-                  visit_581477 = dplyr::coalesce(visit_581477, 0)) |>
+    dplyr::mutate(year = clock::get_year(cohort_start_date)) |>
     dplyr::mutate(year_group = dplyr::case_when(
       year < 2010 ~ "<2010",
       year >= 2010 & year < 2015 ~ "2010-2015",
@@ -158,7 +164,7 @@ addVariables <- function(cdm, cohort_name = "optima_pc_rwd" ) {
       dplyr::group_by(subject_id) %>%
       dplyr::filter(.data$latest_n_status == "missing" | .data$n_date == max(n_date, na.rm = TRUE))  |>
       dplyr::ungroup() %>%
-      dplyr::select(-n0, -nx, -n1, -n2, -n3) |>
+      dplyr::select(-n0, -nx, -n1, -n2, -n3, -n_date) |>
       dplyr::compute(name = cohort_name)
   }
 
@@ -169,7 +175,7 @@ addVariables <- function(cdm, cohort_name = "optima_pc_rwd" ) {
 }
 
 
-getSelectedFeatures <- function(wide_data, directory, cdm, cdm_name) {
+getSelectedFeatures <- function(wide_data, cdm, cdm_name) {
   wide_data <- wide_data |>
     dplyr::distinct() |>
     dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0),
@@ -177,7 +183,7 @@ getSelectedFeatures <- function(wide_data, directory, cdm, cdm_name) {
 
   y <- wide_data$y
   X <- wide_data |>
-    dplyr::select(-c("y",dplyr::starts_with("latest"), dplyr::ends_with("group")))
+    dplyr::select(!c("y",dplyr::starts_with("latest"), dplyr::ends_with("group")))
 
   X <- stats::model.matrix(
     ~ . - cohort_definition_id - cohort_start_date - cohort_end_date - subject_id + age + year ,
@@ -203,14 +209,19 @@ getSelectedFeatures <- function(wide_data, directory, cdm, cdm_name) {
   density_points <- export_ps_density(plot_data)
 
   concepts <- selectedLassoFeatures[!(selectedLassoFeatures %in% c("age", "year"))]
-  concepts <-as.integer(as.numeric(gsub("[^0-9]", "", concepts)))
-
+  concepts <-as.integer(as.numeric(stringr::str_extract(concepts, "[0-9][^_]+")))
 
   tab <- tibble::enframe(coefs[selectedLassoFeatures, ],
-                         name = "variable",
+                         name = "name",
                          value = "coefficient") |>
-    dplyr::mutate(variable = dplyr::if_else(.data$variable %in% c("age", "year"), .data$variable, gsub("[^0-9]", "", .data$variable)),
-                  event = "RP")
+    dplyr::mutate(
+      name = stringr::str_remove_all(.data$name , "`"),
+      variable = dplyr::if_else(name %in% c("age", "year"), .data$name, stringr::str_extract(.data$name, "[0-9][^_]+")),
+      window = stringr::str_extract(.data$name, "(?<=_)\\S+$"),
+      window = dplyr::coalesce(.data$window, as.character(0L)),
+      event = "RP"
+    ) |>
+    dplyr::select(!"name")
 
   x <-  cdm$concept |>
     dplyr::filter(.data$concept_id %in% concepts) |>
@@ -313,7 +324,7 @@ getMatchedData <- function(selectedFeatures, wide_data, directory, cdm_name) {
     "latest_gleason_score_value",
     "latest_psa_value",
     "year_group",
-    "age_group",
+# "age_group",
     "source"
   )
   exact_vars <- exact_vars[exact_vars %in% colnames(wide_data)]
@@ -326,7 +337,10 @@ getMatchedData <- function(selectedFeatures, wide_data, directory, cdm_name) {
                             method  = "nearest",
                             ratio   = 1,
                             replace = FALSE,
-                            caliper = 0.2)
+                            caliper = c(0.2, age = 2),
+                            # std.caliper controls whether calipers are interpreted in SD units (TRUE) or raw units (FALSE).
+                            # we want the first (PS) in SD units and age caliper in raw years:
+                            std.caliper = c(TRUE, FALSE))
   matched_data <- match.data(result_matchit) |>
     dplyr::mutate(pair_id = as.integer(factor(.data$subclass))) |>
     dplyr::relocate(pair_id, .before = dplyr::everything())

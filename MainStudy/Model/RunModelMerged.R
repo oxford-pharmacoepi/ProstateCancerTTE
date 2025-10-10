@@ -64,13 +64,13 @@ cdm_a$observation_period <- cdm_a$observation_period |>
 
 cohort_rwd <- dplyr::bind_rows(cdm_g[[cohort_name_long]] |>
                                  dplyr::mutate("source" = "gold") |>
-                                 PatientProfiles::addAge() |>
+                                 PatientProfiles::addAgeQuery(ageGroup = list(c(0,50), c(51,55), c(56, 60), c(61,65), c(66,70), c(71, 75), c(76,80), c(81, Inf))) |>
                                  dplyr::collect(),
                                cdm_a[[cohort_name_long]] |>
                                  dplyr::mutate(source = "aurum") |>
-                                 PatientProfiles::addAge() |>
+                                 PatientProfiles::addAgeQuery(ageGroup = list(c(0,50), c(51,55), c(56, 60), c(61,65), c(66,70), c(71, 75), c(76,80), c(81, Inf))) |>
                                  dplyr::collect()
-                                 )
+)
 
 frequent_concepts <- getFrequentConcepts(cohort = cohort_rwd, excluded_codes = excluded_codes)
 
@@ -81,6 +81,11 @@ visits <- cdm_a[[cohort_name_visits]] |>
                      dplyr::collect())
 
 wide_data <- getWideData(cohort = cohort_rwd, frequent_concepts, visits)
+
+wide_data <- wide_data |>
+  dplyr::distinct() |>
+  dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0),
+  )
 
 ### Lasso ----
 
@@ -121,8 +126,11 @@ result[["density_points"]] <- x$density_points |>
 result[["selected_features"]] <- x$selected_features |>
   dplyr::mutate(coefficient = sprintf("%.4f", .data$coefficient),
                 cohort = cohort_name,
-                result_type = "selected_features") |>
-  omopgenerics::transformToSummarisedResult(group = "cohort", strata = "variable", additional = c("concept_name","domain_id"),
+                result_type = "selected_features",
+                variable_name = "event X=1",
+                variable_level = .data$event) |>
+  omopgenerics::transformToSummarisedResult(group = "cohort", strata = "variable",
+                                            additional = c("concept_name","domain_id"),
                                             estimates = "coefficient", settings = "result_type") |>
   dplyr::mutate(cdm_name = "merged")
 
@@ -141,7 +149,7 @@ result[["asmd"]] <- asmd |>
                 variable_name = "covariate",
                 variable_level = .data$covariate,
                 result_id = 1L) |>
-  omopgenerics::uniteAdditional(cols = c("reference", "comparator")) |>
+  omopgenerics::uniteAdditional(cols = c("event", "comparator")) |>
   omopgenerics::uniteStrata() |>
   omopgenerics::uniteGroup(cols = "cohort") |>
   dplyr::select(!"covariate") |>
@@ -170,7 +178,7 @@ result[["asmd_matched"]] <- asmd_matched |>
                 variable_name = "covariate",
                 variable_level = .data$covariate,
                 result_id = 1L) |>
-  omopgenerics::uniteAdditional(cols = c("reference", "comparator")) |>
+  omopgenerics::uniteAdditional(cols = c("event", "comparator")) |>
   omopgenerics::uniteStrata() |>
   omopgenerics::uniteGroup(cols = "cohort") |>
   dplyr::select(!"covariate") |>
@@ -211,9 +219,9 @@ names(outcome_codelist) <- outcomes
 
 
 survival_gold <- cdm_g[[marged_matched_cohort_name]] |>
-  PatientProfiles::addDeathDays(deathDaysName = "death") |>
+  PatientProfiles::addDeathDays(deathDaysName = "death", window = c(1, Inf)) |>
   PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation") |>
-  PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression") |>
+  PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression", window = c(1, Inf)) |>
   dplyr::mutate(
     death = dplyr::coalesce(.data[["death"]], 999999L),
     progression = dplyr::coalesce(.data[["progression"]], 999999L)
@@ -241,9 +249,9 @@ survival_gold <- cdm_g[[marged_matched_cohort_name]] |>
 
 
 survival_aurum <- cdm_a[[marged_matched_cohort_name]] |>
-  PatientProfiles::addDeathDays(deathDaysName = "death") |>
+  PatientProfiles::addDeathDays(deathDaysName = "death",window = c(1, Inf)) |>
   PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation") |>
-  PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression" ) |>
+  PatientProfiles::addCohortIntersectDays(targetCohortTable = "progression", nameStyle = "progression", window = c(1, Inf) ) |>
   dplyr::mutate(
     death = dplyr::coalesce(.data[["death"]], 999999L),
     progression = dplyr::coalesce(.data[["progression"]], 999999L)
@@ -273,31 +281,79 @@ survival_aurum <- cdm_a[[marged_matched_cohort_name]] |>
 
 for (out in outcomes){
 
+  washout_name <-paste0(out, "_washout")
+
+  cdm_g[[marged_matched_cohort_name]] <- cdm_g[[marged_matched_cohort_name]] |>
+    PatientProfiles::addConceptIntersectDays(conceptSet = list(out = outcome_codelist[[out]]),
+                                             window = list(c(1, Inf)),
+                                             nameStyle = out,
+                                             name = marged_matched_cohort_name) |>
+    PatientProfiles::addConceptIntersectFlag(conceptSet = list(out = outcome_codelist[[out]]),
+                                             window = list(c(-365, 0)),
+                                             targetStartDate = "event_end_date",
+                                             name = marged_matched_cohort_name,
+                                             nameStyle = washout_name, ) |>
+
+    dplyr::mutate(
+      !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
+    )
+
+  pairs <- cdm_g[[marged_matched_cohort_name]] |>
+    dplyr::filter(.data[[washout_name]] == 1L) |>
+    dplyr::pull(.data$pair_id)
+
+  cdm_g[[marged_matched_cohort_name]] <- cdm_g[[marged_matched_cohort_name]] |>
+    dplyr::mutate( !!rlang::sym(out) := dplyr::if_else(.data$pair_id %in% pairs,  999999L ,.data[[out]])) |>
+    dplyr::select(!dplyr::all_of(washout_name)) |>
+    dplyr::compute(marged_matched_cohort_name)
+
+
+
   survival_gold <- survival_gold |>
     dplyr::left_join( cdm_g[[marged_matched_cohort_name]] |>
-                       PatientProfiles::addConceptIntersectDays(conceptSet = list(out = outcome_codelist[[out]]),
-                                             nameStyle = out) |>
-                       dplyr::collect()|>
-                       dplyr::mutate(
-                         !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
-                         )
+                        dplyr::collect()
     )
+
+
+  cdm_a[[marged_matched_cohort_name]] <- cdm_a[[marged_matched_cohort_name]] |>
+    PatientProfiles::addConceptIntersectDays(conceptSet = list(out = outcome_codelist[[out]]),
+                                             window = list(c(1, Inf)),
+                                             nameStyle = out,
+                                             name = marged_matched_cohort_name) |>
+    PatientProfiles::addConceptIntersectFlag(conceptSet = list(out = outcome_codelist[[out]]),
+                                             window = list(c(-365, 0)),
+                                             targetStartDate = "event_end_date",
+                                             name = marged_matched_cohort_name,
+                                             nameStyle = washout_name, ) |>
+
+    dplyr::mutate(
+      !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
+    )
+
+  pairs <- cdm_a[[marged_matched_cohort_name]] |>
+    dplyr::filter(.data[[washout_name]] == 1L) |>
+    dplyr::pull(.data$pair_id)
+
+  cdm_a[[marged_matched_cohort_name]] <- cdm_a[[marged_matched_cohort_name]] |>
+    dplyr::mutate( !!rlang::sym(out) := dplyr::if_else(.data$pair_id %in% pairs,  999999L ,.data[[out]])) |>
+    dplyr::select(!dplyr::all_of(washout_name)) |>
+    dplyr::compute(marged_matched_cohort_name)
+
+
+
   survival_aurum <- survival_aurum |>
-    dplyr::left_join(cdm_a[[marged_matched_cohort_name]] |>
-                        PatientProfiles::addConceptIntersectDays(conceptSet = list(out = outcome_codelist[[out]]),
-                                                                 nameStyle = out) |>
-                        dplyr::collect()|>
-                        dplyr::mutate(
-                          !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
-                        )
+    dplyr::left_join( cdm_a[[marged_matched_cohort_name]] |>
+                        dplyr::collect()
     )
+
+
 }
 
 survival_data <-  survival_gold |>
   dplyr::mutate(source = "gold") |>
   dplyr::bind_rows(survival_aurum |>
                      dplyr::mutate(source = "aurum")
-                     )
+  )
 outcomes <- c("death", "progression", outcomes)
 
 res_outcomes <- outcomes |>

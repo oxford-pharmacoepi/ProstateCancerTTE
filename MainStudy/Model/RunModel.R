@@ -14,18 +14,22 @@ result <- list()
 ### Lasso ----
 
 cdm <- addVariables(cdm, cohort_name = cohort_name)
-cdm <- longDataFromCohort(cdm, cohort_name = cohort_name)
+cdm <- longDataFromCohort(cdm, cohort_name = cohort_name, excluded_codes = excluded_codes)
 
-frequent_concepts <- getFrequentConcepts(cohort = cdm[[cohort_name_long]], excluded_codes = excluded_codes)
+frequent_concepts <- getFrequentConcepts(cohort = cdm[[cohort_name_long]])
 
 cdm <- visitsCount(cdm, cohort_name = cohort_name)
 cdm[[cohort_name_long]] <- cdm[[cohort_name_long]] |>
   PatientProfiles::addAgeQuery(ageGroup = list(c(0,50), c(51,55), c(56, 60), c(61,65), c(66,70), c(71, 75), c(76,80), c(81, Inf)))
 
-wide_data <- getWideData(cdm[[cohort_name_long]], frequent_concepts, cdm[[cohort_name_visits]])
+wide_data <- getWideData(cohort = cdm[[cohort_name_long]], frequent_concepts = frequent_concepts, visits = cdm[[cohort_name_visits]])
+wide_data <- wide_data |>
+  dplyr::distinct() |>
+  dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0),
+  )
 
 x <- getSelectedFeatures(wide_data = wide_data,
-                         directory = paste0(output_directory, "/Lasso"),
+
                          cdm = cdm,
                          cdm_name = dbName)
 
@@ -65,7 +69,7 @@ result[["selected_features"]] <- x$selected_features |>
                 variable_name = "event X=1",
                 variable_level = .data$event) |>
 
-  omopgenerics::transformToSummarisedResult(group = "cohort", strata = "variable", additional = c("concept_name","domain_id"),
+  omopgenerics::transformToSummarisedResult(group = "cohort", strata = "variable", additional = c("concept_name","domain_id","window"),
                                             estimates = "coefficient", settings = "result_type") |>
   dplyr::mutate(cdm_name = dbName)
 
@@ -146,6 +150,10 @@ outcome_codelist <- omopgenerics::importCodelist(here::here("Codelist/Outcomes")
 outcomes <- clean_names(names(outcome_codelist))
 names(outcome_codelist) <- outcomes
 
+pc_death_codes <- c(codelist$prostate_cancer, 432851 )
+
+cvd_death_codes <- c()
+
 cdm[["survival_data"]] <- cdm[[cohort_name_matched]] |>
   PatientProfiles::addDeathDays(deathDaysName = "death", name = "survival_data", window = c(1, Inf)) |>
   PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation", name = "survival_data") |>
@@ -154,6 +162,10 @@ cdm[["survival_data"]] <- cdm[[cohort_name_matched]] |>
     death = dplyr::coalesce(.data[["death"]], 999999L),
     progression = dplyr::coalesce(.data[["progression"]], 999999L)
   ) |>
+  PatientProfiles::addTableIntersectField(tableName = "death", field = "cause_concept_id", nameStyle = "cause_of_death") |>
+  dplyr::mutate(death_pc = dplyr::if_else(!is.na(cause_of_death) & .data$cause_of_death %in% pc_death_codes, .data$death, 999999L),
+                death_cvd = dplyr::if_else(!is.na(cause_of_death) & .data$cause_of_death %in% cvd_death_codes, .data$death, 999999L) ) |>
+  dplyr::select(!"cause_of_death") |>
   dplyr::mutate(censor_time = case_when(
     .data$death <= .data$end_of_observation & .data$death <= .data$progression ~ .data$death,
     .data$progression <= .data$end_of_observation ~ .data$progression,
@@ -177,7 +189,7 @@ cdm[["survival_data"]] <- cdm[[cohort_name_matched]] |>
 
 for (out in outcomes){
   washout_name <-paste0(out, "_washout")
-  cdm[["survival_data"]] <- cdm[["survival_data"]] |>
+  cdm[["survival_data"]] <- cdm[[cohort_name]] |>
     PatientProfiles::addConceptIntersectDays(conceptSet = list(out = outcome_codelist[[out]]),
                                              window = list(c(1, Inf)),
                                              nameStyle = out,
@@ -186,7 +198,7 @@ for (out in outcomes){
                                              window = list(c(-365, 0)),
                                              targetStartDate = "event_end_date",
                                              name = "survival_data",
-                                             nameStyle = washout_name, ) |>
+                                             nameStyle = washout_name ) |>
 
     dplyr::mutate(
       !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
@@ -207,7 +219,7 @@ for (out in outcomes){
 }
 survival_data <-  cdm[["survival_data"]] |>
   dplyr::collect()
-outcomes <- c("death", "progression", outcomes)
+outcomes <- c("death", "death_cvd", "death_pc", "progression", outcomes)
 res_outcomes <- outcomes |>
   purrr::map(\(out) {
      outcomeModel(survival_data = survival_data, outcome = out)
