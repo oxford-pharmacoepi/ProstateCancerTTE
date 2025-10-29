@@ -1,145 +1,145 @@
-concept_id,concept_name,vocabulary_id
-1633905,AJCC/UICC 6th clinical Stage 1,Cancer Modifier
-1634205,AJCC/UICC 6th clinical Stage 1A,Cancer Modifier
-1634814,AJCC/UICC 6th clinical Stage 1A1,Cancer Modifier
-1634095,AJCC/UICC 6th clinical Stage 1A2,Cancer Modifier
-1635579,AJCC/UICC 6th clinical Stage 1A3,Cancer Modifier
-1633897,AJCC/UICC 6th clinical Stage 1B,Cancer Modifier
-1633403,AJCC/UICC 6th clinical Stage 1B1,Cancer Modifier
-1634433,AJCC/UICC 6th clinical Stage 1B2,Cancer Modifier
-1633856,AJCC/UICC 6th clinical Stage 1C,Cancer Modifier
-1634593,AJCC/UICC 6th clinical Stage 1E,Cancer Modifier
-1634349,AJCC/UICC 6th clinical Stage 1s,Cancer Modifier
-1634718,AJCC/UICC 6th clinical Stage 2,Cancer Modifier
-1634801,AJCC/UICC 6th clinical Stage 2A,Cancer Modifier
-1635347,AJCC/UICC 6th clinical Stage 2A1,Cancer Modifier
-1634479,AJCC/UICC 6th clinical Stage 2A2,Cancer Modifier
-1634008,AJCC/UICC 6th clinical Stage 2B,Cancer Modifier
-1633835,AJCC/UICC 6th clinical Stage 2C,Cancer Modifier
-1634987,AJCC/UICC 6th clinical Stage 2E,Cancer Modifier
-1634888,AJCC/UICC 6th Stage 1,Cancer Modifier
-1634027,AJCC/UICC 6th Stage 1A,Cancer Modifier
-1633734,AJCC/UICC 6th Stage 1A1,Cancer Modifier
-1634553,AJCC/UICC 6th Stage 1A2,Cancer Modifier
-1634171,AJCC/UICC 6th Stage 1A3,Cancer Modifier
-1634604,AJCC/UICC 6th Stage 1B,Cancer Modifier
-1635608,AJCC/UICC 6th Stage 1B1,Cancer Modifier
-1633761,AJCC/UICC 6th Stage 1B2,Cancer Modifier
-1635191,AJCC/UICC 6th Stage 1C,Cancer Modifier
-1634474,AJCC/UICC 6th Stage 1E,Cancer Modifier
-1634912,AJCC/UICC 6th Stage 1s,Cancer Modifier
-1633753,AJCC/UICC 6th Stage 2,Cancer Modifier
-1633482,AJCC/UICC 6th Stage 2A,Cancer Modifier
-1633774,AJCC/UICC 6th Stage 2A1,Cancer Modifier
-1635877,AJCC/UICC 6th Stage 2A2,Cancer Modifier
-1634542,AJCC/UICC 6th Stage 2B,Cancer Modifier
-1635239,AJCC/UICC 6th Stage 2C,Cancer Modifier
-1635074,AJCC/UICC 6th Stage 2E,Cancer Modifier
-1634457,AJCC/UICC 7th clinical Stage 1,Cancer Modifier
-1634860,AJCC/UICC 7th clinical Stage 1A,Cancer Modifier
-1634468,AJCC/UICC 7th clinical Stage 1A1,Cancer Modifier
-1634627,AJCC/UICC 7th clinical Stage 1A2,Cancer Modifier
-1633425,AJCC/UICC 7th clinical Stage 1A3,Cancer Modifier
-1634958,AJCC/UICC 7th clinical Stage 1B,Cancer Modifier
-1634294,AJCC/UICC 7th clinical Stage 1B1,Cancer Modifier
-1634861,AJCC/UICC 7th clinical Stage 1B2,Cancer Modifier
-1633366,AJCC/UICC 7th clinical Stage 1C,Cancer Modifier
-1633321,AJCC/UICC 7th clinical Stage 1E,Cancer Modifier
-1635659,AJCC/UICC 7th clinical Stage 1s,Cancer Modifier
-1635182,AJCC/UICC 7th clinical Stage 2,Cancer Modifier
-1633345,AJCC/UICC 7th clinical Stage 2A,Cancer Modifier
-1634099,AJCC/UICC 7th clinical Stage 2A1,Cancer Modifier
-1635034,AJCC/UICC 7th clinical Stage 2A2,Cancer Modifier
-1635896,AJCC/UICC 7th clinical Stage 2B,Cancer Modifier
-1634465,AJCC/UICC 7th clinical Stage 2C,Cancer Modifier
-1635243,AJCC/UICC 7th clinical Stage 2E,Cancer Modifier
-1635867,AJCC/UICC 7th Stage 1,Cancer Modifier
-1633669,AJCC/UICC 7th Stage 1A,Cancer Modifier
-1634690,AJCC/UICC 7th Stage 1A1,Cancer Modifier
-1633677,AJCC/UICC 7th Stage 1A2,Cancer Modifier
-1633971,AJCC/UICC 7th Stage 1A3,Cancer Modifier
-1635138,AJCC/UICC 7th Stage 1B,Cancer Modifier
-1633617,AJCC/UICC 7th Stage 1B1,Cancer Modifier
-1633917,AJCC/UICC 7th Stage 1B2,Cancer Modifier
-1634470,AJCC/UICC 7th Stage 1C,Cancer Modifier
-1634419,AJCC/UICC 7th Stage 1E,Cancer Modifier
-1635458,AJCC/UICC 7th Stage 1s,Cancer Modifier
-1634181,AJCC/UICC 7th Stage 2,Cancer Modifier
-1634937,AJCC/UICC 7th Stage 2A,Cancer Modifier
-1635546,AJCC/UICC 7th Stage 2A1,Cancer Modifier
-1635215,AJCC/UICC 7th Stage 2A2,Cancer Modifier
-1634368,AJCC/UICC 7th Stage 2B,Cancer Modifier
-1635193,AJCC/UICC 7th Stage 2C,Cancer Modifier
-1633627,AJCC/UICC 7th Stage 2E,Cancer Modifier
-1635758,AJCC/UICC 8th clinical Stage 1,Cancer Modifier
-1634066,AJCC/UICC 8th clinical Stage 1A,Cancer Modifier
-1633970,AJCC/UICC 8th clinical Stage 1A1,Cancer Modifier
-1634021,AJCC/UICC 8th clinical Stage 1A2,Cancer Modifier
-1635802,AJCC/UICC 8th clinical Stage 1A3,Cancer Modifier
-1634160,AJCC/UICC 8th clinical Stage 1B,Cancer Modifier
-1634512,AJCC/UICC 8th clinical Stage 1B1,Cancer Modifier
-1635721,AJCC/UICC 8th clinical Stage 1B2,Cancer Modifier
-1635248,AJCC/UICC 8th clinical Stage 1C,Cancer Modifier
-1634761,AJCC/UICC 8th clinical Stage 1E,Cancer Modifier
-1633698,AJCC/UICC 8th clinical Stage 1s,Cancer Modifier
-1635217,AJCC/UICC 8th clinical Stage 2,Cancer Modifier
-1635786,AJCC/UICC 8th clinical Stage 2A,Cancer Modifier
-1633940,AJCC/UICC 8th clinical Stage 2A1,Cancer Modifier
-1634141,AJCC/UICC 8th clinical Stage 2A2,Cancer Modifier
-1634056,AJCC/UICC 8th clinical Stage 2B,Cancer Modifier
-1634932,AJCC/UICC 8th clinical Stage 2C,Cancer Modifier
-1635601,AJCC/UICC 8th clinical Stage 2E,Cancer Modifier
-1634895,AJCC/UICC 8th Stage 1,Cancer Modifier
-1633516,AJCC/UICC 8th Stage 1A,Cancer Modifier
-1635814,AJCC/UICC 8th Stage 1A1,Cancer Modifier
-1633944,AJCC/UICC 8th Stage 1A2,Cancer Modifier
-1633704,AJCC/UICC 8th Stage 1A3,Cancer Modifier
-1634698,AJCC/UICC 8th Stage 1B,Cancer Modifier
-1633526,AJCC/UICC 8th Stage 1B1,Cancer Modifier
-1634351,AJCC/UICC 8th Stage 1B2,Cancer Modifier
-1633968,AJCC/UICC 8th Stage 1C,Cancer Modifier
-1635738,AJCC/UICC 8th Stage 1E,Cancer Modifier
-1635726,AJCC/UICC 8th Stage 1s,Cancer Modifier
-1634316,AJCC/UICC 8th Stage 2,Cancer Modifier
-1634226,AJCC/UICC 8th Stage 2A,Cancer Modifier
-1635811,AJCC/UICC 8th Stage 2A1,Cancer Modifier
-1635494,AJCC/UICC 8th Stage 2A2,Cancer Modifier
-1635288,AJCC/UICC 8th Stage 2B,Cancer Modifier
-1634900,AJCC/UICC 8th Stage 2C,Cancer Modifier
-1635730,AJCC/UICC 8th Stage 2E,Cancer Modifier
-1635199,AJCC/UICC clinical Stage 1,Cancer Modifier
-1634671,AJCC/UICC clinical Stage 1A,Cancer Modifier
-1634927,AJCC/UICC clinical Stage 1A1,Cancer Modifier
-1633948,AJCC/UICC clinical Stage 1A2,Cancer Modifier
-1635216,AJCC/UICC clinical Stage 1A3,Cancer Modifier
-1633618,AJCC/UICC clinical Stage 1B,Cancer Modifier
-1635184,AJCC/UICC clinical Stage 1B1,Cancer Modifier
-1634794,AJCC/UICC clinical Stage 1B2,Cancer Modifier
-1634813,AJCC/UICC clinical Stage 1C,Cancer Modifier
-1635482,AJCC/UICC clinical Stage 1E,Cancer Modifier
-1635293,AJCC/UICC clinical Stage 1s,Cancer Modifier
-1633841,AJCC/UICC clinical Stage 2,Cancer Modifier
-1635486,AJCC/UICC clinical Stage 2A,Cancer Modifier
-1635115,AJCC/UICC clinical Stage 2A1,Cancer Modifier
-1633489,AJCC/UICC clinical Stage 2A2,Cancer Modifier
-1634332,AJCC/UICC clinical Stage 2B,Cancer Modifier
-1635056,AJCC/UICC clinical Stage 2C,Cancer Modifier
-1634917,AJCC/UICC clinical Stage 2E,Cancer Modifier
-1633306,AJCC/UICC Stage 1,Cancer Modifier
-1635790,AJCC/UICC Stage 1A,Cancer Modifier
-1633565,AJCC/UICC Stage 1A1,Cancer Modifier
-1635611,AJCC/UICC Stage 1A2,Cancer Modifier
-1634353,AJCC/UICC Stage 1A3,Cancer Modifier
-1634494,AJCC/UICC Stage 1B,Cancer Modifier
-1634019,AJCC/UICC Stage 1B1,Cancer Modifier
-1635020,AJCC/UICC Stage 1B2,Cancer Modifier
-1634868,AJCC/UICC Stage 1C,Cancer Modifier
-1633701,AJCC/UICC Stage 1E,Cancer Modifier
-1635474,AJCC/UICC Stage 1s,Cancer Modifier
-1634209,AJCC/UICC Stage 2,Cancer Modifier
-1634123,AJCC/UICC Stage 2A,Cancer Modifier
-1633743,AJCC/UICC Stage 2A1,Cancer Modifier
-1634338,AJCC/UICC Stage 2A2,Cancer Modifier
-1634028,AJCC/UICC Stage 2B,Cancer Modifier
-1634903,AJCC/UICC Stage 2C,Cancer Modifier
-1634914,AJCC/UICC Stage 2E,Cancer Modifier
+concept_id
+1633905
+1634205
+1634814
+1634095
+1635579
+1633897
+1633403
+1634433
+1633856
+1634593
+1634349
+1634718
+1634801
+1635347
+1634479
+1634008
+1633835
+1634987
+1634888
+1634027
+1633734
+1634553
+1634171
+1634604
+1635608
+1633761
+1635191
+1634474
+1634912
+1633753
+1633482
+1633774
+1635877
+1634542
+1635239
+1635074
+1634457
+1634860
+1634468
+1634627
+1633425
+1634958
+1634294
+1634861
+1633366
+1633321
+1635659
+1635182
+1633345
+1634099
+1635034
+1635896
+1634465
+1635243
+1635867
+1633669
+1634690
+1633677
+1633971
+1635138
+1633617
+1633917
+1634470
+1634419
+1635458
+1634181
+1634937
+1635546
+1635215
+1634368
+1635193
+1633627
+1635758
+1634066
+1633970
+1634021
+1635802
+1634160
+1634512
+1635721
+1635248
+1634761
+1633698
+1635217
+1635786
+1633940
+1634141
+1634056
+1634932
+1635601
+1634895
+1633516
+1635814
+1633944
+1633704
+1634698
+1633526
+1634351
+1633968
+1635738
+1635726
+1634316
+1634226
+1635811
+1635494
+1635288
+1634900
+1635730
+1635199
+1634671
+1634927
+1633948
+1635216
+1633618
+1635184
+1634794
+1634813
+1635482
+1635293
+1633841
+1635486
+1635115
+1633489
+1634332
+1635056
+1634917
+1633306
+1635790
+1633565
+1635611
+1634353
+1634494
+1634019
+1635020
+1634868
+1633701
+1635474
+1634209
+1634123
+1633743
+1634338
+1634028
+1634903
+1634914

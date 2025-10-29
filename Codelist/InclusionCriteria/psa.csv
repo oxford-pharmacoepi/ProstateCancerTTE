@@ -1,9 +1,9 @@
-concept_id,concept_name,vocabulary_id
-4272032,Prostate specific antigen measurement,SNOMED
-37392151,Serum PSA (prostate specific antigen) level,SNOMED
-37392634,Total PSA (prostate specific antigen) level,SNOMED
-37398806,PSA (prostate-specific antigen) level,SNOMED
-40480170,Measurement of prostate specific antigen using ultrasensitive assay,SNOMED
-44793131,Total prostate specific antigen level,SNOMED
-44811980,Serum prostate specific antigen measurement,SNOMED
-45769987,Prostate specific antigen threshold for referral,SNOMED
+concept_id
+4272032
+37392151
+37392634
+37398806
+40480170
+44793131
+44811980
+45769987

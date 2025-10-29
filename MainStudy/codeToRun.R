@@ -18,28 +18,22 @@ con <- dbConnect(drv = Postgres(),
                  password = password)
 
 
+createCohorts <- TRUE
+runModel <- TRUE
+
 cdm <- cdmFromCon(con = con,
                   cdmSchema = "public",
                   writeSchema = "results",
                   achillesSchema = "results" ,
                   .softValidation = TRUE,
                   writePrefix = "cc_",
-                  cdmName = dbName)
+                  cdmName = dbName,
+                  cohortTables = c("optima_pc_trial", "optima_pc_rwd")[!createCohorts]
 
+)
 
-observation_period <-"linked"
-
-db_filter <- "NCRASCR"
-
-characterise_op <- FALSE
-
-characterise_clinical_tables <- FALSE
-
-diagnostics <- FALSE
-
-cohorts <- TRUE
-
-propensity_scores <- FALSE
+cdm$observation_period<- cdm$observation_period |>
+  dplyr::filter(.data$period_type_concept_id == 32882)
 
 source("MainStudy/RunAnalysis.R")
 

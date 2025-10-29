@@ -8,8 +8,6 @@ if (observation_period == "linked") {
     dplyr::filter(.data$period_type_concept_id == 32880)
 }
 
-
-
 # Database Characterisation
 
 if (characterise_op) {
@@ -78,7 +76,6 @@ if (characterise_clinical_tables) {
 
   source("DatabaseCharacterisation/clinicalTablesCharacterisation.R")
 }
-
 
 
 CDMConnector::cdmDisconnect(cdm)
