@@ -64,7 +64,9 @@ cdm[["psa_values"]] <- cdm$measurement |>
                                              window = c(0, 180) ) |>
   CohortConstructor::requireIsLastEntry() |>
   PatientProfiles::addCategories(variable = "psa_value", categories = list("latest_psa_value" = list("<3" = c(0, 2.99),
-                                                                                                     "3 to 19.99" = c(3,19.99),
+                                                                                                     "3 to 5.99" = c(3, 5.99),
+                                                                                                     "6 to 9.99" = c(6, 9.99),
+                                                                                                     "10 to 19.99" = c(10, 19.99),
                                                                                                      "20 to 39.99" = c(20, 39.99),
                                                                                                      ">40" = c(40, Inf)
                                                                                                     )
@@ -390,6 +392,32 @@ cdm[["n_status"]] <- CohortConstructor::conceptCohort(cdm, conceptSet = N_status
   dplyr::ungroup() |>
   dplyr::compute(name = "n_status")
 
+## 2010-2020
+
+cdm$optima_pc_trial_2010_2020 <- cdm$optima_pc_trial |>
+  CohortConstructor::requireInDateRange(dateRange = as.Date(c("2010-01-01","2019-12-31")),
+                                        name = "optima_pc_trial_2010_2020") |>
+  CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_trial_2010_2020", "radical_prostatectomy_trial_2010_2020"))
+
+
+cdm$optima_pc_rwd_2010_2020 <- cdm$optima_pc_rwd |>
+  CohortConstructor::requireInDateRange(dateRange = as.Date(c("2010-01-01","2019-12-31")),
+                                        name = "optima_pc_rwd_2010_2020") |>
+  CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_rwd_2010_2020", "radical_prostatectomy_rwd_2010_2020"))
+
+
+
+cdm$optima_pc_rwd_50_69_2010_2020 <- cdm$optima_pc_rwd_50_69 |>
+  CohortConstructor::requireInDateRange(dateRange = as.Date(c("2010-01-01","2019-12-31")),
+                                        name = "optima_pc_rwd_50_69_2010_2020") |>
+  CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_rwd_50_69_2010_2020", "radical_prostatectomy_rwd_50_69_2010_2020"))
+
+
+
+cdm$optima_pc_rwd_70_inf_2010_2020 <- cdm$optima_pc_rwd_70_inf |>
+  CohortConstructor::requireInDateRange(dateRange = as.Date(c("2010-01-01","2019-12-31")),
+                                        name = "optima_pc_rwd_70_inf_2010_2020") |>
+  CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_rwd_70_inf_2010_2020", "radical_prostatectomy_rwd_70_inf_2010_2020"))
 
 
 

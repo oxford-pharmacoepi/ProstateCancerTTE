@@ -7,9 +7,10 @@ if (createCohorts) {
 
 
 
-}
+ }
 
 if (runModel) {
   source(here::here("MainStudy/Model/RunModel.R"))
+  source(here::here("MainStudy/Model/RunModelMerged.R"))
 }
 

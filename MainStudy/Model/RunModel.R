@@ -8,7 +8,10 @@ excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codel
   unname()
 
 
-for (cohort_name in c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")) {
+
+cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
+#c( "optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
+for (cohort_name in cohorts) {
   cohort_name_long <- paste(cohort_name, "long", sep = "_")
   cohort_name_visits <- paste(cohort_name, "visits", sep = "_")
   cohort_name_matched <- paste(cohort_name, "matched", sep = "_")
@@ -234,6 +237,61 @@ for (cohort_name in c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69",
     })
   result[["survival"]] <- res_outcomes |>
     bindResults(cdmName = dbName, cohort_name = cohort_name)
+
+  nco_codelist <- omopgenerics::importCodelist(here::here("Codelist/NCO"), type = "csv")
+  negative_control_outcomes <- clean_names(names(nco_codelist))
+  names(nco_codelist) <- negative_control_outcomes
+
+
+  cdm[["nco"]] <- cdm[[cohort_name_matched]] |>
+    PatientProfiles::addDeathDays(deathDaysName = "death", name = "nco", window = c(1, Inf)) |>
+    PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation", name = "nco") |>
+    dplyr::mutate(
+      death = dplyr::coalesce(.data[["death"]], 999999L)
+    ) |>
+    dplyr::mutate(
+      censor_time = case_when(
+        .data$death <= .data$end_of_observation ~ .data$death,
+        .default = .data$end_of_observation
+      ),
+      censor_reason = case_when(
+        .data$censor_time == .data$death ~ "death",
+        .data$censor_time == .data$end_of_observation ~ "end of observation",
+        .default = "error"
+      )
+    ) |>
+    dplyr::mutate(
+      treatment = dplyr::case_when(
+        .data$cohort_definition_id == 1L ~ "EBRT",
+        .data$cohort_definition_id == 2L ~ "RP",
+        TRUE ~ as.character(.data$cohort_definition_id)
+      )
+    ) |>
+    dplyr::compute(name = "nco")
+
+  for (nco in negative_control_outcomes) {
+
+    cdm[["nco"]] <- cdm[["nco"]] |>
+      PatientProfiles::addConceptIntersectDays(
+        conceptSet = list(nco = nco_codelist[[nco]]),
+        window = list(c(1, Inf)),
+        nameStyle = nco,
+        name = "nco"
+      )
+  }
+  nco_table <- cdm[["nco"]] |>
+    dplyr::collect()
+
+  res_nco <- negative_control_outcomes |>
+    purrr::map(\(nco) {
+      outcomeModel(survival_data = nco_table, outcome = nco)
+    })
+  result[["nco"]] <- res_nco |>
+    bindResults(cdmName = dbName, cohort_name = cohort_name)
+  set <- omopgenerics::settings(result[["nco"]]) |>
+    dplyr::mutate(result_type = paste0("nco_", .data$result_type))
+
+  result[["nco"]] <- omopgenerics::newSummarisedResult(result[["nco"]], settings = set)
 
 
   result_to_export <- omopgenerics::bind(result)

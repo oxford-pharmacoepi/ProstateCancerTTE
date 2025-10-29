@@ -10,9 +10,8 @@ logger <- log4r::create.logger(logfile = log_file, level = "INFO")
 
 log4r::info(logger = logger, "Start time recorded.")
 
-log4r::info(logger, "Building general conditions cohort")
-
-conditions_codelist <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/conditions"), type = "csv")
+ log4r::info(logger, "Building general conditions cohort")
+ conditions_codelist <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/conditions"), type = "csv")
 
 cdm$conditions <- CohortConstructor::conceptCohort(cdm, conceptSet = conditions_codelist, name = "conditions")
 
@@ -23,12 +22,22 @@ medications_codelist <- omopgenerics::importCodelist(here::here("Codelist/Charac
 cdm$medications <- CohortConstructor::conceptCohort(cdm, conceptSet = medications_codelist, name = "medications")
 
 
-cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
-#cohorts <- c("optima_pc_trial_matched", "optima_pc_rwd_matched",  "merged_optima_pc_trial_matched", "merged_optima_pc_rwd_matched")
+# cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf", "optima_pc_trial_2010_2020", "optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
+# cohorts <- c( "optima_pc_rwd_matched",  "merged_optima_pc_trial_matched", "merged_optima_pc_rwd_matched","optima_pc_rwd_50_69_2010_2020_matched",
+#              "optima_pc_rwd_2010_2020_matched", "optima_pc_rwd_50_69_2010_2020_matched", "optima_pc_rwd_70_inf_2010_2020_matched",
+#              "merged_optima_pc_trial_2010_2020_matched", "merged_optima_pc_rwd_2010_2020_matched", "merged_optima_pc_rwd_50_69_2010_2020_matched", "merged_optima_pc_rwd_70_inf_2010_2020_matched")
+
+#cohorts <- c("optima_pc_rwd_50_69_matched", "optima_pc_rwd_70_inf_matched", "merged_optima_pc_rwd_50_69_matched", "merged_optima_pc_rwd_70_inf_matched")
+
+cohorts <- c("optima_pc_trial","merged_optima_pc_trial_matched")
 
 result <- purrr::map(cohorts, \(cohort_name){
 
   log4r::info(logger, paste0("Start characterisation of cohort ", cohort_name))
+
+  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+    CohortConstructor::renameCohort(cohortId = 1, newCohortName = paste0("ebrt_", cohort_name)) |>
+    CohortConstructor::renameCohort(cohortId = 2, newCohortName = paste0("rp_", cohort_name))
 
   log4r::info(logger, "Get counts of the cohorts.")
 
@@ -54,7 +63,7 @@ result <- purrr::map(cohorts, \(cohort_name){
     dplyr::left_join(cdm[["n_status"]] |> dplyr::select("subject_id","latest_n_status"), by = "subject_id") |>
     dplyr::mutate(
       latest_n_status = dplyr::coalesce(.data$latest_n_status, "missing")
-      ) |>
+    ) |>
     dplyr::left_join(cdm[["psa_values"]] |> dplyr::select("subject_id","psa_value", "latest_psa_value")) |>
 
     dplyr::mutate(
@@ -101,7 +110,9 @@ result <- purrr::map(cohorts, \(cohort_name){
 
 
 
-  res <- omopgenerics::bind(count, characteristics, lsc)
+  res <- omopgenerics::bind(count, characteristics, lsc, attrition, overlap)
+  #res <- omopgenerics::bind(count, characteristics, lsc)
+  omopgenerics::exportSummarisedResult(res, fileName =  paste0("prostateCancer_characteristics_{cdm_name}_", cohort_name,".csv"), path = output_folder )
 
 
 
@@ -109,14 +120,10 @@ result <- purrr::map(cohorts, \(cohort_name){
   omopgenerics::bind()
 
 log4r::info(logger, "Attrition prostate cancer between age 50 and 69 trial cohort")
-result <- result |> omopgenerics::bind(
-  CohortCharacteristics::summariseCohortAttrition(cdm[["prostate_cancer_age_50_69"]])
-)
+pc_cohort_caharcterisation <- CohortCharacteristics::summariseCohortAttrition(cdm[["prostate_cancer_age_50_69"]])
 
 
-omopgenerics::exportSummarisedResult(result, fileName =  paste0("prostateCancer_characteristics_{cdm_name}_", format(Sys.time(), "%d_%m_%Y_%H_%M_%S"),".csv"), path = output_folder )
-
-
+omopgenerics::exportSummarisedResult(pc_cohort_caharcterisation, fileName =  paste0("prostateCancer_characteristics_cohorts_{cdm_name}_prostate_cancer_age_50_69.csv"), path = output_folder )
 
 dur <- abs(as.numeric(Sys.time() - start_time, units = "secs"))
 log4r::info(logger,paste("Study code finished. Code ran in", floor(dur / 60), "min and", dur %% 60 %/% 1, "sec"))

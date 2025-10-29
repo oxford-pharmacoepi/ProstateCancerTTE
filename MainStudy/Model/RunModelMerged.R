@@ -16,8 +16,9 @@ excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codel
   unlist() |>
   unname()
 output_directory <- here::here("MainStudy/Results")
-
-for (cohort_name in c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")) {
+#cohort <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
+cohort <- c("optima_pc_trial_2010_2020","optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
+for (cohort_name in cohort) {
   cohort_name_long <- paste(cohort_name, "long", sep = "_")
   cohort_name_visits <- paste(cohort_name, "visits", sep = "_")
   cohort_name_matched <- paste(cohort_name, "matched", sep = "_")
@@ -39,7 +40,7 @@ for (cohort_name in c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69",
 
   cdm_g <- cdmFromCon(
     con = con_gold, cdmSchema = "public", writeSchema = "results", achillesSchema = "results", writePrefix = "cc_", .softValidation = TRUE, cdmName = dbName_gold,
-    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, cohort_name_matched, "progression")
+    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, marged_matched_cohort_name,  "progression")
   )
 
 
@@ -62,7 +63,7 @@ for (cohort_name in c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69",
 
   cdm_a <- cdmFromCon(
     con = con_aurum, cdmSchema = "public", writeSchema = "results", achillesSchema = "results", writePrefix = "cc_", .softValidation = TRUE, cdmName = dbName_aurum,
-    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, cohort_name_matched, "progression")
+    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, marged_matched_cohort_name, "progression")
   )
 
 
@@ -95,7 +96,7 @@ for (cohort_name in c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69",
 
   wide_data <- wide_data |>
     dplyr::distinct() |>
-    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0), )
+    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0) )
 
   ### Lasso ----
 
@@ -392,7 +393,115 @@ for (cohort_name in c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69",
     })
   result[["survival"]] <- res_outcomes |>
     bindResults(cdmName = "merged", cohort_name = cohort_name)
+### NCO ----
 
+  nco_codelist <- omopgenerics::importCodelist(here::here("Codelist/NCO"), type = "csv")
+  negative_control_outcomes <- clean_names(names(nco_codelist))
+  names(nco_codelist) <- negative_control_outcomes
+
+
+
+  nco_gold <- cdm_g[[marged_matched_cohort_name]] |>
+    PatientProfiles::addDeathDays(deathDaysName = "death", window = c(1, Inf)) |>
+    PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation") |>
+    dplyr::mutate(death = dplyr::coalesce(.data[["death"]], 999999L)) |>
+    dplyr::mutate(
+      censor_time = case_when(
+        .data$death <= .data$end_of_observation ~ .data$death,
+        .default = .data$end_of_observation
+      ),
+      censor_reason = case_when(
+        .data$censor_time == .data$death ~ "death",
+        .data$censor_time == .data$end_of_observation ~ "end of observation",
+        .default = "error"
+      )
+    ) |>
+    dplyr::mutate(
+      treatment = dplyr::case_when(
+        .data$cohort_definition_id == 1L ~ "EBRT",
+        .data$cohort_definition_id == 2L ~ "RP",
+        TRUE ~ as.character(.data$cohort_definition_id)
+      )
+    ) |>
+    dplyr::collect()
+
+
+  nco_aurum <- cdm_a[[marged_matched_cohort_name]] |>
+    PatientProfiles::addDeathDays(deathDaysName = "death", window = c(1, Inf)) |>
+    PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation") |>
+    dplyr::mutate(death = dplyr::coalesce(.data[["death"]], 999999L)) |>
+    dplyr::mutate(
+      censor_time = case_when(
+        .data$death <= .data$end_of_observation ~ .data$death,
+        .default = .data$end_of_observation
+      ),
+      censor_reason = case_when(
+        .data$censor_time == .data$death ~ "death",
+        .data$censor_time == .data$end_of_observation ~ "end of observation",
+        .default = "error"
+      )
+    ) |>
+    dplyr::mutate(
+      treatment = dplyr::case_when(
+        .data$cohort_definition_id == 1L ~ "EBRT",
+        .data$cohort_definition_id == 2L ~ "RP",
+        TRUE ~ as.character(.data$cohort_definition_id)
+      )
+    ) |>
+    dplyr::collect()
+
+
+  for (nco in negative_control_outcomes) {
+
+    window <- list(c(1, Inf))
+
+    cdm_g[[marged_matched_cohort_name]] <- cdm_g[[marged_matched_cohort_name]] |>
+      PatientProfiles::addConceptIntersectDays(
+        conceptSet = list(nco = nco_codelist[[nco]]),
+        window = window,
+        nameStyle = nco,
+        name = marged_matched_cohort_name
+      )
+
+
+
+    nco_gold <- nco_gold |>
+      dplyr::left_join(cdm_g[[marged_matched_cohort_name]] |>
+                         dplyr::collect())
+
+
+    cdm_a[[marged_matched_cohort_name]] <- cdm_a[[marged_matched_cohort_name]] |>
+      PatientProfiles::addConceptIntersectDays(
+        conceptSet = list(nco = nco_codelist[[nco]]),
+        window = window,
+        nameStyle = nco,
+        name = marged_matched_cohort_name
+      )
+
+    nco_aurum <- nco_aurum |>
+      dplyr::left_join(cdm_a[[marged_matched_cohort_name]] |>
+                         dplyr::collect())
+  }
+
+  nco_table <- nco_gold |>
+    dplyr::mutate(source = "gold") |>
+    dplyr::bind_rows(nco_aurum |>
+                       dplyr::mutate(source = "aurum"))
+
+  res_nco <- negative_control_outcomes |>
+    purrr::map(\(nco) {
+      outcomeModel(survival_data = nco_table, outcome = nco)
+    })
+  result[["nco"]] <- res_nco |>
+    bindResults(cdmName = "merged", cohort_name = cohort_name)
+  set <- omopgenerics::settings(result[["nco"]]) |>
+    dplyr::mutate(result_type = paste0("nco_", .data$result_type))
+
+  result[["nco"]] <- omopgenerics::newSummarisedResult(result[["nco"]], settings = set)
+
+
+
+  ### Export ----
   result_to_export <- omopgenerics::bind(result)
   omopgenerics::exportSummarisedResult(result, path = paste0(output_directory, "/Survival"), fileName = paste0("results_{cdm_name}_", cohort_name, ".csv"))
 }

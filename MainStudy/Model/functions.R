@@ -183,7 +183,11 @@ getSelectedFeatures <- function(wide_data, cdm, cdm_name) {
 
   y <- wide_data$y
   X <- wide_data |>
-    dplyr::select(!c("y",dplyr::starts_with("latest"), dplyr::ends_with("group")))
+    dplyr::select(
+      -dplyr::any_of(c("y", "source", "psa_value")),
+      -dplyr::starts_with("latest"),
+      -dplyr::ends_with("group")
+    )
 
   X <- stats::model.matrix(
     ~ . - cohort_definition_id - cohort_start_date - cohort_end_date - subject_id + age + year ,
