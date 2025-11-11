@@ -40,7 +40,7 @@ for (cohort_name in cohort) {
 
   cdm_g <- cdmFromCon(
     con = con_gold, cdmSchema = "public", writeSchema = "results", achillesSchema = "results", writePrefix = "cc_", .softValidation = TRUE, cdmName = dbName_gold,
-    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, marged_matched_cohort_name,  "progression")
+    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits,  "progression", "medications", "conditions")
   )
 
 
@@ -63,7 +63,7 @@ for (cohort_name in cohort) {
 
   cdm_a <- cdmFromCon(
     con = con_aurum, cdmSchema = "public", writeSchema = "results", achillesSchema = "results", writePrefix = "cc_", .softValidation = TRUE, cdmName = dbName_aurum,
-    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, marged_matched_cohort_name, "progression")
+    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, marged_matched_cohort_name, "progression", "medications", "conditions")
   )
 
 
@@ -76,11 +76,11 @@ for (cohort_name in cohort) {
   cohort_merged <- dplyr::bind_rows(
     cdm_g[[cohort_name_long]] |>
       dplyr::mutate("source" = "gold") |>
-      PatientProfiles::addAgeQuery(ageGroup = list(c(0, 50), c(51, 55), c(56, 60), c(61, 65), c(66, 70), c(71, 75), c(76, 80), c(81, Inf))) |>
+      PatientProfiles::addAge() |>
       dplyr::collect(),
     cdm_a[[cohort_name_long]] |>
       dplyr::mutate(source = "aurum") |>
-      PatientProfiles::addAgeQuery(ageGroup = list(c(0, 50), c(51, 55), c(56, 60), c(61, 65), c(66, 70), c(71, 75), c(76, 80), c(81, Inf))) |>
+      PatientProfiles::addAge() |>
       dplyr::collect()
   )
 
@@ -179,7 +179,6 @@ for (cohort_name in cohort) {
   matched_data <- getMatchedData(
     selectedFeatures = x$selected_columns,
     wide_data = wide_data,
-    directory = paste0(output_directory, "/Matching"),
     cdm_name = "merged"
   )
 

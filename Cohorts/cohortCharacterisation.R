@@ -22,14 +22,14 @@ medications_codelist <- omopgenerics::importCodelist(here::here("Codelist/Charac
 cdm$medications <- CohortConstructor::conceptCohort(cdm, conceptSet = medications_codelist, name = "medications")
 
 
-# cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf", "optima_pc_trial_2010_2020", "optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
+cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf", "optima_pc_trial_2010_2020", "optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
 # cohorts <- c( "optima_pc_rwd_matched",  "merged_optima_pc_trial_matched", "merged_optima_pc_rwd_matched","optima_pc_rwd_50_69_2010_2020_matched",
 #              "optima_pc_rwd_2010_2020_matched", "optima_pc_rwd_50_69_2010_2020_matched", "optima_pc_rwd_70_inf_2010_2020_matched",
 #              "merged_optima_pc_trial_2010_2020_matched", "merged_optima_pc_rwd_2010_2020_matched", "merged_optima_pc_rwd_50_69_2010_2020_matched", "merged_optima_pc_rwd_70_inf_2010_2020_matched")
 
 #cohorts <- c("optima_pc_rwd_50_69_matched", "optima_pc_rwd_70_inf_matched", "merged_optima_pc_rwd_50_69_matched", "merged_optima_pc_rwd_70_inf_matched")
 
-cohorts <- c("optima_pc_trial","merged_optima_pc_trial_matched")
+#cohorts <- c("optima_pc_trial","merged_optima_pc_trial_matched")
 
 result <- purrr::map(cohorts, \(cohort_name){
 
@@ -63,6 +63,10 @@ result <- purrr::map(cohorts, \(cohort_name){
     dplyr::left_join(cdm[["n_status"]] |> dplyr::select("subject_id","latest_n_status"), by = "subject_id") |>
     dplyr::mutate(
       latest_n_status = dplyr::coalesce(.data$latest_n_status, "missing")
+    ) |>
+    dplyr::left_join(cdm[["t_status"]] |> dplyr::select("subject_id","latest_t_status"), by = "subject_id") |>
+    dplyr::mutate(
+      latest_t_status = dplyr::coalesce(.data$latest_t_status, "missing")
     ) |>
     dplyr::left_join(cdm[["psa_values"]] |> dplyr::select("subject_id","psa_value", "latest_psa_value")) |>
 
