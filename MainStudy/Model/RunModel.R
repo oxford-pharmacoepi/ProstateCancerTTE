@@ -9,8 +9,9 @@ excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codel
 
 
 
-cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
+#cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
 #c( "optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
+
 for (cohort_name in cohorts) {
   cohort_name_long <- paste(cohort_name, "long", sep = "_")
   cohort_name_visits <- paste(cohort_name, "visits", sep = "_")
@@ -25,17 +26,15 @@ for (cohort_name in cohorts) {
   frequent_concepts <- getFrequentConcepts(cohort = cdm[[cohort_name_long]])
 
   cdm <- visitsCount(cdm, cohort_name = cohort_name)
+
   cdm[[cohort_name_long]] <- cdm[[cohort_name_long]] |>
-    PatientProfiles::addAgeQuery(ageGroup = list(c(0, 50), c(51, 55), c(56, 60), c(61, 65), c(66, 70), c(71, 75), c(76, 80), c(81, Inf)))
+    PatientProfiles::addAge()
 
   wide_data <- getWideData(cohort = cdm[[cohort_name_long]], frequent_concepts = frequent_concepts, visits = cdm[[cohort_name_visits]])
-  wide_data <- wide_data |>
-    dplyr::distinct() |>
-    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0), )
 
   wide_data <- wide_data |>
     dplyr::distinct() |>
-    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0), )
+    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0))
 
   x <- getSelectedFeatures(
     wide_data = wide_data,
@@ -43,7 +42,7 @@ for (cohort_name in cohorts) {
     cdm_name = dbName
   )
 
-
+  if(length( x$selected_columns) >0 ) {
 
   result[["density_points"]] <- x$density_points |>
     dplyr::mutate(
@@ -114,7 +113,6 @@ for (cohort_name in cohorts) {
  matched_data <- getMatchedData(
     selectedFeatures = x$selected_columns,
     wide_data = wide_data,
-    directory = paste0(output_directory, "/Matching"),
     cdm_name = dbName
   )
 
@@ -149,6 +147,7 @@ for (cohort_name in cohorts) {
 
   cdm[[cohort_name_matched]] <- omopgenerics::newCohortTable(table = cdm[[cohort_name_matched]])
 
+  result[["characterisation_matched_cohort"]] <- cohortCharacterisation(cdm = cdm, cohort_name = cohort_name_matched)
 
   ### Outcome model ----
 
@@ -296,4 +295,5 @@ for (cohort_name in cohorts) {
 
   result_to_export <- omopgenerics::bind(result)
   omopgenerics::exportSummarisedResult(result, path = paste0(output_directory, "/Survival"), fileName = paste0("results_{cdm_name}_", cohort_name, ".csv"))
+  }
 }

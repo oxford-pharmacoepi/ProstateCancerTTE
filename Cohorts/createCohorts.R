@@ -392,6 +392,24 @@ cdm[["n_status"]] <- CohortConstructor::conceptCohort(cdm, conceptSet = N_status
   dplyr::ungroup() |>
   dplyr::compute(name = "n_status")
 
+
+t1_status <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/conditions/t1.csv"), type = "csv")
+t2_status <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/conditions/t2.csv"), type = "csv")
+t_status_codelist <- omopgenerics::bind(t1_status, t2_status)
+
+cdm[["t_status"]] <- CohortConstructor::conceptCohort(cdm, conceptSet = t_status_codelist,
+                                                      subsetCohort = "optima_pc_rwd",
+                                                      name = "t_status")|>
+  PatientProfiles::addCohortName() |>
+  dplyr::rename("latest_t_status" = "cohort_name") |>
+  CohortConstructor::requireTableIntersect(tableName = "optima_pc_rwd", window = c(0,  Inf)) |>
+  dplyr::group_by(.data$subject_id) |>
+  dplyr::slice_max(.data$cohort_start_date) |>
+  dplyr::group_by(subject_id) |>
+  dplyr::filter(dplyr::n() == 1) |>
+  dplyr::ungroup() |>
+  dplyr::compute(name = "t_status")
+
 ## 2010-2020
 
 cdm$optima_pc_trial_2010_2020 <- cdm$optima_pc_trial |>

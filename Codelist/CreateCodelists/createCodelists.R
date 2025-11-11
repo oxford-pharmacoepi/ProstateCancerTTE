@@ -244,6 +244,19 @@ for(sheet in sheets){
 
 }
 
+# nco
 
-
+file_path<- here("Codelist", "CreateCodelists", "SourceCodelists", "nco_group.xlsx")
+out_path <- here("Codelist", "NCO")
+sheets <- excel_sheets(file_path)
+codelist <- read_excel(path = file_path, sheet = sheets[2]) |>
+  dplyr::filter(.data$nco != "exclude") |>
+  dplyr::select(nco, condition_concept_id) |>
+  dplyr::group_by(nco) |>
+  dplyr::group_split()
+names(codelist) <- map_chr(codelist, \(x) unique(x$nco))
+codelist <- codelist |>
+  map(\(x) as.integer(x$condition_concept_id)) |>
+  newCodelist()
+exportCodelist(x = codelist, path = here("Codelist", "NCO"), type = "csv")
 

@@ -167,9 +167,40 @@ addVariables <- function(cdm, cohort_name = "optima_pc_rwd" ) {
       dplyr::select(-n0, -nx, -n1, -n2, -n3, -n_date) |>
       dplyr::compute(name = cohort_name)
   }
+  if (!("latest_t_status" %in% cols)) {
+    t1_status <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/conditions/t1.csv"), type = "csv")
+    t2_status <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/conditions/t2.csv"), type = "csv")
+    t_status <- omopgenerics::bind(t1_status, t2_status)
 
+    cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+      PatientProfiles::addConceptIntersectDate(conceptSet = t_status,
+                                               indexDate = "cohort_start_date",
+                                               order = "last",
+                                               window = c(-Inf,0),
+                                               name = cohort_name,
+                                               nameStyle = "{concept_name}"
+      ) |>
+      dplyr::mutate(
+        t_date = pmax(t1, t2, na.rm = TRUE),
+        latest_t_status = dplyr::case_when(
+         is.na(t1) & is.na(t2) ~ "missing",
+          t1 == t_date ~ "t1",
+          t2 == t_date ~ "t2",
+          TRUE ~ NA_character_
+        )) %>%
+      dplyr::group_by(subject_id) %>%
+      dplyr::filter(.data$latest_t_status == "missing" | .data$t_date == max(t_date, na.rm = TRUE))  |>
+      dplyr::ungroup() %>%
+      dplyr::select(-t1, -t2, -t_date) |>
+      dplyr::compute(name = cohort_name)
+  }
+  if (!("psa_value" %in% cols)) {
+      cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+        dplyr::left_join(cdm[["psa_values"]] |> dplyr::select("subject_id", "psa_value"), by = "subject_id") |>
+        dplyr::compute(name = cohort_name)
+  }
   cdm[[cohort_name]] <- cdm[[cohort_name]] |>
-    dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date", dplyr::starts_with("latest") ) |>
+    dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date", dplyr::starts_with("latest"), dplyr::starts_with("psa") ) |>
     dplyr::compute(name = cohort_name)
   return(cdm)
 }
@@ -315,7 +346,7 @@ computeASMD <- function(wide_data, features = c()) {
 
 
 ### matching ----
-getMatchedData <- function(selectedFeatures, wide_data, directory, cdm_name) {
+getMatchedData <- function(selectedFeatures, wide_data, cdm_name) {
 
   library(MatchIt)
 
@@ -328,7 +359,7 @@ getMatchedData <- function(selectedFeatures, wide_data, directory, cdm_name) {
     "latest_gleason_score_value",
     "latest_psa_value",
     "year_group",
-# "age_group",
+    "lastest_t_status",
     "source"
   )
   exact_vars <- exact_vars[exact_vars %in% colnames(wide_data)]
@@ -349,25 +380,6 @@ getMatchedData <- function(selectedFeatures, wide_data, directory, cdm_name) {
     dplyr::mutate(pair_id = as.integer(factor(.data$subclass))) |>
     dplyr::relocate(pair_id, .before = dplyr::everything())
 
-  library(ggplot2)
-  # p <- ggplot(matched_data, aes(x = factor(y), y = distance)) +
-  #   geom_jitter(width = 0.2, height = 0, alpha = 0.5) +
-  #   labs(
-  #     x = "Treatment Group",
-  #     y = "Propensity Score",
-  #     title = "Propensity Score Distribution (Matched Sample)"
-  #   ) +
-  #   theme_minimal()
-  #
-  # # Save plot
-  # ggsave(
-  #   filename = file.path(directory, paste0(cdm_name, "_ps_matched.png")),
-  #   plot = p,
-  #   width = 7,
-  #   height = 5,
-  #   units = "in",
-  #   dpi = 300
-  # )
 
   wide_data <- wide_data |>
     dplyr::mutate(
@@ -380,26 +392,6 @@ getMatchedData <- function(selectedFeatures, wide_data, directory, cdm_name) {
     dplyr::filter(!is.na(distance)) |>
     dplyr::mutate(treatment = factor(y))
 
-  # Plot histogram of propensity scores by treatment group and match status
-  # p <- ggplot(plot_data, aes(x = distance, fill = treatment)) +
-  #   geom_histogram(alpha = 0.5, position = "identity", bins = 30) +
-  #   facet_wrap(~ matched) +
-  #   labs(
-  #     x = "Propensity Score",
-  #     y = "Count",
-  #     fill = "Treatment",
-  #     title = "Propensity Score Distribution by Matching Status"
-  #   ) +
-  #   theme_minimal()
-  #
-  # ggsave(
-  #   filename = file.path(directory, paste0(cdm_name, "_ps_matched_vs_unmatched.png")),
-  #   plot = p,
-  #   width = 7,
-  #   height = 5,
-  #   units = "in",
-  #   dpi = 300
-  # )
 
 
   return(matched_data)
@@ -608,4 +600,43 @@ bindResults <- function(result, cdmName, cohort_name) {
         )
     }) |>
     omopgenerics::bind()
+}
+
+
+
+cohortCharacterisation <- function(cdm, cohort_name) {
+  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+    CohortConstructor::renameCohort(cohortId = 1, newCohortName = paste0("ebrt_", cohort_name)) |>
+    CohortConstructor::renameCohort(cohortId = 2, newCohortName = paste0("rp_", cohort_name))
+  cdm <- addVariables(cdm = cdm, cohort_name = cohort_name)
+  count <- CohortCharacteristics::summariseCohortCount(cdm[[cohort_name]])
+
+  characteristics <- CohortCharacteristics::summariseCharacteristics(cdm[[cohort_name]], cohortIntersectFlag = list(
+    "Conditions any time prior" = list(
+      targetCohortTable = "conditions", window = c(-Inf, -1)
+
+    ),
+
+    "Medications in the prior year" = list(
+      targetCohortTable = "medications", window = c(-365, -1)
+    )
+  ),
+  tableIntersectCount = list(
+    "Number visits prior year" = list(
+      tableName = "visit_occurrence", window = c(-365, -1)
+    )
+  ),
+  otherVariables = c("latest_gleason_score_value", "latest_n_status", "psa_value", "latest_psa_value")
+  )
+
+  lsc <- CohortCharacteristics::summariseLargeScaleCharacteristics(cdm[[cohort_name]],
+                                                                   eventInWindow = c("condition_occurrence", "observation", "procedure_occurrence", "device_exposure"),
+                                                                   episodeInWindow = "drug_exposure",
+                                                                   window = list(c(-Inf, -366), c(-365, -31), c(-30, -1), c(0, 0), c(1, 30), c(31, 365), c(366, Inf)),
+                                                                   minimumFrequency = 0.0
+  )
+  result <- omopgenerics::bind(count, characteristics, lsc)
+
+  return(result)
+
 }
