@@ -1,7 +1,7 @@
 source("MainStudy/Model/functions.R")
 
 
-output_directory <- here::here("MainStudy/Results")
+output_directory <- here::here("Results")
 
 excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codelist/ExcludedFromPS", type = "csv") |>
   unlist() |>
@@ -151,11 +151,11 @@ for (cohort_name in cohorts) {
 
   ### Outcome model ----
 
-  outcome_codelist <- omopgenerics::importCodelist(here::here("Codelist/Outcomes"), type = "csv")
+  outcome_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Outcomes"), type = "csv")
   outcomes <- clean_names(names(outcome_codelist))
   names(outcome_codelist) <- outcomes
 
-  death_codelist <- omopgenerics::importCodelist(here::here("Codelist/CauseOfDeath"), type = "csv")
+  death_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "CauseOfDeath"), type = "csv")
   death_pc_codes <- death_codelist[["prostate_cancer_death"]]
   death_cvd_codes <- death_codelist[["cvd_death"]]
 
@@ -237,7 +237,7 @@ for (cohort_name in cohorts) {
   result[["survival"]] <- res_outcomes |>
     bindResults(cdmName = dbName, cohort_name = cohort_name)
 
-  nco_codelist <- omopgenerics::importCodelist(here::here("Codelist/NCO"), type = "csv")
+  nco_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "NCO"), type = "csv")
   negative_control_outcomes <- clean_names(names(nco_codelist))
   names(nco_codelist) <- negative_control_outcomes
 

@@ -139,7 +139,7 @@ addVariables <- function(cdm, cohort_name = "optima_pc_rwd" ) {
                                    name = cohort_name)
   }
   if (!("latest_n_status" %in% cols)) {
-    N_status_codelist <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/N-status"), type = "csv")
+    N_status_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation", "N-status"), type = "csv")
 
     cdm[[cohort_name]] <- cdm[[cohort_name]] |>
       PatientProfiles::addConceptIntersectDate(conceptSet = N_status_codelist,
@@ -168,8 +168,8 @@ addVariables <- function(cdm, cohort_name = "optima_pc_rwd" ) {
       dplyr::compute(name = cohort_name)
   }
   if (!("latest_t_status" %in% cols)) {
-    t1_status <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/conditions/t1.csv"), type = "csv")
-    t2_status <- omopgenerics::importCodelist(here::here("Codelist/Characterisation/conditions/t2.csv"), type = "csv")
+    t1_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation", "conditions", "t1.csv"), type = "csv")
+    t2_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation", "conditions", "t2.csv"), type = "csv")
     t_status <- omopgenerics::bind(t1_status, t2_status)
 
     cdm[[cohort_name]] <- cdm[[cohort_name]] |>
