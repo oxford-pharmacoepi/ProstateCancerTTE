@@ -20,18 +20,26 @@ The repository runs the **PhenotypeR** package for the Optima study: “Comparat
 
 #### Steps
 
-1.  Make sure to open the **Diagnostics** project in RStudio.
+1.  Open the **Diagnostics** folder.
+   
+2.  Make sure to open the **Diagnostics** project in RStudio.
 
-2.  Open the **Diagnostics** folder.
+4.  Restore packages from `renv.lock`: with `renv::restore()`.
 
-3.  Restore packages from `renv.lock`: with `renv::restore()`.
+5.  Restart the R session.
 
-4.  Restart the R session.
+6.  Open CodeToRun.R, fill in the required fields, and run the script.
 
-5.  Open CodeToRun.R, fill in the required fields, and run the script.
-
-6.  When finished, a results .csv file will be created in the **Results** folder.
+7.  When finished, a results .csv file will be created in the **Results** folder.
     Share the .csv file when done.
+8. OPTIONAL: Visualize Results in a Shiny
+
+    -   Navigate to the `shiny-Diagnostics` folder and open the project file `shiny.Rproj` in RStudio.
+    -   You should see the project name in the top-right corner of your RStudio session.
+    -   Copy the generated result files (in .csv format) into the `data/raw` folder located within the `shiny-Diagnositcs` folder.
+    -   Open the `global.R` script in the `shiny` folder.
+    -   Click the *Run App* button in RStudio to launch the local Shiny app for interactive exploration of the results.
+
 
 ### Main Study
 
