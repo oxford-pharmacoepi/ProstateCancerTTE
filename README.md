@@ -1,8 +1,4 @@
----
-editor_options: 
-  markdown: 
-    wrap: sentence
----
+
 
 # Comparative effectiveness and safety in patients with prostate cancer who received radical prostatectomy vs. radiotherapy: target trial emulation.
 
