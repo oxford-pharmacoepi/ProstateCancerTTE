@@ -14,7 +14,7 @@ codelist_ic <- omopgenerics::importCodelist(paste0(folder_path,"/InclusionCriter
 
 cdm$inclusion_criteria_cohort <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_ic, name = "inclusion_criteria_cohort")
 
-if (fullDiagnositcs){
+if (fullDiagnostics){
 result[["inclusion_criteria"]] <- PhenotypeR::phenotypeDiagnostics(cdm$inclusion_criteria_cohort)
 } else {
   result[["inclusion_criteria"]] <- PhenotypeR::codelistDiagnostics(cdm$inclusion_criteria_cohort)
