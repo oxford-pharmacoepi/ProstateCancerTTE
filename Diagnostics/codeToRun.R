@@ -20,7 +20,7 @@ cdm <- CDMConnector::cdmFromCon(con = con,
 # cdm$observation_period<- cdm$observation_period |>
 #   dplyr::filter(.data$period_type_concept_id == 32882) uncomment if running in CPRD
 
-fullDiagnostics <- FALSE
+fullDiagnostics <- TRUE
 
 source("RunDiagnostics.R")
 
