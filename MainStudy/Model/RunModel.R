@@ -1,4 +1,4 @@
-source("MainStudy/Model/functions.R")
+source("Model/functions.R")
 
 
 output_directory <- here::here("Results")
@@ -9,7 +9,7 @@ excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codel
 
 
 
-#cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
+cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
 #c( "optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
 
 for (cohort_name in cohorts) {
@@ -20,7 +20,10 @@ for (cohort_name in cohorts) {
   result <- list()
   ### Lasso ----
 
-  cdm <- addVariables(cdm, cohort_name = cohort_name)
+  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+    dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date") |>
+    dplyr::compute(name = cohort_name)
+
   cdm <- longDataFromCohort(cdm, cohort_name = cohort_name, excluded_codes = excluded_codes)
 
   frequent_concepts <- getFrequentConcepts(cohort = cdm[[cohort_name_long]])
@@ -28,6 +31,7 @@ for (cohort_name in cohorts) {
   cdm <- visitsCount(cdm, cohort_name = cohort_name)
 
   cdm[[cohort_name_long]] <- cdm[[cohort_name_long]] |>
+    addVariables() |>
     PatientProfiles::addAge()
 
   wide_data <- getWideData(cohort = cdm[[cohort_name_long]], frequent_concepts = frequent_concepts, visits = cdm[[cohort_name_visits]])
@@ -141,7 +145,7 @@ for (cohort_name in cohorts) {
 
 
   matched_data <- matched_data |>
-    dplyr::select("pair_id", "cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date", dplyr::starts_with("latest"))
+    dplyr::select("pair_id", "cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date", dplyr::starts_with("latest"), dplyr::starts_with("psa"))
 
   cdm <- omopgenerics::insertTable(cdm = cdm, name = cohort_name_matched, table = matched_data)
 
@@ -293,7 +297,7 @@ for (cohort_name in cohorts) {
   result[["nco"]] <- omopgenerics::newSummarisedResult(result[["nco"]], settings = set)
 
 
-  result_to_export <- omopgenerics::bind(result)
-  omopgenerics::exportSummarisedResult(result, path = paste0(output_directory, "/Survival"), fileName = paste0("results_{cdm_name}_", cohort_name, ".csv"))
+   result_to_export <- omopgenerics::bind(result)
+   omopgenerics::exportSummarisedResult(result, path = paste0(output_directory, "/Survival"), fileName = paste0("results_{cdm_name}_", cohort_name, "_{date}.csv"))
   }
 }
