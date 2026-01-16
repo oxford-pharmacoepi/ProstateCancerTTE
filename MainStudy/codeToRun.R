@@ -30,14 +30,14 @@ cdm <- cdmFromCon(con = con,
                   writePrefix = "cc_",
                   cdmName = dbName,
                   cohortTables = c(cohorts, "psa_values_rwd", "psa_values_trial","prostate_cancer_age_50_69","n_status_rwd", "n_status_trial",
-                                   "t_status_rwd", "t_status_trial", "gleason_rwd", "gleason_trial", "conditions", "medications" )[!createCohorts]
+                                   "t_status_rwd", "t_status_trial", "gleason_rwd", "gleason_trial", "conditions", "medications", "type2_diabetes" )[!createCohorts]
 
 )
 
 cdm$observation_period <- cdm$observation_period |>
   dplyr::filter(.data$period_type_concept_id == 32882)
 
-source("MainStudy/RunAnalysis.R")
+source("RunAnalysis.R")
 
 
 

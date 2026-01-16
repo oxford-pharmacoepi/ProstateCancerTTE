@@ -121,4 +121,24 @@ cdm[["gleason_trial"]] <- cdm[["gleason"]]|>
 
 
 
+# diabetes ----
+
+diabetes_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Diabetes"), type = "csv")
+diabetes <- clean_names(names(diabetes_codelist))
+names(diabetes_codelist) <- diabetes
+
+cdm$type2_diabetes <- CohortConstructor::conceptCohort(cdm,
+                                                       conceptSet = list("dm2_inc" = diabetes_codelist$dm2_inc),
+                                                       name = "type2_diabetes", 
+                                                       table = c("condition_occurrence", "procedure_occurrence", "observation")) |>
+  CohortConstructor::requireConceptIntersect(conceptSet = list("dm1_prev" = diabetes_codelist$dm1_prev), 
+                                             window = c(-Inf, -1), 
+                                             intersection = c(0,0)) |>
+  CohortConstructor::requireConceptIntersect(conceptSet = list("dm2_prev" = diabetes_codelist$dm2_prev), 
+                                             window = c(-Inf, -1), 
+                                             intersection = c(0,0)) |>
+  CohortConstructor::requireConceptIntersect(conceptSet = list("antidiabetics" = diabetes_codelist$antidiabetics), 
+                                             window = c(-Inf, -1), 
+                                             intersection = c(0,0))
+
 

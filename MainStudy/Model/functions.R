@@ -143,7 +143,7 @@ addVariables <- function(cohort) {
 
   if (grepl("rwd", cohort_name)){
 
-    glaeson_cohort <- "gleason_rwd"
+    gleason_cohort <- "gleason_rwd"
 
     n_status_cohort <- "n_status_rwd"
 
@@ -153,7 +153,7 @@ addVariables <- function(cohort) {
 
 
   } else if (grepl("trial", cohort_name)) {
-    glaeson_cohort <- "gleason_trial"
+    gleason_cohort <- "gleason_trial"
 
     n_status_cohort <- "n_status_trial"
 
@@ -403,7 +403,199 @@ getMatchedData <- function(selectedFeatures, wide_data, cdm_name) {
 
 ### survival ----
 
-outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times = c(0, 365, 2*365, 3*365, 4*365, 5*365, 10*365)) {
+events_summary <- function(survival_data, outcome, covariates = NULL) {
+
+
+  survival_data |>
+    dplyr::group_by(treatment) |>
+    dplyr::summarise(
+      count_events = sum(status),
+      .groups = "drop"
+    ) |>
+    dplyr::mutate(outcome = outcome)
+}
+
+
+followup_summary <- function(survival_data, outcome, covariates = NULL) {
+
+  overall <- survival_data |>
+    dplyr::group_by(treatment) |>
+    dplyr::summarise(
+      count = dplyr::n(),
+      min = min(time),
+      q05 = stats::quantile(time, 0.05),
+      q25 = stats::quantile(time, 0.25),
+      median = stats::median(time),
+      q75 = stats::quantile(time, 0.75),
+      q95 = stats::quantile(time, 0.95),
+      max = max(time),
+      .groups = "drop"
+    ) |>
+    dplyr::mutate(reason = "overall") |>
+    dplyr::relocate(treatment, reason)
+
+  by_reason <- survival_data |>
+    dplyr::group_by(treatment, reason) |>
+    dplyr::summarise(
+      count = dplyr::n(),
+      min = min(time),
+      q05 = stats::quantile(time, 0.05),
+      q25 = stats::quantile(time, 0.25),
+      median = stats::median(time),
+      q75 = stats::quantile(time, 0.75),
+      q95 = stats::quantile(time, 0.95),
+      max = max(time),
+      .groups = "drop"
+    )
+
+  dplyr::bind_rows(overall, by_reason) |>
+    dplyr::mutate(outcome = outcome)
+}
+
+hr_summary <- function(survival_data, outcome, covariates = NULL) {
+
+
+  adjustment_label <- if (is.null(covariates) || length(covariates) == 0L) "unadjusted" else "adjusted"
+
+  rhs <- c("treatment", covariates)
+
+  formula <- stats::as.formula(
+    paste("survival::Surv(time, status) ~", paste(rhs, collapse = " + "))
+  )
+
+  fit <- survival::coxph(
+    formula = formula,
+    data = survival_data,
+    na.action = stats::na.exclude,
+    ties = "efron",
+    cluster = survival_data$pair_id
+  )
+
+  coef_tbl <- summary(fit)$coefficients |>
+    tibble::as_tibble(rownames = "variable") |>
+    dplyr::select(
+      variable,
+      coef,
+      hr = `exp(coef)`,
+      se_coef = `se(coef)`,
+      z,
+      p = `Pr(>|z|)`
+    )
+
+  conf_tbl <- summary(fit)$conf.int |>
+    tibble::as_tibble(rownames = "variable") |>
+    dplyr::select(
+      variable,
+      lower_hr = `lower .95`,
+      upper_hr = `upper .95`
+    )
+
+  coef_tbl |>
+    dplyr::left_join(conf_tbl, by = "variable") |>
+    dplyr::mutate(
+      adjustment = adjustment_label,
+      covariates_used = paste(covariates, collapse = "&"),
+      outcome = outcome
+    )
+}
+
+survival_summary <- function(
+    survival_data,
+    outcome,
+    covariates = NULL,
+    risk_times = NULL
+) {
+
+  # Default risk_times if user did not supply them (keeps original intention but
+  # *does not* forcibly overwrite user-supplied risk_times).
+  if (is.null(risk_times)) {
+    risk_times <- c(0:max(survival_data$time, na.rm = TRUE))
+  }
+
+  # Build group the same way your original did
+  group_cols <- c("treatment", covariates)
+  if (length(group_cols) == 1L) {
+    df <- survival_data |> dplyr::mutate(group = as.factor(.data[[group_cols]]))
+  } else {
+    df <- survival_data |>
+      dplyr::mutate(
+        group = interaction(dplyr::across(dplyr::all_of(group_cols)),
+                            sep = "&", drop = TRUE)
+      )
+  }
+
+  df <- df |> dplyr::select("time", "status", "group", "pair_id") |> dplyr::mutate(group = droplevels(group))
+
+  fit <- survival::survfit(survival::Surv(time, status) ~ group, data = df, cluster = pair_id)
+
+  # Request summary at requested times (same call as original)
+  s <- summary(fit, times = risk_times)
+
+  # Build treatment exactly like original did; handle NULL strata robustly but keep same parsing
+  strata_vec <- if (!is.null(s$strata)) s$strata else rep(NA_character_, length(s$time))
+
+  treatment_vec <- if (all(is.na(strata_vec))) {
+    # No strata returned: create a single "all" label (original assumed strata exists;
+    # this keeps behaviour explicit and reproducible)
+    rep("all", length(s$time))
+  } else {
+    # remove leading "group=" if present, then take left of "&"
+    sub("&.*$", "", stringr::str_replace(strata_vec, "^group=", ""))
+  }
+
+  surv_tbl <- tibble::tibble(
+    time = s$time,
+    survival = s$surv,
+    lower_survival = s$lower,
+    upper_survival = s$upper,
+    treatment = treatment_vec
+  ) |>
+    dplyr::mutate(
+      outcome = outcome,
+      adjustment = if (is.null(covariates) || length(covariates) == 0L) "unadjusted" else "adjusted",
+      covariates_used = paste(covariates, collapse = "&")
+    )
+
+  # Compute number_subjects at each risk time per treatment exactly like original
+  risk_df <- purrr::map_df(risk_times, \(rt) {
+    survival_data |>
+      dplyr::filter(rt <= as.integer(.data$time)) |>
+      dplyr::group_by(treatment) |>
+      dplyr::summarise(
+        count_subjects = dplyr::n(),
+        .groups = "drop"
+      ) |>
+      dplyr::mutate(time = rt)
+  })
+
+  surv_tbl |>
+    dplyr::left_join(risk_df, by = c("time", "treatment"))
+}
+
+
+outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times = NULL) {
+
+  x <- survival_data |>
+    dplyr::rename("outcome" = dplyr::all_of(outcome)) |>
+    dplyr::mutate(
+      status = dplyr::if_else(is.na(.data$outcome) | .data$outcome > .data$censor_time, 0L, 1L),
+      time = dplyr::if_else(.data$status == 0L, .data$censor_time, .data$outcome),
+      reason = dplyr::if_else(.data$status == 0L, .data$censor_reason, "outcome"),
+      pair_id = as.factor(pair_id)
+    ) |>
+    dplyr::select("treatment", "status","pair_id", "time","reason", dplyr::any_of(covariates))
+
+  list(
+    events_summary   = events_summary(x, outcome, covariates),
+    followup_summary = followup_summary(x, outcome, covariates),
+    hr_summary       = hr_summary(x, outcome, covariates),
+    survival_summary = survival_summary(
+      survival_data = x, outcome = outcome, covariates = covariates, risk_times = risk_times
+    )
+  )
+}
+
+NCOModel <- function(survival_data, outcome) {
 
   x <- survival_data |>
     dplyr::rename(outcome = dplyr::all_of(outcome)) |>
@@ -415,130 +607,9 @@ outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times =
     ) |>
     dplyr::select("treatment", "status","pair_id", "time","reason", dplyr::any_of(covariates))
 
-
-
-  events <- x |>
-    dplyr::group_by(treatment) |>
-    dplyr::summarise(
-      number_events = sum(status),
-     .groups = "drop"
-    ) |>
-    dplyr::mutate(outcome = outcome)
-
-  followup_summary <- x |>
-    dplyr::group_by(treatment) |>
-    dplyr::summarise(
-      n = dplyr::n(),
-      min = min(time),
-      q05 = stats::quantile(time, 0.05),
-      q25 = stats::quantile(time, 0.25),
-      median = stats::median(time),
-      q75 = stats::quantile(time, 0.75),
-      q95 = stats::quantile(time, 0.95),
-      max = max(time),
-      .groups = "drop"
-    ) |>
-    dplyr::mutate(reason = "overall") |>
-    dplyr::relocate("treatment", "reason") |>
-    dplyr::union_all(
-      x |>
-        dplyr::group_by(treatment, reason) |>
-        dplyr::summarise(
-          n = dplyr::n(),
-
-          min = min(time),
-          q05 = stats::quantile(time, 0.05),
-          q25 = stats::quantile(time, 0.25),
-          median = stats::median(time),
-          q75 = stats::quantile(time, 0.75),
-          q95 = stats::quantile(time, 0.95),
-          max = max(time),
-          .groups = "drop"
-        )
-    ) |>
-    dplyr::mutate(outcome = outcome)
-
-
-  adjustment_label <- if (is.null(covariates) || length(covariates) == 0L) "unadjusted" else "adjusted"
-
-  rhs <- c("treatment", covariates)
-  formula <- stats::as.formula(
-    paste("survival::Surv(time, status) ~", paste(rhs, collapse = " + "))
-  )
-  cox_fit <- survival::coxph(formula = survival::Surv(time, status) ~ treatment, data = x, na.action = stats::na.exclude, ties = "efron", cluster = x$pair_id)
-
-
-  result <- summary(cox_fit)$coefficients |>
-    tibble::as_tibble(rownames = "variable") |>
-    dplyr::select(
-      "variable", "coef", "hr" = "exp(coef)", "se_coef" = "se(coef)", "z",
-      "p" = "Pr(>|z|)"
-    ) |>
-    dplyr::left_join(
-      summary(cox_fit)$conf.int |>
-        tibble::as_tibble(rownames = "variable") |>
-        dplyr::select("variable", "lower_hr" = "lower .95", "upper_hr" = "upper .95"),
-      by = "variable"
-    ) |>
-    dplyr::mutate(
-      adjustment = adjustment_label,
-      covariates_used = paste(covariates, collapse = "&"),
-      outcome = outcome
-    ) |>
-    dplyr::mutate(
-      dplyr::across(dplyr::where(is.numeric), ~ sprintf("%.3f", .x))
-    )
-
-  group_cols = c("treatment", covariates)
-
-
-  if (length(group_cols) == 1L) {
-    df <- x |> dplyr::mutate(group = as.factor(.data[[group_cols]]))
-  } else {
-    df <- x |>
-      dplyr::mutate(
-        group = interaction(dplyr::across(dplyr::all_of(group_cols)),
-                            sep = "&", drop = TRUE)
-      )
-  }
-
-  df <- df |> dplyr::select("time", "status", "group", "pair_id") |> dplyr::mutate(group = droplevels(group))
-  fit <- survival::survfit(survival::Surv(time, status) ~ group, data = df, cluster = pair_id)
-
-  risk_times <- c(0:max(survival_data$censor_time))
-  survival_summary <- summary(fit, times = c(0:max(survival_data$censor_time)))
-  survival_summary <- tibble::tibble(
-    time = survival_summary$time,
-    survival = survival_summary$surv,
-    lower_survival = survival_summary$lower,
-    upper_survival = survival_summary$upper,
-    treatment = sub("&.*$", "", stringr::str_replace(survival_summary$strata, "^group=", ""))
-  ) |>
-    dplyr::mutate(outcome = outcome,
-                  adjustment = adjustment_label,
-                  covariates_used = paste(covariates, collapse = "&")) |>
-    dplyr::left_join(
-      risk_times |>
-        purrr::map_df(\(rt) {
-
-          x |>
-            dplyr::filter(rt <= as.integer(.data$time)) |>
-            dplyr::group_by(treatment) |>
-            dplyr::summarise(
-              number_subjects = dplyr::n(),
-
-              .groups = "drop"
-            ) |>
-            dplyr::mutate(time = rt)
-        }),
-      by = c("time", "treatment")
-    )
-
   list(
-    events_summary = events,
-    followup_summary = followup_summary,
-    survival_summary = survival_summary,
-    hr_summary = result
+    events_summary   = events_summary(x, outcome),
+    hr_summary       = hr_summary(x, outcome, covariates)
   )
 }
 
@@ -576,9 +647,9 @@ bindResults <- function(result, cdmName, cohort_name) {
   )
   estimates <- list(
     "hr_summary" = c("coef", "hr", "se_coef", "z", "p", "lower_hr", "upper_hr"),
-    "survival_summary" = c("survival", "lower_survival", "upper_survival", "number_subjects"),
-    "events_summary" = "number_events",
-    "followup_summary" = c("n", "min", "q05", "q25", "median", "q75", "q95", "max")
+    "survival_summary" = c("survival", "lower_survival", "upper_survival", "count_subjects"),
+    "events_summary" = "count_events",
+    "followup_summary" = c("count", "min", "q05", "q25", "median", "q75", "q95", "max")
   )
   names(result[[1]]) |>
     purrr::map(\(nm) {
@@ -608,6 +679,10 @@ bindResults <- function(result, cdmName, cohort_name) {
 
 
 cohortCharacterisation <- function(cdm, cohort_name) {
+  len <- cdm[[cohort_name]] |> dplyr::tally()|> dplyr::pull()
+  if(len==0){
+    return(omopgenerics::emptySummarisedResult())
+  }
   cdm[[cohort_name]] <- cdm[[cohort_name]] |>
     CohortConstructor::renameCohort(cohortId = 1, newCohortName = paste0("ebrt_", cohort_name)) |>
     CohortConstructor::renameCohort(cohortId = 2, newCohortName = paste0("rp_", cohort_name)) |>

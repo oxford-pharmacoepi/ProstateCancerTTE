@@ -38,7 +38,7 @@ for (cohort_name in cohorts) {
 
   wide_data <- wide_data |>
     dplyr::distinct() |>
-    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0))
+    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 0, 1))
 
   x <- getSelectedFeatures(
     wide_data = wide_data,
@@ -163,6 +163,7 @@ for (cohort_name in cohorts) {
   death_pc_codes <- death_codelist[["prostate_cancer_death"]]
   death_cvd_codes <- death_codelist[["cvd_death"]]
 
+
   cdm[["survival_data"]] <- cdm[[cohort_name_matched]] |>
     PatientProfiles::addDeathDays(deathDaysName = "death", name = "survival_data", window = c(1, Inf)) |>
     PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation", name = "survival_data") |>
@@ -195,7 +196,7 @@ for (cohort_name in cohorts) {
     ) |>
     dplyr::compute(name = "survival_data")
 
-  for (out in outcomes) {
+  for (out in c(outcomes, "type2_diabetes")) {
     washout_name <- paste0(out, "_washout")
     window <- list(c(1, Inf))
     if (out == "androgen_deprivation") {
@@ -203,6 +204,7 @@ for (cohort_name in cohorts) {
     } else {
       window <- list(c(1, Inf))
     }
+    if (out != "type2_diabetes") {
     cdm[["survival_data"]] <- cdm[["survival_data"]] |>
       PatientProfiles::addConceptIntersectDays(
         conceptSet = list(out = outcome_codelist[[out]]),
@@ -219,9 +221,25 @@ for (cohort_name in cohorts) {
       ) |>
       dplyr::mutate(
         !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
-      )
-
-
+      ) } else {
+        cdm[["survival_data"]] <- cdm[["survival_data"]] |>
+          PatientProfiles::addCohortIntersectDays(
+            targetCohortTable = "type2_diabetes",
+            window = window,
+            nameStyle = "type2_diabetes",
+            name = "survival_data"
+          ) |>
+        PatientProfiles::addCohortIntersectFlag(
+          targetCohortTable = "type2_diabetes",
+          window = list(c(-365, 0)),
+          targetStartDate = "cohort_end_date",
+          name = "survival_data",
+          nameStyle = washout_name
+        ) |>
+          dplyr::mutate(
+            !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
+          )
+    }
     pairs <- cdm[["survival_data"]] |>
       dplyr::filter(.data[[washout_name]] == 1L) |>
       dplyr::pull(.data$pair_id)
@@ -233,9 +251,10 @@ for (cohort_name in cohorts) {
   }
   survival_data <- cdm[["survival_data"]] |>
     dplyr::collect()
-  outcomes <- c("death", "death_cvd", "death_pc", outcomes)
+  outcomes <- c("death", "death_cvd", "death_pc", "type2_diabetes", outcomes)
   res_outcomes <- outcomes |>
     purrr::map(\(out) {
+      print(out)
       outcomeModel(survival_data = survival_data, outcome = out)
     })
   result[["survival"]] <- res_outcomes |>
@@ -287,7 +306,7 @@ for (cohort_name in cohorts) {
 
   res_nco <- negative_control_outcomes |>
     purrr::map(\(nco) {
-      outcomeModel(survival_data = nco_table, outcome = nco)
+      NCOModel(survival_data = nco_table, outcome = nco)
     })
   result[["nco"]] <- res_nco |>
     bindResults(cdmName = dbName, cohort_name = cohort_name)
@@ -298,6 +317,6 @@ for (cohort_name in cohorts) {
 
 
    result_to_export <- omopgenerics::bind(result)
-   omopgenerics::exportSummarisedResult(result, path = paste0(output_directory, "/Survival"), fileName = paste0("results_{cdm_name}_", cohort_name, "_{date}.csv"))
+   omopgenerics::exportSummarisedResult(result, path = output_directory, fileName = paste0("results_{cdm_name}_", cohort_name, "_{date}.csv"))
   }
 }

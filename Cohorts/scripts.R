@@ -4,7 +4,7 @@ addCharacteristics <- function(cohort) {
 
   if (grepl("rwd", cohort_name)){
 
-    glaeson_cohort <- "gleason_rwd"
+    gleason_cohort <- "gleason_rwd"
 
     n_status_cohort <- "n_status_rwd"
 
@@ -14,7 +14,7 @@ addCharacteristics <- function(cohort) {
 
 
   } else if (grepl("trial", cohort_name)) {
-    glaeson_cohort <- "gleason_trial"
+    gleason_cohort <- "gleason_trial"
 
     n_status_cohort <- "n_status_trial"
 

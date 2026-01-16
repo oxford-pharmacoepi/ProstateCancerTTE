@@ -62,7 +62,8 @@ for (cohort_name in cohort) {
 
   cdm_g <- cdmFromCon(
     con = con_gold, cdmSchema = "public", writeSchema = "results", achillesSchema = "results", writePrefix = "cc_", .softValidation = TRUE, cdmName = dbName_gold,
-    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, t_status_cohort, n_status_cohort, psa_cohort, gleason_cohort, "medications", "conditions" )
+    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, t_status_cohort, n_status_cohort, psa_cohort, gleason_cohort, "medications", "conditions",
+                     "type2_diabetes")
   )
 
 
@@ -85,7 +86,7 @@ for (cohort_name in cohort) {
 
   cdm_a <- cdmFromCon(
     con = con_aurum, cdmSchema = "public", writeSchema = "results", achillesSchema = "results", writePrefix = "cc_", .softValidation = TRUE, cdmName = dbName_aurum,
-    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, t_status_cohort, n_status_cohort, psa_cohort, gleason_cohort, "progression", "medications", "conditions")
+    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, t_status_cohort, n_status_cohort, psa_cohort, gleason_cohort, "progression", "medications", "conditions", "type2_diabetes")
   )
 
 
@@ -118,7 +119,7 @@ for (cohort_name in cohort) {
 
   wide_data <- wide_data |>
     dplyr::distinct() |>
-    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 1, 0))
+    dplyr::mutate(y = ifelse(cohort_definition_id == 2, 0, 1))
 
   ### Lasso ----
 
@@ -327,7 +328,7 @@ for (cohort_name in cohort) {
     dplyr::collect()
 
 
-  for (out in outcomes) {
+  for (out in c(outcomes, "type2_diabetes")) {
     washout_name <- paste0(out, "_washout")
     window <- list(c(1, Inf))
     if (out == "androgen_deprivation") {
@@ -335,6 +336,7 @@ for (cohort_name in cohort) {
     } else {
       window <- list(c(1, Inf))
     }
+    if (out != "type2_diabetes") {
     cdm_g[[merged_matched_cohort_name]] <- cdm_g[[merged_matched_cohort_name]] |>
       PatientProfiles::addConceptIntersectDays(
         conceptSet = list(out = outcome_codelist[[out]]),
@@ -352,6 +354,60 @@ for (cohort_name in cohort) {
       dplyr::mutate(
         !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
       )
+    cdm_a[[merged_matched_cohort_name]] <- cdm_a[[merged_matched_cohort_name]] |>
+      PatientProfiles::addConceptIntersectDays(
+        conceptSet = list(out = outcome_codelist[[out]]),
+        window = window,
+        nameStyle = out,
+        name = merged_matched_cohort_name
+      ) |>
+      PatientProfiles::addConceptIntersectFlag(
+        conceptSet = list(out = outcome_codelist[[out]]),
+        window = list(c(-365, 0)),
+        targetStartDate = "event_end_date",
+        name = merged_matched_cohort_name,
+        nameStyle = washout_name,
+      ) |>
+      dplyr::mutate(
+        !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
+      )
+
+    } else {
+      cdm_g[[merged_matched_cohort_name]] <- cdm_g[[merged_matched_cohort_name]] |>
+        PatientProfiles::addCohortIntersectDays(
+          targetCohortTable = "type2_diabetes",
+          window = window,
+          nameStyle = "type2_diabetes",
+          name = merged_matched_cohort_name
+        ) |>
+        PatientProfiles::addCohortIntersectFlag(
+          targetCohortTable = "type2_diabetes",
+          window = list(c(-365, 0)),
+          targetStartDate = "cohort_end_date",
+          name = merged_matched_cohort_name,
+          nameStyle = washout_name
+        ) |>
+        dplyr::mutate(
+          !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
+        )
+      cdm_a[[merged_matched_cohort_name]] <- cdm_a[[merged_matched_cohort_name]] |>
+        PatientProfiles::addCohortIntersectDays(
+          targetCohortTable = "type2_diabetes",
+          window = window,
+          nameStyle = "type2_diabetes",
+          name = merged_matched_cohort_name
+        ) |>
+        PatientProfiles::addCohortIntersectFlag(
+          targetCohortTable = "type2_diabetes",
+          window = list(c(-365, 0)),
+          targetStartDate = "cohort_end_date",
+          name = merged_matched_cohort_name,
+          nameStyle = washout_name
+        ) |>
+        dplyr::mutate(
+          !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
+        )
+    }
 
     pairs <- cdm_g[[merged_matched_cohort_name]] |>
       dplyr::filter(.data[[washout_name]] == 1L) |>
@@ -362,30 +418,9 @@ for (cohort_name in cohort) {
       dplyr::select(!dplyr::all_of(washout_name)) |>
       dplyr::compute(merged_matched_cohort_name)
 
-
-
     survival_gold <- survival_gold |>
       dplyr::left_join(cdm_g[[merged_matched_cohort_name]] |>
         dplyr::collect())
-
-
-    cdm_a[[merged_matched_cohort_name]] <- cdm_a[[merged_matched_cohort_name]] |>
-      PatientProfiles::addConceptIntersectDays(
-        conceptSet = list(out = outcome_codelist[[out]]),
-        window = window,
-        nameStyle = out,
-        name = merged_matched_cohort_name
-      ) |>
-      PatientProfiles::addConceptIntersectFlag(
-        conceptSet = list(out = outcome_codelist[[out]]),
-        window = list(c(-365, 0)),
-        targetStartDate = "event_end_date",
-        name = merged_matched_cohort_name,
-        nameStyle = washout_name,
-      ) |>
-      dplyr::mutate(
-        !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
-      )
 
     pairs <- cdm_a[[merged_matched_cohort_name]] |>
       dplyr::filter(.data[[washout_name]] == 1L) |>
@@ -395,8 +430,6 @@ for (cohort_name in cohort) {
       dplyr::mutate(!!rlang::sym(out) := dplyr::if_else(.data$pair_id %in% pairs, 999999L, .data[[out]])) |>
       dplyr::select(!dplyr::all_of(washout_name)) |>
       dplyr::compute(merged_matched_cohort_name)
-
-
 
     survival_aurum <- survival_aurum |>
       dplyr::left_join(cdm_a[[merged_matched_cohort_name]] |>
@@ -513,7 +546,7 @@ for (cohort_name in cohort) {
 
   res_nco <- negative_control_outcomes |>
     purrr::map(\(nco) {
-      outcomeModel(survival_data = nco_table, outcome = nco)
+      NCOModel(survival_data = nco_table, outcome = nco)
     })
   result[["nco"]] <- res_nco |>
     bindResults(cdmName = "merged", cohort_name = cohort_name)
@@ -526,7 +559,7 @@ for (cohort_name in cohort) {
 
   ### Export ----
   result_to_export <- omopgenerics::bind(result)
-  omopgenerics::exportSummarisedResult(result, path = paste0(output_directory, "/Survival"), fileName = paste0("results_{cdm_name}_", cohort_name, ".csv"))
+  omopgenerics::exportSummarisedResult(result, path = output_directory, fileName = paste0("results_{cdm_name}_", cohort_name, "_{date}.csv"))
 }
 CDMConnector::cdmDisconnect(cdm_a)
 
