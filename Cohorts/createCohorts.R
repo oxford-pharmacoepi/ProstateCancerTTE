@@ -7,9 +7,9 @@ codelist <- omopgenerics::importCodelist(paste0(folder_path), "csv")
 
 codelist_treatment <- list("ebrt" = codelist$ebrt, "radical_prostatectomy" = codelist$radical_prostatectomy)
 
-codelist_early_stage <- list("t1_t2" = codelist$t1_t2 , "stage1_2" = codelist$stage1_2)
+codelist_early_stage <- list("t1_t2" = c(codelist$t1, codelist$t2) , "stage1_2" = codelist$stage1_2)
 
-codelist_advanced_stage <- list("t3_t4" = codelist$t3_t4 , "stage3_4" = codelist$stage3_4)
+codelist_advanced_stage <- list("t3_t4" =  codelist$t3_t4 , "stage3_4" = codelist$stage3_4)
 
 
 
@@ -221,7 +221,7 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
     targetEndDate = "event_end_date",
   ) |>
   CohortConstructor::requireConceptIntersect(
-    conceptSet = list("Malignancy except non-melanoma skin cancer" = codelist$`Malignancy except non-melanoma skin cancer`),
+    conceptSet = list("Malignancy except non-melanoma skin cancer" = codelist$`Malignancy except non-melanoma`),
     window = c(-Inf, 0),
     intersections = 0,
     cohortId = NULL,

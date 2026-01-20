@@ -1,2200 +1,2201 @@
-"concept_id","concept_name"
-586709,"1 ML docetaxel 20 MG/ML Injection [DOCETAXEL ACCORD]"
-586859,"4 ML docetaxel 20 MG/ML Injection [DOCETAXEL ACCORD]"
-586981,"4 ML docetaxel 20 MG/ML Injection [DOCETAXEL ACCORD] by Accord"
-587187,"4 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL EG]"
-587746,"docetaxel Injection [Docetaxel Aurobindo]"
-587781,"docetaxel 10 MG/ML Injection by Sandoz"
-587833,"1 ML docetaxel 20 MG/ML Injection [DOCETAXEL ACCORD] by Accord"
-587848,"docetaxel 20 MG/ML Injectable Solution by Accord"
-587960,"1 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL EG]"
-587975,"1 ML docetaxel 20 MG/ML Injection [DOCETAXEL EG] by Eurogenerics"
-588100,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] by Aurobindo"
-588134,"docetaxel Injection [DOCETAXEL EG]"
-588387,"7 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL EG]"
-588610,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Aurobindo] by Aurobindo"
-588682,"docetaxel Injection [DOCETAXEL ACCORD]"
-588995,"docetaxel 20 MG/ML Injection [DOCETAXEL EG]"
-589023,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] by Aurobindo"
-589126,"docetaxel 10 MG/ML Injection by Hospira"
-589142,"7 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL EG] by Eurogenerics"
-589530,"docetaxel 20 MG/ML Injection [Docetaxel Aurobindo]"
-589702,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Aurobindo] by Aurobindo"
-589769,"4 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL EG] by Eurogenerics"
-590534,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Aurobindo]"
-590542,"8 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD] by Accord"
-715835,"darolutamide; oral"
-715926,"apalutamide; oral"
-782986,"olaparib 150 MG Oral Tablet Box of 112"
-782987,"olaparib 150 MG Oral Tablet [Lynparza] Box of 112"
-782988,"olaparib 150 MG Oral Tablet [Lynparza] Box of 112 by Astrazeneca"
-782989,"olaparib 100 MG Oral Tablet Box of 112"
-782990,"olaparib 100 MG Oral Tablet [Lynparza] Box of 112"
-782991,"olaparib 100 MG Oral Tablet [Lynparza] Box of 112 by Astrazeneca"
-784159,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] Box of 1 by Aurobindo"
-784160,"1 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD] Box of 1 by Accord"
-784359,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] Box of 1 by Aurobindo"
-784360,"4 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD] Box of 1 by Accord"
-784515,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] Box of 1 by Aurobindo"
-784520,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] Box of 1"
-784521,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] Box of 1 by Aurobindo"
-793991,"olaparib 100 MG"
-793992,"olaparib Oral Tablet"
-793993,"olaparib 100 MG Oral Tablet"
-793994,"olaparib 100 MG [Lynparza]"
-793995,"olaparib Oral Tablet [Lynparza]"
-793996,"olaparib 100 MG Oral Tablet [Lynparza]"
-793997,"olaparib 150 MG"
-793998,"olaparib 150 MG Oral Tablet"
-793999,"olaparib 150 MG [Lynparza]"
-794000,"olaparib 150 MG Oral Tablet [Lynparza]"
-947969,"olaparib; oral"
-963987,"apalutamide"
-963989,"apalutamide 60 MG"
-963992,"apalutamide Oral Tablet"
-963993,"apalutamide 60 MG Oral Tablet"
-963995,"apalutamide 60 MG [Erleada]"
-963996,"apalutamide Oral Tablet [Erleada]"
-963999,"apalutamide 60 MG Oral Tablet [Erleada]"
-994895,"abiraterone 500 MG Oral Tablet [Zytiga] by Kohlpharma"
-994896,"abiraterone 500 MG Oral Tablet [Zytiga] by Paranova Pack"
-1235148,"docetaxel 10 MG/ML Intravenous Solution"
-1236215,"16 ML docetaxel 10 MG/ML Intravenous Solution"
-1301736,"apalutamide 240 MG"
-1301737,"apalutamide 240 MG Oral Tablet"
-1301738,"apalutamide 240 MG [Erleada]"
-1301739,"apalutamide 240 MG Oral Tablet [Erleada]"
-1315942,"docetaxel"
-1315943,"docetaxel 40 MG/ML Injectable Solution [Taxotere]"
-1315944,"docetaxel 40 MG/ML Injectable Solution"
-1361291,"darolutamide"
-1361292,"darolutamide 300 MG"
-1361295,"darolutamide Oral Tablet"
-1361296,"darolutamide 300 MG Oral Tablet"
-1361298,"darolutamide 300 MG [Nubeqa]"
-1361299,"darolutamide Oral Tablet [Nubeqa]"
-1361302,"darolutamide 300 MG Oral Tablet [Nubeqa]"
-1501768,"lutetium (177Lu) oxodotreotide; parenteral"
-1510568,"abiraterone acetate 125 MG"
-1510569,"abiraterone acetate 125 MG Oral Tablet"
-1510571,"abiraterone acetate 125 MG [Yonsa]"
-1510572,"abiraterone Oral Tablet [Yonsa]"
-1510575,"abiraterone acetate 125 MG Oral Tablet [Yonsa]"
-1592236,"0.5 ML docetaxel 40 MG/ML Injection"
-1592237,"docetaxel 40 MG/ML Injection"
-1593812,"abiraterone acetate 500 MG"
-1593813,"abiraterone acetate 500 MG Oral Tablet"
-1593814,"abiraterone acetate 500 MG [Zytiga]"
-1593815,"abiraterone acetate 500 MG Oral Tablet [Zytiga]"
-1593816,"10 ML docetaxel 20 MG/ML Injection"
-1718065,"cabazitaxel Injection"
-1718066,"cabazitaxel Injection [Jevtana]"
-1718067,"cabazitaxel 40 MG/ML Injection"
-1718068,"cabazitaxel 40 MG/ML Injection [Jevtana]"
-1718757,"docetaxel Injection"
-1718758,"1 ML docetaxel 20 MG/ML Injection"
-1718759,"docetaxel Injection [Taxotere]"
-1718760,"1 ML docetaxel 20 MG/ML Injection [Taxotere]"
-1718761,"docetaxel 20 MG/ML Injection"
-1718762,"docetaxel 20 MG/ML Injection [Taxotere]"
-1718763,"4 ML docetaxel 20 MG/ML Injection"
-1718764,"4 ML docetaxel 20 MG/ML Injection [Taxotere]"
-1718787,"docetaxel 10 MG/ML Injection"
-1718788,"2 ML docetaxel 10 MG/ML Injection"
-1718789,"8 ML docetaxel 20 MG/ML Injection"
-1970407,"enzalutamide 40 MG Oral Tablet [Xtandi] Box of 112 by Eurim-Pharm"
-1970929,"docetaxel 20 MG Injectable Suspension"
-1971005,"olaparib 150 MG Oral Tablet [Lynparza] Box of 112 by Paranova Pack"
-1971255,"darolutamide 300 MG Oral Tablet [Nubeqa] Box of 112 by Cc"
-1971256,"darolutamide 300 MG Oral Tablet [Nubeqa] Box of 112 by Kohlpharma"
-2009713,"4 ML docetaxel 24 MG/ML Injectable Solution [MONOTAXEL] by Dong-a"
-2010032,"1 ML docetaxel 24 MG/ML Injectable Solution [MONOTAXEL] by Dong-a"
-2027819,"6 ML docetaxel 22.7 MG/ML Injectable Solution"
-2027820,"6 ML docetaxel 22.7 MG/ML Injectable Solution [DITAXEL1]"
-2027821,"6 ML docetaxel 22.7 MG/ML Injectable Solution [DITAXEL1] by Boryung"
-2028541,"4.5 ML docetaxel 34.9 MG/ML Injectable Solution [DITAXEL]"
-2028542,"4.5 ML docetaxel 34.9 MG/ML Injectable Solution [DITAXEL] by Boryung"
-2028543,"4.5 ML docetaxel 34.9 MG/ML Injectable Solution"
-2028544,"4.07 ML docetaxel 34.9 MG/ML Injectable Solution"
-2028545,"4.07 ML docetaxel 34.9 MG/ML Injectable Solution [NEWTAXEL A]"
-2028546,"4.07 ML docetaxel 34.9 MG/ML Injectable Solution [NEWTAXEL A] by Korea United Pharm"
-2028625,"4 ML docetaxel 24 MG/ML Injectable Solution [MONOTAXEL]"
-2028626,"4 ML docetaxel 24 MG/ML Injectable Solution"
-2028627,"4 ML docetaxel 24 MG/ML Injectable Solution by CJ"
-2028628,"4 ML docetaxel 24 MG/ML Injectable Solution by Myungmoon"
-2028629,"4 ML docetaxel 24 MG/ML Injectable Solution [BELOTAXEL1]"
-2028631,"4 ML docetaxel 24 MG/ML Injectable Solution [BELOTAXEL1] by Chongkundang"
-2028632,"4 ML docetaxel 24 MG/ML Injectable Solution [DITAXEL1]"
-2028633,"4 ML docetaxel 24 MG/ML Injectable Solution [DITAXEL1] by Boryung"
-2028634,"4 ML docetaxel 24 MG/ML Injectable Solution [TAXOTERE 1] by Sanofi"
-2028635,"4 ML docetaxel 24 MG/ML Injectable Solution [TAXOTERE 1]"
-2028636,"4 ML docetaxel 24 MG/ML Injectable Solution [TAXOZEN 1]"
-2028637,"4 ML docetaxel 24 MG/ML Injectable Solution [TAXOZEN 1] by Ildong"
-2028638,"4 ML docetaxel 20 MG/ML Injectable Solution [TAXOZEN 1]"
-2028639,"4 ML docetaxel 20 MG/ML Injectable Solution [TAXOZEN 1] by Ildong"
-2028697,"3.44 ML docetaxel 40 MG/ML Injectable Solution [TAXELO]"
-2028698,"3.44 ML docetaxel 40 MG/ML Injectable Solution [TAXELO] by Jeil"
-2028699,"3.44 ML docetaxel 40 MG/ML Injectable Solution"
-2028700,"3.4 ML docetaxel 40 MG/ML Injectable Solution [DITAXEL]"
-2028701,"3.4 ML docetaxel 40 MG/ML Injectable Solution [DITAXEL] by Boryung"
-2028702,"3.4 ML docetaxel 40 MG/ML Injectable Solution"
-2028703,"3.4 ML docetaxel 34.9 MG/ML Injectable Solution [DITAXEL]"
-2028704,"3.4 ML docetaxel 34.9 MG/ML Injectable Solution [DITAXEL] by Boryung"
-2028706,"3.4 ML docetaxel 34.9 MG/ML Injectable Solution"
-2028707,"3.4 ML docetaxel 27.8 MG/ML Injectable Solution [DOXOTEL]"
-2028708,"3.4 ML docetaxel 27.8 MG/ML Injectable Solution [DOXOTEL] by Yuhan"
-2028709,"3.4 ML docetaxel 27.8 MG/ML Injectable Solution"
-2029058,"2.36 ML docetaxel 40 MG/ML Injectable Solution [TAXELO]"
-2029059,"2.36 ML docetaxel 40 MG/ML Injectable Solution [TAXELO] by Jeil"
-2029060,"2.36 ML docetaxel 40 MG/ML Injectable Solution [DITAXEL]"
-2029061,"2.36 ML docetaxel 40 MG/ML Injectable Solution [DITAXEL] by Boryung"
-2029062,"2.36 ML docetaxel 40 MG/ML Injectable Solution [TAXOZEN]"
-2029063,"2.36 ML docetaxel 40 MG/ML Injectable Solution [TAXOZEN] by Ildong"
-2029064,"2.36 ML docetaxel 40 MG/ML Injectable Solution [PACANCER]"
-2029065,"2.36 ML docetaxel 40 MG/ML Injectable Solution [PACANCER] by Shinpoong"
-2029066,"2.36 ML docetaxel 40 MG/ML Injectable Solution [DOTAXEL]"
-2029068,"2.36 ML docetaxel 40 MG/ML Injectable Solution [DOTAXEL] by Kwangdong"
-2029069,"2.36 ML docetaxel 40 MG/ML Injectable Solution [DOCEL]"
-2029070,"2.36 ML docetaxel 40 MG/ML Injectable Solution [DOCEL] by Hanmi"
-2029071,"2.36 ML docetaxel 40 MG/ML Injectable Solution"
-2029072,"2.36 ML docetaxel 40 MG/ML Injectable Solution by Dongkwang"
-2029073,"2.36 ML docetaxel 40 MG/ML Injectable Solution by Yungjin"
-2029074,"2.36 ML docetaxel 40 MG/ML Injectable Solution [NEWTAXEL A]"
-2029075,"2.36 ML docetaxel 40 MG/ML Injectable Solution [NEWTAXEL A] by Korea United Pharm"
-2029076,"2.36 ML docetaxel 40 MG/ML Injectable Solution [TAXEDA]"
-2029077,"2.36 ML docetaxel 40 MG/ML Injectable Solution [TAXEDA] by Daewoong"
-2029078,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [DITAXEL]"
-2029079,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [DITAXEL] by Boryung"
-2029080,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [BELOTAXEL]"
-2029081,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [BELOTAXEL] by Chongkundang"
-2029082,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [Taxotere] by Sanofi"
-2029083,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [Taxotere]"
-2029084,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution by Yungjin"
-2029085,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [NEWTAXEL A]"
-2029086,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [NEWTAXEL A] by Korea United Pharm"
-2029632,"2 ML docetaxel 47.2 MG/ML Injectable Solution [BELOTAXEL]"
-2029633,"2 ML docetaxel 47.2 MG/ML Injectable Solution [BELOTAXEL] by Chongkundang"
-2029634,"2 ML docetaxel 47.2 MG/ML Injectable Solution [Taxotere] by Sanofi"
-2029635,"2 ML docetaxel 47.2 MG/ML Injectable Solution [Taxotere]"
-2029636,"2 ML docetaxel 47.2 MG/ML Injectable Solution"
-2029637,"2 ML docetaxel 47.2 MG/ML Injectable Solution [NANOCELL]"
-2029638,"2 ML docetaxel 47.2 MG/ML Injectable Solution [NANOCELL] by Samyang"
-2029639,"2 ML docetaxel 47.2 MG/ML Injectable Solution [NANOXEL]"
-2029640,"2 ML docetaxel 47.2 MG/ML Injectable Solution [NANOXEL] by Samyang"
-2030064,"1.14 ML docetaxel 37.8 MG/ML Injectable Solution [DITAXEL]"
-2030065,"1.14 ML docetaxel 37.8 MG/ML Injectable Solution [DITAXEL] by Boryung"
-2030066,"1.14 ML docetaxel 37.8 MG/ML Injectable Solution"
-2032143,"1 ML docetaxel 24 MG/ML Injectable Solution [MONOTAXEL]"
-2032144,"1 ML docetaxel 24 MG/ML Injectable Solution"
-2032145,"1 ML docetaxel 24 MG/ML Injectable Solution by CJ"
-2032146,"1 ML docetaxel 24 MG/ML Injectable Solution by Myungmoon"
-2032147,"1 ML docetaxel 24 MG/ML Injectable Solution [BELOTAXEL1]"
-2032148,"1 ML docetaxel 24 MG/ML Injectable Solution [BELOTAXEL1] by Chongkundang"
-2032149,"1 ML docetaxel 24 MG/ML Injectable Solution [DITAXEL1]"
-2032150,"1 ML docetaxel 24 MG/ML Injectable Solution [DITAXEL1] by Boryung"
-2032151,"1 ML docetaxel 24 MG/ML Injectable Solution [TAXOTERE 1] by Sanofi"
-2032152,"1 ML docetaxel 24 MG/ML Injectable Solution [TAXOTERE 1]"
-2032153,"1 ML docetaxel 24 MG/ML Injectable Solution [TAXOZEN 1]"
-2032154,"1 ML docetaxel 24 MG/ML Injectable Solution [TAXOZEN 1] by Ildong"
-2033269,"0.89 ML docetaxel 27.8 MG/ML Injectable Solution [DOXOTEL]"
-2033270,"0.89 ML docetaxel 27.8 MG/ML Injectable Solution [DOXOTEL] by Yuhan"
-2033271,"0.89 ML docetaxel 27.8 MG/ML Injectable Solution"
-2033452,"0.61 ML docetaxel 40 MG/ML Injectable Solution [TAXELO]"
-2033454,"0.61 ML docetaxel 40 MG/ML Injectable Solution [TAXELO] by Jeil"
-2033455,"0.61 ML docetaxel 40 MG/ML Injectable Solution [DITAXEL]"
-2033456,"0.61 ML docetaxel 40 MG/ML Injectable Solution [DITAXEL] by Boryung"
-2033457,"0.61 ML docetaxel 40 MG/ML Injectable Solution [BELOTAXEL]"
-2033458,"0.61 ML docetaxel 40 MG/ML Injectable Solution [BELOTAXEL] by Chongkundang"
-2033459,"0.61 ML docetaxel 40 MG/ML Injectable Solution [TAXOZEN]"
-2033460,"0.61 ML docetaxel 40 MG/ML Injectable Solution [TAXOZEN] by Ildong"
-2033461,"0.61 ML docetaxel 40 MG/ML Injectable Solution [PACANCER]"
-2033462,"0.61 ML docetaxel 40 MG/ML Injectable Solution [PACANCER] by Shinpoong"
-2033463,"0.61 ML docetaxel 40 MG/ML Injectable Solution [DOTAXEL]"
-2033464,"0.61 ML docetaxel 40 MG/ML Injectable Solution [DOTAXEL] by Kwangdong"
-2033465,"0.61 ML docetaxel 40 MG/ML Injectable Solution [DOCEL]"
-2033466,"0.61 ML docetaxel 40 MG/ML Injectable Solution [DOCEL] by Hanmi"
-2033467,"0.61 ML docetaxel 40 MG/ML Injectable Solution"
-2033468,"0.61 ML docetaxel 40 MG/ML Injectable Solution by Dongkwang"
-2033469,"0.61 ML docetaxel 40 MG/ML Injectable Solution by Yungjin"
-2033470,"0.61 ML docetaxel 40 MG/ML Injectable Solution [NANOCELL]"
-2033471,"0.61 ML docetaxel 40 MG/ML Injectable Solution [NANOCELL] by Samyang"
-2033472,"0.61 ML docetaxel 40 MG/ML Injectable Solution [NANOXEL]"
-2033473,"0.61 ML docetaxel 40 MG/ML Injectable Solution [NANOXEL] by Samyang"
-2033474,"0.61 ML docetaxel 40 MG/ML Injectable Solution [NEWTAXEL A]"
-2033475,"0.61 ML docetaxel 40 MG/ML Injectable Solution [NEWTAXEL A] by Korea United Pharm"
-2033476,"0.61 ML docetaxel 40 MG/ML Injectable Solution [TAXEDA]"
-2033477,"0.61 ML docetaxel 40 MG/ML Injectable Solution [TAXEDA] by Daewoong"
-2033478,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [DITAXEL]"
-2033479,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [DITAXEL] by Boryung"
-2033480,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [BELOTAXEL]"
-2033481,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [BELOTAXEL] by Chongkundang"
-2033482,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [Taxotere] by Sanofi"
-2033483,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [Taxotere]"
-2033484,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [NEWTAXEL A]"
-2033485,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [NEWTAXEL A] by Korea United Pharm"
-2033540,"0.590 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] by Sanofi"
-2033541,"0.590 ML docetaxel 40 MG/ML Injectable Solution [Taxotere]"
-2033542,"0.590 ML docetaxel 40 MG/ML Injectable Solution"
-2065149,"docetaxel 40 MG/ML Injectable Solution [TAXELO]"
-2065150,"docetaxel 40 MG/ML Injectable Solution [DITAXEL]"
-2065152,"docetaxel 40 MG/ML Injectable Solution [BELOTAXEL]"
-2065153,"docetaxel 40 MG/ML Injectable Solution [TAXOZEN]"
-2065154,"docetaxel 40 MG/ML Injectable Solution [PACANCER]"
-2065155,"docetaxel 40 MG/ML Injectable Solution [DOTAXEL]"
-2065156,"docetaxel 40 MG/ML Injectable Solution [DOCEL]"
-2065157,"docetaxel 40 MG/ML Injectable Solution [NANOCELL]"
-2065158,"docetaxel 40 MG/ML Injectable Solution [NANOXEL]"
-2065159,"docetaxel 40 MG/ML Injectable Solution [NEWTAXEL A]"
-2065160,"docetaxel 40 MG/ML Injectable Solution [TAXEDA]"
-2065161,"docetaxel 40 MG/ML [TAXELO]"
-2065162,"docetaxel 40 MG/ML [DITAXEL]"
-2065163,"docetaxel 40 MG/ML [BELOTAXEL]"
-2065164,"docetaxel 40 MG/ML [TAXOZEN]"
-2065165,"docetaxel 40 MG/ML [PACANCER]"
-2065166,"docetaxel 40 MG/ML [DOTAXEL]"
-2065167,"docetaxel 40 MG/ML [DOCEL]"
-2065168,"docetaxel 40 MG/ML [NANOCELL]"
-2065169,"docetaxel 40 MG/ML [NANOXEL]"
-2065170,"docetaxel 40 MG/ML [NEWTAXEL A]"
-2065171,"docetaxel 40 MG/ML [TAXEDA]"
-2065172,"docetaxel 34.9 MG/ML Injectable Solution [DITAXEL]"
-2065173,"docetaxel 34.9 MG/ML Injectable Solution [NEWTAXEL A]"
-2065174,"docetaxel 34.9 MG/ML [DITAXEL]"
-2065175,"docetaxel 34.9 MG/ML [NEWTAXEL A]"
-2065177,"docetaxel 33.9 MG/ML Injectable Solution [DITAXEL]"
-2065178,"docetaxel 33.9 MG/ML Injectable Solution [BELOTAXEL]"
-2065179,"docetaxel 33.9 MG/ML Injectable Solution [Taxotere]"
-2065180,"docetaxel 33.9 MG/ML Injectable Solution [NEWTAXEL A]"
-2065181,"docetaxel 33.9 MG/ML [DITAXEL]"
-2065182,"docetaxel 33.9 MG/ML [BELOTAXEL]"
-2065183,"docetaxel 33.9 MG/ML [Taxotere]"
-2065184,"docetaxel 33.9 MG/ML [NEWTAXEL A]"
-2065185,"docetaxel 32.8 MG/ML Injectable Solution [DITAXEL]"
-2065186,"docetaxel 32.8 MG/ML Injectable Solution [BELOTAXEL]"
-2065187,"docetaxel 32.8 MG/ML Injectable Solution [Taxotere]"
-2065188,"docetaxel 32.8 MG/ML Injectable Solution [NEWTAXEL A]"
-2065189,"docetaxel 32.8 MG/ML [DITAXEL]"
-2065190,"docetaxel 32.8 MG/ML [BELOTAXEL]"
-2065191,"docetaxel 32.8 MG/ML [Taxotere]"
-2065192,"docetaxel 32.8 MG/ML [NEWTAXEL A]"
-2065193,"docetaxel 27.8 MG/ML Injectable Solution [DOXOTEL]"
-2065194,"docetaxel 27.8 MG/ML [DOXOTEL]"
-2065195,"docetaxel 24 MG/ML Injectable Solution [MONOTAXEL]"
-2065196,"docetaxel 24 MG/ML Injectable Solution [BELOTAXEL1]"
-2065197,"docetaxel 24 MG/ML Injectable Solution [DITAXEL1]"
-2065198,"docetaxel 24 MG/ML Injectable Solution [TAXOTERE 1]"
-2065199,"docetaxel 24 MG/ML Injectable Solution [TAXOZEN 1]"
-2065200,"docetaxel 24 MG/ML [MONOTAXEL]"
-2065201,"docetaxel 24 MG/ML [BELOTAXEL1]"
-2065202,"docetaxel 24 MG/ML [DITAXEL1]"
-2065203,"docetaxel 24 MG/ML [TAXOTERE 1]"
-2065204,"docetaxel 24 MG/ML [TAXOZEN 1]"
-2065205,"docetaxel 20 MG/ML Injectable Solution [TAXOZEN 1]"
-2065206,"docetaxel 20 MG/ML [TAXOZEN 1]"
-2065207,"docetaxel 94.4 MG Injection [NANOXEL M]"
-2065208,"docetaxel 94.4 MG Injection [NANOXEL M] by Samyang"
-2065209,"docetaxel 94.4 MG Injection"
-2065210,"docetaxel 94.4 MG [NANOXEL M]"
-2065211,"docetaxel 94.4 MG"
-2065212,"docetaxel 23.6 MG Injection [NANOXEL M]"
-2065213,"docetaxel 23.6 MG Injection [NANOXEL M] by Samyang"
-2065214,"docetaxel 23.6 MG Injection"
-2065215,"docetaxel 23.6 MG [NANOXEL M]"
-2065216,"docetaxel 23.6 MG"
-2065217,"docetaxel 47.2 MG/ML Injectable Solution [BELOTAXEL]"
-2065218,"docetaxel 47.2 MG/ML Injectable Solution [Taxotere]"
-2065219,"docetaxel 47.2 MG/ML Injectable Solution"
-2065220,"docetaxel 47.2 MG/ML Injectable Solution [NANOCELL]"
-2065221,"docetaxel 47.2 MG/ML Injectable Solution [NANOXEL]"
-2065222,"docetaxel 47.2 MG/ML [BELOTAXEL]"
-2065223,"docetaxel 47.2 MG/ML [Taxotere]"
-2065224,"docetaxel 47.2 MG/ML"
-2065225,"docetaxel 47.2 MG/ML [NANOCELL]"
-2065226,"docetaxel 47.2 MG/ML [NANOXEL]"
-2065227,"docetaxel 37.8 MG/ML Injectable Solution [DITAXEL]"
-2065228,"docetaxel 37.8 MG/ML Injectable Solution"
-2065229,"docetaxel 37.8 MG/ML [DITAXEL]"
-2065230,"docetaxel 37.8 MG/ML"
-2065231,"docetaxel 22.7 MG/ML Injectable Solution"
-2065232,"docetaxel 22.7 MG/ML Injectable Solution [DITAXEL1]"
-2065233,"docetaxel 22.7 MG/ML"
-2065234,"docetaxel 22.7 MG/ML [DITAXEL1]"
-2065235,"docetaxel Injectable Solution [BELOTAXEL1]"
-2065236,"docetaxel Injectable Solution [DITAXEL1]"
-2065237,"docetaxel Injectable Solution [NANOCELL]"
-2065238,"docetaxel Injectable Solution [NANOXEL]"
-2065239,"docetaxel Injectable Solution [NEWTAXEL A]"
-2065240,"docetaxel Injectable Solution [TAXEDA]"
-2065241,"docetaxel Injectable Solution [TAXOTERE 1]"
-2065242,"docetaxel Injectable Solution [TAXOZEN 1]"
-2903718,"cabazitaxel 10 MG/ML Injection"
-2904469,"1 ML docetaxel 20 MG/ML Injection by Kabi"
-2904470,"1 ML docetaxel 20 MG/ML Injection by Winthrop"
-2904471,"1 ML docetaxel 20 MG/ML Injection by Sanofi"
-2904472,"1 ML docetaxel 20 MG/ML Injection by Wockhardt"
-2906845,"4 ML docetaxel 20 MG/ML Injection by Kabi"
-2906846,"4 ML docetaxel 20 MG/ML Injection by Winthrop"
-2906847,"4 ML docetaxel 20 MG/ML Injection by Sanofi"
-2906848,"4 ML docetaxel 20 MG/ML Injection by Wockhardt"
-2908523,"6 ML cabazitaxel 10 MG/ML Injection by Ever"
-2908524,"6 ML cabazitaxel 10 MG/ML Injection"
-2908525,"6 ML cabazitaxel 10 MG/ML Injectable Solution by Ever"
-2908692,"8 ML docetaxel 20 MG/ML Injection by Kabi"
-2908693,"8 ML docetaxel 20 MG/ML Injection by Winthrop"
-2908694,"8 ML docetaxel 20 MG/ML Injection by Dakota"
-2908695,"8 ML docetaxel 20 MG/ML Injection by Sanofi"
-2908696,"8 ML docetaxel 20 MG/ML Injection by Wockhardt"
-2921739,"darolutamide 300 MG Oral Tablet [Nubeqa] Box of 120"
-2921740,"darolutamide 300 MG Oral Tablet Box of 120"
-2926526,"docetaxel 20 MG/ML Injection by Kabi"
-2926527,"docetaxel 20 MG/ML Injection by Actavis"
-2926528,"docetaxel 20 MG/ML Injection by Winthrop"
-2926529,"docetaxel 20 MG/ML Injection by Sanofi"
-2926530,"docetaxel 20 MG/ML Injection by Wockhardt"
-2937557,"apalutamide 60 MG Oral Tablet Box of 120 by Janssen"
-2937558,"apalutamide 60 MG Oral Tablet by Janssen"
-2937559,"apalutamide 60 MG Oral Tablet [Erlyand] Box of 120"
-2937560,"apalutamide 60 MG Oral Tablet [Erlyand]"
-2937561,"apalutamide 60 MG [Erlyand]"
-2937562,"apalutamide Oral Tablet [Erlyand]"
-19044664,"docetaxel 40 MG/ML [Taxotere]"
-19083462,"docetaxel 40 MG/ML"
-19104433,"docetaxel 13.3 MG/ML Injectable Solution"
-19112195,"docetaxel 13.3 MG/ML"
-21027236,"enzalutamide 40 MG Oral Capsule [Xtandi] by Astellas"
-21028242,"1 ML docetaxel 20 MG/ML Injection Box of 1"
-21028243,"1 ML docetaxel 20 MG/ML Injection [Taxceus]"
-21028747,"2 ML docetaxel 10 MG/ML Injection by A A H"
-21029037,"7 ML docetaxel 20 MG/ML Injection by A A H"
-21029038,"7 ML docetaxel 20 MG/ML Injection [Taxceus]"
-21029232,"16 ML docetaxel 10 MG/ML Injection Box of 1 by Hospira"
-21029792,"1.5 ML cabazitaxel 40 MG/ML Injection [Jevtana] by Sanofi"
-21038060,"1 ML docetaxel 20 MG/ML Injection [Taxotere] Box of 1"
-21038556,"2 ML docetaxel 40 MG/ML Injection by TEVA"
-21038689,"4 ML docetaxel 20 MG/ML Injection by Actavis"
-21038690,"4 ML docetaxel 20 MG/ML Injection Box of 1 by Actavis"
-21038851,"8 ML docetaxel 20 MG/ML Injection Box of 1"
-21038852,"8 ML docetaxel 20 MG/ML Injection [Taxotere] Box of 1"
-21038853,"8 ML docetaxel 10 MG/ML Injection by TEVA"
-21039099,"16 ML docetaxel 10 MG/ML Injection by A A H"
-21039634,"1.5 ML cabazitaxel 40 MG/ML Injection Box of 1"
-21040198,"0.72 ML docetaxel 27.8 MG/ML Injection by TEVA"
-21040199,"0.72 ML docetaxel 27.8 MG/ML Injection Box of 1"
-21046942,"enzalutamide 40 MG Oral Capsule Box of 112"
-21046943,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112"
-21046944,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by Astellas"
-21048490,"4 ML docetaxel 20 MG/ML Injection by Accord"
-21048491,"4 ML docetaxel 20 MG/ML Injection by A A H"
-21048492,"4 ML docetaxel 20 MG/ML Injection [Taxotere] Box of 1 by Sanofi"
-21049997,"2.88 ML docetaxel 27.8 MG/ML Injection by A A H"
-21049998,"2.88 ML docetaxel 27.8 MG/ML Injection by TEVA"
-21049999,"2.88 ML docetaxel 27.8 MG/ML Injection Box of 1 by A A H"
-21051085,"abiraterone 250 MG Oral Tablet [Zytiga] by Janssen"
-21051086,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Janssen"
-21057676,"1 ML docetaxel 20 MG/ML Injection [Taxceus] by Medac"
-21057677,"1 ML docetaxel 20 MG/ML Injection [Taxceus] Box of 1"
-21058122,"2 ML docetaxel 40 MG/ML Injection [Taxotere]"
-21058417,"8 ML docetaxel 10 MG/ML Injection by A A H"
-21058418,"8 ML docetaxel 10 MG/ML Injection Box of 1 by TEVA"
-21063071,"docetaxel 20 MG/ML [Taxceus]"
-21065979,"olaparib 50 MG Oral Capsule Box of 448"
-21067527,"1 ML docetaxel 20 MG/ML Injection Box of 1 by A A H"
-21067528,"1 ML docetaxel 20 MG/ML Injection [Taxotere] Box of 1 by Sanofi"
-21068186,"4 ML docetaxel 20 MG/ML Injection Box of 1"
-21068187,"4 ML docetaxel 20 MG/ML Injection [Taxceus] Box of 1 by Medac"
-21068350,"7 ML docetaxel 20 MG/ML Injection [Taxceus] Box of 1"
-21068354,"8 ML docetaxel 10 MG/ML Injection"
-21069759,"2.88 ML docetaxel 27.8 MG/ML Injection Box of 1"
-21069760,"2.88 ML docetaxel 27.8 MG/ML Injection Box of 1 by TEVA"
-21072981,"docetaxel 10 MG/ML Injection Box of 1"
-21077426,"1 ML docetaxel 20 MG/ML Injection Box of 1 by Accord"
-21077862,"2 ML docetaxel 10 MG/ML Injection by TEVA"
-21077863,"2 ML docetaxel 40 MG/ML Injection Box of 1"
-21078152,"8 ML docetaxel 20 MG/ML Injection [Taxotere] Box of 1 by Sanofi"
-21080508,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120"
-21087617,"2 ML docetaxel 10 MG/ML Injection by Hospira"
-21087618,"2 ML docetaxel 40 MG/ML Injection Box of 1 by TEVA"
-21088546,"0.5 ML docetaxel 40 MG/ML Injection [Taxotere] Box of 1"
-21089198,"0.72 ML docetaxel 27.8 MG/ML Injection"
-21095401,"olaparib 50 MG Oral Capsule [Lynparza] Box of 448"
-21096920,"1 ML docetaxel 20 MG/ML Injection [Taxceus] Box of 1 by Medac"
-21096921,"1 ML docetaxel 20 MG/ML Injection [Taxotere] by Sanofi"
-21097421,"2 ML docetaxel 40 MG/ML Injection"
-21097546,"4 ML docetaxel 20 MG/ML Injection [Taxotere] Box of 1"
-21097712,"7 ML docetaxel 20 MG/ML Injection by Actavis"
-21097938,"16 ML docetaxel 10 MG/ML Injection Box of 1"
-21102337,"docetaxel 40 MG/ML Injection Box of 1"
-21106776,"1 ML docetaxel 20 MG/ML Injection by Dr Reddy's"
-21107411,"4 ML docetaxel 20 MG/ML Injection [Taxceus]"
-21107412,"4 ML docetaxel 20 MG/ML Injection [Taxotere] by Sanofi"
-21107576,"7 ML docetaxel 20 MG/ML Injection"
-21107577,"7 ML docetaxel 20 MG/ML Injection [Taxceus] Box of 1 by Medac"
-21107581,"8 ML docetaxel 20 MG/ML Injection [Taxotere]"
-21107804,"16 ML docetaxel 10 MG/ML Injection"
-21108275,"0.5 ML docetaxel 40 MG/ML Injection Box of 1"
-21112146,"docetaxel Injection [Taxceus]"
-21116515,"1 ML docetaxel 20 MG/ML Injection by Accord"
-21116516,"1 ML docetaxel 20 MG/ML Injection by A A H"
-21117323,"8 ML docetaxel 10 MG/ML Injection by Hospira"
-21118660,"0.72 ML docetaxel 27.8 MG/ML Injection Box of 1 by TEVA"
-21118680,"2.88 ML docetaxel 27.8 MG/ML Injection"
-21121832,"docetaxel 20 MG/ML Injection [Taxceus]"
-21121833,"docetaxel 27.8 MG/ML Injection Box of 1"
-21126754,"2 ML docetaxel 40 MG/ML Injection [Taxotere] by Sanofi"
-21126891,"4 ML docetaxel 20 MG/ML Injection Box of 1 by A A H"
-21127056,"7 ML docetaxel 20 MG/ML Injection Box of 1 by A A H"
-21127057,"7 ML docetaxel 20 MG/ML Injection [Taxceus] by Medac"
-21127282,"16 ML docetaxel 10 MG/ML Injection Box of 1 by A A H"
-21127776,"0.5 ML docetaxel 40 MG/ML Injection by TEVA"
-21134601,"olaparib 50 MG Oral Capsule [Lynparza] Box of 448 by Astrazeneca"
-21136139,"1 ML docetaxel 20 MG/ML Injection by Actavis"
-21136140,"1 ML docetaxel 20 MG/ML Injection Box of 1 by Actavis"
-21136644,"2 ML docetaxel 10 MG/ML Injection Box of 1 by Hospira"
-21136645,"2 ML docetaxel 40 MG/ML Injection [Taxotere] Box of 1 by Sanofi"
-21136772,"4 ML docetaxel 20 MG/ML Injection Box of 1 by Accord"
-21136943,"7 ML docetaxel 20 MG/ML Injection Box of 1 by Actavis"
-21136948,"8 ML docetaxel 10 MG/ML Injection Box of 1 by Hospira"
-21136949,"8 ML docetaxel 10 MG/ML Injection Box of 1 by A A H"
-21139399,"abiraterone 250 MG Oral Tablet Box of 120"
-21141570,"docetaxel 20 MG/ML Injection [Taxotere] Box of 1"
-21141571,"docetaxel 40 MG/ML Injection [Taxotere] Box of 1"
-21146485,"2 ML docetaxel 10 MG/ML Injection Box of 1 by A A H"
-21146632,"4 ML docetaxel 20 MG/ML Injection by Dr Reddy's"
-21147562,"1.5 ML cabazitaxel 40 MG/ML Injection [Jevtana] Box of 1"
-21151382,"docetaxel 20 MG/ML Injection [Taxceus] Box of 1"
-21154419,"olaparib 50 MG Oral Capsule [Lynparza] by Astrazeneca"
-21154503,"cabazitaxel 40 MG/ML Injection Box of 1"
-21156607,"4 ML docetaxel 20 MG/ML Injection Box of 1 by Dr Reddy's"
-21156781,"8 ML docetaxel 20 MG/ML Injection by Accord"
-21156782,"8 ML docetaxel 20 MG/ML Injection Box of 1 by Accord"
-21156783,"8 ML docetaxel 20 MG/ML Injection [Taxotere] by Sanofi"
-21157466,"0.5 ML docetaxel 40 MG/ML Injection [Taxotere]"
-21157467,"0.5 ML docetaxel 40 MG/ML Injection [Taxotere] by Sanofi"
-21157534,"1.5 ML cabazitaxel 40 MG/ML Injection [Jevtana] Box of 1 by Sanofi"
-21164314,"cabazitaxel 40 MG/ML Injection [Jevtana] Box of 1"
-21165739,"1 ML docetaxel 20 MG/ML Injection Box of 1 by Dr Reddy's"
-21166343,"4 ML docetaxel 20 MG/ML Injection [Taxceus] by Medac"
-21166344,"4 ML docetaxel 20 MG/ML Injection [Taxceus] Box of 1"
-21166750,"16 ML docetaxel 10 MG/ML Injection by Hospira"
-21167225,"0.5 ML docetaxel 40 MG/ML Injection Box of 1 by TEVA"
-21171086,"docetaxel 20 MG/ML Injection Box of 1"
-21175983,"2 ML docetaxel 10 MG/ML Injection Box of 1"
-21175984,"2 ML docetaxel 10 MG/ML Injection Box of 1 by TEVA"
-21175985,"2 ML docetaxel 40 MG/ML Injection [Taxotere] Box of 1"
-21176287,"7 ML docetaxel 20 MG/ML Injection Box of 1"
-21176289,"8 ML docetaxel 10 MG/ML Injection Box of 1"
-21177010,"0.5 ML docetaxel 40 MG/ML Injection [Taxotere] Box of 1 by Sanofi"
-21603724,"docetaxel; parenteral"
-35129350,"1 ML docetaxel 20 MG/ML Injectable Solution by Nippon Kayaku"
-35129522,"4 ML docetaxel 20 MG/ML Injectable Solution by HK"
-35131555,"1 ML docetaxel 20 MG/ML Injectable Solution by Nihon"
-35133352,"2 ML docetaxel 40 MG/ML Injectable Solution by ASKA"
-35133814,"1 ML docetaxel 20 MG/ML Injectable Solution by HK"
-35136042,"4 ML docetaxel 20 MG/ML Injectable Solution [Onetaxotere]"
-35136336,"4 ML docetaxel 20 MG/ML Injectable Solution by Towa"
-35137236,"4 ML docetaxel 20 MG/ML Injectable Solution by Nippon Kayaku"
-35137701,"1 ML docetaxel 20 MG/ML Injectable Solution by Sawai Seiyaku"
-35137880,"4 ML docetaxel 20 MG/ML Injectable Solution by Nipro"
-35138639,"0.5 ML docetaxel 40 MG/ML Injectable Solution by ASKA"
-35140607,"0.5 ML docetaxel 40 MG/ML Injectable Solution by Sawai Seiyaku"
-35141072,"1 ML docetaxel 20 MG/ML Injectable Solution by Yakult Honsha"
-35142768,"1 ML docetaxel 20 MG/ML Injectable Solution [Onetaxotere]"
-35143210,"1 ML docetaxel 20 MG/ML Injectable Solution by Towa"
-35143471,"2 ML docetaxel 10 MG/ML Injectable Solution by Sandoz"
-35144990,"4 ML docetaxel 20 MG/ML Injectable Solution by Sawai Seiyaku"
-35145061,"4 ML docetaxel 20 MG/ML Injectable Solution by Yakult Honsha"
-35148033,"2 ML docetaxel 40 MG/ML Injectable Solution by Sawai Seiyaku"
-35148290,"4 ML docetaxel 20 MG/ML Injectable Solution by Pfizer"
-35148396,"docetaxel 20 MG/ML Injectable Solution [Onetaxotere]"
-35149042,"docetaxel 20 MG/ML [Onetaxotere]"
-35149733,"1 ML docetaxel 20 MG/ML Injectable Solution by Elmed Eisai"
-35150072,"4 ML docetaxel 20 MG/ML Injectable Solution by Nihon"
-35151949,"1 ML docetaxel 20 MG/ML Injectable Solution by Nipro"
-35152997,"12 ML docetaxel 10 MG/ML Injectable Solution"
-35155825,"12 ML docetaxel 10 MG/ML Injectable Solution by Hospira"
-35157040,"8 ML docetaxel 10 MG/ML Injectable Solution by Sandoz"
-35157816,"1 ML docetaxel 20 MG/ML Injectable Solution by Pfizer"
-35160738,"docetaxel Injectable Solution [Onetaxotere]"
-35160856,"4 ML docetaxel 20 MG/ML Injectable Solution by Elmed Eisai"
-35746195,"docetaxel 20 MG/ML Prefilled Syringe [Taxceus] Box of 1"
-35757976,"docetaxel Prefilled Syringe [Taxceus]"
-35775481,"docetaxel 20 MG/ML Prefilled Syringe [Taxceus]"
-35775995,"1 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus]"
-35776116,"1 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by Dr Reddy's"
-35776117,"1 ML docetaxel 20 MG/ML Injectable Solution by Actavis"
-35776118,"1 ML docetaxel 20 MG/ML Injectable Solution by Dr Reddy's"
-35776678,"1 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] Box of 1 by Sanofi"
-35776679,"1 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by Actavis"
-35776680,"1 ML docetaxel 20 MG/ML Prefilled Syringe by A A H"
-35776681,"1 ML docetaxel 20 MG/ML Injectable Solution by A A H"
-35776948,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] by Sanofi"
-35776949,"1 ML docetaxel 20 MG/ML Prefilled Syringe by Actavis"
-35777100,"1 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus] Box of 1"
-35777230,"1 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus] Box of 1 by Medac"
-35777231,"1 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Dr Reddy's"
-35777232,"1 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by Accord"
-35777233,"1 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Accord"
-35777234,"1 ML docetaxel 20 MG/ML Injectable Solution by Accord"
-35777529,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxceus] by Medac"
-35777530,"1 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Actavis"
-35777816,"1 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by A A H"
-35777817,"1 ML docetaxel 20 MG/ML Prefilled Syringe by Accord"
-35778100,"1 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] by Sanofi"
-35778101,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxceus] Box of 1 by Medac"
-35778102,"1 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus] by Medac"
-35778103,"1 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by A A H"
-35778104,"1 ML docetaxel 20 MG/ML Prefilled Syringe by Dr Reddy's"
-35778323,"2 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1 by A A H"
-35778324,"2 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1 by Hospira"
-35778325,"2 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by Hospira"
-35778326,"2 ML docetaxel 10 MG/ML Prefilled Syringe by A A H"
-35778611,"2 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by TEVA"
-35778612,"2 ML docetaxel 40 MG/ML Injectable Solution by TEVA"
-35778741,"2 ML docetaxel 10 MG/ML Prefilled Syringe by TEVA"
-35778742,"2 ML docetaxel 10 MG/ML Injectable Solution by A A H"
-35778743,"2 ML docetaxel 10 MG/ML Injectable Solution by Hospira"
-35778744,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] by Sanofi"
-35778863,"2 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1 by TEVA"
-35778864,"2 ML docetaxel 10 MG/ML Injectable Solution by TEVA"
-35778865,"2 ML docetaxel 10 MG/ML Prefilled Syringe by Hospira"
-35779124,"2 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by A A H"
-35779266,"2 ML docetaxel 40 MG/ML Injectable Solution Box of 1 by TEVA"
-35779818,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxceus] by Medac"
-35779819,"4 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Accord"
-35779820,"4 ML docetaxel 20 MG/ML Injectable Solution by Accord"
-35779852,"4 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by A A H"
-35779853,"4 ML docetaxel 20 MG/ML Injectable Solution by A A H"
-35779878,"4 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus] Box of 1 by Medac"
-35779879,"4 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by Actavis"
-35779880,"4 ML docetaxel 20 MG/ML Prefilled Syringe by A A H"
-35779902,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxceus] Box of 1 by Medac"
-35779903,"4 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Actavis"
-35779920,"4 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by Accord"
-35779934,"4 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus] Box of 1"
-35779944,"4 ML docetaxel 20 MG/ML Prefilled Syringe by Actavis"
-35779969,"4 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus] by Medac"
-35779970,"4 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by A A H"
-35779971,"4 ML docetaxel 20 MG/ML Injectable Solution by Dr Reddy's"
-35779981,"4 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus]"
-35779990,"4 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] Box of 1 by Sanofi"
-35779991,"4 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] by Sanofi"
-35779992,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] by Sanofi"
-35779993,"4 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Dr Reddy's"
-35779994,"4 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by Dr Reddy's"
-35779995,"4 ML docetaxel 20 MG/ML Injectable Solution by Actavis"
-35779996,"4 ML docetaxel 20 MG/ML Prefilled Syringe by Dr Reddy's"
-35779997,"4 ML docetaxel 20 MG/ML Prefilled Syringe by Accord"
-35781387,"7 ML docetaxel 20 MG/ML Prefilled Syringe by A A H"
-35781388,"7 ML docetaxel 20 MG/ML Injectable Solution [Taxceus] Box of 1 by Medac"
-35781389,"7 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Actavis"
-35781390,"7 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by A A H"
-35781391,"7 ML docetaxel 20 MG/ML Injectable Solution by A A H"
-35781393,"7 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus] Box of 1 by Medac"
-35781394,"7 ML docetaxel 20 MG/ML Injectable Solution [Taxceus] by Medac"
-35781397,"7 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by Actavis"
-35781398,"7 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by A A H"
-35781399,"7 ML docetaxel 20 MG/ML Prefilled Syringe by Actavis"
-35781402,"7 ML docetaxel 20 MG/ML Injectable Solution by Actavis"
-35781403,"7 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus]"
-35781404,"7 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus] Box of 1"
-35781405,"7 ML docetaxel 20 MG/ML Prefilled Syringe [Taxceus] by Medac"
-35781407,"8 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] by Sanofi"
-35781414,"8 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] Box of 1 by Sanofi"
-35781419,"8 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1 by TEVA"
-35781420,"8 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1 by Hospira"
-35781421,"8 ML docetaxel 10 MG/ML Injectable Solution by TEVA"
-35781422,"8 ML docetaxel 10 MG/ML Injectable Solution by A A H"
-35781423,"8 ML docetaxel 20 MG/ML Injectable Solution by Accord"
-35781430,"8 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by TEVA"
-35781431,"8 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1 by A A H"
-35781432,"8 ML docetaxel 10 MG/ML Injectable Solution by Hospira"
-35781433,"8 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] by Sanofi"
-35781434,"8 ML docetaxel 20 MG/ML Prefilled Syringe by Accord"
-35781437,"8 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by Hospira"
-35781446,"8 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by A A H"
-35781447,"8 ML docetaxel 10 MG/ML Prefilled Syringe by TEVA"
-35781448,"8 ML docetaxel 10 MG/ML Prefilled Syringe by A A H"
-35781449,"8 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Accord"
-35781457,"8 ML docetaxel 10 MG/ML Prefilled Syringe by Hospira"
-35781458,"8 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1 by Accord"
-35782795,"16 ML docetaxel 10 MG/ML Prefilled Syringe by A A H"
-35782796,"16 ML docetaxel 10 MG/ML Injectable Solution by A A H"
-35782797,"16 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by A A H"
-35782799,"16 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1 by A A H"
-35782800,"16 ML docetaxel 10 MG/ML Injectable Solution by Hospira"
-35782801,"16 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1 by Hospira"
-35782802,"16 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by Hospira"
-35782803,"16 ML docetaxel 10 MG/ML Prefilled Syringe by Hospira"
-35785550,"0.5 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] by Sanofi"
-35785631,"0.5 ML docetaxel 40 MG/ML Injectable Solution by TEVA"
-35785677,"0.5 ML docetaxel 40 MG/ML Injectable Solution Box of 1 by TEVA"
-35789799,"0.72 ML docetaxel 27.8 MG/ML Prefilled Syringe by TEVA"
-35789802,"0.72 ML docetaxel 27.8 MG/ML Injectable Solution Box of 1 by TEVA"
-35789808,"0.72 ML docetaxel 27.8 MG/ML Prefilled Syringe Box of 1 by TEVA"
-35789815,"0.72 ML docetaxel 27.8 MG/ML Injectable Solution by TEVA"
-35793660,"2.88 ML docetaxel 27.8 MG/ML Injectable Solution by A A H"
-35793661,"2.88 ML docetaxel 27.8 MG/ML Prefilled Syringe Box of 1 by A A H"
-35793662,"2.88 ML docetaxel 27.8 MG/ML Prefilled Syringe by TEVA"
-35793663,"2.88 ML docetaxel 27.8 MG/ML Prefilled Syringe Box of 1 by TEVA"
-35793664,"2.88 ML docetaxel 27.8 MG/ML Injectable Solution Box of 1 by A A H"
-35793665,"2.88 ML docetaxel 27.8 MG/ML Injectable Solution by TEVA"
-35793666,"2.88 ML docetaxel 27.8 MG/ML Injectable Solution Box of 1 by TEVA"
-35793667,"2.88 ML docetaxel 27.8 MG/ML Prefilled Syringe by A A H"
-35829027,"2 ML docetaxel 40 MG/ML Injectable Solution by Sawai"
-35829147,"1 ML docetaxel 20 MG/ML Injectable Solution by Sawai"
-35829185,"0.5 ML docetaxel 40 MG/ML Injectable Solution by Sawai"
-35829452,"4 ML docetaxel 20 MG/ML Injectable Solution by Sawai"
-35868847,"docetaxel Injectable Solution [Xicun]"
-35868848,"docetaxel Injectable Solution [Siqudi]"
-35868849,"docetaxel Injectable Solution [Aisu]"
-35868994,"docetaxel 40 MG/ML Injectable Solution [Yiyouruikang]"
-35868995,"docetaxel 40 MG/ML Injectable Solution [Duopafei]"
-35868996,"docetaxel 40 MG/ML Injectable Solution [Xicun]"
-35868997,"docetaxel 40 MG/ML Injectable Solution [Siqudi]"
-35868998,"docetaxel 40 MG/ML Injectable Solution [Aisu]"
-35868999,"docetaxel 40 MG/ML [Yiyouruikang]"
-35869000,"docetaxel 40 MG/ML [Duopafei]"
-35869001,"docetaxel 40 MG/ML [Xicun]"
-35869002,"docetaxel 40 MG/ML [Siqudi]"
-35869003,"docetaxel 40 MG/ML [Aisu]"
-35869004,"docetaxel 20 MG/ML Injectable Solution [Taisuodi]"
-35869005,"docetaxel 20 MG/ML Injectable Solution [Duopafei]"
-35869006,"docetaxel 20 MG/ML [Taisuodi]"
-35869007,"docetaxel 20 MG/ML [Duopafei]"
-35869008,"docetaxel Injectable Solution [Yiyouruikang]"
-35869009,"docetaxel Injectable Solution [Taisuodi]"
-35869010,"docetaxel Injectable Solution [Duopafei]"
-35898015,"olaparib 150 MG Oral Tablet [Lynparza] Box of 56 by Originalis B.V."
-35898016,"olaparib 150 MG Oral Tablet [Lynparza] by Originalis B.V."
-35898017,"olaparib 100 MG Oral Tablet [Lynparza] Box of 56 by Originalis B.V."
-35898018,"olaparib 100 MG Oral Tablet [Lynparza] by Originalis B.V."
-35898368,"enzalutamide 40 MG Oral Tablet [Xtandi] Box of 112 by Originalis B.V."
-35898412,"enzalutamide 40 MG Oral Tablet [Xtandi] by Originalis B.V."
-36034899,"enzalutamide 40 MG Oral Tablet [Xtandi] Box of 112 by Abacus Medicine"
-36034900,"enzalutamide 40 MG Oral Tablet [Xtandi] Box of 112 by Orifarm Leverkus"
-36034901,"enzalutamide 40 MG Oral Tablet [Xtandi] Box of 112 by Haematogmbh"
-36034902,"enzalutamide 40 MG Oral Tablet [Xtandi] Box of 112 by Kohlpharma"
-36034903,"enzalutamide 40 MG Oral Tablet [Xtandi] Box of 112 by Paranova Pack"
-36035853,"darolutamide 300 MG Oral Tablet Box of 96"
-36035854,"darolutamide 300 MG Oral Tablet [Nubeqa] Box of 96"
-36035855,"darolutamide 300 MG Oral Tablet [Nubeqa] Box of 96 by Bayer"
-36037002,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Plaza Pharm"
-36037476,"7 ML docetaxel 20 MG/ML Injectable Solution by Bb Farma"
-36054027,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution [Jevtana] Box of 1 by Originalis B.V."
-36054028,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution [Jevtana] by Originalis B.V."
-36054566,"1 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Fresenius"
-36056041,"4 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Fresenius"
-36056891,"8 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Fresenius"
-36057279,"abiraterone 500 MG Oral Tablet [Zytiga] Box of 56 by Originalis B.V."
-36057280,"abiraterone 500 MG Oral Tablet [Zytiga] by Originalis B.V."
-36057380,"apalutamide 60 MG Oral Tablet [Erleada] Box of 112 by Janssen"
-36057381,"apalutamide 60 MG Oral Tablet [Erleada] Box of 112"
-36065613,"darolutamide 300 MG Oral Tablet [Nubeqa] Box of 112 by Bayer"
-36065614,"darolutamide 300 MG Oral Tablet [Nubeqa] Box of 112"
-36065615,"darolutamide 300 MG Oral Tablet [Nubeqa] by Bayer"
-36065616,"darolutamide 300 MG Oral Tablet Box of 112"
-36068616,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by Originalis B.V."
-36068617,"enzalutamide 40 MG Oral Capsule [Xtandi] by Originalis B.V."
-36074030,"apalutamide 60 MG Oral Tablet Box of 112"
-36118758,"cabazitaxel 10 MG/ML"
-36118759,"cabazitaxel 10 MG/ML Injectable Solution"
-36118760,"cabazitaxel 10 MG/ML Injectable Solution Box of 1"
-36118761,"cabazitaxel 20 MG/ML"
-36120809,"cabazitaxel 20 MG/ML Injectable Solution"
-36120810,"cabazitaxel 20 MG/ML Injectable Solution Box of 1"
-36121115,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution by Dr Reddy's"
-36121116,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution Box of 1 by Dr Reddy's"
-36121160,"3 ML cabazitaxel 20 MG/ML Injectable Solution"
-36121161,"3 ML cabazitaxel 20 MG/ML Injectable Solution by Accord"
-36121162,"3 ML cabazitaxel 20 MG/ML Injectable Solution Box of 1"
-36121163,"3 ML cabazitaxel 20 MG/ML Injectable Solution Box of 1 by Accord"
-36121214,"4.5 ML cabazitaxel 10 MG/ML Injectable Solution"
-36121215,"4.5 ML cabazitaxel 10 MG/ML Injectable Solution by Kent"
-36121216,"4.5 ML cabazitaxel 10 MG/ML Injectable Solution Box of 1"
-36121217,"4.5 ML cabazitaxel 10 MG/ML Injectable Solution Box of 1 by Kent"
-36121246,"5 ML cabazitaxel 10 MG/ML Injectable Solution"
-36121247,"5 ML cabazitaxel 10 MG/ML Injectable Solution by Kent"
-36121248,"5 ML cabazitaxel 10 MG/ML Injectable Solution Box of 1"
-36121249,"5 ML cabazitaxel 10 MG/ML Injectable Solution Box of 1 by Kent"
-36121251,"6 ML cabazitaxel 10 MG/ML Injectable Solution"
-36121252,"6 ML cabazitaxel 10 MG/ML Injectable Solution by Kent"
-36121253,"6 ML cabazitaxel 10 MG/ML Injectable Solution Box of 1"
-36121254,"6 ML cabazitaxel 10 MG/ML Injectable Solution Box of 1 by Kent"
-36257999,"docetaxel 20 MG/ML Injectable Solution [DOCETAXEL EG]"
-36260531,"docetaxel 20 MG/ML Injection [DOCETAXEL ACCORD]"
-36261961,"docetaxel Injectable Solution [DOCETAXEL EG]"
-36277648,"1 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL EG] by Eurogenerics"
-36277810,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Aurobindo] by Aurobindo"
-36277855,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Aurobindo]"
-36277905,"1 ML docetaxel 20 MG/ML Injection [DOCETAXEL EG]"
-36277927,"1 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD] by Accord"
-36278649,"4 ML docetaxel 20 MG/ML Injection [DOCETAXEL EG]"
-36278650,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Aurobindo]"
-36278663,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] by Aurobindo"
-36278679,"4 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD] by Accord"
-36278760,"4 ML docetaxel 20 MG/ML Injection [DOCETAXEL EG] by Eurogenerics"
-36279329,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Aurobindo]"
-36279330,"7 ML docetaxel 20 MG/ML Injection [DOCETAXEL EG]"
-36279332,"7 ML docetaxel 20 MG/ML Injection [DOCETAXEL EG] by Eurogenerics"
-36279333,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Aurobindo] by Aurobindo"
-36279334,"8 ML docetaxel 20 MG/ML Injection [DOCETAXEL ACCORD]"
-36279337,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] by Aurobindo"
-36279345,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo]"
-36279350,"8 ML docetaxel 20 MG/ML Injection [DOCETAXEL ACCORD] by Accord"
-36506551,"apalutamide 60 MG Oral Tablet [Erleada] by Janssen"
-36507667,"abiraterone 250 MG Oral Tablet [Zytiga] by Eurim-Pharm"
-36780401,"8 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL ACCORD] Box of 1 by Accord"
-36780402,"8 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL ACCORD] Box of 1"
-36780403,"8 ML docetaxel 20 MG/ML Intravenous Solution [Docetaxel Aurobindo] Box of 1 by Aurobindo"
-36780404,"8 ML docetaxel 20 MG/ML Intravenous Solution [Docetaxel Aurobindo] Box of 1"
-36780405,"8 ML docetaxel 20 MG/ML Intravenous Solution [Taxotere] Box of 1 by Sanofi"
-36780406,"8 ML docetaxel 20 MG/ML Intravenous Solution [Taxotere] Box of 1"
-36780407,"8 ML docetaxel 20 MG/ML Intravenous Solution [Taxotere]"
-36780408,"8 ML docetaxel 20 MG/ML Intravenous Solution Box of 1"
-36780409,"8 ML docetaxel 20 MG/ML Intravenous Solution"
-36780417,"7 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL EG] Box of 1 by Eurogenerics"
-36780418,"7 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL EG] Box of 1"
-36780419,"7 ML docetaxel 20 MG/ML Intravenous Solution [Docetaxel Aurobindo] Box of 1 by Aurobindo"
-36780420,"7 ML docetaxel 20 MG/ML Intravenous Solution [Docetaxel Aurobindo] Box of 1"
-36780421,"7 ML docetaxel 20 MG/ML Intravenous Solution Box of 1"
-36780422,"7 ML docetaxel 20 MG/ML Intravenous Solution"
-36780885,"4 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL EG] Box of 1 by Eurogenerics"
-36780886,"4 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL EG] Box of 1"
-36780887,"4 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL ACCORD] Box of 1 by Accord"
-36780888,"4 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL ACCORD] Box of 1"
-36780889,"4 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL ACCORD]"
-36780890,"4 ML docetaxel 20 MG/ML Intravenous Solution [Docetaxel Aurobindo] Box of 1 by Aurobindo"
-36780891,"4 ML docetaxel 20 MG/ML Intravenous Solution [Docetaxel Aurobindo] Box of 1"
-36780892,"4 ML docetaxel 20 MG/ML Intravenous Solution [Taxotere] Box of 1 by Sanofi"
-36780893,"4 ML docetaxel 20 MG/ML Intravenous Solution [Taxotere] Box of 1"
-36780894,"4 ML docetaxel 20 MG/ML Intravenous Solution [Taxotere]"
-36780895,"4 ML docetaxel 20 MG/ML Intravenous Solution Box of 1"
-36780896,"4 ML docetaxel 20 MG/ML Intravenous Solution"
-36781425,"1.5 ML cabazitaxel 40 MG/ML Intravenous Solution [Jevtana] Box of 1 by Sanofi"
-36781426,"1.5 ML cabazitaxel 40 MG/ML Intravenous Solution [Jevtana] Box of 1"
-36781427,"1.5 ML cabazitaxel 40 MG/ML Intravenous Solution [Jevtana]"
-36781428,"1.5 ML cabazitaxel 40 MG/ML Intravenous Solution Box of 1"
-36781429,"1.5 ML cabazitaxel 40 MG/ML Intravenous Solution"
-36781541,"1 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL EG] Box of 1 by Eurogenerics"
-36781542,"1 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL EG] Box of 1"
-36781543,"1 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL ACCORD] Box of 1 by Accord"
-36781544,"1 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL ACCORD] Box of 1"
-36781545,"1 ML docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL ACCORD]"
-36781546,"1 ML docetaxel 20 MG/ML Intravenous Solution [Docetaxel Aurobindo] Box of 1 by Aurobindo"
-36781547,"1 ML docetaxel 20 MG/ML Intravenous Solution [Docetaxel Aurobindo] Box of 1"
-36781548,"1 ML docetaxel 20 MG/ML Intravenous Solution [Taxotere] Box of 1 by Sanofi"
-36781549,"1 ML docetaxel 20 MG/ML Intravenous Solution [Taxotere] Box of 1"
-36781550,"1 ML docetaxel 20 MG/ML Intravenous Solution [Taxotere]"
-36781551,"1 ML docetaxel 20 MG/ML Intravenous Solution Box of 1"
-36781552,"1 ML docetaxel 20 MG/ML Intravenous Solution"
-36782177,"cabazitaxel 40 MG/ML Intravenous Solution [Jevtana] Box of 1"
-36782178,"cabazitaxel 40 MG/ML Intravenous Solution [Jevtana]"
-36782179,"cabazitaxel 40 MG/ML Intravenous Solution Box of 1"
-36782180,"cabazitaxel 40 MG/ML Intravenous Solution"
-36782181,"cabazitaxel Intravenous Solution [Jevtana]"
-36782182,"cabazitaxel Intravenous Solution"
-36783593,"docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL EG] Box of 1"
-36783594,"docetaxel 20 MG/ML Intravenous Solution [DOCETAXEL ACCORD] Box of 1"
-36783595,"docetaxel 20 MG/ML Intravenous Solution [Docetaxel Aurobindo] Box of 1"
-36783596,"docetaxel 20 MG/ML Intravenous Solution [Docetaxel Aurobindo]"
-36783597,"docetaxel 20 MG/ML Intravenous Solution [Taxotere] Box of 1"
-36783598,"docetaxel 20 MG/ML Intravenous Solution [Taxotere]"
-36783599,"docetaxel 20 MG/ML Intravenous Solution Box of 1"
-36783600,"docetaxel 20 MG/ML Intravenous Solution"
-36783601,"docetaxel Intravenous Solution [DOCETAXEL ACCORD]"
-36783602,"docetaxel Intravenous Solution [Docetaxel Aurobindo]"
-36783603,"docetaxel Intravenous Solution [Taxotere]"
-36783604,"docetaxel Intravenous Solution"
-36879834,"cabazitaxel Prefilled Syringe"
-36879896,"cabazitaxel Prefilled Syringe [Jevtana]"
-36880299,"docetaxel 20 MG/ML Prefilled Syringe [Taxotere] Box of 1"
-36881252,"cabazitaxel 40 MG/ML Prefilled Syringe [Jevtana] Box of 1"
-36881922,"docetaxel 10 MG/ML Prefilled Syringe Box of 1"
-36883118,"cabazitaxel 40 MG/ML Prefilled Syringe [Jevtana]"
-36883729,"docetaxel Prefilled Syringe [Taxotere]"
-36884615,"docetaxel Prefilled Syringe"
-36884706,"cabazitaxel 40 MG/ML Prefilled Syringe Box of 1"
-36884761,"docetaxel 10 MG/ML Prefilled Syringe"
-36885223,"docetaxel 80 MG/ML"
-36886036,"docetaxel 20 MG/ML Prefilled Syringe [Taxotere]"
-36887664,"docetaxel 27.8 MG/ML Prefilled Syringe"
-36888148,"docetaxel 27.8 MG/ML"
-36888658,"docetaxel 80 MG/ML Injection"
-36889677,"docetaxel 20 MG/ML Prefilled Syringe Box of 1"
-36890630,"cabazitaxel 40 MG/ML Prefilled Syringe"
-36890674,"docetaxel 20 MG/ML Prefilled Syringe"
-36894564,"docetaxel 27.8 MG/ML Prefilled Syringe Box of 1"
-36895008,"1 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere]"
-36895039,"1 ML docetaxel 80 MG/ML Injection"
-36895053,"1 ML docetaxel 40 MG/ML Injection"
-36895082,"1 ML docetaxel 20 MG/ML Prefilled Syringe"
-36895126,"1 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1"
-36895245,"2 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1"
-36895249,"2 ML docetaxel 10 MG/ML Prefilled Syringe"
-36895280,"4 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere]"
-36895283,"4 ML docetaxel 20 MG/ML Prefilled Syringe"
-36895288,"4 ML docetaxel 80 MG/ML Injection"
-36895289,"4 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1"
-36895439,"7 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1"
-36895440,"7 ML docetaxel 20 MG/ML Prefilled Syringe"
-36895441,"8 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1"
-36895443,"8 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere]"
-36895444,"8 ML docetaxel 20 MG/ML Prefilled Syringe"
-36895445,"8 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1"
-36895447,"8 ML docetaxel 10 MG/ML Prefilled Syringe"
-36895674,"16 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1"
-36895675,"16 ML docetaxel 10 MG/ML Prefilled Syringe"
-36896228,"1.5 ML cabazitaxel 40 MG/ML Prefilled Syringe"
-36896232,"1.5 ML cabazitaxel 40 MG/ML Prefilled Syringe Box of 1"
-36896239,"1.5 ML cabazitaxel 40 MG/ML Prefilled Syringe [Jevtana]"
-36897104,"0.72 ML docetaxel 27.8 MG/ML Prefilled Syringe Box of 1"
-36897105,"0.72 ML docetaxel 27.8 MG/ML Prefilled Syringe"
-36897276,"2.88 ML docetaxel 27.8 MG/ML Prefilled Syringe Box of 1"
-36897277,"2.88 ML docetaxel 27.8 MG/ML Prefilled Syringe"
-36919317,"abiraterone 500 MG Oral Tablet by Genus"
-36919647,"100 ML docetaxel 0.528 MG/ML Injectable Solution Box of 1"
-36919689,"250 ML docetaxel 0.288 MG/ML Injectable Solution"
-36919734,"50 ML docetaxel 0.68 MG/ML Injectable Solution"
-36920321,"500 ML docetaxel 0.528 MG/ML Injectable Solution"
-36921140,"100 ML docetaxel 0.48 MG/ML Injectable Solution"
-36922109,"abiraterone 500 MG Oral Tablet Box of 56 by Wockhardt"
-36922318,"docetaxel 0.68 MG/ML"
-36922489,"500 ML docetaxel 0.328 MG/ML Injectable Solution Box of 1"
-36922516,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution [Jevtana] by Sanofi Genzyme"
-36922962,"4 ML docetaxel 20 MG/ML Injectable Solution by Fresenius Kabi"
-36923360,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution [Jevtana] Box of 1 by Sanofi Genzyme"
-36923575,"abiraterone 1000 MG Oral Tablet by Sandoz"
-36923902,"docetaxel 0.72 MG/ML"
-36924525,"abiraterone 500 MG Oral Tablet by Torrent"
-36925203,"abiraterone 1000 MG Oral Tablet by Viatris Healthcare"
-36925328,"100 ML docetaxel 0.528 MG/ML Injectable Solution"
-36925351,"100 ML docetaxel 0.432 MG/ML Injectable Solution Box of 1"
-36925623,"500 ML docetaxel 0.592 MG/ML Injectable Solution Box of 1"
-36926304,"abiraterone 1000 MG"
-36926653,"docetaxel 0.64 MG/ML Injectable Solution"
-36926959,"abiraterone 500 MG Oral Tablet by Celix"
-36927079,"1 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Fresenius Kabi"
-36927184,"abiraterone 500 MG Oral Tablet Box of 56 by Aristo"
-36928008,"docetaxel 0.288 MG/ML"
-36928113,"8 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Fresenius Kabi"
-36929078,"docetaxel 0.56 MG/ML Injectable Solution Box of 1"
-36929607,"abiraterone 500 MG Oral Tablet by Sandoz"
-36929989,"docetaxel 0.56 MG/ML Injectable Solution"
-36930497,"abiraterone 500 MG Oral Tablet by Cipla"
-36931266,"50 ML docetaxel 0.68 MG/ML Injectable Solution Box of 1"
-36931581,"100 ML docetaxel 0.36 MG/ML Injectable Solution"
-36932098,"docetaxel 0.328 MG/ML"
-36932238,"500 ML docetaxel 0.36 MG/ML Injectable Solution Box of 1"
-36933088,"250 ML docetaxel 0.4 MG/ML Injectable Solution Box of 1"
-36933446,"3 ML cabazitaxel 20 MG/ML Injectable Solution Box of 1 by Zentiva"
-36934928,"250 ML docetaxel 0.4 MG/ML Injectable Solution"
-36935072,"3 ML cabazitaxel 20 MG/ML Injectable Solution by Viatris Healthcare"
-36935195,"docetaxel 0.64 MG/ML Injectable Solution Box of 1"
-36935807,"abiraterone 500 MG Oral Tablet Box of 56 by Torrent"
-36935843,"abiraterone 500 MG Oral Tablet Box of 56 by Zentiva"
-36936002,"250 ML docetaxel 0.32 MG/ML Injectable Solution"
-36936209,"abiraterone 500 MG Oral Tablet by Accord"
-36937139,"docetaxel 0.288 MG/ML Injectable Solution Box of 1"
-36937177,"docetaxel 0.36 MG/ML Injectable Solution Box of 1"
-36937678,"100 ML docetaxel 0.36 MG/ML Injectable Solution Box of 1"
-36938056,"100 ML docetaxel 0.56 MG/ML Injectable Solution Box of 1"
-36938879,"docetaxel 0.352 MG/ML Injectable Solution Box of 1"
-36938908,"1 ML docetaxel 20 MG/ML Injectable Solution by Fresenius Kabi"
-36939300,"500 ML docetaxel 0.48 MG/ML Injectable Solution"
-36940375,"100 ML docetaxel 0.64 MG/ML Injectable Solution Box of 1"
-36940584,"8 ML docetaxel 20 MG/ML Injectable Solution by Fresenius Kabi"
-36940832,"100 ML docetaxel 0.4 MG/ML Injectable Solution"
-36941100,"abiraterone 250 MG Oral Tablet by Tillomed"
-36941226,"abiraterone 500 MG Oral Tablet Box of 56 by TEVA"
-36941877,"100 ML docetaxel 0.64 MG/ML Injectable Solution"
-36942197,"abiraterone 500 MG Oral Tablet Box of 56 by Cipla"
-36943592,"abiraterone 500 MG Oral Tablet by Wockhardt"
-36943936,"4 ML docetaxel 20 MG/ML Injectable Solution by Consilient"
-36944101,"abiraterone 500 MG Oral Tablet by Zentiva"
-36944445,"docetaxel 0.68 MG/ML Injectable Solution"
-36945121,"500 ML docetaxel 0.328 MG/ML Injectable Solution"
-36945626,"abiraterone 500 MG Oral Tablet by Glenmark"
-36946395,"100 ML docetaxel 0.56 MG/ML Injectable Solution"
-36946413,"abiraterone 500 MG Oral Tablet Box of 56 by Kent"
-36946518,"abiraterone 500 MG Oral Tablet Box of 56 by Dr Reddy's"
-36946752,"abiraterone 500 MG Oral Tablet by Tillomed"
-36947327,"100 ML docetaxel 0.48 MG/ML Injectable Solution Box of 1"
-36947518,"docetaxel 0.32 MG/ML"
-36948195,"500 ML docetaxel 0.432 MG/ML Injectable Solution Box of 1"
-36948259,"100 ML docetaxel 0.68 MG/ML Injectable Solution"
-36949114,"abiraterone 500 MG Oral Tablet by Viatris Healthcare"
-36949153,"abiraterone 500 MG Oral Tablet Box of 56 by Tillomed"
-36950299,"abiraterone 500 MG Oral Tablet by TEVA"
-36951015,"abiraterone 500 MG Oral Tablet by Aristo"
-36951544,"docetaxel 0.36 MG/ML"
-36951947,"500 ML docetaxel 0.592 MG/ML Injectable Solution"
-36952162,"abiraterone 500 MG Oral Tablet Box of 56 by Alliance"
-36952668,"abiraterone 250 MG Oral Tablet by Cipla"
-36953260,"abiraterone 500 MG Oral Tablet Box of 56 by Celix"
-36953472,"100 ML docetaxel 0.592 MG/ML Injectable Solution Box of 1"
-36953690,"250 ML docetaxel 0.72 MG/ML Injectable Solution"
-36953920,"docetaxel 0.352 MG/ML Injectable Solution"
-36953945,"abiraterone 1000 MG Oral Tablet Box of 28"
-36954171,"abiraterone 250 MG Oral Tablet Box of 120 by Tillomed"
-36954377,"4 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Consilient"
-36954512,"100 ML docetaxel 0.592 MG/ML Injectable Solution"
-36955051,"abiraterone 500 MG Oral Tablet Box of 56 by Viatris Healthcare"
-36955066,"docetaxel 0.68 MG/ML Injectable Solution Box of 1"
-36955131,"500 ML docetaxel 0.528 MG/ML Injectable Solution Box of 1"
-36955180,"abiraterone 1000 MG Oral Tablet"
-36956012,"500 ML docetaxel 0.432 MG/ML Injectable Solution"
-36956542,"4 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Fresenius Kabi"
-36956704,"abiraterone 250 MG Oral Tablet Box of 120 by Cipla"
-36956801,"docetaxel 0.32 MG/ML Injectable Solution"
-36957484,"abiraterone 500 MG Oral Tablet Box of 56 by Axunio"
-36957537,"abiraterone 500 MG Oral Tablet by Dr Reddy's"
-36958006,"docetaxel 0.72 MG/ML Injectable Solution"
-36958081,"docetaxel 0.72 MG/ML Injectable Solution Box of 1"
-36958857,"250 ML docetaxel 0.72 MG/ML Injectable Solution Box of 1"
-36958994,"250 ML docetaxel 0.352 MG/ML Injectable Solution Box of 1"
-36959240,"100 ML docetaxel 0.432 MG/ML Injectable Solution"
-36959440,"docetaxel 0.56 MG/ML"
-36959507,"docetaxel 0.328 MG/ML Injectable Solution Box of 1"
-36960382,"docetaxel 0.352 MG/ML"
-36960491,"100 ML docetaxel 0.68 MG/ML Injectable Solution Box of 1"
-36960826,"abiraterone 1000 MG Oral Tablet Box of 28 by Sandoz"
-36960908,"500 ML docetaxel 0.36 MG/ML Injectable Solution"
-36961026,"100 ML docetaxel 0.4 MG/ML Injectable Solution Box of 1"
-36961455,"abiraterone 500 MG Oral Tablet by Kent"
-36961827,"docetaxel 0.36 MG/ML Injectable Solution"
-36961852,"abiraterone 500 MG Oral Tablet Box of 56 by Sandoz"
-36961874,"250 ML docetaxel 0.288 MG/ML Injectable Solution Box of 1"
-36961984,"1 ML docetaxel 20 MG/ML Injectable Solution by Consilient"
-36962130,"abiraterone 500 MG Oral Tablet by Axunio"
-36962164,"500 ML docetaxel 0.56 MG/ML Injectable Solution Box of 1"
-36962809,"8 ML docetaxel 20 MG/ML Injectable Solution by Consilient"
-36963330,"3 ML cabazitaxel 20 MG/ML Injectable Solution by Zentiva"
-36963499,"docetaxel 0.328 MG/ML Injectable Solution"
-36963600,"250 ML docetaxel 0.352 MG/ML Injectable Solution"
-36964062,"3 ML cabazitaxel 20 MG/ML Injectable Solution Box of 1 by Viatris Healthcare"
-36964852,"250 ML docetaxel 0.32 MG/ML Injectable Solution Box of 1"
-36964918,"abiraterone 500 MG Oral Tablet Box of 56 by Accord"
-36965624,"8 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Consilient"
-36966113,"abiraterone 500 MG Oral Tablet Box of 56 by Glenmark"
-36966398,"docetaxel 0.288 MG/ML Injectable Solution"
-36966473,"1 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Consilient"
-36966905,"500 ML docetaxel 0.48 MG/ML Injectable Solution Box of 1"
-36967588,"abiraterone 500 MG Oral Tablet by Alliance"
-36968198,"500 ML docetaxel 0.56 MG/ML Injectable Solution"
-36969167,"docetaxel 0.64 MG/ML"
-36969657,"abiraterone 1000 MG Oral Tablet Box of 28 by Viatris Healthcare"
-36969731,"docetaxel 0.32 MG/ML Injectable Solution Box of 1"
-36969772,"abiraterone 500 MG Oral Tablet Box of 56 by Genus"
-37002517,"enzalutamide Oral Tablet"
-37002518,"enzalutamide 40 MG Oral Tablet"
-37002519,"enzalutamide Oral Tablet [Xtandi]"
-37002520,"enzalutamide 40 MG Oral Tablet [Xtandi]"
-37002521,"enzalutamide 80 MG"
-37002522,"enzalutamide 80 MG Oral Tablet"
-37002523,"enzalutamide 80 MG [Xtandi]"
-37002524,"enzalutamide 80 MG Oral Tablet [Xtandi]"
-37592407,"enzalutamide 40 MG Oral Capsule [Xtandi] by Abacus Medicine"
-37592408,"enzalutamide 40 MG Oral Capsule [Xtandi] by Kohlpharma"
-37592898,"abiraterone 500 MG Oral Tablet [Zytiga] by Abacus Medicine"
-37592899,"abiraterone 500 MG Oral Tablet [Zytiga] by Cc"
-37592900,"abiraterone 250 MG Oral Tablet [Zytiga] by Lunapharm"
-40057906,"docetaxel Injectable Solution"
-40057907,"docetaxel Injectable Solution [Taxotere]"
-40222431,"cabazitaxel"
-40224716,"cabazitaxel 40 MG/ML"
-40224717,"1.5 ML cabazitaxel 40 MG/ML Injection"
-40224722,"docetaxel 20 MG/ML"
-40224723,"docetaxel 20 MG/ML Injectable Solution"
-40224725,"docetaxel 20 MG/ML [Taxotere]"
-40237036,"docetaxel 10 MG/ML"
-40237037,"docetaxel 10 MG/ML Injectable Solution"
-40239056,"abiraterone"
-40239057,"abiraterone Oral Tablet"
-40239058,"abiraterone Oral Tablet [Zytiga]"
-40239059,"abiraterone acetate 250 MG"
-40239060,"abiraterone acetate 250 MG Oral Tablet"
-40239061,"abiraterone acetate 250 MG Oral Tablet [Zytiga]"
-40239062,"abiraterone acetate 250 MG [Zytiga]"
-40239089,"docetaxel 24 MG/ML"
-40239090,"docetaxel 24 MG/ML Injectable Solution"
-40239091,"docetaxel 24 MG/ML Injectable Solution [Docefrez]"
-40239092,"docetaxel 24 MG/ML [Docefrez]"
-40239093,"docetaxel Injectable Solution [Docefrez]"
-40240020,"docetaxel 25 MG/ML"
-40240021,"docetaxel 25 MG/ML Injectable Solution"
-40240022,"docetaxel 25 MG/ML Injectable Solution [Docefrez]"
-40240023,"docetaxel 25 MG/ML [Docefrez]"
-40253093,"cabazitaxel; parenteral"
-40253469,"abiraterone; oral"
-40708878,"500 ML docetaxel 0.4 MG/ML Injectable Solution Box of 1"
-40708879,"500 ML docetaxel 0.4 MG/ML Injectable Solution"
-40709880,"250 ML docetaxel 0.48 MG/ML Injectable Solution Box of 1"
-40709881,"250 ML docetaxel 0.48 MG/ML Injectable Solution"
-40709882,"250 ML docetaxel 0.592 MG/ML Injectable Solution Box of 1"
-40709883,"250 ML docetaxel 0.592 MG/ML Injectable Solution"
-40709884,"250 ML docetaxel 0.432 MG/ML Injectable Solution Box of 1"
-40709885,"250 ML docetaxel 0.432 MG/ML Injectable Solution"
-40709886,"250 ML docetaxel 0.528 MG/ML Injectable Solution Box of 1"
-40709887,"250 ML docetaxel 0.528 MG/ML Injectable Solution"
-40714515,"16 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by Pfizer"
-40714516,"16 ML docetaxel 10 MG/ML Injectable Solution by Pfizer"
-40715641,"8 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Seacross"
-40715642,"8 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by TEVA"
-40715643,"8 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by A A H"
-40715644,"8 ML docetaxel 20 MG/ML Injectable Solution by Seacross"
-40715645,"8 ML docetaxel 20 MG/ML Injectable Solution by TEVA"
-40715646,"8 ML docetaxel 20 MG/ML Injectable Solution by A A H"
-40715647,"8 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by Pfizer"
-40715648,"8 ML docetaxel 10 MG/ML Injectable Solution by Pfizer"
-40715773,"7 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by TEVA"
-40715774,"7 ML docetaxel 20 MG/ML Injectable Solution by TEVA"
-40716344,"4 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Seacross"
-40716345,"4 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by TEVA"
-40716346,"4 ML docetaxel 20 MG/ML Injectable Solution by Seacross"
-40716347,"4 ML docetaxel 20 MG/ML Injectable Solution by TEVA"
-40717036,"2 ML docetaxel 10 MG/ML Injectable Solution Box of 1 by Pfizer"
-40717037,"2 ML docetaxel 10 MG/ML Injectable Solution by Pfizer"
-40717597,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution [Jevtana] Box of 1 by Sanofi"
-40717598,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution [Jevtana] Box of 1"
-40717599,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution [Jevtana] by Sanofi"
-40718411,"1 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by Seacross"
-40718412,"1 ML docetaxel 20 MG/ML Injectable Solution Box of 1 by TEVA"
-40718413,"1 ML docetaxel 20 MG/ML Injectable Solution by Seacross"
-40718414,"1 ML docetaxel 20 MG/ML Injectable Solution by TEVA"
-40720616,"cabazitaxel 40 MG/ML Injectable Solution [Jevtana] Box of 1"
-40726839,"docetaxel 0.4 MG/ML Injectable Solution Box of 1"
-40726840,"docetaxel 0.4 MG/ML Injectable Solution"
-40726841,"docetaxel 0.4 MG/ML"
-40726842,"docetaxel 0.48 MG/ML Injectable Solution Box of 1"
-40726843,"docetaxel 0.48 MG/ML Injectable Solution"
-40726844,"docetaxel 0.48 MG/ML"
-40726845,"docetaxel 0.592 MG/ML Injectable Solution Box of 1"
-40726846,"docetaxel 0.592 MG/ML Injectable Solution"
-40726847,"docetaxel 0.592 MG/ML"
-40726848,"docetaxel 0.432 MG/ML Injectable Solution Box of 1"
-40726849,"docetaxel 0.432 MG/ML Injectable Solution"
-40726850,"docetaxel 0.432 MG/ML"
-40726851,"docetaxel 0.528 MG/ML Injectable Solution Box of 1"
-40726852,"docetaxel 0.528 MG/ML Injectable Solution"
-40726853,"docetaxel 0.528 MG/ML"
-40745825,"olaparib 150 MG Oral Tablet [Lynparza] Box of 56 by Astrazeneca"
-40745826,"olaparib 150 MG Oral Tablet [Lynparza] Box of 56"
-40745827,"olaparib 150 MG Oral Tablet [Lynparza] by Astrazeneca"
-40745828,"olaparib 150 MG Oral Tablet Box of 56"
-40745829,"olaparib 100 MG Oral Tablet [Lynparza] Box of 56 by Astrazeneca"
-40745830,"olaparib 100 MG Oral Tablet [Lynparza] Box of 56"
-40745831,"olaparib 100 MG Oral Tablet [Lynparza] by Astrazeneca"
-40745832,"olaparib 100 MG Oral Tablet Box of 56"
-40824031,"docetaxel 10 MG/ML Injectable Solution [Docetaxel Nc] Box of 1"
-40824865,"docetaxel 20 MG/ML Injectable Solution Box of 1"
-40825410,"docetaxel 20 MG/ML [Docetaxel Ratiopharm]"
-40829281,"docetaxel 20 MG/ML [Docetaxel Actavis]"
-40829282,"docetaxel 10 MG/ML [Ribodocel]"
-40830833,"cabazitaxel Injectable Solution"
-40832556,"docetaxel Injectable Solution [Taxceus]"
-40832557,"docetaxel Injectable Solution [DOCETAXEL KABI]"
-40832558,"docetaxel Injectable Solution [Docetaxel Aurobindo]"
-40847093,"docetaxel 20 MG/ML Injectable Solution [Eurodocetaxel]"
-40847094,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Orcazwei] Box of 1"
-40847095,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Cell Pharm]"
-40847096,"docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD]"
-40847097,"docetaxel 20 MG/ML Injectable Solution [Bendadocel]"
-40847098,"docetaxel 20 MG Injectable Solution [Docefrez]"
-40857295,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Cc"
-40863752,"docetaxel Injectable Solution [Docetaxel Hexal]"
-40878204,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo]"
-40878205,"docetaxel 20 MG/ML Injectable Solution [Bendadocel] Box of 1"
-40878206,"docetaxel 80 MG Injectable Solution [Docefrez] Box of 1"
-40888605,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Emra-Med"
-40894974,"docetaxel Injectable Solution [DOCETAXEL ACCORD]"
-40909240,"docetaxel 20 MG/ML Injectable Solution [Taxotere] Box of 1"
-40909241,"docetaxel 20 MG/ML Injectable Solution [Taxotan] Box of 1"
-40909242,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Haemato] Box of 1"
-40919586,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Haematogmbh"
-40922755,"docetaxel 20 MG/ML [Docetaxel Aurobindo]"
-40925942,"docetaxel Injectable Solution [Doce]"
-40940553,"docetaxel 20 MG/ML Injectable Solution [Docirena]"
-40940554,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Beta]"
-40940555,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis] Box of 1"
-40940556,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis]"
-40953993,"docetaxel 80 MG [Docefrez]"
-40957191,"docetaxel Injectable Solution [Bendadocel]"
-40971503,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Vipharm] Box of 1"
-40971504,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Beta] Box of 1"
-40971505,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal] Box of 1"
-40971506,"docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA] Box of 1"
-40988478,"docetaxel Injectable Solution [Docetaxel Vipharm]"
-40988479,"docetaxel Injectable Solution [Docetaxel Oncotrade]"
-40992509,"docetaxel 80 MG Injectable Solution"
-40992510,"docetaxel 27.8 MG/ML Injectable Solution"
-41002898,"docetaxel 20 MG/ML Injectable Solution [Eurodocetaxel] Box of 1"
-41002899,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Omnicare] Box of 1"
-41011214,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by Haematogmbh"
-41011215,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by Emra-Med"
-41013150,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Kohlpharma"
-41013151,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Eurim-Pharm"
-41019406,"docetaxel Injectable Solution [Ribodocel]"
-41019407,"docetaxel Injectable Solution [DOCETAXEL TEVA]"
-41019408,"docetaxel Injectable Solution [Docetaxel Ratiopharm]"
-41019409,"docetaxel Injectable Solution [Docetaxel Haemato]"
-41023453,"docetaxel 80 MG Injectable Suspension Box of 1"
-41033980,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Oncotrade]"
-41033981,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Liv Pharma]"
-41033982,"docetaxel 20 MG/ML Injectable Solution [DOCETAXEL KABI]"
-41033983,"docetaxel 20 MG Injectable Solution [Docefrez] Box of 1"
-41042528,"docetaxel 20 MG Injectable Solution [Taxotere] Box of 1 by Haematogmbh"
-41050696,"docetaxel Injectable Solution [Docetaxel Profusio]"
-41050697,"docetaxel Injectable Solution [DOCETAXEL HOSPIRA]"
-41050698,"docetaxel Injectable Solution [Docetaxel Cell Pharm]"
-41065118,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Vipharm]"
-41065119,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios] Box of 1"
-41073622,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by Kohlpharma"
-41075642,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Orifarm Leverkus"
-41082181,"docetaxel Injectable Solution [Docetaxel Nc]"
-41082182,"docetaxel Injectable Solution [Docetaxel Liv Pharma]"
-41086263,"docetaxel 10 MG/ML Injectable Solution Box of 1"
-41087283,"cabazitaxel 40 MG/ML Injectable Solution"
-41096687,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Orcazwei]"
-41096688,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios]"
-41096689,"docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1"
-41096690,"docetaxel 80 MG Injectable Solution [Docefrez]"
-41096691,"docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA]"
-41102746,"olaparib 50 MG Oral Capsule [Lynparza] Box of 448 by Cc"
-41110322,"docetaxel 20 MG/ML [Docirena]"
-41110323,"docetaxel 20 MG/ML [Docetaxel Orcazwei]"
-41110324,"docetaxel 10 MG/ML [Docetaxel Hexal]"
-41113436,"docetaxel Injectable Solution [Taxotan]"
-41113437,"docetaxel Injectable Solution [Docetaxel Beta]"
-41113438,"docetaxel Injectable Solution [Docetaxel Aqvida]"
-41117504,"docetaxel 27.8 MG/ML Injectable Solution Box of 1"
-41127945,"docetaxel 20 MG/ML Injectable Solution [Eurotere] Box of 1"
-41127946,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Cell Pharm] Box of 1"
-41127947,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida]"
-41127948,"docetaxel 20 MG/ML Injectable Solution [Doce] Box of 1"
-41127949,"docetaxel 10 MG/ML Injectable Solution [Docetaxel Nc]"
-41127950,"docetaxel 20 MG Injectable Solution [Taxotere] Box of 1"
-41145013,"docetaxel Injectable Solution [Docetaxel Omnicare]"
-41159459,"docetaxel 20 MG/ML Injectable Solution [Ribodocel] Box of 1"
-41159460,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Oncotrade] Box of 1"
-41159461,"docetaxel 10 MG/ML Injectable Solution [Doce]"
-41175978,"docetaxel Injectable Solution [Eurotere]"
-41175979,"docetaxel Injectable Solution [Docetaxel Amneal]"
-41180062,"docetaxel 20 MG Injectable Solution Box of 1"
-41180063,"docetaxel 20 MG Injectable Solution"
-41190558,"docetaxel 20 MG/ML Injectable Solution [Taxotere]"
-41190559,"docetaxel 20 MG/ML Injectable Solution [Eurotere]"
-41190560,"docetaxel 20 MG/ML Injectable Solution [Docirena] Box of 1"
-41190561,"docetaxel 20 MG/ML Injectable Solution [Docetaxin] Box of 1"
-41190562,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio]"
-41190563,"docetaxel 10 MG/ML Injectable Solution [Docetaxel Hexal] Box of 1"
-41190564,"docetaxel 10 MG/ML Injectable Solution [Doce] Box of 1"
-41190565,"docetaxel 27.8 MG/ML Injectable Solution [DOCETAXEL TEVA] Box of 1"
-41199115,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by European"
-41201041,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Abacus Medicine"
-41207524,"docetaxel Injectable Solution [Eurodocetaxel]"
-41221719,"docetaxel 20 MG/ML Injectable Solution [Taxotan]"
-41221720,"docetaxel 20 MG/ML Injectable Solution [Docetaxin]"
-41221721,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio] Box of 1"
-41221722,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Liv Pharma] Box of 1"
-41221723,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal]"
-41221724,"docetaxel 10 MG/ML Injectable Solution [Ribodocel] Box of 1"
-41221725,"docetaxel 27.8 MG/ML Injectable Solution [DOCETAXEL TEVA]"
-41235255,"docetaxel 20 MG [Taxotere]"
-41236529,"docetaxel Injectable Suspension"
-41238455,"docetaxel Injectable Solution [Docetaxel Orcazwei]"
-41238456,"docetaxel Injectable Solution [Docetaxel Actavis]"
-41252701,"docetaxel 20 MG/ML Injectable Solution [Taxceus] Box of 1"
-41252702,"docetaxel 20 MG/ML Injectable Solution [Ribodocel]"
-41252703,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Ratiopharm]"
-41252704,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Haemato]"
-41252705,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida] Box of 1"
-41252706,"docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD] Box of 1"
-41252707,"docetaxel 20 MG/ML Injectable Solution [Doce]"
-41252708,"docetaxel 10 MG/ML Injectable Solution [Docetaxel Hexal]"
-41252709,"docetaxel 20 MG Injectable Solution [Taxotere]"
-41260930,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by Eurim-Pharm"
-41266131,"docetaxel 20 MG [Docefrez]"
-41269403,"docetaxel Injectable Solution [Docirena]"
-41283643,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Omnicare]"
-41283644,"docetaxel 20 MG/ML Injectable Solution [DOCETAXEL KABI] Box of 1"
-41283645,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] Box of 1"
-41292066,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by Cc"
-41300406,"docetaxel Injectable Solution [Docetaxin]"
-41300407,"docetaxel Injectable Solution [Docetaxel Axios]"
-41304343,"docetaxel 40 MG/ML Injectable Solution Box of 1"
-41304344,"docetaxel 80 MG Injectable Suspension"
-41304345,"docetaxel 80 MG Injectable Solution Box of 1"
-41305495,"cabazitaxel 40 MG/ML Injectable Solution Box of 1"
-41314915,"docetaxel 20 MG/ML Injectable Solution [Taxceus]"
-41314916,"docetaxel 20 MG/ML Injectable Solution [Docetaxel Ratiopharm] Box of 1"
-41314917,"docetaxel 10 MG/ML Injectable Solution [Ribodocel]"
-41323401,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by Orifarm Leverkus"
-41327893,"1 ML docetaxel 20 MG/ML Injectable Solution [Ribodocel] Box of 1"
-41327894,"1 ML docetaxel 20 MG/ML Injectable Solution [Eurotere] Box of 1"
-41327895,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Oncotrade]"
-41328569,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Orcazwei] Box of 1"
-41328570,"1 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL KABI]"
-41328571,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo]"
-41329207,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] Box of 1"
-41329208,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxotan]"
-41329209,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal]"
-41329210,"1 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD] Box of 1"
-41329895,"1 ML docetaxel 20 MG/ML Injectable Solution [Bendadocel] Box of 1"
-41330534,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxotan] Box of 1"
-41330535,"1 ML docetaxel 20 MG/ML Injectable Solution [Ribodocel]"
-41330536,"1 ML docetaxel 20 MG/ML Injectable Solution [Docirena] Box of 1"
-41330537,"1 ML docetaxel 20 MG/ML Injectable Solution [Docirena]"
-41330538,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Beta]"
-41330741,"1 ML docetaxel 20 MG/ML Injectable Solution [Eurotere] Box of 1 by Lapharm"
-41331180,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Ratiopharm]"
-41331181,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Liv Pharma]"
-41331182,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Haemato] Box of 1"
-41331183,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Beta] Box of 1"
-41331184,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios]"
-41331850,"1 ML docetaxel 20 MG/ML Injectable Solution [Eurodocetaxel]"
-41331851,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Omnicare] Box of 1"
-41331852,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis]"
-41332074,"1 ML docetaxel 20 MG/ML Injectable Solution [Doce] Box of 1 by Onkovis"
-41332075,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis] Box of 1 by Puren"
-41332257,"1 ML docetaxel 20 MG/ML Injectable Solution"
-41332537,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxceus]"
-41333229,"1 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL KABI] Box of 1"
-41333230,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] Box of 1"
-41333231,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida]"
-41333232,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal] Box of 1"
-41333233,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis] Box of 1"
-41333925,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxceus] Box of 1"
-41333926,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Haemato]"
-41334589,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxin] Box of 1"
-41334590,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Liv Pharma] Box of 1"
-41334591,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Cell Pharm]"
-41334829,"1 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL KABI] Box of 1 by Fresenius"
-41335253,"1 ML docetaxel 20 MG/ML Injectable Solution [Doce]"
-41335254,"1 ML docetaxel 20 MG/ML Injectable Solution [Eurodocetaxel] Box of 1"
-41335255,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxin]"
-41335256,"1 ML docetaxel 20 MG/ML Injectable Solution [Bendadocel]"
-41335940,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio] Box of 1"
-41335941,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Omnicare]"
-41336335,"1 ML docetaxel 20 MG/ML Injectable Solution Box of 1"
-41336612,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxotere]"
-41336613,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio]"
-41336814,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] Box of 1 by Sanofi"
-41337242,"1 ML docetaxel 20 MG/ML Injectable Solution [Doce] Box of 1"
-41337243,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Ratiopharm] Box of 1"
-41337244,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Oncotrade] Box of 1"
-41337245,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios] Box of 1"
-41337246,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida] Box of 1"
-41337247,"1 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD]"
-41337887,"1 ML docetaxel 20 MG/ML Injectable Solution [Eurotere]"
-41337888,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Orcazwei]"
-41337889,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Cell Pharm] Box of 1"
-41339148,"2 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Nc]"
-41339861,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Holmsland"
-41340401,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Cc"
-41340913,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Mtk"
-41341519,"2 ML docetaxel 40 MG/ML Injectable Solution Box of 1"
-41342306,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere]"
-41342307,"2 ML docetaxel 10 MG/ML Injectable Solution [Ribodocel]"
-41342308,"2 ML docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA] Box of 1"
-41342309,"2 ML docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA]"
-41342476,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Aca Mueller"
-41342845,"2 ML docetaxel 10 MG/ML Injectable Solution [Doce]"
-41343014,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Haematogmbh"
-41343015,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Emra-Med"
-41343016,"2 ML docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA] Box of 1 by Pfizer"
-41343526,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Eurim-Pharm"
-41344038,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Aaston"
-41344163,"2 ML docetaxel 10 MG/ML Injectable Solution Box of 1"
-41344727,"2 ML docetaxel 40 MG/ML Injectable Solution"
-41345240,"2 ML docetaxel 10 MG/ML Injectable Solution"
-41345486,"2 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Hexal] Box of 1"
-41345487,"2 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Hexal]"
-41346017,"2 ML docetaxel 10 MG/ML Injectable Solution [Ribodocel] Box of 1"
-41346018,"2 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Nc] Box of 1"
-41346019,"2 ML docetaxel 10 MG/ML Injectable Solution [Doce] Box of 1"
-41346524,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1"
-41346719,"2 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Sanofi"
-41350652,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio] Box of 1"
-41350653,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Beta] Box of 1"
-41350654,"4 ML docetaxel 20 MG/ML Injectable Solution [Doce]"
-41350669,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] Box of 1 by Axicorp"
-41350683,"4 ML docetaxel 20 MG/ML Injectable Solution"
-41350713,"4 ML docetaxel 20 MG/ML Injectable Solution [Eurotere] Box of 1"
-41350714,"4 ML docetaxel 20 MG/ML Injectable Solution [Eurodocetaxel]"
-41350734,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] Box of 1 by Sanofi"
-41350773,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxotere]"
-41350774,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios] Box of 1"
-41350775,"4 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD] Box of 1"
-41350776,"4 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD]"
-41350837,"4 ML docetaxel 20 MG/ML Injectable Solution [Docirena] Box of 1"
-41350838,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Liv Pharma] Box of 1"
-41350839,"4 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL KABI] Box of 1"
-41350840,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Beta]"
-41350841,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal] Box of 1"
-41350903,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Oncotrade] Box of 1"
-41350904,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Omnicare] Box of 1"
-41350905,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Haemato] Box of 1"
-41350906,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal]"
-41350907,"4 ML docetaxel 20 MG/ML Injectable Solution [Bendadocel] Box of 1"
-41350971,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxotan] Box of 1"
-41350972,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Omnicare]"
-41351025,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Ratiopharm] Box of 1"
-41351026,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxotan]"
-41351027,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Liv Pharma]"
-41351028,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida] Box of 1"
-41351029,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida]"
-41351050,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Ratiopharm] Box of 1 by TEVA"
-41351051,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis] Box of 1 by Puren"
-41351095,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxin]"
-41351120,"4 ML docetaxel 20 MG/ML Injectable Solution [Eurotere] Box of 1 by Lapharm"
-41351165,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxceus]"
-41351166,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Cell Pharm] Box of 1"
-41351167,"4 ML docetaxel 20 MG/ML Injectable Solution [Bendadocel]"
-41351187,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Cell Pharm] Box of 1 by Cellgmbh"
-41351232,"4 ML docetaxel 20 MG/ML Injectable Solution [Eurotere]"
-41351293,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Orcazwei] Box of 1"
-41351294,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Orcazwei]"
-41351295,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Cell Pharm]"
-41351296,"4 ML docetaxel 20 MG/ML Injectable Solution [Doce] Box of 1"
-41351360,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxceus] Box of 1"
-41351361,"4 ML docetaxel 20 MG/ML Injectable Solution [Ribodocel] Box of 1"
-41351362,"4 ML docetaxel 20 MG/ML Injectable Solution [Eurodocetaxel] Box of 1"
-41351363,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Haemato]"
-41351403,"4 ML docetaxel 20 MG/ML Injectable Solution Box of 1"
-41351424,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] Box of 1"
-41351425,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio]"
-41351426,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] Box of 1"
-41351490,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Oncotrade]"
-41351491,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo]"
-41351492,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis]"
-41351560,"4 ML docetaxel 20 MG/ML Injectable Solution [Docirena]"
-41351561,"4 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL KABI]"
-41351562,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios]"
-41351563,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis] Box of 1"
-41351622,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Ratiopharm]"
-41351623,"4 ML docetaxel 20 MG/ML Injectable Solution [Ribodocel]"
-41351624,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxin] Box of 1"
-41360777,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal] Box of 1"
-41360778,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio]"
-41360779,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Oncotrade] Box of 1"
-41360780,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Cell Pharm]"
-41360782,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Oncotrade]"
-41360783,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida] Box of 1"
-41360784,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida]"
-41360788,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis] Box of 1"
-41360789,"7 ML docetaxel 20 MG/ML Injectable Solution [Doce]"
-41360790,"7 ML docetaxel 20 MG/ML Injectable Solution [Eurotere] Box of 1 by Lapharm"
-41360791,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Ratiopharm] Box of 1 by TEVA"
-41360793,"7 ML docetaxel 20 MG/ML Injectable Solution"
-41360795,"7 ML docetaxel 20 MG/ML Injectable Solution [Taxotan]"
-41360796,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Vipharm] Box of 1"
-41360797,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Vipharm]"
-41360798,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] Box of 1"
-41360799,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Omnicare] Box of 1 by OmniCare"
-41360803,"7 ML docetaxel 20 MG/ML Injectable Solution [Taxceus]"
-41360804,"7 ML docetaxel 20 MG/ML Injectable Solution [Eurotere] Box of 1"
-41360806,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Omnicare]"
-41360807,"7 ML docetaxel 20 MG/ML Injectable Solution [Doce] Box of 1"
-41360808,"7 ML docetaxel 20 MG/ML Injectable Solution [Bendadocel] Box of 1"
-41360812,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxin]"
-41360817,"7 ML docetaxel 20 MG/ML Injectable Solution [Taxceus] Box of 1"
-41360825,"7 ML docetaxel 20 MG/ML Injectable Solution Box of 1"
-41360827,"7 ML docetaxel 20 MG/ML Injectable Solution [Ribodocel] Box of 1"
-41360828,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxin] Box of 1"
-41360830,"7 ML docetaxel 20 MG/ML Injectable Solution [Ribodocel]"
-41360831,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Ratiopharm]"
-41360832,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Cell Pharm] Box of 1"
-41360834,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Ratiopharm] Box of 1"
-41360835,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Omnicare] Box of 1"
-41360836,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios] Box of 1"
-41360837,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo]"
-41360845,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis]"
-41360846,"7 ML docetaxel 20 MG/ML Injectable Solution [Taxotan] Box of 1"
-41360847,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio] Box of 1"
-41360848,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Haemato]"
-41360849,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios]"
-41360854,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Actavis] Box of 1 by Puren"
-41360858,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Cell Pharm] Box of 1 by Cellgmbh"
-41360860,"7 ML docetaxel 20 MG/ML Injectable Solution [Bendadocel]"
-41360861,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios] Box of 1 by Axios"
-41360862,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio] Box of 1 by Profusio"
-41360865,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal]"
-41360866,"7 ML docetaxel 20 MG/ML Injectable Solution [Eurotere]"
-41360867,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Haemato] Box of 1"
-41360868,"7 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal] Box of 1 by Amneal"
-41360887,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Liv Pharma]"
-41360888,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal]"
-41360901,"8 ML docetaxel 20 MG/ML Injectable Solution [Taxotere]"
-41360902,"8 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Nc] Box of 1"
-41360910,"8 ML docetaxel 10 MG/ML Injectable Solution"
-41360917,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida] Box of 1"
-41360918,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Beta] Box of 1"
-41360934,"8 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] Box of 1"
-41360935,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Orcazwei] Box of 1"
-41360936,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Orcazwei]"
-41360937,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Liv Pharma] Box of 1"
-41360950,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Haemato] Box of 1"
-41360951,"8 ML docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA]"
-41360965,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida]"
-41360966,"8 ML docetaxel 20 MG/ML Injectable Solution [Eurodocetaxel] Box of 1"
-41360967,"8 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD]"
-41360972,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aqvida] Box of 1 by AqVida"
-41360982,"8 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD] Box of 1"
-41360983,"8 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Hexal] Box of 1"
-41360996,"8 ML docetaxel 20 MG/ML Injectable Solution Box of 1"
-41360997,"8 ML docetaxel 20 MG/ML Injectable Solution"
-41361007,"8 ML docetaxel 20 MG/ML Injectable Solution [Eurodocetaxel]"
-41361008,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio]"
-41361009,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios] Box of 1"
-41361033,"8 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Nc]"
-41361034,"8 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Hexal]"
-41361050,"8 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL KABI]"
-41361051,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal] Box of 1"
-41361052,"8 ML docetaxel 10 MG/ML Injectable Solution [Doce] Box of 1"
-41361058,"8 ML docetaxel 10 MG/ML Injectable Solution [Doce] Box of 1 by Novartis"
-41361072,"8 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL KABI] Box of 1"
-41361073,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Beta]"
-41361074,"8 ML docetaxel 10 MG/ML Injectable Solution [Ribodocel] Box of 1"
-41361081,"8 ML docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA] Box of 1 by Pfizer"
-41361103,"8 ML docetaxel 10 MG/ML Injectable Solution [Ribodocel]"
-41361120,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios]"
-41361124,"8 ML docetaxel 10 MG/ML Injectable Solution Box of 1"
-41361129,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio] Box of 1"
-41361130,"8 ML docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA] Box of 1"
-41361131,"8 ML docetaxel 10 MG/ML Injectable Solution [Doce]"
-41361138,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Haemato]"
-41361142,"8 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] Box of 1 by Sanofi"
-41376074,"16 ML docetaxel 10 MG/ML Injectable Solution [Ribodocel] Box of 1"
-41376075,"16 ML docetaxel 10 MG/ML Injectable Solution [Ribodocel]"
-41376079,"16 ML docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA]"
-41376080,"16 ML docetaxel 10 MG/ML Injectable Solution [Doce] Box of 1"
-41376083,"16 ML docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA] Box of 1"
-41376084,"16 ML docetaxel 10 MG/ML Injectable Solution [DOCETAXEL HOSPIRA] Box of 1 by Pfizer"
-41376085,"16 ML docetaxel 10 MG/ML Injectable Solution"
-41376088,"16 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Hexal] Box of 1"
-41376091,"16 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Hexal]"
-41376092,"16 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Nc] Box of 1"
-41376096,"16 ML docetaxel 10 MG/ML Injectable Solution [Doce]"
-41376099,"16 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Nc]"
-41376101,"16 ML docetaxel 10 MG/ML Injectable Solution [Docetaxel Nc] Box of 1 by Novartis"
-41376103,"16 ML docetaxel 10 MG/ML Injectable Solution Box of 1"
-41407288,"0.5 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1"
-41407820,"0.5 ML docetaxel 40 MG/ML Injectable Solution"
-41408095,"0.5 ML docetaxel 20 MG/ML Injectable Solution [Taxotere]"
-41408193,"0.5 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Emra-Med"
-41408311,"0.5 ML docetaxel 40 MG/ML Injectable Solution [Taxotere]"
-41408565,"0.5 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Sanofi"
-41408775,"0.5 ML docetaxel 20 MG/ML Injectable Solution"
-41408776,"0.5 ML docetaxel 40 MG/ML Injectable Solution Box of 1"
-41409160,"0.5 ML docetaxel 20 MG/ML Injectable Solution Box of 1"
-41409656,"0.5 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Holmsland"
-41409779,"0.5 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] Box of 1"
-41410256,"0.5 ML docetaxel 40 MG/ML Injectable Solution [Taxotere] Box of 1 by Cc"
-41412862,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution"
-41413037,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution Box of 1"
-41446221,"0.72 ML docetaxel 27.8 MG/ML Injectable Solution [DOCETAXEL TEVA] Box of 1"
-41446236,"0.72 ML docetaxel 27.8 MG/ML Injectable Solution Box of 1"
-41446248,"0.72 ML docetaxel 27.8 MG/ML Injectable Solution"
-41446267,"0.72 ML docetaxel 27.8 MG/ML Injectable Solution [DOCETAXEL TEVA]"
-41462462,"2.88 ML docetaxel 27.8 MG/ML Injectable Solution [DOCETAXEL TEVA]"
-41462464,"2.88 ML docetaxel 27.8 MG/ML Injectable Solution"
-41462467,"2.88 ML docetaxel 27.8 MG/ML Injectable Solution Box of 1"
-41462470,"2.88 ML docetaxel 27.8 MG/ML Injectable Solution [DOCETAXEL TEVA] Box of 1"
-42480288,"docetaxel 27.8 MG/ML Injection"
-42481476,"docetaxel 40 MG/ML Injection [Taxotere]"
-42615255,"apalutamide Oral Tablet [Erlyand]"
-42658170,"1 ML docetaxel 20 MG/ML Injectable Solution by Aurobindo"
-42658274,"4 ML docetaxel 20 MG/ML Injectable Solution by Aurobindo"
-42658364,"7 ML docetaxel 20 MG/ML Injectable Solution by Aurobindo"
-42658367,"8 ML docetaxel 20 MG/ML Injectable Solution by Aurobindo"
-42875666,"abiraterone 500 MG Oral Tablet [Zytiga] Box of 60 by Orifarm Leverkus"
-42900250,"enzalutamide"
-42900251,"enzalutamide 40 MG"
-42900252,"enzalutamide 40 MG Oral Capsule"
-42900253,"enzalutamide 40 MG Oral Capsule [Xtandi]"
-42900254,"enzalutamide 40 MG [Xtandi]"
-42900255,"enzalutamide Oral Capsule"
-42900256,"enzalutamide Oral Capsule [Xtandi]"
-42920906,"6 ML docetaxel 20 MG/ML Injectable Solution"
-42920907,"6 ML docetaxel 20 MG/ML Injectable Solution [DITAXEL]"
-42921540,"4 ML docetaxel 20 MG/ML Injectable Solution [BELOTAXEL]"
-42921541,"4 ML docetaxel 20 MG/ML Injectable Solution [DITAXEL]"
-42921542,"4 ML docetaxel 20 MG/ML Injectable Solution [ACCORD DOCETAXEL]"
-42921543,"4 ML docetaxel 20 MG/ML Injectable Solution [MONOTAXEL]"
-42921588,"3.44 ML docetaxel 34.9 MG/ML Injectable Solution"
-42921590,"3.44 ML docetaxel 34.9 MG/ML Injectable Solution [TAXELO]"
-42921591,"3.4 ML docetaxel 24 MG/ML Injectable Solution"
-42921592,"3.4 ML docetaxel 24 MG/ML Injectable Solution [DOXOTEL]"
-42921786,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution"
-42921787,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [DOCEL]"
-42921788,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [DOTAXEL]"
-42921789,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [PACANCER]"
-42921790,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [TAXOZEN]"
-42921791,"2.36 ML docetaxel 33.9 MG/ML Injectable Solution [TAXELO]"
-42922210,"1.5 ML cabazitaxel 40 MG/ML Injectable Solution [Jevtana]"
-42922309,"1 ML docetaxel 20 MG/ML Injectable Solution [TAXOZEN]"
-42922310,"1 ML docetaxel 20 MG/ML Injectable Solution [BELOTAXEL]"
-42922311,"1 ML docetaxel 20 MG/ML Injectable Solution [DITAXEL]"
-42922312,"1 ML docetaxel 20 MG/ML Injectable Solution [ACCORD DOCETAXEL]"
-42922313,"1 ML docetaxel 20 MG/ML Injectable Solution [MONOTAXEL]"
-42922631,"0.89 ML docetaxel 24 MG/ML Injectable Solution"
-42922632,"0.89 ML docetaxel 24 MG/ML Injectable Solution [DOXOTEL]"
-42922760,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution"
-42922761,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [DOCEL]"
-42922762,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [DOTAXEL]"
-42922763,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [PACANCER]"
-42922764,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [TAXOZEN]"
-42922765,"0.61 ML docetaxel 32.8 MG/ML Injectable Solution [TAXELO]"
-42927679,"cabazitaxel 40 MG/ML Injectable Solution [Jevtana]"
-42927680,"cabazitaxel Injectable Solution [Jevtana]"
-42936438,"docetaxel 32.8 MG/ML Injectable Solution"
-42936439,"docetaxel 32.8 MG/ML Injectable Solution [DOCEL]"
-42936440,"docetaxel 32.8 MG/ML Injectable Solution [DOTAXEL]"
-42936441,"docetaxel 32.8 MG/ML Injectable Solution [PACANCER]"
-42936442,"docetaxel 32.8 MG/ML Injectable Solution [TAXOZEN]"
-42936443,"docetaxel 32.8 MG/ML Injectable Solution [TAXELO]"
-42936444,"docetaxel 32.8 MG/ML"
-42936445,"docetaxel 32.8 MG/ML [DOCEL]"
-42936446,"docetaxel 32.8 MG/ML [DOTAXEL]"
-42936447,"docetaxel 32.8 MG/ML [PACANCER]"
-42936448,"docetaxel 32.8 MG/ML [TAXOZEN]"
-42936449,"docetaxel 32.8 MG/ML [TAXELO]"
-42936450,"docetaxel 20 MG Injection [NANOXEL M]"
-42936451,"docetaxel 20 MG [NANOXEL M]"
-42936452,"docetaxel 20 MG/ML Injectable Solution [TAXOZEN]"
-42936453,"docetaxel 20 MG/ML Injectable Solution [BELOTAXEL]"
-42936454,"docetaxel 20 MG/ML Injectable Solution [DITAXEL]"
-42936456,"docetaxel 20 MG/ML Injectable Solution [ACCORD DOCETAXEL]"
-42936457,"docetaxel 20 MG/ML Injectable Solution [MONOTAXEL]"
-42936458,"docetaxel 20 MG/ML [TAXOZEN]"
-42936459,"docetaxel 20 MG/ML [BELOTAXEL]"
-42936460,"docetaxel 20 MG/ML [DITAXEL]"
-42936461,"docetaxel 20 MG/ML [ACCORD DOCETAXEL]"
-42936462,"docetaxel 20 MG/ML [MONOTAXEL]"
-42936463,"docetaxel 34.9 MG/ML Injectable Solution"
-42936464,"docetaxel 34.9 MG/ML Injectable Solution [TAXELO]"
-42936465,"docetaxel 34.9 MG/ML"
-42936466,"docetaxel 34.9 MG/ML [TAXELO]"
-42936467,"docetaxel 33.9 MG/ML Injectable Solution"
-42936468,"docetaxel 33.9 MG/ML Injectable Solution [DOCEL]"
-42936469,"docetaxel 33.9 MG/ML Injectable Solution [DOTAXEL]"
-42936470,"docetaxel 33.9 MG/ML Injectable Solution [PACANCER]"
-42936471,"docetaxel 33.9 MG/ML Injectable Solution [TAXOZEN]"
-42936472,"docetaxel 33.9 MG/ML Injectable Solution [TAXELO]"
-42936473,"docetaxel 33.9 MG/ML"
-42936474,"docetaxel 33.9 MG/ML [DOCEL]"
-42936475,"docetaxel 33.9 MG/ML [DOTAXEL]"
-42936476,"docetaxel 33.9 MG/ML [PACANCER]"
-42936477,"docetaxel 33.9 MG/ML [TAXOZEN]"
-42936478,"docetaxel 33.9 MG/ML [TAXELO]"
-42936479,"docetaxel 80 MG Injection [NANOXEL M]"
-42936480,"docetaxel 80 MG [NANOXEL M]"
-42936481,"docetaxel 24 MG/ML Injectable Solution [DOXOTEL]"
-42936482,"docetaxel 24 MG/ML [DOXOTEL]"
-42936483,"docetaxel Injection [NANOXEL M]"
-42936484,"docetaxel Injectable Solution [DOCEL]"
-42936485,"docetaxel Injectable Solution [DOTAXEL]"
-42936486,"docetaxel Injectable Solution [PACANCER]"
-42936487,"docetaxel Injectable Solution [TAXOZEN]"
-42936488,"docetaxel Injectable Solution [BELOTAXEL]"
-42936489,"docetaxel Injectable Solution [DOXOTEL]"
-42936490,"docetaxel Injectable Solution [DITAXEL]"
-42936491,"docetaxel Injectable Solution [TAXELO]"
-42936492,"docetaxel Injectable Solution [ACCORD DOCETAXEL]"
-42936493,"docetaxel Injectable Solution [MONOTAXEL]"
-43026196,"enzalutamide Delayed Release Oral Tablet"
-43026197,"enzalutamide Delayed Release Oral Tablet [Xtandi]"
-43026198,"enzalutamide 40 MG Delayed Release Oral Tablet"
-43026199,"enzalutamide 40 MG Delayed Release Oral Tablet Box of 112"
-43026200,"enzalutamide 40 MG Delayed Release Oral Tablet [Xtandi]"
-43026201,"enzalutamide 40 MG Delayed Release Oral Tablet [Xtandi] Box of 112"
-43026202,"enzalutamide 40 MG Delayed Release Oral Tablet [Xtandi] Box of 112 by Astellas"
-43026733,"olaparib Delayed Release Oral Tablet"
-43026734,"olaparib Delayed Release Oral Tablet [Lynparza]"
-43026735,"olaparib 150 MG Delayed Release Oral Tablet"
-43026736,"olaparib 150 MG Delayed Release Oral Tablet Box of 112"
-43026737,"olaparib 150 MG Delayed Release Oral Tablet [Lynparza]"
-43026738,"olaparib 150 MG Delayed Release Oral Tablet [Lynparza] Box of 112"
-43026739,"olaparib 150 MG Delayed Release Oral Tablet [Lynparza] Box of 112 by Astrazeneca"
-43026740,"olaparib 100 MG Delayed Release Oral Tablet"
-43026741,"olaparib 100 MG Delayed Release Oral Tablet Box of 112"
-43026742,"olaparib 100 MG Delayed Release Oral Tablet [Lynparza]"
-43026743,"olaparib 100 MG Delayed Release Oral Tablet [Lynparza] Box of 112"
-43026744,"olaparib 100 MG Delayed Release Oral Tablet [Lynparza] Box of 112 by Astrazeneca"
-43027021,"apalutamide Delayed Release Oral Tablet"
-43027022,"apalutamide Delayed Release Oral Tablet [Erleada]"
-43027023,"apalutamide 60 MG Delayed Release Oral Tablet"
-43027024,"apalutamide 60 MG Delayed Release Oral Tablet Box of 120"
-43027025,"apalutamide 60 MG Delayed Release Oral Tablet [Erleada]"
-43027026,"apalutamide 60 MG Delayed Release Oral Tablet [Erleada] Box of 120"
-43027027,"apalutamide 60 MG Delayed Release Oral Tablet [Erleada] Box of 120 by Janssen"
-43027028,"apalutamide 60 MG Oral Tablet Box of 120"
-43027029,"apalutamide 60 MG Oral Tablet [Erleada] Box of 120"
-43027030,"apalutamide 60 MG Oral Tablet [Erleada] Box of 120 by Janssen"
-43029295,"abiraterone Delayed Release Oral Tablet"
-43029296,"abiraterone Delayed Release Oral Tablet [Zytiga]"
-43029297,"abiraterone 500 MG Delayed Release Oral Tablet"
-43029298,"abiraterone 500 MG Delayed Release Oral Tablet Box of 60"
-43029299,"abiraterone 500 MG Delayed Release Oral Tablet [Zytiga]"
-43029300,"abiraterone 500 MG Delayed Release Oral Tablet [Zytiga] Box of 60"
-43029301,"abiraterone 500 MG Delayed Release Oral Tablet [Zytiga] Box of 60 by Janssen"
-43029302,"abiraterone 500 MG Oral Tablet Box of 60"
-43029303,"abiraterone 500 MG Oral Tablet [Zytiga] Box of 60"
-43029304,"abiraterone 500 MG Oral Tablet [Zytiga] Box of 60 by Janssen"
-43038813,"1 ML docetaxel 20 MG/ML Injectable Solution by Fresenius"
-43038814,"1 ML docetaxel 20 MG/ML Injectable Solution by Eurogenerics"
-43038815,"1 ML docetaxel 20 MG/ML Injectable Solution by Arrow"
-43038816,"1 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] by Aventis"
-43038817,"1 ML docetaxel 20 MG/ML Prefilled Syringe by Fresenius"
-43038818,"1 ML docetaxel 20 MG/ML Prefilled Syringe by Eurogenerics"
-43038819,"1 ML docetaxel 20 MG/ML Prefilled Syringe by Arrow"
-43038820,"1 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] by Aventis"
-43039991,"4 ML docetaxel 20 MG/ML Injectable Solution by Fresenius"
-43039992,"4 ML docetaxel 20 MG/ML Injectable Solution by Eurogenerics"
-43039993,"4 ML docetaxel 20 MG/ML Injectable Solution by Arrow"
-43039994,"4 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] by Aventis"
-43039995,"4 ML docetaxel 20 MG/ML Prefilled Syringe by Fresenius"
-43039996,"4 ML docetaxel 20 MG/ML Prefilled Syringe by TEVA"
-43039997,"4 ML docetaxel 20 MG/ML Prefilled Syringe by Eurogenerics"
-43039998,"4 ML docetaxel 20 MG/ML Prefilled Syringe by Arrow"
-43039999,"4 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] by Aventis"
-43040731,"6 ML docetaxel 20 MG/ML Injectable Solution by Fresenius"
-43040732,"6 ML docetaxel 20 MG/ML Prefilled Syringe by Fresenius"
-43040757,"7 ML docetaxel 20 MG/ML Injectable Solution by Arrow"
-43040758,"7 ML docetaxel 20 MG/ML Prefilled Syringe by TEVA"
-43040759,"7 ML docetaxel 20 MG/ML Prefilled Syringe by Arrow"
-43040783,"8 ML docetaxel 20 MG/ML Injectable Solution by Amring"
-43040784,"8 ML docetaxel 20 MG/ML Injectable Solution by Fresenius"
-43040785,"8 ML docetaxel 20 MG/ML Injectable Solution [Taxotere] by Aventis"
-43040786,"8 ML docetaxel 20 MG/ML Prefilled Syringe by Amring"
-43040787,"8 ML docetaxel 20 MG/ML Prefilled Syringe by Fresenius"
-43040788,"8 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] by Aventis"
-43040798,"9 ML docetaxel 20 MG/ML Injectable Solution"
-43040799,"9 ML docetaxel 20 MG/ML Injectable Solution by Fresenius"
-43040800,"9 ML docetaxel 20 MG/ML Prefilled Syringe by Fresenius"
-43041656,"13 ML docetaxel 10 MG/ML Injectable Solution"
-43041657,"13 ML docetaxel 10 MG/ML Injectable Solution by Pfizer"
-43041793,"16 ML docetaxel 10 MG/ML Injectable Solution by Sandoz"
-43042170,"20 ML docetaxel 10 MG/ML Injectable Solution"
-43042171,"20 ML docetaxel 10 MG/ML Injectable Solution by Pfizer"
-43137223,"docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW] Box of 1"
-43137224,"docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER] Box of 1"
-43141395,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL EG] Box of 1"
-43141396,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1 by Fresenius"
-43141669,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW] Box of 1 by Arrow"
-43141901,"7 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW]"
-43141902,"7 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA]"
-43141915,"8 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD] Box of 1 by Accord"
-43141916,"8 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] Box of 1"
-43142236,"16 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE] Box of 1"
-43148163,"docetaxel Prefilled Syringe [DOCETAXEL EBEWE]"
-43148164,"docetaxel Prefilled Syringe [DOCETAXEL KABI]"
-43148165,"docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA]"
-43152498,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD]"
-43152499,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW] Box of 1"
-43152500,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1"
-43152501,"1 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] Box of 1 by Aventis"
-43152651,"2 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER]"
-43152769,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD]"
-43152770,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW]"
-43152771,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1"
-43153012,"6 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI]"
-43153019,"7 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW] Box of 1"
-43153020,"7 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1"
-43153021,"7 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1 by TEVA"
-43153034,"8 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE] Box of 1 by Sandoz"
-43153035,"8 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER]"
-43153276,"13 ML docetaxel 10 MG/ML Prefilled Syringe"
-43153418,"20 ML docetaxel 10 MG/ML Prefilled Syringe"
-43153419,"20 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1"
-43153420,"20 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER]"
-43154757,"0.72 ML docetaxel 27.8 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1 by TEVA"
-43159340,"docetaxel Prefilled Syringe [DOCETAXEL HOSPIRA]"
-43159341,"docetaxel Prefilled Syringe [DOCETAXEL PFIZER]"
-43159342,"docetaxel 20 MG/ML [DOCETAXEL ACCORD]"
-43159343,"docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA]"
-43159344,"docetaxel 10 MG/ML [DOCETAXEL EBEWE]"
-43159345,"docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA] Box of 1"
-43159346,"docetaxel 27.8 MG/ML Prefilled Syringe [DOCETAXEL TEVA]"
-43163608,"1 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] Box of 1"
-43163866,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW] Box of 1"
-43163867,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL EG] Box of 1"
-43163868,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA]"
-43164067,"7 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW] Box of 1 by Arrow"
-43164316,"13 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER]"
-43164390,"16 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE]"
-43164391,"16 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA] Box of 1"
-43165079,"1.5 ML cabazitaxel 40 MG/ML Prefilled Syringe [Jevtana] Box of 1 by Sanofi"
-43170207,"docetaxel Prefilled Syringe [DOCETAXEL ARROW]"
-43170208,"docetaxel Prefilled Syringe [DOCETAXEL EG]"
-43170209,"docetaxel 20 MG/ML [DOCETAXEL TEVA]"
-43170210,"docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD] Box of 1"
-43170211,"docetaxel 10 MG/ML [DOCETAXEL HOSPIRA]"
-43170212,"docetaxel 27.8 MG/ML [DOCETAXEL TEVA]"
-43174862,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL EG]"
-43174863,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1"
-43175099,"8 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1 by Fresenius"
-43175101,"9 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1 by Fresenius"
-43176763,"0.72 ML docetaxel 27.8 MG/ML Prefilled Syringe [DOCETAXEL TEVA]"
-43176873,"2.88 ML docetaxel 27.8 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1 by TEVA"
-43181235,"docetaxel Prefilled Syringe [DOCETAXEL ACCORD]"
-43181236,"docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1"
-43185462,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW] Box of 1 by Arrow"
-43185463,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1"
-43185615,"2 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER] Box of 1"
-43185728,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL EG] Box of 1 by Eurogenerics"
-43185729,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI]"
-43185730,"4 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] Box of 1"
-43185977,"8 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD]"
-43185978,"8 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA] Box of 1 by Hospira"
-43185979,"8 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER] Box of 1"
-43185982,"9 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1"
-43185983,"9 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1"
-43186224,"13 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER] Box of 1 by Pfizer"
-43186356,"20 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER] Box of 1"
-43186357,"20 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER] Box of 1 by Pfizer"
-43192178,"docetaxel 20 MG/ML [DOCETAXEL EG]"
-43192179,"docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1"
-43192180,"docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE]"
-43192181,"docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE] Box of 1"
-43192182,"docetaxel 27.8 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1"
-43196710,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1 by TEVA"
-43196949,"6 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1"
-43196983,"8 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE] Box of 1"
-43196984,"8 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA]"
-43196987,"9 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI]"
-43197306,"16 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA] Box of 1 by Hospira"
-43198853,"2.88 ML docetaxel 27.8 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1"
-43203243,"docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW]"
-43203244,"docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL EG]"
-43203245,"docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL EG] Box of 1"
-43203246,"docetaxel 10 MG/ML [DOCETAXEL PFIZER]"
-43207358,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD] Box of 1 by Accord"
-43207359,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ARROW]"
-43207360,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL EG]"
-43207361,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL EG] Box of 1 by Eurogenerics"
-43207512,"2 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE] Box of 1"
-43207513,"2 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE] Box of 1 by Sandoz"
-43207514,"2 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA]"
-43207515,"2 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA] Box of 1"
-43207516,"2 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER] Box of 1 by Pfizer"
-43207628,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1 by Fresenius"
-43207855,"6 ML docetaxel 20 MG/ML Prefilled Syringe"
-43207856,"6 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1 by Fresenius"
-43207873,"8 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER] Box of 1 by Pfizer"
-43207877,"9 ML docetaxel 20 MG/ML Prefilled Syringe"
-43208205,"16 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE] Box of 1 by Sandoz"
-43208206,"16 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA]"
-43214084,"docetaxel Prefilled Syringe [DOCETAXEL TEVA]"
-43214085,"docetaxel 20 MG/ML [DOCETAXEL ARROW]"
-43214086,"docetaxel 20 MG/ML [DOCETAXEL KABI]"
-43214087,"docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD]"
-43214088,"docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI]"
-43214089,"docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER]"
-43218348,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD] Box of 1"
-43218349,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI]"
-43218350,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA]"
-43218351,"1 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1 by TEVA"
-43218513,"2 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE]"
-43218514,"2 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA] Box of 1 by Hospira"
-43218629,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD] Box of 1"
-43218630,"4 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD] Box of 1 by Accord"
-43218631,"4 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] Box of 1 by Aventis"
-43218871,"6 ML docetaxel 20 MG/ML Prefilled Syringe Box of 1"
-43218889,"8 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL ACCORD] Box of 1"
-43218890,"8 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI]"
-43218891,"8 ML docetaxel 20 MG/ML Prefilled Syringe [DOCETAXEL KABI] Box of 1"
-43218892,"8 ML docetaxel 20 MG/ML Prefilled Syringe [Taxotere] Box of 1 by Aventis"
-43218893,"8 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL EBEWE]"
-43218894,"8 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL HOSPIRA] Box of 1"
-43219123,"13 ML docetaxel 10 MG/ML Prefilled Syringe Box of 1"
-43219124,"13 ML docetaxel 10 MG/ML Prefilled Syringe [DOCETAXEL PFIZER] Box of 1"
-43219885,"1.5 ML cabazitaxel 40 MG/ML Prefilled Syringe [Jevtana] Box of 1"
-43220560,"0.72 ML docetaxel 27.8 MG/ML Prefilled Syringe [DOCETAXEL TEVA] Box of 1"
-43220682,"2.88 ML docetaxel 27.8 MG/ML Prefilled Syringe [DOCETAXEL TEVA]"
-43255518,"docetaxel 20 MG/ML Injection by Mayne"
-43255519,"docetaxel 20 MG/ML Injection by Dakota"
-43258563,"olaparib 50 MG Oral Capsule Box of 112"
-43258696,"1 ML docetaxel 20 MG/ML Injection by Intas"
-43258697,"1 ML docetaxel 20 MG/ML Injection by Mayne"
-43258698,"1 ML docetaxel 20 MG/ML Injection [Taxoccord]"
-43258846,"4 ML docetaxel 20 MG/ML Injection by Dakota"
-43260830,"docetaxel 20 MG/ML [Oncotaxel]"
-43260831,"docetaxel 20 MG/ML Injection [Dotax]"
-43260832,"docetaxel 20 MG Injection by Sun"
-43263984,"olaparib 50 MG Oral Capsule [Lynparza] Box of 112"
-43264282,"4 ML docetaxel 20 MG/ML Injection [Oncotaxel]"
-43264376,"8 ML docetaxel 10 MG/ML Injection by Ebewe"
-43266307,"docetaxel Injection [Dotax]"
-43266308,"docetaxel 20 MG Injection"
-43269592,"1 ML docetaxel 20 MG/ML Injection [Dotax]"
-43269593,"1 ML docetaxel 20 MG/ML Injection [Oncotaxel]"
-43269770,"4 ML docetaxel 20 MG/ML Injection by Intas"
-43269771,"4 ML docetaxel 20 MG/ML Injection by Mayne"
-43269860,"7 ML docetaxel 20 MG/ML Injection [Oncotaxel]"
-43271807,"docetaxel Injection [Taxoccord]"
-43271808,"docetaxel 20 MG/ML [Dotax]"
-43271809,"docetaxel 20 MG/ML Injection by Astron"
-43277326,"docetaxel 20 MG/ML Injection by Intas"
-43280323,"olaparib 50 MG Oral Capsule Box of 4"
-43280324,"olaparib 50 MG Oral Capsule [Lynparza] Box of 4"
-43280467,"1 ML docetaxel 20 MG/ML Injection by Dakota"
-43280554,"2 ML docetaxel 40 MG/ML Injection by Accord"
-43280636,"4 ML docetaxel 20 MG/ML Injection by Astron"
-43280749,"8 ML docetaxel 20 MG/ML Injection [Taxoccord]"
-43280750,"8 ML docetaxel 10 MG/ML Injection by Dbl"
-43282614,"docetaxel 20 MG/ML Injection [Taxoccord]"
-43282615,"docetaxel 80 MG"
-43282616,"docetaxel 80 MG Injection"
-43286031,"2 ML docetaxel 10 MG/ML Injection by Ebewe"
-43286100,"4 ML docetaxel 20 MG/ML Injection [Dotax]"
-43286101,"4 ML docetaxel 20 MG/ML Injection [Taxoccord]"
-43286210,"8 ML docetaxel 20 MG/ML Injection by Astron"
-43288078,"docetaxel 20 MG/ML Injection [Oncotaxel]"
-43291312,"1 ML docetaxel 20 MG/ML Injection by Astron"
-43291396,"2 ML docetaxel 10 MG/ML Injection by Sandoz"
-43291397,"2 ML docetaxel 10 MG/ML Injection by Dbl"
-43291578,"8 ML docetaxel 20 MG/ML Injection by Intas"
-43291579,"8 ML docetaxel 10 MG/ML Injection by Sandoz"
-43293509,"docetaxel Injection [Oncotaxel]"
-43293510,"docetaxel 20 MG/ML [Taxoccord]"
-43293511,"docetaxel 20 MG"
-43293512,"docetaxel 80 MG Injection by Sun"
-43296969,"8 ML docetaxel 20 MG/ML Injection by Mayne"
-43297120,"16 ML docetaxel 10 MG/ML Injection by Dbl"
-43297397,"0.5 ML docetaxel 40 MG/ML Injection by Accord"
-43526488,"1.5 ML cabazitaxel 40 MG/ML Injection [Jevtana]"
-43526489,"cabazitaxel 40 MG/ML [Jevtana]"
-43534873,"radium (223Ra) dichloride"
-43588074,"docetaxel Injection [Ribodocel]"
-43588075,"docetaxel Injection [Docetaxel Beta]"
-43588076,"docetaxel Injection [Docetaxel Aqvida]"
-43588077,"docetaxel Injection [Taxotan]"
-43588078,"docetaxel Injection [Docetaxel Axios]"
-43590489,"1 ML docetaxel 20 MG/ML Injection [Ribodocel] by Hikma"
-43590490,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Cell Pharm] by Cellgmbh"
-43590950,"2 ML docetaxel 10 MG/ML Injection [Doce] Box of 10 by Hexal"
-43591184,"4 ML docetaxel 20 MG/ML Injection [Docetaxin]"
-43591185,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Actavis] by Actavis"
-43591659,"7 ML docetaxel 20 MG/ML Injection [Docetaxin]"
-43591660,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Oncotrade] by Profusio"
-43591661,"7 ML docetaxel 20 MG/ML Injection [Bendadocel] by Bendalis"
-43591662,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Axios]"
-43591663,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Actavis] by Actavis"
-43591675,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Aqvida]"
-43606123,"docetaxel Injection [Docetaxel Vipharm]"
-43606124,"docetaxel 10 MG/ML Injection [DOCETAXEL HOSPIRA]"
-43606125,"docetaxel 10 MG/ML Injection [Doce]"
-43606126,"docetaxel 20 MG/ML [Docetaxin]"
-43606127,"docetaxel 20 MG/ML Injection [Eurodocetaxel]"
-43606128,"docetaxel 20 MG/ML Injection [Taxotan]"
-43608462,"1 ML docetaxel 10 MG/ML Injection [DOCETAXEL HOSPIRA]"
-43608463,"1 ML docetaxel 20 MG/ML Injection [Tolnexa] by TAD"
-43608464,"1 ML docetaxel 80 MG/ML Injection [Docetaxel Beta] by Betapharm"
-43609121,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Profusio]"
-43609122,"4 ML docetaxel 20 MG/ML Injection [Taxotan]"
-43609574,"7 ML docetaxel 20 MG/ML Injection [Qvidadotax]"
-43609591,"8 ML docetaxel 10 MG/ML Injection [DOCETAXEL HOSPIRA]"
-43609592,"8 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] by Hexal"
-43609593,"8 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] Box of 5 by Hexal"
-43623983,"docetaxel 20 MG/ML [Docetaxel Aqvida]"
-43623984,"docetaxel 20 MG/ML [Taxotan]"
-43623985,"docetaxel 20 MG/ML [Docetaxel Cell Pharm]"
-43623986,"docetaxel 20 MG/ML Injection [Bendadocel]"
-43626420,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Oncotrade] by Profusio"
-43626421,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Axios] by CSL"
-43626895,"2 ML docetaxel 10 MG/ML Injection [DOCETAXEL HOSPIRA]"
-43627130,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Oncotrade] by Profusio"
-43627131,"4 ML docetaxel 20 MG/ML Injection [Bendadocel]"
-43627132,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Haemato] by Haematogmbh"
-43627133,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Liv Pharma] by AqVida"
-43627612,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Omnicare]"
-43627613,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Haemato] by Haematogmbh"
-43627614,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Liv Pharma]"
-43627626,"8 ML docetaxel 10 MG/ML Injection [Doce] Box of 10"
-43627627,"8 ML docetaxel 20 MG/ML Injection [Eurodocetaxel]"
-43627628,"8 ML docetaxel 20 MG/ML Injection [Eurodocetaxel] by Lapharm"
-43627629,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Haemato] by Haematogmbh"
-43628823,"20 ML docetaxel 10 MG/ML Injection [Doce] Box of 5 by Hexal"
-43642248,"docetaxel Injection [Docetaxel Liv Pharma]"
-43642249,"docetaxel 10 MG/ML Injection [Docetaxel Nc]"
-43642250,"docetaxel 20 MG/ML [Docetaxel Vipharm]"
-43642251,"docetaxel 20 MG/ML Injection [Docetaxel Liv Pharma]"
-43642252,"docetaxel 20 MG/ML Injection [Docetaxel Ratiopharm]"
-43644646,"1 ML docetaxel 20 MG/ML Injection [Ribodocel]"
-43644647,"1 ML docetaxel 20 MG/ML Injection [Qvidadotax]"
-43644648,"1 ML docetaxel 20 MG/ML Injection [Doce] by Onkovis"
-43644649,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Aqvida] by AqVida"
-43644650,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Omnicare]"
-43644651,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Cell Pharm]"
-43644652,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Oncotrade]"
-43644653,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Liv Pharma] by AqVida"
-43644654,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Ratiopharm]"
-43644655,"1 ML docetaxel 80 MG/ML Injection [Docetaxel Beta]"
-43645075,"2 ML docetaxel 10 MG/ML Injection [Doce]"
-43645289,"4 ML docetaxel 5 MG/ML Injection [Docetaxel Axios] by CSL"
-43645290,"4 ML docetaxel 20 MG/ML Injection [Ribodocel] by Hikma"
-43645291,"4 ML docetaxel 20 MG/ML Injection [Taxotan] by Medicopharm"
-43645752,"7 ML docetaxel 20 MG/ML Injection [Eurotere] by Lapharm"
-43645753,"7 ML docetaxel 20 MG/ML Injection [Eurodocetaxel] by Lapharm"
-43645754,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Profusio] by Profusio"
-43645755,"7 ML docetaxel 20 MG/ML Injection [Taxotan]"
-43645756,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Ratiopharm] by Ratiopharm"
-43645769,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Amneal] by Amneal"
-43660370,"docetaxel 20 MG/ML Injection [Docetaxel Profusio]"
-43660371,"docetaxel 20 MG/ML Injection [Docetaxel Omnicare]"
-43660372,"docetaxel 40 MG/ML [Docetaxel Mylan]"
-43662740,"1 ML docetaxel 10 MG/ML Injection [DOCETAXEL HOSPIRA] by Hospira"
-43662741,"1 ML docetaxel 20 MG/ML Injection [Doce]"
-43663198,"2 ML docetaxel 10 MG/ML Injection [Doce] Box of 5 by Hexal"
-43663420,"4 ML docetaxel 5 MG/ML Injection"
-43663421,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Amneal] by Amneal"
-43663422,"4 ML docetaxel 20 MG/ML Injection [Qvidadotax]"
-43663423,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Beta] by Betapharm"
-43663424,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Profusio] by Profusio"
-43663425,"4 ML docetaxel 20 MG/ML Injection [Doce]"
-43663426,"4 ML docetaxel 20 MG/ML Injection [Tolnexa]"
-43663427,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Vipharm] by Vipharm"
-43663931,"7 ML docetaxel 20 MG/ML Injection [Doce]"
-43663938,"8 ML docetaxel 10 MG/ML Injection [Doce]"
-43663939,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Ratiopharm]"
-43678369,"docetaxel Injection [Docetaxel Cell Pharm]"
-43678370,"docetaxel 20 MG/ML [Docetaxel Omnicare]"
-43678371,"docetaxel 20 MG/ML Injection [Docetaxel Axios]"
-43678372,"docetaxel 20 MG/ML Injection [Docetaxel Actavis]"
-43680673,"1 ML docetaxel 10 MG/ML Injection [Doce]"
-43680674,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Amneal] by Amneal"
-43680675,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Actavis] by Actavis"
-43681093,"2 ML docetaxel 10 MG/ML Injection [DOCETAXEL HOSPIRA] by Hospira"
-43681094,"2 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] Box of 5 by Hexal"
-43681768,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Haemato]"
-43681785,"8 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] Box of 10 by Hexal"
-43681786,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Aqvida] by AqVida"
-43681787,"8 ML docetaxel 20 MG/ML Injection [Tolnexa]"
-43681788,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Haemato]"
-43682567,"16 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] by Hexal"
-43682921,"20 ML docetaxel 10 MG/ML Injection [Doce] Box of 5"
-43696196,"docetaxel Injection [Docetaxel Amneal]"
-43696197,"docetaxel Injection [DOCETAXEL HOSPIRA]"
-43696198,"docetaxel Injection [Tolnexa]"
-43696199,"docetaxel Injection [Docetaxel Haemato]"
-43696200,"docetaxel 10 MG/ML [Docetaxel Nc]"
-43696201,"docetaxel 20 MG/ML [Docetaxel Profusio]"
-43696202,"docetaxel 20 MG/ML Injection [Ribodocel]"
-43696203,"docetaxel 20 MG/ML Injection [Docetaxel Amneal]"
-43698595,"1 ML docetaxel 20 MG/ML Injection [Taxotan]"
-43698597,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Liv Pharma]"
-43699078,"2 ML docetaxel 40 MG/ML Injection [Docetaxel Mylan] by Mylan"
-43699304,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Axios]"
-43699305,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Ratiopharm]"
-43699306,"4 ML docetaxel 80 MG/ML Injection [Docetaxel Beta]"
-43699307,"4 ML docetaxel 80 MG/ML Injection [Docetaxel Beta] by Betapharm"
-43699778,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Cell Pharm] by Cellgmbh"
-43699779,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Oncotrade]"
-43699780,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Ratiopharm]"
-43699798,"8 ML docetaxel 10 MG/ML Injection Box of 5"
-43699799,"8 ML docetaxel 10 MG/ML Injection [Doce] by Hexal"
-43699800,"8 ML docetaxel 20 MG/ML Injection [Qvidadotax]"
-43699801,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Liv Pharma] by AqVida"
-43700955,"20 ML docetaxel 10 MG/ML Injection Box of 10"
-43700956,"20 ML docetaxel 10 MG/ML Injection [Doce] Box of 10 by Hexal"
-43714021,"docetaxel Injection [Docetaxel Nc]"
-43714022,"docetaxel 5 MG/ML Injection"
-43714023,"docetaxel 10 MG/ML Injection [Docetaxel Nc] Box of 10"
-43714024,"docetaxel 20 MG/ML [Docetaxel Amneal]"
-43714025,"docetaxel 20 MG/ML [Docetaxel Oncotrade]"
-43716362,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Vipharm]"
-43716363,"1 ML docetaxel 20 MG/ML Injection [Bendadocel]"
-43716364,"1 ML docetaxel 20 MG/ML Injection [Bendadocel] by Bendalis"
-43716365,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Axios]"
-43716820,"2 ML docetaxel 10 MG/ML Injection [Docetaxel Nc]"
-43716821,"2 ML docetaxel 10 MG/ML Injection [Doce] Box of 10"
-43717056,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Omnicare]"
-43717057,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Haemato]"
-43717513,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Amneal]"
-43717514,"7 ML docetaxel 20 MG/ML Injection [Qvidadotax] by Medac"
-43717515,"7 ML docetaxel 20 MG/ML Injection [Bendadocel]"
-43717525,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Ratiopharm] by Ratiopharm"
-43732076,"docetaxel Injection [Eurotere]"
-43732078,"docetaxel 20 MG/ML Injection [Eurotere]"
-43734504,"1 ML docetaxel 20 MG/ML Injection [Eurotere] by Lapharm"
-43734505,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Beta]"
-43734506,"1 ML docetaxel 20 MG/ML Injection [Eurodocetaxel] by Lapharm"
-43734507,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Haemato] by Haematogmbh"
-43735001,"2 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] Box of 10 by Hexal"
-43735248,"4 ML docetaxel 5 MG/ML Injection [Docetaxel Axios]"
-43735249,"4 ML docetaxel 20 MG/ML Injection [Eurodocetaxel] by Lapharm"
-43735250,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Oncotrade]"
-43735251,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Liv Pharma]"
-43735252,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Actavis]"
-43735701,"8 ML docetaxel 10 MG/ML Injection [Doce] Box of 10 by Hexal"
-43735702,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Beta]"
-43736786,"20 ML docetaxel 10 MG/ML Injection [Doce] by Hexal"
-43750003,"docetaxel Injection [Docetaxel Mylan]"
-43750004,"docetaxel 5 MG/ML [Docetaxel Axios]"
-43750005,"docetaxel 10 MG/ML Injection [Doce] Box of 5"
-43750006,"docetaxel 20 MG/ML [Doce]"
-43750007,"docetaxel 20 MG/ML Injection [Docetaxin]"
-43750008,"docetaxel 20 MG/ML Injection [Docetaxel Beta]"
-43750009,"docetaxel 40 MG/ML Injection [Docetaxel Mylan]"
-43752379,"1 ML docetaxel 10 MG/ML Injection"
-43752380,"1 ML docetaxel 40 MG/ML Injection [Docetaxel Mylan]"
-43752839,"2 ML docetaxel 10 MG/ML Injection Box of 5"
-43752840,"2 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] by Hexal"
-43753063,"4 ML docetaxel 20 MG/ML Injection [Eurodocetaxel]"
-43753064,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Aqvida]"
-43753555,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Amneal] by Amneal"
-43753556,"7 ML docetaxel 20 MG/ML Injection [Doce] by Onkovis"
-43753557,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Omnicare] by OmniCare"
-43753572,"8 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] Box of 10"
-43756015,"0.5 ML docetaxel 40 MG/ML Injection [Docetaxel Mylan]"
-43767982,"docetaxel Injection [Qvidadotax]"
-43767983,"docetaxel Injection [Docetaxel Profusio]"
-43767984,"docetaxel Injection [Doce]"
-43767985,"docetaxel Injection [Docetaxel Ratiopharm]"
-43767986,"docetaxel 10 MG/ML Injection Box of 10"
-43767987,"docetaxel 20 MG/ML Injection [Docetaxel Aqvida]"
-43770431,"1 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] by Hexal"
-43770432,"1 ML docetaxel 10 MG/ML Injection [Doce] by Hexal"
-43770433,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Amneal]"
-43770434,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Profusio] by Profusio"
-43770435,"1 ML docetaxel 20 MG/ML Injection [Taxotan] by Medicopharm"
-43770436,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Actavis]"
-43770871,"2 ML docetaxel 10 MG/ML Injection [Doce] Box of 5"
-43771084,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Amneal]"
-43771085,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Omnicare] by OmniCare"
-43771557,"7 ML docetaxel 20 MG/ML Injection [Taxotan] by Medicopharm"
-43771558,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Axios] by CSL"
-43786026,"docetaxel 20 MG/ML [Eurodocetaxel]"
-43786027,"docetaxel 20 MG/ML [Docetaxel Liv Pharma]"
-43786029,"docetaxel 20 MG/ML Injection [Qvidadotax]"
-43788239,"1 ML docetaxel 10 MG/ML Injection [Docetaxel Nc]"
-43788240,"1 ML docetaxel 20 MG/ML Injection [Docetaxin] by Cancernova Onkologische"
-43788241,"1 ML docetaxel 20 MG/ML Injection [Qvidadotax] by Medac"
-43788710,"2 ML docetaxel 10 MG/ML Injection [Doce] by Hexal"
-43788913,"4 ML docetaxel 20 MG/ML Injection [Doce] by Onkovis"
-43788914,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Cell Pharm]"
-43788915,"4 ML docetaxel 20 MG/ML Injection [Bendadocel] by Bendalis"
-43789405,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Profusio]"
-43789406,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Aqvida]"
-43789407,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Cell Pharm]"
-43789408,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Vipharm]"
-43789409,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Liv Pharma] by AqVida"
-43789417,"8 ML docetaxel 10 MG/ML Injection [Doce] Box of 5"
-43789418,"8 ML docetaxel 10 MG/ML Injection [Doce] Box of 5 by Hexal"
-43789419,"8 ML docetaxel 20 MG/ML Injection [Tolnexa] by TAD"
-43790195,"16 ML docetaxel 10 MG/ML Injection [DOCETAXEL HOSPIRA]"
-43790551,"20 ML docetaxel 10 MG/ML Injection [Doce] Box of 10"
-43804008,"docetaxel Injection [Docetaxin]"
-43804009,"docetaxel Injection [Bendadocel]"
-43804010,"docetaxel 5 MG/ML Injection [Docetaxel Axios]"
-43804011,"docetaxel 10 MG/ML Injection Box of 5"
-43804012,"docetaxel 10 MG/ML Injection [Docetaxel Nc] Box of 5"
-43804013,"docetaxel 20 MG/ML [Ribodocel]"
-43804014,"docetaxel 20 MG/ML [Tolnexa]"
-43804015,"docetaxel 20 MG/ML [Docetaxel Axios]"
-43804016,"docetaxel 20 MG/ML Injection [Docetaxel Oncotrade]"
-43806304,"1 ML docetaxel 20 MG/ML Injection [Eurodocetaxel]"
-43806781,"2 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] Box of 5"
-43806782,"2 ML docetaxel 40 MG/ML Injection [Docetaxel Mylan]"
-43807004,"4 ML docetaxel 20 MG/ML Injection [Docetaxin] by Cancernova Onkologische"
-43807005,"4 ML docetaxel 20 MG/ML Injection [Qvidadotax] by Medac"
-43807006,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Beta]"
-43807007,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Vipharm]"
-43807008,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Axios] by CSL"
-43807506,"7 ML docetaxel 20 MG/ML Injection [Eurotere]"
-43807507,"7 ML docetaxel 20 MG/ML Injection [Docetaxin] by Cancernova Onkologische"
-43807508,"7 ML docetaxel 20 MG/ML Injection [Ribodocel]"
-43807509,"7 ML docetaxel 20 MG/ML Injection [Eurodocetaxel]"
-43807510,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Vipharm] by Vipharm"
-43807511,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Actavis]"
-43807523,"8 ML docetaxel 10 MG/ML Injection [DOCETAXEL HOSPIRA] by Hospira"
-43807524,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Amneal]"
-43808327,"16 ML docetaxel 10 MG/ML Injection [Docetaxel Nc]"
-43822111,"docetaxel Injection [Docetaxel Omnicare]"
-43822112,"docetaxel 10 MG/ML Injection [Doce] Box of 10"
-43822113,"docetaxel 20 MG/ML Injection [Doce]"
-43824476,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Profusio]"
-43824477,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Vipharm] by Vipharm"
-43824478,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Ratiopharm] by Ratiopharm"
-43825201,"4 ML docetaxel 20 MG/ML Injection [Eurotere]"
-43825202,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Aqvida] by AqVida"
-43825203,"4 ML docetaxel 20 MG/ML Injection [Tolnexa] by TAD"
-43825692,"7 ML docetaxel 20 MG/ML Injection [Ribodocel] by Hikma"
-43825703,"8 ML docetaxel 10 MG/ML Injection [Docetaxel Nc]"
-43826720,"20 ML docetaxel 10 MG/ML Injection"
-43826721,"20 ML docetaxel 10 MG/ML Injection [Doce]"
-43840212,"docetaxel Injection [Docetaxel Oncotrade]"
-43840213,"docetaxel 5 MG/ML"
-43840214,"docetaxel 20 MG/ML [Bendadocel]"
-43840215,"docetaxel 20 MG/ML Injection [Docetaxel Vipharm]"
-43840216,"docetaxel 80 MG/ML [Docetaxel Beta]"
-43842558,"1 ML docetaxel 20 MG/ML Injection [Docetaxin]"
-43842559,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Beta] by Betapharm"
-43842560,"1 ML docetaxel 20 MG/ML Injection [Tolnexa]"
-43842561,"1 ML docetaxel 40 MG/ML Injection [Docetaxel Mylan] by Mylan"
-43843006,"2 ML docetaxel 10 MG/ML Injection Box of 10"
-43843233,"4 ML docetaxel 20 MG/ML Injection [Ribodocel]"
-43843234,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Cell Pharm] by Cellgmbh"
-43843744,"8 ML docetaxel 10 MG/ML Injection Box of 10"
-43843745,"8 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] Box of 5"
-43858288,"docetaxel Injection [Eurodocetaxel]"
-43858290,"docetaxel Injection [Docetaxel Actavis]"
-43858291,"docetaxel 10 MG/ML [Doce]"
-43858292,"docetaxel 20 MG/ML [Eurotere]"
-43858293,"docetaxel 20 MG/ML [Qvidadotax]"
-43858294,"docetaxel 20 MG/ML [Docetaxel Beta]"
-43858295,"docetaxel 20 MG/ML [Docetaxel Haemato]"
-43858296,"docetaxel 20 MG/ML Injection [Tolnexa]"
-43858297,"docetaxel 20 MG/ML Injection [Docetaxel Cell Pharm]"
-43858298,"docetaxel 20 MG/ML Injection [Docetaxel Haemato]"
-43858299,"docetaxel 80 MG/ML Injection [Docetaxel Beta]"
-43860721,"1 ML docetaxel 20 MG/ML Injection [Eurotere]"
-43860722,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Aqvida]"
-43860723,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Omnicare] by OmniCare"
-43860724,"1 ML docetaxel 20 MG/ML Injection [Docetaxel Haemato]"
-43861199,"2 ML docetaxel 10 MG/ML Injection [Docetaxel Nc] Box of 10"
-43861429,"4 ML docetaxel 20 MG/ML Injection [Eurotere] by Lapharm"
-43861430,"4 ML docetaxel 20 MG/ML Injection [Docetaxel Ratiopharm] by Ratiopharm"
-43861888,"7 ML docetaxel 20 MG/ML Injection [Docetaxel Aqvida] by AqVida"
-43861898,"8 ML docetaxel 20 MG/ML Injection [Qvidadotax] by Medac"
-43861899,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Beta] by Betapharm"
-43861900,"8 ML docetaxel 20 MG/ML Injection [Docetaxel Liv Pharma]"
-43862703,"16 ML docetaxel 10 MG/ML Injection [DOCETAXEL HOSPIRA] by Hospira"
-43863032,"20 ML docetaxel 10 MG/ML Injection Box of 5"
-43864380,"0.5 ML docetaxel 40 MG/ML Injection [Docetaxel Mylan] by Mylan"
-44037742,"docetaxel 10 MG/ML Injectable Solution by Hospira"
-44038400,"cabazitaxel 40 MG/ML Injection [Jevtana] by Sanofi"
-44039165,"abiraterone 500 MG Oral Tablet [Zytiga] by Janssen"
-44057239,"enzalutamide Oral Capsule [Xtand]"
-44063899,"docetaxel 10 MG/ML Injectable Solution by Sandoz"
-44063900,"docetaxel 20 MG/ML Injection by Accord"
-44073590,"enzalutamide 40 MG Oral Capsule [Xtand]"
-44076515,"enzalutamide 40 MG Oral Capsule [Xtand] by Astellas"
-44080425,"enzalutamide 40 MG [Xtand]"
-44083023,"docetaxel Injection [Pms-Docetaxel]"
-44121947,"docetaxel Injectable Solution [Pms-Docetaxel]"
-44160127,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by Paranova Pack"
-44160495,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Paranova Pack"
-44161439,"abiraterone 500 MG Oral Tablet Box of 56"
-44167679,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by Castell"
-44171833,"abiraterone 250 MG Oral Tablet [Zytiga] Box of 120 by Abacus Medicine"
-44178937,"enzalutamide 40 MG Oral Capsule [Xtandi] Box of 112 by European"
-44186804,"abiraterone 500 MG Oral Tablet [Zytiga] Box of 56 by Janssen"
-44189252,"abiraterone 500 MG Oral Tablet [Zytiga] Box of 56"
-44189294,"1 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios] Box of 1 by Axios"
-44191550,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Profusio] Box of 1 by Profusio"
-44191568,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Aurobindo] Box of 1 by Puren"
-44191577,"4 ML docetaxel 20 MG/ML Injectable Solution [Ribodocel] Box of 1 by Ribosepharm"
-44191609,"4 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Axios] Box of 1 by Axios"
-44192394,"8 ML docetaxel 20 MG/ML Injectable Solution [DOCETAXEL ACCORD] Box of 1 by Accord"
-44192405,"8 ML docetaxel 20 MG/ML Injectable Solution [Docetaxel Amneal] Box of 1 by Amneal"
-44816340,"lutetium"
-45892579,"olaparib"
-45892580,"olaparib 50 MG"
-45892581,"olaparib Oral Capsule"
-45892582,"olaparib 50 MG Oral Capsule"
-45892584,"olaparib 50 MG [Lynparza]"
-45892585,"olaparib Oral Capsule [Lynparza]"
-45892586,"olaparib 50 MG Oral Capsule [Lynparza]"
-45893476,"enzalutamide; oral"
+concept_id
+586709
+586859
+586981
+587187
+587746
+587781
+587833
+587848
+587960
+587975
+588100
+588134
+588387
+588610
+588682
+588995
+589023
+589126
+589142
+589530
+589702
+589769
+590534
+590542
+715835
+715926
+782986
+782987
+782988
+782989
+782990
+782991
+784159
+784160
+784359
+784360
+784515
+784520
+784521
+793991
+793992
+793993
+793994
+793995
+793996
+793997
+793998
+793999
+794000
+947969
+963987
+963989
+963992
+963993
+963995
+963996
+963999
+994895
+994896
+1235148
+1236215
+1301736
+1301737
+1301738
+1301739
+1315942
+1315943
+1315944
+1361291
+1361292
+1361295
+1361296
+1361298
+1361299
+1361302
+1501768
+1510568
+1510569
+1510571
+1510572
+1510575
+1592236
+1592237
+1593812
+1593813
+1593814
+1593815
+1593816
+1718065
+1718066
+1718067
+1718068
+1718757
+1718758
+1718759
+1718760
+1718761
+1718762
+1718763
+1718764
+1718787
+1718788
+1718789
+1970407
+1970929
+1971005
+1971255
+1971256
+2009713
+2010032
+2027819
+2027820
+2027821
+2028541
+2028542
+2028543
+2028544
+2028545
+2028546
+2028625
+2028626
+2028627
+2028628
+2028629
+2028631
+2028632
+2028633
+2028634
+2028635
+2028636
+2028637
+2028638
+2028639
+2028697
+2028698
+2028699
+2028700
+2028701
+2028702
+2028703
+2028704
+2028706
+2028707
+2028708
+2028709
+2029058
+2029059
+2029060
+2029061
+2029062
+2029063
+2029064
+2029065
+2029066
+2029068
+2029069
+2029070
+2029071
+2029072
+2029073
+2029074
+2029075
+2029076
+2029077
+2029078
+2029079
+2029080
+2029081
+2029082
+2029083
+2029084
+2029085
+2029086
+2029632
+2029633
+2029634
+2029635
+2029636
+2029637
+2029638
+2029639
+2029640
+2030064
+2030065
+2030066
+2032143
+2032144
+2032145
+2032146
+2032147
+2032148
+2032149
+2032150
+2032151
+2032152
+2032153
+2032154
+2033269
+2033270
+2033271
+2033452
+2033454
+2033455
+2033456
+2033457
+2033458
+2033459
+2033460
+2033461
+2033462
+2033463
+2033464
+2033465
+2033466
+2033467
+2033468
+2033469
+2033470
+2033471
+2033472
+2033473
+2033474
+2033475
+2033476
+2033477
+2033478
+2033479
+2033480
+2033481
+2033482
+2033483
+2033484
+2033485
+2033540
+2033541
+2033542
+2065149
+2065150
+2065152
+2065153
+2065154
+2065155
+2065156
+2065157
+2065158
+2065159
+2065160
+2065161
+2065162
+2065163
+2065164
+2065165
+2065166
+2065167
+2065168
+2065169
+2065170
+2065171
+2065172
+2065173
+2065174
+2065175
+2065177
+2065178
+2065179
+2065180
+2065181
+2065182
+2065183
+2065184
+2065185
+2065186
+2065187
+2065188
+2065189
+2065190
+2065191
+2065192
+2065193
+2065194
+2065195
+2065196
+2065197
+2065198
+2065199
+2065200
+2065201
+2065202
+2065203
+2065204
+2065205
+2065206
+2065207
+2065208
+2065209
+2065210
+2065211
+2065212
+2065213
+2065214
+2065215
+2065216
+2065217
+2065218
+2065219
+2065220
+2065221
+2065222
+2065223
+2065224
+2065225
+2065226
+2065227
+2065228
+2065229
+2065230
+2065231
+2065232
+2065233
+2065234
+2065235
+2065236
+2065237
+2065238
+2065239
+2065240
+2065241
+2065242
+2903718
+2904469
+2904470
+2904471
+2904472
+2906845
+2906846
+2906847
+2906848
+2908523
+2908524
+2908525
+2908692
+2908693
+2908694
+2908695
+2908696
+2921739
+2921740
+2926526
+2926527
+2926528
+2926529
+2926530
+2937557
+2937558
+2937559
+2937560
+2937561
+2937562
+19044664
+19083462
+19104433
+19112195
+21027236
+21028242
+21028243
+21028747
+21029037
+21029038
+21029232
+21029792
+21038060
+21038556
+21038689
+21038690
+21038851
+21038852
+21038853
+21039099
+21039634
+21040198
+21040199
+21046942
+21046943
+21046944
+21048490
+21048491
+21048492
+21049997
+21049998
+21049999
+21051085
+21051086
+21057676
+21057677
+21058122
+21058417
+21058418
+21063071
+21065979
+21067527
+21067528
+21068186
+21068187
+21068350
+21068354
+21069759
+21069760
+21072981
+21077426
+21077862
+21077863
+21078152
+21080508
+21087617
+21087618
+21088546
+21089198
+21095401
+21096920
+21096921
+21097421
+21097546
+21097712
+21097938
+21102337
+21106776
+21107411
+21107412
+21107576
+21107577
+21107581
+21107804
+21108275
+21112146
+21116515
+21116516
+21117323
+21118660
+21118680
+21121832
+21121833
+21126754
+21126891
+21127056
+21127057
+21127282
+21127776
+21134601
+21136139
+21136140
+21136644
+21136645
+21136772
+21136943
+21136948
+21136949
+21139399
+21141570
+21141571
+21146485
+21146632
+21147562
+21151382
+21154419
+21154503
+21156607
+21156781
+21156782
+21156783
+21157466
+21157467
+21157534
+21164314
+21165739
+21166343
+21166344
+21166750
+21167225
+21171086
+21175983
+21175984
+21175985
+21176287
+21176289
+21177010
+21603724
+35129350
+35129522
+35131555
+35133352
+35133814
+35136042
+35136336
+35137236
+35137701
+35137880
+35138639
+35140607
+35141072
+35142768
+35143210
+35143471
+35144990
+35145061
+35148033
+35148290
+35148396
+35149042
+35149733
+35150072
+35151949
+35152997
+35155825
+35157040
+35157816
+35160738
+35160856
+35746195
+35757976
+35775481
+35775995
+35776116
+35776117
+35776118
+35776678
+35776679
+35776680
+35776681
+35776948
+35776949
+35777100
+35777230
+35777231
+35777232
+35777233
+35777234
+35777529
+35777530
+35777816
+35777817
+35778100
+35778101
+35778102
+35778103
+35778104
+35778323
+35778324
+35778325
+35778326
+35778611
+35778612
+35778741
+35778742
+35778743
+35778744
+35778863
+35778864
+35778865
+35779124
+35779266
+35779818
+35779819
+35779820
+35779852
+35779853
+35779878
+35779879
+35779880
+35779902
+35779903
+35779920
+35779934
+35779944
+35779969
+35779970
+35779971
+35779981
+35779990
+35779991
+35779992
+35779993
+35779994
+35779995
+35779996
+35779997
+35781387
+35781388
+35781389
+35781390
+35781391
+35781393
+35781394
+35781397
+35781398
+35781399
+35781402
+35781403
+35781404
+35781405
+35781407
+35781414
+35781419
+35781420
+35781421
+35781422
+35781423
+35781430
+35781431
+35781432
+35781433
+35781434
+35781437
+35781446
+35781447
+35781448
+35781449
+35781457
+35781458
+35782795
+35782796
+35782797
+35782799
+35782800
+35782801
+35782802
+35782803
+35785550
+35785631
+35785677
+35789799
+35789802
+35789808
+35789815
+35793660
+35793661
+35793662
+35793663
+35793664
+35793665
+35793666
+35793667
+35829027
+35829147
+35829185
+35829452
+35868847
+35868848
+35868849
+35868994
+35868995
+35868996
+35868997
+35868998
+35868999
+35869000
+35869001
+35869002
+35869003
+35869004
+35869005
+35869006
+35869007
+35869008
+35869009
+35869010
+35898015
+35898016
+35898017
+35898018
+35898368
+35898412
+36034899
+36034900
+36034901
+36034902
+36034903
+36035853
+36035854
+36035855
+36037002
+36037476
+36054027
+36054028
+36054566
+36056041
+36056891
+36057279
+36057280
+36057380
+36057381
+36065613
+36065614
+36065615
+36065616
+36068616
+36068617
+36074030
+36118758
+36118759
+36118760
+36118761
+36120809
+36120810
+36121115
+36121116
+36121160
+36121161
+36121162
+36121163
+36121214
+36121215
+36121216
+36121217
+36121246
+36121247
+36121248
+36121249
+36121251
+36121252
+36121253
+36121254
+36257999
+36260531
+36261961
+36277648
+36277810
+36277855
+36277905
+36277927
+36278649
+36278650
+36278663
+36278679
+36278760
+36279329
+36279330
+36279332
+36279333
+36279334
+36279337
+36279345
+36279350
+36506551
+36507667
+36780401
+36780402
+36780403
+36780404
+36780405
+36780406
+36780407
+36780408
+36780409
+36780417
+36780418
+36780419
+36780420
+36780421
+36780422
+36780885
+36780886
+36780887
+36780888
+36780889
+36780890
+36780891
+36780892
+36780893
+36780894
+36780895
+36780896
+36781425
+36781426
+36781427
+36781428
+36781429
+36781541
+36781542
+36781543
+36781544
+36781545
+36781546
+36781547
+36781548
+36781549
+36781550
+36781551
+36781552
+36782177
+36782178
+36782179
+36782180
+36782181
+36782182
+36783593
+36783594
+36783595
+36783596
+36783597
+36783598
+36783599
+36783600
+36783601
+36783602
+36783603
+36783604
+36879834
+36879896
+36880299
+36881252
+36881922
+36883118
+36883729
+36884615
+36884706
+36884761
+36885223
+36886036
+36887664
+36888148
+36888658
+36889677
+36890630
+36890674
+36894564
+36895008
+36895039
+36895053
+36895082
+36895126
+36895245
+36895249
+36895280
+36895283
+36895288
+36895289
+36895439
+36895440
+36895441
+36895443
+36895444
+36895445
+36895447
+36895674
+36895675
+36896228
+36896232
+36896239
+36897104
+36897105
+36897276
+36897277
+36919317
+36919647
+36919689
+36919734
+36920321
+36921140
+36922109
+36922318
+36922489
+36922516
+36922962
+36923360
+36923575
+36923902
+36924525
+36925203
+36925328
+36925351
+36925623
+36926304
+36926653
+36926959
+36927079
+36927184
+36928008
+36928113
+36929078
+36929607
+36929989
+36930497
+36931266
+36931581
+36932098
+36932238
+36933088
+36933446
+36934928
+36935072
+36935195
+36935807
+36935843
+36936002
+36936209
+36937139
+36937177
+36937678
+36938056
+36938879
+36938908
+36939300
+36940375
+36940584
+36940832
+36941100
+36941226
+36941877
+36942197
+36943592
+36943936
+36944101
+36944445
+36945121
+36945626
+36946395
+36946413
+36946518
+36946752
+36947327
+36947518
+36948195
+36948259
+36949114
+36949153
+36950299
+36951015
+36951544
+36951947
+36952162
+36952668
+36953260
+36953472
+36953690
+36953920
+36953945
+36954171
+36954377
+36954512
+36955051
+36955066
+36955131
+36955180
+36956012
+36956542
+36956704
+36956801
+36957484
+36957537
+36958006
+36958081
+36958857
+36958994
+36959240
+36959440
+36959507
+36960382
+36960491
+36960826
+36960908
+36961026
+36961455
+36961827
+36961852
+36961874
+36961984
+36962130
+36962164
+36962809
+36963330
+36963499
+36963600
+36964062
+36964852
+36964918
+36965624
+36966113
+36966398
+36966473
+36966905
+36967588
+36968198
+36969167
+36969657
+36969731
+36969772
+37002517
+37002518
+37002519
+37002520
+37002521
+37002522
+37002523
+37002524
+37592407
+37592408
+37592411
+37592898
+37592899
+37592900
+40057906
+40057907
+40222431
+40224716
+40224717
+40224722
+40224723
+40224725
+40237036
+40237037
+40239056
+40239057
+40239058
+40239059
+40239060
+40239061
+40239062
+40239089
+40239090
+40239091
+40239092
+40239093
+40240020
+40240021
+40240022
+40240023
+40253093
+40253469
+40708878
+40708879
+40709880
+40709881
+40709882
+40709883
+40709884
+40709885
+40709886
+40709887
+40714515
+40714516
+40715641
+40715642
+40715643
+40715644
+40715645
+40715646
+40715647
+40715648
+40715773
+40715774
+40716344
+40716345
+40716346
+40716347
+40717036
+40717037
+40717597
+40717598
+40717599
+40718411
+40718412
+40718413
+40718414
+40720616
+40726839
+40726840
+40726841
+40726842
+40726843
+40726844
+40726845
+40726846
+40726847
+40726848
+40726849
+40726850
+40726851
+40726852
+40726853
+40745825
+40745826
+40745827
+40745828
+40745829
+40745830
+40745831
+40745832
+40824031
+40824865
+40825410
+40829281
+40829282
+40830833
+40832556
+40832557
+40832558
+40847093
+40847094
+40847095
+40847096
+40847097
+40847098
+40857295
+40863752
+40878204
+40878205
+40878206
+40888605
+40894974
+40909240
+40909241
+40909242
+40919586
+40922755
+40925942
+40940553
+40940554
+40940555
+40940556
+40953993
+40957191
+40971503
+40971504
+40971505
+40971506
+40988478
+40988479
+40992509
+40992510
+41002898
+41002899
+41011214
+41011215
+41013150
+41013151
+41019406
+41019407
+41019408
+41019409
+41023453
+41033980
+41033981
+41033982
+41033983
+41042528
+41050696
+41050697
+41050698
+41065118
+41065119
+41073622
+41075642
+41082181
+41082182
+41086263
+41087283
+41096687
+41096688
+41096689
+41096690
+41096691
+41102746
+41110322
+41110323
+41110324
+41113436
+41113437
+41113438
+41117504
+41127945
+41127946
+41127947
+41127948
+41127949
+41127950
+41145013
+41159459
+41159460
+41159461
+41175978
+41175979
+41180062
+41180063
+41190558
+41190559
+41190560
+41190561
+41190562
+41190563
+41190564
+41190565
+41199115
+41201041
+41207524
+41221719
+41221720
+41221721
+41221722
+41221723
+41221724
+41221725
+41235255
+41236529
+41238455
+41238456
+41252701
+41252702
+41252703
+41252704
+41252705
+41252706
+41252707
+41252708
+41252709
+41260930
+41266131
+41269403
+41283643
+41283644
+41283645
+41292066
+41300406
+41300407
+41304343
+41304344
+41304345
+41305495
+41314915
+41314916
+41314917
+41323401
+41327893
+41327894
+41327895
+41328569
+41328570
+41328571
+41329207
+41329208
+41329209
+41329210
+41329895
+41330534
+41330535
+41330536
+41330537
+41330538
+41330741
+41331180
+41331181
+41331182
+41331183
+41331184
+41331850
+41331851
+41331852
+41332074
+41332075
+41332257
+41332537
+41333229
+41333230
+41333231
+41333232
+41333233
+41333925
+41333926
+41334589
+41334590
+41334591
+41334829
+41335253
+41335254
+41335255
+41335256
+41335940
+41335941
+41336335
+41336612
+41336613
+41336814
+41337242
+41337243
+41337244
+41337245
+41337246
+41337247
+41337887
+41337888
+41337889
+41339148
+41339861
+41340401
+41340913
+41341519
+41342306
+41342307
+41342308
+41342309
+41342476
+41342845
+41343014
+41343015
+41343016
+41343526
+41344038
+41344163
+41344727
+41345240
+41345486
+41345487
+41346017
+41346018
+41346019
+41346524
+41346719
+41350652
+41350653
+41350654
+41350669
+41350683
+41350713
+41350714
+41350734
+41350773
+41350774
+41350775
+41350776
+41350837
+41350838
+41350839
+41350840
+41350841
+41350903
+41350904
+41350905
+41350906
+41350907
+41350971
+41350972
+41351025
+41351026
+41351027
+41351028
+41351029
+41351050
+41351051
+41351095
+41351120
+41351165
+41351166
+41351167
+41351187
+41351232
+41351293
+41351294
+41351295
+41351296
+41351360
+41351361
+41351362
+41351363
+41351403
+41351424
+41351425
+41351426
+41351490
+41351491
+41351492
+41351560
+41351561
+41351562
+41351563
+41351622
+41351623
+41351624
+41360777
+41360778
+41360779
+41360780
+41360782
+41360783
+41360784
+41360788
+41360789
+41360790
+41360791
+41360793
+41360795
+41360796
+41360797
+41360798
+41360799
+41360803
+41360804
+41360806
+41360807
+41360808
+41360812
+41360817
+41360825
+41360827
+41360828
+41360830
+41360831
+41360832
+41360834
+41360835
+41360836
+41360837
+41360845
+41360846
+41360847
+41360848
+41360849
+41360854
+41360858
+41360860
+41360861
+41360862
+41360865
+41360866
+41360867
+41360868
+41360887
+41360888
+41360901
+41360902
+41360910
+41360917
+41360918
+41360934
+41360935
+41360936
+41360937
+41360950
+41360951
+41360965
+41360966
+41360967
+41360972
+41360982
+41360983
+41360996
+41360997
+41361007
+41361008
+41361009
+41361033
+41361034
+41361050
+41361051
+41361052
+41361058
+41361072
+41361073
+41361074
+41361081
+41361103
+41361120
+41361124
+41361129
+41361130
+41361131
+41361138
+41361142
+41376074
+41376075
+41376079
+41376080
+41376083
+41376084
+41376085
+41376088
+41376091
+41376092
+41376096
+41376099
+41376101
+41376103
+41407288
+41407820
+41408095
+41408193
+41408311
+41408565
+41408775
+41408776
+41409160
+41409656
+41409779
+41410256
+41412862
+41413037
+41446221
+41446236
+41446248
+41446267
+41462462
+41462464
+41462467
+41462470
+42480288
+42481476
+42615255
+42658170
+42658274
+42658364
+42658367
+42875666
+42900250
+42900251
+42900252
+42900253
+42900254
+42900255
+42900256
+42920906
+42920907
+42921540
+42921541
+42921542
+42921543
+42921588
+42921590
+42921591
+42921592
+42921786
+42921787
+42921788
+42921789
+42921790
+42921791
+42922210
+42922309
+42922310
+42922311
+42922312
+42922313
+42922631
+42922632
+42922760
+42922761
+42922762
+42922763
+42922764
+42922765
+42927679
+42927680
+42936438
+42936439
+42936440
+42936441
+42936442
+42936443
+42936444
+42936445
+42936446
+42936447
+42936448
+42936449
+42936450
+42936451
+42936452
+42936453
+42936454
+42936456
+42936457
+42936458
+42936459
+42936460
+42936461
+42936462
+42936463
+42936464
+42936465
+42936466
+42936467
+42936468
+42936469
+42936470
+42936471
+42936472
+42936473
+42936474
+42936475
+42936476
+42936477
+42936478
+42936479
+42936480
+42936481
+42936482
+42936483
+42936484
+42936485
+42936486
+42936487
+42936488
+42936489
+42936490
+42936491
+42936492
+42936493
+43026196
+43026197
+43026198
+43026199
+43026200
+43026201
+43026202
+43026733
+43026734
+43026735
+43026736
+43026737
+43026738
+43026739
+43026740
+43026741
+43026742
+43026743
+43026744
+43027021
+43027022
+43027023
+43027024
+43027025
+43027026
+43027027
+43027028
+43027029
+43027030
+43029295
+43029296
+43029297
+43029298
+43029299
+43029300
+43029301
+43029302
+43029303
+43029304
+43038813
+43038814
+43038815
+43038816
+43038817
+43038818
+43038819
+43038820
+43039991
+43039992
+43039993
+43039994
+43039995
+43039996
+43039997
+43039998
+43039999
+43040731
+43040732
+43040757
+43040758
+43040759
+43040783
+43040784
+43040785
+43040786
+43040787
+43040788
+43040798
+43040799
+43040800
+43041656
+43041657
+43041793
+43042170
+43042171
+43137223
+43137224
+43141395
+43141396
+43141669
+43141901
+43141902
+43141915
+43141916
+43142236
+43148163
+43148164
+43148165
+43152498
+43152499
+43152500
+43152501
+43152651
+43152769
+43152770
+43152771
+43153012
+43153019
+43153020
+43153021
+43153034
+43153035
+43153276
+43153418
+43153419
+43153420
+43154757
+43159340
+43159341
+43159342
+43159343
+43159344
+43159345
+43159346
+43163608
+43163866
+43163867
+43163868
+43164067
+43164316
+43164390
+43164391
+43165079
+43170207
+43170208
+43170209
+43170210
+43170211
+43170212
+43174862
+43174863
+43175099
+43175101
+43176763
+43176873
+43181235
+43181236
+43185462
+43185463
+43185615
+43185728
+43185729
+43185730
+43185977
+43185978
+43185979
+43185982
+43185983
+43186224
+43186356
+43186357
+43192178
+43192179
+43192180
+43192181
+43192182
+43196710
+43196949
+43196983
+43196984
+43196987
+43197306
+43198853
+43203243
+43203244
+43203245
+43203246
+43207358
+43207359
+43207360
+43207361
+43207512
+43207513
+43207514
+43207515
+43207516
+43207628
+43207855
+43207856
+43207873
+43207877
+43208205
+43208206
+43214084
+43214085
+43214086
+43214087
+43214088
+43214089
+43218348
+43218349
+43218350
+43218351
+43218513
+43218514
+43218629
+43218630
+43218631
+43218871
+43218889
+43218890
+43218891
+43218892
+43218893
+43218894
+43219123
+43219124
+43219885
+43220560
+43220682
+43255518
+43255519
+43258563
+43258696
+43258697
+43258698
+43258846
+43260830
+43260831
+43260832
+43263984
+43264282
+43264376
+43266307
+43266308
+43269592
+43269593
+43269770
+43269771
+43269860
+43271807
+43271808
+43271809
+43277326
+43280323
+43280324
+43280467
+43280554
+43280636
+43280749
+43280750
+43282614
+43282615
+43282616
+43286031
+43286100
+43286101
+43286210
+43288078
+43291312
+43291396
+43291397
+43291578
+43291579
+43293509
+43293510
+43293511
+43293512
+43296969
+43297120
+43297397
+43526488
+43526489
+43534873
+43588074
+43588075
+43588076
+43588077
+43588078
+43590489
+43590490
+43590950
+43591184
+43591185
+43591659
+43591660
+43591661
+43591662
+43591663
+43591675
+43606123
+43606124
+43606125
+43606126
+43606127
+43606128
+43608462
+43608463
+43608464
+43609121
+43609122
+43609574
+43609591
+43609592
+43609593
+43623983
+43623984
+43623985
+43623986
+43626420
+43626421
+43626895
+43627130
+43627131
+43627132
+43627133
+43627612
+43627613
+43627614
+43627626
+43627627
+43627628
+43627629
+43628823
+43642248
+43642249
+43642250
+43642251
+43642252
+43644646
+43644647
+43644648
+43644649
+43644650
+43644651
+43644652
+43644653
+43644654
+43644655
+43645075
+43645289
+43645290
+43645291
+43645752
+43645753
+43645754
+43645755
+43645756
+43645769
+43660370
+43660371
+43660372
+43662740
+43662741
+43663198
+43663420
+43663421
+43663422
+43663423
+43663424
+43663425
+43663426
+43663427
+43663931
+43663938
+43663939
+43678369
+43678370
+43678371
+43678372
+43680673
+43680674
+43680675
+43681093
+43681094
+43681768
+43681785
+43681786
+43681787
+43681788
+43682567
+43682921
+43696196
+43696197
+43696198
+43696199
+43696200
+43696201
+43696202
+43696203
+43698595
+43698597
+43699078
+43699304
+43699305
+43699306
+43699307
+43699778
+43699779
+43699780
+43699798
+43699799
+43699800
+43699801
+43700955
+43700956
+43714021
+43714022
+43714023
+43714024
+43714025
+43716362
+43716363
+43716364
+43716365
+43716820
+43716821
+43717056
+43717057
+43717513
+43717514
+43717515
+43717525
+43732076
+43732078
+43734504
+43734505
+43734506
+43734507
+43735001
+43735248
+43735249
+43735250
+43735251
+43735252
+43735701
+43735702
+43736786
+43750003
+43750004
+43750005
+43750006
+43750007
+43750008
+43750009
+43752379
+43752380
+43752839
+43752840
+43753063
+43753064
+43753555
+43753556
+43753557
+43753572
+43756015
+43767982
+43767983
+43767984
+43767985
+43767986
+43767987
+43770431
+43770432
+43770433
+43770434
+43770435
+43770436
+43770871
+43771084
+43771085
+43771557
+43771558
+43786026
+43786027
+43786029
+43788239
+43788240
+43788241
+43788710
+43788913
+43788914
+43788915
+43789405
+43789406
+43789407
+43789408
+43789409
+43789417
+43789418
+43789419
+43790195
+43790551
+43804008
+43804009
+43804010
+43804011
+43804012
+43804013
+43804014
+43804015
+43804016
+43806304
+43806781
+43806782
+43807004
+43807005
+43807006
+43807007
+43807008
+43807506
+43807507
+43807508
+43807509
+43807510
+43807511
+43807523
+43807524
+43808327
+43822111
+43822112
+43822113
+43824476
+43824477
+43824478
+43825201
+43825202
+43825203
+43825692
+43825703
+43826720
+43826721
+43840212
+43840213
+43840214
+43840215
+43840216
+43842558
+43842559
+43842560
+43842561
+43843006
+43843233
+43843234
+43843744
+43843745
+43858288
+43858290
+43858291
+43858292
+43858293
+43858294
+43858295
+43858296
+43858297
+43858298
+43858299
+43860721
+43860722
+43860723
+43860724
+43861199
+43861429
+43861430
+43861888
+43861898
+43861899
+43861900
+43862703
+43863032
+43864380
+44037742
+44038400
+44039165
+44057239
+44063899
+44063900
+44073590
+44076515
+44080425
+44083023
+44121947
+44160127
+44160495
+44161439
+44167679
+44171833
+44178937
+44186804
+44189252
+44189294
+44191550
+44191568
+44191577
+44191609
+44192394
+44192405
+44816340
+45892579
+45892580
+45892581
+45892582
+45892584
+45892585
+45892586
+45893476
