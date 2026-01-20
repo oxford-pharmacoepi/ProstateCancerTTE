@@ -13,6 +13,10 @@ cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_
 #c( "optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
 
 for (cohort_name in cohorts) {
+  n_rows <- cdm[[cohort_name]]|>
+    dplyr::tally() |>
+    dplyr::pull()
+  if (n_rows>0) {
   cohort_name_long <- paste(cohort_name, "long", sep = "_")
   cohort_name_visits <- paste(cohort_name, "visits", sep = "_")
   cohort_name_matched <- paste(cohort_name, "matched", sep = "_")
@@ -164,144 +168,43 @@ for (cohort_name in cohorts) {
   death_cvd_codes <- death_codelist[["cvd_death"]]
 
 
-  cdm[["survival_data"]] <- cdm[[cohort_name_matched]] |>
-    PatientProfiles::addDeathDays(deathDaysName = "death", name = "survival_data", window = c(1, Inf)) |>
-    PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation", name = "survival_data") |>
-    dplyr::mutate(
-      death = dplyr::coalesce(.data[["death"]], 999999L)
-    ) |>
-    PatientProfiles::addTableIntersectField(tableName = "death", field = "cause_concept_id", nameStyle = "cause_of_death") |>
-    dplyr::mutate(
-      death_pc = dplyr::if_else(!is.na(.data$cause_of_death) & .data$cause_of_death %in% death_pc_codes, .data$death, 999999L),
-      death_cvd = dplyr::if_else(!is.na(.data$cause_of_death) & .data$cause_of_death %in% death_cvd_codes, .data$death, 999999L)
-    ) |>
-    dplyr::select(!"cause_of_death") |>
-    dplyr::mutate(
-      censor_time = case_when(
-        .data$death <= .data$end_of_observation ~ .data$death,
-        .default = .data$end_of_observation
-      ),
-      censor_reason = case_when(
-        .data$censor_time == .data$death ~ "death",
-        .data$censor_time == .data$end_of_observation ~ "end of observation",
-        .default = "error"
-      )
-    ) |>
-    dplyr::mutate(
-      treatment = dplyr::case_when(
-        .data$cohort_definition_id == 1L ~ "EBRT",
-        .data$cohort_definition_id == 2L ~ "RP",
-        TRUE ~ as.character(.data$cohort_definition_id)
-      )
-    ) |>
-    dplyr::compute(name = "survival_data")
+  cdm[[cohort_name_matched]] <- deathSurvival(cdm = cdm,
+                                          cohort_name = cohort_name_matched) |>
+    addCauseOfDeath(death_pc_codes = death_pc_codes,
+                    death_cvd_codes = death_cvd_codes)|>
+    dplyr::compute(name = cohort_name_matched)
 
   for (out in c(outcomes, "type2_diabetes")) {
-    washout_name <- paste0(out, "_washout")
-    window <- list(c(1, Inf))
-    if (out == "androgen_deprivation") {
-      window <- list(c(181, Inf))
-    } else {
-      window <- list(c(1, Inf))
-    }
-    if (out != "type2_diabetes") {
-    cdm[["survival_data"]] <- cdm[["survival_data"]] |>
-      PatientProfiles::addConceptIntersectDays(
-        conceptSet = list(out = outcome_codelist[[out]]),
-        window = window,
-        nameStyle = out,
-        name = "survival_data"
-      ) |>
-      PatientProfiles::addConceptIntersectFlag(
-        conceptSet = list(out = outcome_codelist[[out]]),
-        window = list(c(-365, 0)),
-        targetStartDate = "event_end_date",
-        name = "survival_data",
-        nameStyle = washout_name
-      ) |>
-      dplyr::mutate(
-        !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
-      ) } else {
-        cdm[["survival_data"]] <- cdm[["survival_data"]] |>
-          PatientProfiles::addCohortIntersectDays(
-            targetCohortTable = "type2_diabetes",
-            window = window,
-            nameStyle = "type2_diabetes",
-            name = "survival_data"
-          ) |>
-        PatientProfiles::addCohortIntersectFlag(
-          targetCohortTable = "type2_diabetes",
-          window = list(c(-365, 0)),
-          targetStartDate = "cohort_end_date",
-          name = "survival_data",
-          nameStyle = washout_name
-        ) |>
-          dplyr::mutate(
-            !!rlang::sym(out) := dplyr::coalesce(.data[[out]], 999999L)
-          )
-    }
-    pairs <- cdm[["survival_data"]] |>
-      dplyr::filter(.data[[washout_name]] == 1L) |>
-      dplyr::pull(.data$pair_id)
 
-    cdm[["survival_data"]] <- cdm[["survival_data"]] |>
-      dplyr::mutate(!!rlang::sym(out) := dplyr::if_else(.data$pair_id %in% pairs, 999999L, .data[[out]])) |>
-      dplyr::select(!dplyr::all_of(washout_name)) |>
-      dplyr::compute("survival_data")
+    cdm[[cohort_name_matched]] <- cdm[[cohort_name_matched]] |>
+      addOutcome(outcome = out, outcome_codelist = outcome_codelist)
   }
-  survival_data <- cdm[["survival_data"]] |>
+  survival_data <- cdm[[cohort_name_matched]] |>
     dplyr::collect()
   outcomes <- c("death", "death_cvd", "death_pc", "type2_diabetes", outcomes)
   res_outcomes <- outcomes |>
     purrr::map(\(out) {
-      print(out)
       outcomeModel(survival_data = survival_data, outcome = out)
     })
   result[["survival"]] <- res_outcomes |>
     bindResults(cdmName = dbName, cohort_name = cohort_name)
-
+  ### NCO ----
   nco_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "NCO"), type = "csv")
   negative_control_outcomes <- clean_names(names(nco_codelist))
   names(nco_codelist) <- negative_control_outcomes
 
 
-  cdm[["nco"]] <- cdm[[cohort_name_matched]] |>
-    PatientProfiles::addDeathDays(deathDaysName = "death", name = "nco", window = c(1, Inf)) |>
-    PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation", name = "nco") |>
-    dplyr::mutate(
-      death = dplyr::coalesce(.data[["death"]], 999999L)
-    ) |>
-    dplyr::mutate(
-      censor_time = case_when(
-        .data$death <= .data$end_of_observation ~ .data$death,
-        .default = .data$end_of_observation
-      ),
-      censor_reason = case_when(
-        .data$censor_time == .data$death ~ "death",
-        .data$censor_time == .data$end_of_observation ~ "end of observation",
-        .default = "error"
-      )
-    ) |>
-    dplyr::mutate(
-      treatment = dplyr::case_when(
-        .data$cohort_definition_id == 1L ~ "EBRT",
-        .data$cohort_definition_id == 2L ~ "RP",
-        TRUE ~ as.character(.data$cohort_definition_id)
-      )
-    ) |>
-    dplyr::compute(name = "nco")
-
   for (nco in negative_control_outcomes) {
 
-    cdm[["nco"]] <- cdm[["nco"]] |>
+    cdm[[cohort_name_matched]] <- cdm[[cohort_name_matched]] |>
       PatientProfiles::addConceptIntersectDays(
         conceptSet = list(nco = nco_codelist[[nco]]),
         window = list(c(1, Inf)),
         nameStyle = nco,
-        name = "nco"
+        name = cohort_name_matched
       )
   }
-  nco_table <- cdm[["nco"]] |>
+  nco_table <- cdm[[cohort_name_matched]] |>
     dplyr::collect()
 
   res_nco <- negative_control_outcomes |>
@@ -315,8 +218,8 @@ for (cohort_name in cohorts) {
 
   result[["nco"]] <- omopgenerics::newSummarisedResult(result[["nco"]], settings = set)
 
-
    result_to_export <- omopgenerics::bind(result)
    omopgenerics::exportSummarisedResult(result, path = output_directory, fileName = paste0("results_{cdm_name}_", cohort_name, "_{date}.csv"))
+  }
   }
 }
