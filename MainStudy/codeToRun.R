@@ -8,6 +8,8 @@ library(DBI)
 library(RPostgres)
 library(CDMConnector)
 
+renv::restore()
+
 minCellCount <- 5
 dbName <-"gold_pc"
 con <- dbConnect(drv = Postgres(),

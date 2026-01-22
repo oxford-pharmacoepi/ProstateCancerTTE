@@ -1,18 +1,10 @@
 source("Model/functions.R")
 
-
-output_directory <- here::here("Results")
-
-log_file <- file.path(output_directory, paste0("/log_", dbName, "_", format(Sys.time(), "%d_%m_%Y_%H_%M_%S"), ".txt"))
-omopgenerics::createLogFile(logFile = log_file)
-
 omopgenerics::logMessage("=== Running Model===")
 
 excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codelist/ExcludedFromPS", type = "csv") |>
   unlist() |>
   unname()
-
-
 
 cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
 #c( "optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")

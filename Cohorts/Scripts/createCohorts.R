@@ -1,7 +1,10 @@
+omopgenerics::logMessage("=== Instatiating Cohorts: Start ===")
 
 # import concepts ----
 
 folder_path <-"~/ProstateCancerTTE/Codelist/InclusionCriteria"
+
+omopgenerics::logMessage(paste0("Reading codelists from: ", folder_path))
 
 codelist <- omopgenerics::importCodelist(paste0(folder_path), "csv")
 
@@ -26,6 +29,8 @@ if (grepl("gold", dbName)) {
 
 # concept cohorts ----
 
+omopgenerics::logMessage("Building age restricted prostate cancer cohort (50–69)")
+
 cdm$prostate_cancer_age_50_69 <- CohortConstructor::conceptCohort(cdm,
                                                                   conceptSet = list("prostate_cancer" = codelist$prostate_cancer),
                                                                   name = "prostate_cancer_age_50_69" ) |>
@@ -34,6 +39,7 @@ cdm$prostate_cancer_age_50_69 <- CohortConstructor::conceptCohort(cdm,
                                          ageRange = list(c(50, 69)),
                                          minPriorObservation = 365,
                                          indexDate = "cohort_start_date")
+omopgenerics::logMessage("Building PSA measurements cohort")
 
 cdm[["psa_values"]] <- cdm$measurement |>
   dplyr::filter(.data$measurement_concept_id %in% codelist$psa) |>
@@ -96,7 +102,7 @@ cdm$psa_trial <- cdm$psa_values_trial |>
   dplyr::filter(.data$psa_value <= 19.99 & .data$psa_value >=3) |>
   dplyr::compute(name = "psa_trial")
 
-
+omopgenerics::logMessage("Building early-stage cohort")
 cdm$early_stage <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_early_stage, name = "early_stage") |>
   PatientProfiles::addConceptIntersectDate(conceptSet = list("treatment" = unname(unlist(codelist_treatment))), nameStyle = "treatment_date", name = "early_stage")
 
@@ -119,6 +125,8 @@ cdm$early_stage_rwd <- cdm$early_stage |>
                                              name = "early_stage_rwd"
   ) |>
   CohortConstructor::unionCohorts(name = "early_stage_rwd")
+
+omopgenerics::logMessage("Building advanced-stage cohort")
 
 cdm$advanced_stage <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_advanced_stage, name = "advanced_stage") |>
   PatientProfiles::addConceptIntersectDate(conceptSet = list("treatment" = unname(unlist(codelist_treatment))), nameStyle = "{concept_name}_date", name = "advanced_stage")
@@ -143,7 +151,7 @@ cdm$advanced_stage_rwd <- cdm$advanced_stage |>
 
 
 # tte ----
-
+omopgenerics::logMessage("Instatiating trial cohort with all eligibility checks")
 cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_treatment, name = "optima_pc_trial") |>
 
   CohortConstructor::requireIsFirstEntry() |>
@@ -293,8 +301,9 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
   dplyr::compute(name = "optima_pc_trial") |>
   CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_trial", "radical_prostatectomy_trial"))
 
+omopgenerics::logMessage("Completed: optima_pc_trial")
 # rwd ----
-
+omopgenerics::logMessage("Constructing rwd cohort with eligibility checks")
 cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_treatment, name = "optima_pc_rwd") |>
 
   CohortConstructor::requireIsFirstEntry() |>
@@ -336,20 +345,25 @@ cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist
   dplyr::compute(name = "optima_pc_rwd") |>
   CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_rwd", "radical_prostatectomy_rwd"))
 
+omopgenerics::logMessage("Completed: optima_pc_rwd")
+
+omopgenerics::logMessage("Splitting rwd cohort by age: 50–69")
 
 cdm$optima_pc_rwd_50_69 <- cdm$optima_pc_rwd |>
   CohortConstructor::requireAge(ageRange = list(c(50,69)),
                                 name = "optima_pc_rwd_50_69" ) |>
   CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_rwd_50_69", "radical_prostatectomy_rwd_50_69"))
+omopgenerics::logMessage("Completed: optima_pc_rwd_50_69")
 
+omopgenerics::logMessage("Splitting rwd cohort by age: 70+")
 cdm$optima_pc_rwd_70_inf <- cdm$optima_pc_rwd |>
   CohortConstructor::requireAge(ageRange = list(c(70,Inf)),
                                 name = "optima_pc_rwd_70_inf" ) |>
   CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_rwd_70_inf", "radical_prostatectomy_rwd_70_inf"))
-
+omopgenerics::logMessage("Completed: optima_pc_rwd_70_inf")
 
 ## 2010-2020
-
+omopgenerics::logMessage("Creating calendar-restricted subsets: 2010–2020")
 cdm$optima_pc_trial_2010_2020 <- cdm$optima_pc_trial |>
   CohortConstructor::requireInDateRange(dateRange = as.Date(c("2010-01-01","2019-12-31")),
                                         name = "optima_pc_trial_2010_2020") |>
@@ -376,4 +390,4 @@ cdm$optima_pc_rwd_70_inf_2010_2020 <- cdm$optima_pc_rwd_70_inf |>
   CohortConstructor::renameCohort(cohortId = c(1, 2), newCohortName = c("ebrt_rwd_70_inf_2010_2020", "radical_prostatectomy_rwd_70_inf_2010_2020"))
 
 
-
+omopgenerics::logMessage("All cohort constructions finished")
