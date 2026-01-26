@@ -56,6 +56,19 @@ if (characterise_clinical_tables) {
 
     cdm$death <- cdm$death |>
       dplyr::filter(.data$death_type_concept_id %in% c(32815, 32828, 32835, 32879))
+  } else if (db_filter == "RTDS"){
+
+    cdm$condition_occurrence <- cdm$condition_occurrence |>
+      dplyr::filter(.data$condition_type_concept_id %in% c(32815, 32828, 32835, 32879) )
+
+    cdm$visit_detail <- cdm$visit_detail |>
+      dplyr::filter(.data$visit_detail_concept_id == 38004269   & .data$visit_detail_type_concept_id == 32879 )
+
+    cdm$visit_occurrence <- cdm$visit_occurrence |>
+      dplyr::filter(.data$visit_concept_id == 38004269  & .data$visit_type_concept_id == 32879 )
+
+    cdm$death <- cdm$death |>
+      dplyr::filter(.data$death_type_concept_id %in% c(32815, 32828, 32835, 32879))
   }
 
   cdm$drug_exposure <- cdm$drug_exposure |>
