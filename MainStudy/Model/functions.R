@@ -345,7 +345,7 @@ computeASMD <- function(wide_data, features = c()) {
 getMatchedData <- function(selectedFeatures, wide_data, cdm_name) {
 
   library(MatchIt)
-
+  selectedFeatures <- c("age", selectedFeatures) |> unique()
   needs_ticks <- selectedFeatures != make.names(selectedFeatures)
   rhs <- ifelse(needs_ticks, sprintf("`%s`", selectedFeatures), selectedFeatures)
   ps_formula <- as.formula(paste("y ~", paste(rhs, collapse = " + ")))
