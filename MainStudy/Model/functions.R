@@ -816,6 +816,7 @@ addCauseOfDeath <- function(cohort, death_pc_codes, death_cvd_codes) {
   cohort |>
     PatientProfiles::addTableIntersectField(
     tableName = "death",
+    order = "first",
     field = "cause_concept_id",
     nameStyle = "cause_of_death") |>
     dplyr::mutate(
@@ -841,6 +842,7 @@ addOutcome <- function(cohort, outcome, outcome_codelist) {
       PatientProfiles::addConceptIntersectDays(
         conceptSet = list(outcome = outcome_codelist[[outcome]]),
         window = post_window,
+        order = "first",
         nameStyle = outcome,
         name = table_name
       ) |>
@@ -857,6 +859,7 @@ addOutcome <- function(cohort, outcome, outcome_codelist) {
       PatientProfiles::addCohortIntersectDays(
         targetCohortTable = "type2_diabetes",
         window = post_window,
+        order = "first",
         nameStyle = "type2_diabetes",
         name = table_name
       ) |>
