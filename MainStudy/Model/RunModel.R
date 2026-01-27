@@ -28,21 +28,21 @@ results_per_cohort <- purrr::map(cohorts, \(cohort_name) {
   result <- list()
 
   ## Lasso ----
-  cdm[[cohort_name]] <<- cdm[[cohort_name]] |>
+  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
     dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date") |>
     dplyr::compute(name = cohort_name)
 
   omopgenerics::logMessage("Get long data from cohort")
-  cdm <<- longDataFromCohort(cdm, cohort_name = cohort_name, excluded_codes = excluded_codes)
+  cdm <- longDataFromCohort(cdm, cohort_name = cohort_name, excluded_codes = excluded_codes)
 
   omopgenerics::logMessage("Identifying commonly observed concepts")
   frequent_concepts <- getFrequentConcepts(cohort = cdm[[cohort_name_long]])
 
   omopgenerics::logMessage("Summarising visit counts")
-  cdm <<- visitsCount(cdm, cohort_name = cohort_name)
+  cdm <- visitsCount(cdm, cohort_name = cohort_name)
 
   omopgenerics::logMessage("Adding additional variables and age")
-  cdm[[cohort_name_long]] <<- cdm[[cohort_name_long]] |>
+  cdm[[cohort_name_long]] <- cdm[[cohort_name_long]] |>
     addVariables() |>
     PatientProfiles::addAge()
 
@@ -167,8 +167,8 @@ results_per_cohort <- purrr::map(cohorts, \(cohort_name) {
       dplyr::starts_with("latest"), dplyr::starts_with("psa")
     )
 
-  cdm <<- omopgenerics::insertTable(cdm = cdm, name = cohort_name_matched, table = matched_data)
-  cdm[[cohort_name_matched]] <<- omopgenerics::newCohortTable(table = cdm[[cohort_name_matched]])
+  cdm <- omopgenerics::insertTable(cdm = cdm, name = cohort_name_matched, table = matched_data)
+  cdm[[cohort_name_matched]] <- omopgenerics::newCohortTable(table = cdm[[cohort_name_matched]])
 
   omopgenerics::logMessage("Summarising characteristics of the matched cohort")
   result[["characterisation_matched_cohort"]] <- cohortCharacterisation(cdm = cdm, cohort_name = cohort_name_matched)
@@ -184,12 +184,12 @@ results_per_cohort <- purrr::map(cohorts, \(cohort_name) {
   death_pc_codes <- death_codelist[["prostate_cancer_death"]]
   death_cvd_codes <- death_codelist[["cvd_death"]]
 
-  cdm[[cohort_name_matched]] <<- deathSurvival(cdm = cdm, cohort_name = cohort_name_matched) |>
+  cdm[[cohort_name_matched]] <- deathSurvival(cdm = cdm, cohort_name = cohort_name_matched) |>
     addCauseOfDeath(death_pc_codes = death_pc_codes, death_cvd_codes = death_cvd_codes) |>
     dplyr::compute(name = cohort_name_matched)
 
   for (out in c(outcomes, "type2_diabetes")) {
-    cdm[[cohort_name_matched]] <<- cdm[[cohort_name_matched]] |>
+    cdm[[cohort_name_matched]] <- cdm[[cohort_name_matched]] |>
       addOutcome(outcome = out, outcome_codelist = outcome_codelist)
   }
 
@@ -212,7 +212,7 @@ results_per_cohort <- purrr::map(cohorts, \(cohort_name) {
 
   omopgenerics::logMessage("Negative control outcomes")
   for (nco in negative_control_outcomes) {
-    cdm[[cohort_name_matched]] <<- cdm[[cohort_name_matched]] |>
+    cdm[[cohort_name_matched]] <- cdm[[cohort_name_matched]] |>
       PatientProfiles::addConceptIntersectDays(
         conceptSet = list(nco = nco_codelist[[nco]]),
         window = list(c(1, Inf)),
