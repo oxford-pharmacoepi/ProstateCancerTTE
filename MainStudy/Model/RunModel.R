@@ -2,7 +2,7 @@ source("Model/functions.R")
 
 omopgenerics::logMessage("=== Running Model===")
 
-excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codelist/ExcludedFromPS", type = "csv") |>
+excluded_codes <- omopgenerics::importCodelist(path = here::here("..", "Codelist", "ExcludedFromPS"), type = "csv") |>
   unlist() |>
   unname()
 
