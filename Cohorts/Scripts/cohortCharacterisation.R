@@ -1,14 +1,14 @@
 
-source("~/ProstateCancerTTE/Cohorts/Scripts/functions.R")
+source(here::here("..", "Cohorts", "Scripts", "functions.R"))
 
 omopgenerics::logMessage("Building general conditions cohort")
-conditions_codelist <- omopgenerics::importCodelist("~/ProstateCancerTTE/Codelist/Characterisation/conditions", type = "csv")
+conditions_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions"), type = "csv")
 
 cdm$conditions <- CohortConstructor::conceptCohort(cdm, conceptSet = conditions_codelist, name = "conditions")
 
 omopgenerics::logMessage("Building general medications cohort")
 
-medications_codelist <- omopgenerics::importCodelist("~/ProstateCancerTTE/Codelist/Characterisation/medications", type = "csv")
+medications_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","medications"), type = "csv")
 
 cdm$medications <- CohortConstructor::conceptCohort(cdm, conceptSet = medications_codelist, name = "medications")
 
@@ -79,5 +79,5 @@ omopgenerics::logMessage("Attrition prostate cancer between age 50 and 69 trial 
 result[["prostate_cancer_age_50_69"]] <- CohortCharacteristics::summariseCohortAttrition(cdm[["prostate_cancer_age_50_69"]])
 
 result <- omopgenerics::bind(result)
-omopgenerics::exportSummarisedResult(result, fileName =  paste0("prostateCancer_characterisation_cohorts_{cdm_name}.csv"), path = output_folder )
+omopgenerics::exportSummarisedResult(result, fileName = "pc_characterisation_cohorts_{cdm_name}_{date}.csv", path = output_folder )
 

@@ -3,7 +3,7 @@
 omopgenerics::logMessage("Start: build characteristic cohorts (N and T status, Gleason, diabetes)")
 ## N status ----
 omopgenerics::logMessage("Creating N-status cohort")
-N_status_codelist <- omopgenerics::importCodelist("~/ProstateCancerTTE/Codelist/Characterisation/N-status", type = "csv")
+N_status_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","N-status"), type = "csv")
 
 cdm[["n_status"]] <- CohortConstructor::conceptCohort(cdm, conceptSet = N_status_codelist,
                                                       subsetCohort = "optima_pc_rwd",
@@ -32,8 +32,8 @@ cdm[["n_status_trial"]] <- cdm[["n_status"]]|>
 
 ## T status ----
 omopgenerics::logMessage("Creating T-status cohort")
-t1_status <- omopgenerics::importCodelist("~/ProstateCancerTTE/Codelist/Characterisation/conditions/t1.csv", type = "csv")
-t2_status <- omopgenerics::importCodelist("~/ProstateCancerTTE/Codelist/Characterisation/conditions/t2.csv", type = "csv")
+t1_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions", "t1.csv"), type = "csv")
+t1_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions", "t2.csv"), type = "csv")
 t_status_codelist <- omopgenerics::bind(t1_status, t2_status)
 
 cdm[["t_status"]] <- CohortConstructor::conceptCohort(cdm, conceptSet = t_status_codelist,
@@ -130,8 +130,7 @@ names(diabetes_codelist) <- diabetes
 
 cdm$type2_diabetes <- CohortConstructor::conceptCohort(cdm,
                                                        conceptSet = list("dm2_inc" = diabetes_codelist$dm2_inc),
-                                                       name = "type2_diabetes", 
-                                                       table = c("condition_occurrence", "procedure_occurrence", "observation")) |>
+                                                       name = "type2_diabetes") |>
   CohortConstructor::requireConceptIntersect(conceptSet = list("dm1_prev" = diabetes_codelist$dm1_prev), 
                                              window = c(-Inf, -1), 
                                              intersection = c(0,0)) |>

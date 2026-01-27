@@ -18,7 +18,7 @@ if (createCohorts) {
 
 if (runModel) {
   omopgenerics::logMessage("Running model")
-  source(here::here("Model/RunModel.R"))
+  source(here::here("Model", "RunModel.R"))
 
 }
 
