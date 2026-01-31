@@ -1,10 +1,9 @@
 
-codelist <- importCodelist(here("Codelist", "InclusionCriteria"), type = "csv")
+codelist <- importCodelist(here("..", "Codelist", "InclusionCriteria"), type = "csv")
 names(codelist)[names(codelist) == "ebrt"] <- "radiotheraphy"
 names(codelist)[names(codelist) == "radical_prostatectomy"] <- "prostatectomy"
-names(codelist)[names(codelist) == "stage3_4"] <- "progression"
-codelistOutcomes <- importCodelist(here("Codelist", "Outcomes"), type = "csv")
-exclude <- importCodelist(path = here("Codelist", "ExcludedFromPS"), type = "csv")
+codelistOutcomes <- importCodelist(here("..", "Codelist", "Outcomes"), type = "csv")
+exclude <- importCodelist(path = here("..", "Codelist", "ExcludedFromPS"), type = "csv")
 
 names(codelist) <- toSnakeCase(names(codelist))
 names(codelistOutcomes) <- toSnakeCase(names(codelistOutcomes))

@@ -19,16 +19,16 @@ library(CodelistGenerator)
 library(CohortCharacteristics)
 
 # create log file
-logFile <- here("CloneCensorWeight", "Results", "log_{date}_{time}.txt")
+logFile <- here("Results", "log_{date}_{time}.txt")
 createLogFile(logFile = logFile)
 
 # source functions
-source(here("CloneCensorWeight", "functions.R"))
+source(here("functions.R"))
 
 # create cdm object
 logMessage("Create cdm object")
 cdmName <- "CPRD Aurum"
-#cdmName <- "CPRD GOLD"
+cdmName <- "CPRD GOLD"
 
 con <- dbConnect(drv = Postgres(),
                  dbname = if_else(cdmName == "CPRD GOLD", "cdm_gold_p22_001867", "cdm_aurum_p22_001867"),
@@ -45,20 +45,6 @@ cdm <- cdmFromCon(
   writePrefix = "mc_pca_",
   .softValidation = TRUE
 )
-
-
-set.seed(1234)
-
-cdm <-cdmSample(cdm, 100)
-cdm <- cdmSubsetCohort(cdm, "my_cohort")
-
-res <- summarisePersonTable(cdm)
-
-res2 <- summariseObservationPeriod(cdm)
-
-
-
-
 
 # filter observation_period
 logMessage("Filter observation periods")
@@ -85,6 +71,8 @@ codelistConditions <- importCodelist(here("Codelist", "conditions"), type = "csv
 codelistMedications <- importCodelist(here("Codelist", "medications"), type = "csv")
 codelistOutcomes <- importCodelist(here("Codelist", "Outcomes"), type = "csv")
 exclude <- importCodelist(path = here("Codelist", "ExcludedFromPS"), type = "csv")
+
+names(codelistOutcomes) <- toSnakeCase(names(codelistOutcomes))
 
 codelistOfInterest <- list(
   index = codelist[c("radiotheraphy", "prostatectomy", "prostate_cancer")],
@@ -188,7 +176,12 @@ cdm$cohort_of_interest <- conceptCohort(
   renameCohort(cohortId = "prostatectomy_1", newCohortName = "first_prostatectomy") |>
   renameCohort(cohortId = "radiotheraphy_1", newCohortName = "first_radiotheraphy") |>
   requireIsFirstEntry(cohortId = c("first_prostate_cancer", "first_prostatectomy", "first_radiotheraphy"))
-cdm <- bind(cdm$cohort_of_interest, cdm$index_cohort, name = "cohort_of_interest")
+cdm <- bind(
+  cdm$cohort_of_interest,
+  cdm$index_cohort |>
+    select("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date"),
+  name = "cohort_of_interest"
+)
 
 # summarise cohort count
 logMessage("Summarise count")
@@ -251,11 +244,13 @@ summaryCharacteristics <- cdm$cohort_of_interest |>
         window = c(-365, 0)
       )
     ),
-    otherVariables = c("diagnostic", "cohort_start_date", "year_of_birth"),
+    otherVariables = c("diagnostic", "year_of_birth"),
     estimates = list(
-      diagnostic = c("count", "percentage"),
       cohort_start_date = "density",
       age = "density",
+      prior_observation = "density",
+      future_observation = "density",
+      diagnostic = c("count", "percentage"),
       year_of_birth = "density"
     )
   )
@@ -303,16 +298,8 @@ cdm$index_cohort <- cdm$index_cohort |>
   ) |>
   compute(name = "index_cohort")
 
-logMessage("Extract covariates")
-min_frequency <- 0.005
-num_subjects <- cdm$index_cohort |>
-  distinct(subject_id) |>
-  tally() |>
-  pull() |>
-  as.numeric()
-min_subjects <- num_subjects * min_frequency
-
 # eclude concepts from propensity scores
+logMessage("Extract covariates")
 conceptsToExclude <- c(
   codelist$radiotheraphy, codelist$prostate_cancer, codelist$prostatectomy,
   unlist(exclude, use.names = FALSE)
@@ -324,70 +311,61 @@ conditions <- cdm$condition_occurrence |>
   select(subject_id = "person_id", "condition_start_date", concept_id = "condition_concept_id") |>
   inner_join(
     cdm$index_cohort |>
-      group_by(subject_id) |>
-      summarise(
-        cohort_start_date = min(cohort_start_date, na.rm = TRUE),
-        censor_time = max(censor_time, na.rm = TRUE),
-        .groups = "drop"
-      ),
+      filter(cohort_definition_id == 1) |>
+      select("subject_id", "cohort_start_date"),
     by = "subject_id"
   ) |>
-  mutate(cov_time = condition_start_date - cohort_start_date) |>
-  filter(cov_time < censor_time) |>
-  distinct(subject_id, cov_time, concept_id) |>
-  collect()
-conds <- conditions |>
-  group_by(concept_id) |>
-  summarise(n_subjects = n_distinct(subject_id)) |>
+  filter(condition_start_date <= cohort_start_date) |>
+  distinct(subject_id, concept_id) |>
+  collect() |>
   filter(concept_id != 0) |>
-  filter(n_subjects >= min_subjects) |>
-  filter(!concept_id %in% conceptsToExclude) |>
-  pull(concept_id)
-conditions <- conditions |>
-  filter(concept_id %in% conds)
+  filter(!concept_id %in% conceptsToExclude)
 
 # extract exposures
 logMessage("Extract exposures")
 exposures <- cdm$drug_exposure |>
   select(subject_id = "person_id", "drug_exposure_start_date", concept_id = "drug_concept_id") |>
   inner_join(
-    cdm$index_cohort  |>
-      group_by(subject_id) |>
-      summarise(
-        cohort_start_date = min(cohort_start_date, na.rm = TRUE),
-        censor_time = max(censor_time, na.rm = TRUE),
-        .groups = "drop"
-      ),
+    cdm$index_cohort |>
+      filter(cohort_definition_id == 1) |>
+      select("subject_id", "cohort_start_date"),
     by = "subject_id"
   ) |>
   mutate(cov_time = drug_exposure_start_date - cohort_start_date) |>
-  filter(cov_time < censor_time & cov_time >= -365) |>
-  distinct(subject_id, cov_time, concept_id) |>
-  collect()
-exps <- exposures |>
-  group_by(concept_id) |>
-  summarise(n_subjects = n_distinct(subject_id)) |>
+  filter(cov_time <= 0 & cov_time >= -365) |>
+  distinct(subject_id, concept_id) |>
+  collect() |>
   filter(concept_id != 0) |>
-  filter(n_subjects >= min_subjects) |>
-  filter(!concept_id %in% conceptsToExclude) |>
-  pull(concept_id)
-exposures <- exposures |>
-  filter(concept_id %in% exps)
+  filter(!concept_id %in% conceptsToExclude)
+
+# add ouctomes information
+logMessage("Add outcomes information")
+outcomes <- names(codelistOutcomes)
+cdm$index_cohort <- cdm$index_cohort |>
+  addConceptIntersectDays(
+    conceptSet = codelistOutcomes,
+    window = c(0, Inf),
+    nameStyle = "{concept_name}",
+    name = "index_cohort"
+  ) |>
+  mutate(across(.cols = all_of(outcomes), .fns = \(x) coalesce(x, 9999))) |>
+  compute(name = "index_cohort")
 
 # collect data
 logMessage("Collect data")
 x <- cdm$index_cohort |>
-  select("cohort_name", "subject_id", "age", death = "days_to_death", "progression", "censor_time", "censor_reason") |>
+  select("cohort_name", "subject_id", "age", death = "days_to_death", "progression", "censor_time", "censor_reason", all_of(outcomes)) |>
   collect() |>
   mutate(cohort_name = factor(cohort_name, levels = c("surveillance", "prostatectomy", "radiotheraphy")))
 
-outcomes <- c("death", "progression")
+# calculate weights
+logMessage("Calculate weights")
+weights <- calculateWeights(x, conditions, exposures, 0.005)
 
 # loop through outcomes
+outcomes <- c("death", "progression", outcomes)
 result <- outcomes |>
-  map(\(out) {
-    summaryOutcome(x = x, outcome = out, conditions = conditions, exposures = exposures, min_frequency = min_frequency)
-  }) |>
+  map(\(out) summaryOutcome(x = x, outcome = out, weights = weights)) |>
   # bind and convert results
   bindResults(cdmName = cdmName)
 
