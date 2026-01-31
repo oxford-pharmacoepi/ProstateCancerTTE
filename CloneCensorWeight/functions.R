@@ -1,19 +1,49 @@
-summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
-  logMessage(paste0("Start analysis for outcome: ", outcome))
-  x <- x |>
-    rename(outcome = all_of(outcome)) |>
-    mutate(
-      status = if_else(is.na(outcome) | outcome > censor_time, 0, 1),
-      time = if_else(status == 0, censor_time, outcome),
-      reason = if_else(status == 0, censor_reason, "outcome")
-    ) |>
-    select("cohort_name", "subject_id", "status", "time", "reason", "age")
 
-  sep <- 30
+extractCovariates <- function(table, individuals, total_ind, minFrequency, excludeCodes) {
+  cdm <- cdmReference(individuals)
+  id <- omopColumns(table = table, field = "standard_concept")
+  date <- omopColumns(table = table, field = "start_date")
+  
+  allCov <- cdm[[table]] |>
+    rename(concept_id = all_of(id), date = all_of(date)) |>
+    inner_join(individuals, by = "person_id") |>
+    mutate(time = date_count_between(cohort_start_date, date)) |>
+    filter(time <= max_censor) |>
+    select(person_id, time, concept_id) |>
+    compute(name = "all_cov")
+  covOfInterest <- allCov |>
+    group_by(concept_id) |>
+    summarise(n_ind = n_distinct(person_id)) |>
+    mutate(percentage = n_ind / total_ind) |>
+    filter(!concept_id %in% excludeCodes & percentage >= minFrequency) |>
+    compute(name = "selected_cov")
+  allCov <- allCov |>
+    inner_join(
+      covOfInterest |>
+        select(concept_id),
+      by = "concept_id"
+    ) |>
+    mutate(covariate = paste0("cov_", concept_id), table = table) |>
+    distinct(person_id, time, covariate, table) |>
+    collect()
+  dropSourceTable(cdm = cdm, name = c("selected_cov", "all_cov"))
+  allCov
+}
+createCovariatesMatrix <- function(cohort, time, drugs, conditions, psa, gleason) {
+  
+}
+
+
+calculateWeights <- function(x, conditions, exposures, min_frequency) {
+  x <- x |>
+    select("cohort_name", "subject_id", "time" = "censor_time", "age")
+
+  sep <- 10
   weights_time <- seq(from = 0, to = 730, by = sep)
 
   coefficients <- list()
   probabilities <- list()
+  weights <- list()
 
   for (wti in weights_time) {
     logMessage(paste0("Calculating weights at time: ", wti))
@@ -21,44 +51,30 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     xi <- x |>
       filter(time > wti)
 
-    min_counts_i <- nrow(xi) * min_frequency
+    subjects <- unique(xi$subject_id)
+
+    min_counts_i <- length(subjects) * min_frequency
 
     # exposures
-    exposures_i <- exposures |>
-      filter(cov_time <= wti & cov_time + 365 >= wti) |>
-      inner_join(
-        xi |>
-          select("cohort_name", "subject_id"),
-        by = "subject_id",
-        relationship = "many-to-many"
-      ) |>
-      distinct(cohort_name, subject_id, concept_id)
-    exps_i <- exposures_i |>
+    exps_i <- exposures |>
+      filter(subject_id %in% subjects) |>
       group_by(concept_id) |>
       tally() |>
       filter(n >= min_counts_i) |>
       pull(concept_id)
-    exposures_i <- exposures_i |>
+    exposures_i <- exposures |>
       filter(concept_id %in% exps_i) |>
       mutate(value = 1, concept_id = paste0("cov_", concept_id)) |>
       pivot_wider(names_from = "concept_id", values_from = "value")
 
     # conditions
-    conditions_i <- conditions |>
-      filter(cov_time <= wti) |>
-      inner_join(
-        xi |>
-          select("cohort_name", "subject_id"),
-        by = "subject_id",
-        relationship = "many-to-many"
-      ) |>
-      distinct(cohort_name, subject_id, concept_id)
-    cond_i <- conditions_i |>
+    cond_i <- conditions |>
+      filter(subject_id %in% subjects) |>
       group_by(concept_id) |>
       tally() |>
       filter(n >= min_counts_i) |>
       pull(concept_id)
-    conditions_i <- conditions_i |>
+    conditions_i <- conditions |>
       filter(concept_id %in% cond_i) |>
       mutate(value = 1, concept_id = paste0("cov_", concept_id)) |>
       pivot_wider(names_from = "concept_id", values_from = "value")
@@ -66,13 +82,13 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     # create matrix
     covs <- paste0("cov_", c(cond_i, exps_i))
     xi <- xi |>
-      left_join(conditions_i, by = c("cohort_name", "subject_id")) |>
-      left_join(exposures_i, by = c("cohort_name", "subject_id")) |>
+      left_join(conditions_i, by = "subject_id") |>
+      left_join(exposures_i, by = "subject_id") |>
       mutate(across(all_of(covs), \(x) coalesce(x, 0)))
 
     # lasso to select variables
     X <- xi |>
-      select(!c("cohort_name", "subject_id", "status", "time", "reason", "age")) |>
+      select(!c("cohort_name", "subject_id", "time", "age")) |>
       as.matrix()
     y <- xi$cohort_name
     lambdas <- 10^seq(2, -3, by = -.1)
@@ -96,15 +112,40 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
       as_tibble(rownames = "group") |>
       pivot_longer(!"group", names_to = "covariate", values_to = "value")
 
-    # save weights
+    # save probabilities
     probs <- predict(fit, type = "probs")
     probabilities[[as.character(wti)]] <- xi |>
       select("cohort_name", "subject_id") |>
       bind_cols(as_tibble(probs))
+
+    # # save weights
+    # weights[[as.character(wti)]] <- probabilities[[as.character(wti)]] |>
+    #   mutate(weights = case_when(
+    #     cohort_name == "surveillance" ~ 1 - surveillance,
+    #     cohort_name == "prostatectomy" ~ 1 - prostatectomy,
+    #     cohort_name == "radiotheraphy" ~ 1 - radiotheraphy,
+    #   )) |>
+    #   select("cohort_name", "subject_id", "weights")
   }
 
+  list(probabilities = probabilities, coefficients = coefficients)
+}
+summaryOutcome <- function(x, outcome, weights) {
+  logMessage(paste0("Outcome model for: ", outcome))
+  xo <- x |>
+    rename(outcome = all_of(outcome)) |>
+    mutate(
+      status = if_else(is.na(outcome) | outcome > censor_time, 0, 1),
+      time = if_else(status == 0, censor_time, outcome),
+      reason = if_else(status == 0, censor_reason, "outcome")
+    ) |>
+    select("cohort_name", "subject_id", "status", "time", "reason", "age")
+
+  probabilities <- weights$probabilities
+  coefficients <- weights$coefficients
+  sep <- unique(diff(as.numeric(names(probabilities))))
+
   # survival over time
-  logMessage("Summarising survival data")
   surv_data <- probabilities |>
     bind_rows(.id = "time_start") |>
     mutate(
@@ -117,7 +158,7 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
       time_end = time_start + sep
     ) |>
     inner_join(
-      x |>
+      xo |>
         select(!"age"),
       by = c("cohort_name", "subject_id")
     ) |>
@@ -155,7 +196,6 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     )
 
   # hazard ratio
-  logMessage("Calculating hazard ratio")
   surv_data <- surv_data |>
     group_by(cohort_name, subject_id) |>
     mutate(id = cur_group_id()) |>
@@ -184,7 +224,7 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
         coefficients() |>
         as_tibble(rownames = "comparator") |>
         mutate(reference = "surveillance") |>
-        union_all(
+        bind_rows(
           summary(fit2) |>
             coefficients() |>
             as_tibble(rownames = "comparator") |>
@@ -193,7 +233,7 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
         rename(
           "hazard_ratio" = "exp(coef)",
           "se_coef" = "se(coef)",
-          "se_coef_robust" = "robust se",
+          #"se_coef_robust" = "robust se",
           "p_value" = "Pr(>|z|)"
         ) |>
         mutate(comparator = str_replace(comparator, "cohort_name", ""))
@@ -203,7 +243,6 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     relocate("interval", "comparator", "reference", "outcome")
 
   # number events
-  logMessage("Summarising number of events")
   events <- surv_data |>
     group_by(time_start, cohort_name) |>
     summarise(
@@ -214,8 +253,7 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     mutate(time_end = time_start + sep, outcome = outcome)
 
   # followup summary
-  logMessage("Summarising follow up summary")
-  followup_summary <- x |>
+  followup_summary <- xo |>
     group_by(cohort_name) |>
     summarise(
       n = n(),
@@ -231,7 +269,7 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     mutate(reason = "overall") |>
     relocate("cohort_name", "reason") |>
     union_all(
-      x |>
+      xo |>
         group_by(cohort_name, reason) |>
         summarise(
           n = n(),
@@ -248,13 +286,11 @@ summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
     mutate(outcome = outcome)
 
   # export coefficients
-  logMessage("Summarising coeficients")
   coefficients <- coefficients |>
     bind_rows(.id = "time_start") |>
     mutate(time_start = as.numeric(time_start), outcome = outcome)
 
   # export probabilities
-  logMessage("Summarising weights distribution")
   hist_sep <- 0.01
   breaks <- seq(from = 0, to = 1, by = hist_sep)
   labels <- as.character(breaks[-1] - hist_sep/2)
@@ -328,7 +364,7 @@ bindResults <- function(result, cdmName) {
     "probabilities" = c("time_start")
   )
   estimates <- list(
-    "hr_summary" = c("coef", "hazard_ratio", "se_coef", "se_coef_robust", "z", "p_value"),
+    "hr_summary" = c("coef", "hazard_ratio", "se_coef", "z", "p_value"), # se_coef_robust
     "survival_summary" = c("survival", "lower_survival", "upper_survival", "number_subjects", "number_weighted_subjects"),
     "events" = c("number_events", "number_weighted_events"),
     "followup_summary" = c("n", "min", "q05", "q25", "median", "q75", "q95", "max"),

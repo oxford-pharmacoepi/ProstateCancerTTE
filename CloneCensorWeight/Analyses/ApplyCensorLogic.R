@@ -55,6 +55,109 @@ cdm$surveillance <- cdm$prostate_cancer |>
   select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason) |>
   compute(name = "surveillance")
 
+# surveillance arm 4 months
+psaTime <- cdm$prostate_cancer |>
+  select(subject_id, psa_date = cohort_start_date) |>
+  mutate(index_date = psa_date) |>
+  union_all(
+    cdm$psa |>
+      select(subject_id, psa_date = cohort_start_date) |>
+      inner_join(
+        cdm$prostate_cancer |>
+          select(subject_id, index_date = cohort_start_date),
+        by = "subject_id"
+      ) |>
+      filter(psa_date >= index_date)
+  ) |>
+  compute(name = "psa_time") |>
+  group_by(subject_id) |>
+  arrange(psa_date) |>
+  mutate(
+    order_id = row_number(),
+    next_psa_time = date_count_between(psa_date, lead(psa_date))
+  ) |>
+  compute(name = "psa_time")
+psaTime4 <- psaTime |>
+  mutate(surveillance = if_else(next_psa_time <= 120, 0, 1, 1)) |>
+  group_by(subject_id) |>
+  arrange(order_id) |>
+  mutate(stop_surveillance = cumsum(surveillance)) |>
+  filter(stop_surveillance == 1 & surveillance == 1) |>
+  compute(name = "psa_time_4") |>
+  group_by(subject_id) |>
+  summarise(end_surveillance = date_count_between(max(index_date, na.rm = TRUE), max(psa_date, na.rm = TRUE)) + 120) |>
+  compute(name = "psa_time_4")
+cdm$surveillance_4_months <- cdm$prostate_cancer |>
+  compute(name = "surveillance_4_months") |>
+  newCohortTable(
+    cohortSetRef = tibble(
+      cohort_definition_id = 1L,
+      cohort_name = "surveillance_4_months"
+    )
+  ) |>
+  left_join(psaTime4, by = "subject_id") |>
+  mutate(
+    follow_up = case_when(
+      end_surveillance <= prostatectomy & end_surveillance <= future_observation & end_surveillance <= radiotheraphy & end_surveillance <= censor_event & end_surveillance <= death_cohort ~ end_surveillance,
+      prostatectomy <= future_observation & prostatectomy <= radiotheraphy & prostatectomy <= censor_event & prostatectomy <= death_cohort ~ prostatectomy,
+      radiotheraphy <= future_observation & radiotheraphy <= censor_event & radiotheraphy <= death_cohort ~ radiotheraphy,
+      death_cohort <= future_observation & death_cohort <= censor_event ~ death_cohort,
+      censor_event <= future_observation ~ censor_event,
+      .default = future_observation
+    ),
+    follow_up_reason = case_when(
+      follow_up == end_surveillance ~ "end_surveillance",
+      follow_up == prostatectomy ~ "prostatectomy",
+      follow_up == radiotheraphy ~ "radiotheraphy",
+      follow_up == death_cohort ~ "death",
+      follow_up == censor_event ~ "censor",
+      .default = "future_observation"
+    )
+  ) |>
+  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason) |>
+  compute(name = "surveillance_4_months")
+
+# surveillance arm 6 months
+psaTime6 <- psaTime |>
+  mutate(surveillance = if_else(next_psa_time <= 180, 0, 1, 1)) |>
+  group_by(subject_id) |>
+  arrange(order_id) |>
+  mutate(stop_surveillance = cumsum(surveillance)) |>
+  filter(stop_surveillance == 1 & surveillance == 1) |>
+  compute(name = "psa_time_6") |>
+  group_by(subject_id) |>
+  summarise(end_surveillance = date_count_between(max(index_date, na.rm = TRUE), max(psa_date, na.rm = TRUE)) + 180) |>
+  compute(name = "psa_time_6")
+cdm$surveillance_6_months <- cdm$prostate_cancer |>
+  compute(name = "surveillance_6_months") |>
+  newCohortTable(
+    cohortSetRef = tibble(
+      cohort_definition_id = 1L,
+      cohort_name = "surveillance_6_months"
+    )
+  ) |>
+  left_join(psaTime6, by = "subject_id") |>
+  mutate(
+    follow_up = case_when(
+      end_surveillance <= prostatectomy & end_surveillance <= future_observation & end_surveillance <= radiotheraphy & end_surveillance <= censor_event & end_surveillance <= death_cohort ~ end_surveillance,
+      prostatectomy <= future_observation & prostatectomy <= radiotheraphy & prostatectomy <= censor_event & prostatectomy <= death_cohort ~ prostatectomy,
+      radiotheraphy <= future_observation & radiotheraphy <= censor_event & radiotheraphy <= death_cohort ~ radiotheraphy,
+      death_cohort <= future_observation & death_cohort <= censor_event ~ death_cohort,
+      censor_event <= future_observation ~ censor_event,
+      .default = future_observation
+    ),
+    follow_up_reason = case_when(
+      follow_up == end_surveillance ~ "end_surveillance",
+      follow_up == prostatectomy ~ "prostatectomy",
+      follow_up == radiotheraphy ~ "radiotheraphy",
+      follow_up == death_cohort ~ "death",
+      follow_up == censor_event ~ "censor",
+      .default = "future_observation"
+    )
+  ) |>
+  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason) |>
+  compute(name = "surveillance_6_months")
+
 # prostatectomy arm
 cdm$prostatectomy <- cdm$prostate_cancer |>
   compute(name = "prostatectomy") |>
@@ -114,7 +217,7 @@ cdm$radiotheraphy <- cdm$prostate_cancer |>
   compute(name = "radiotheraphy")
 
 # no outcome death
-cdm <- bind(cdm$surveillance, cdm$prostatectomy, cdm$radiotheraphy, name = "my_cohort")
+cdm <- bind(cdm$surveillance, cdm$surveillance_4_months, cdm$surveillance_6_months, cdm$prostatectomy, cdm$radiotheraphy, name = "my_cohort")
 
 # follow up time
 ot <- cdm$my_cohort |>
@@ -128,29 +231,20 @@ total <- cdm$my_cohort |>
   tally() |>
   collect()
 time <- 0:(365 * 5)
-followUpTime <- tibble(time = time) |>
-  mutate(
-    surveillance = map_dbl(time, \(x) {
+followUpTime <- tibble(time = time)
+cols <- c("surveillance", "surveillance_4_months", "surveillance_6_months", "prostatectomy", "radiotheraphy")
+for (col in cols) {
+  followUpTime <- followUpTime |>
+    mutate(!!col := map_dbl(time, \(x) {
       ot |>
-        filter(cohort_name == "surveillance", follow_up > x) |>
+        filter(cohort_name == col, follow_up > x) |>
         summarise(n = sum(n)) |>
-        pull() / total$n[total$cohort_name == "surveillance"] * 100
-    }),
-    prostatectomy = map_dbl(time, \(x) {
-      ot |>
-        filter(cohort_name == "prostatectomy", follow_up > x) |>
-        summarise(n = sum(n)) |>
-        pull() / total$n[total$cohort_name == "prostatectomy"] * 100
-    }),
-    radiotheraphy = map_dbl(time, \(x) {
-      ot |>
-        filter(cohort_name == "radiotheraphy", follow_up > x) |>
-        summarise(n = sum(n)) |>
-        pull() / total$n[total$cohort_name == "radiotheraphy"] * 100
-    })
-  ) |>
+        pull() / total$n[total$cohort_name == col] * 100
+    }))
+}
+followUpTime <- followUpTime |>
   pivot_longer(
-    c("surveillance", "prostatectomy", "radiotheraphy"),
+    cols = cols,
     names_to = "cohort_name",
     values_to = "percentage"
   ) |>

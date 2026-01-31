@@ -29,6 +29,7 @@ cdm$prostate_cancer <- conceptCohort(
   name = "prostate_cancer",
   exit = "event_start_date"
 ) |>
+  requireFutureObservation(minFutureObservation = 1) |>
   requireConceptIntersect(
     conceptSet = codelist["prostate_cancer_exclude"],
     window = c(0, 0),
