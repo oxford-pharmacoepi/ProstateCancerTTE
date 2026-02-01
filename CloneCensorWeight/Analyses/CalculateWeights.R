@@ -56,3 +56,14 @@ gleason <- cdm$gleason |>
     gleason_category == ">10" ~ 4,
     .default = NA
   ))
+
+# prepare subjects
+cohort <- cdm$my_cohort |>
+  addDateOfBirthQuerry() |>
+  mutate(
+    year_of_birth = get_year(date_of_birth),
+    index_year = get_year(cohort_start_date)
+  ) |>
+  addCohortName() |>
+  select(cohort_name, subject_id, cohort_start_date, year_of_birth, index_year) |>
+  collect()
