@@ -89,7 +89,7 @@ visitsCount <- function(cdm, cohort_name = "optima_pc_rwd"){
   cohort_name_visits <- paste(cohort_name, "visits", sep = "_")
   cdm[[cohort_name_visits]] <- cdm[[cohort_name]] |>
     dplyr::left_join(cdm$visit_occurrence |>
-                       dplyr::filter(.data$visit_concept_id != 38004268) |>
+                       dplyr::filter(!(.data$visit_concept_id %in% c(38004268, 38004269))) |>
                        dplyr::select("person_id", "visit_concept_id", "visit_start_date", "visit_end_date"),
                      by = c("subject_id" = "person_id")) |>
     dplyr::mutate(days_diff_start = as.integer(.data$cohort_start_date - .data$visit_start_date),

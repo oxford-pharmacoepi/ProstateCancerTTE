@@ -172,6 +172,7 @@ for (cohort_name in cohorts) {
     ) |>
     PatientProfiles::addTableIntersectField(tableName = "death", field = "cause_concept_id", nameStyle = "cause_of_death") |>
     dplyr::mutate(
+      cause_of_death = as.integer(as.numeric(.data$cause_of_death)),
       death_pc = dplyr::if_else(!is.na(.data$cause_of_death) & .data$cause_of_death %in% death_pc_codes, .data$death, 999999L),
       death_cvd = dplyr::if_else(!is.na(.data$cause_of_death) & .data$cause_of_death %in% death_cvd_codes, .data$death, 999999L)
     ) |>
