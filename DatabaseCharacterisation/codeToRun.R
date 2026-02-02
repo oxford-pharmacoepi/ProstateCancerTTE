@@ -10,10 +10,10 @@ library(CDMConnector)
 
 minCellCount <- 5
 
-dbName <-"aurum_pc"
+dbName <-"gold_rtds"
 
 con <- dbConnect(drv = Postgres(),
-                 dbname = "cdm_aurum_p22_001867",
+                 dbname = "cdm_gold_p22_001867_rtds",
                  host = host,
                  port = port,
                  user = username,
@@ -31,13 +31,13 @@ cdm <- cdmFromCon(con = con,
 
 observation_period <-"linked"
 
-db_filter <- "NCRASCR"
+db_filter <- "RTDS"
 
-characterise_op <- TRUE
+characterise_op <- FALSE
 
-characterise_clinical_tables <- FALSE
+characterise_clinical_tables <- TRUE
 
-source("DatabaseCharacterisation/databaseCharacterisation.R")
+source("databaseCharacterisation.R")
 
 
 
