@@ -31,52 +31,84 @@ extractCovariates <- function(table, individuals, total_ind, minFrequency, exclu
   allCov
 }
 createCovariatesMatrix <- function(cohort, time, drugs, conditions, psa, gleason) {
+  n_min <- floor(0.005 * nrow(cohort))
+  
   # prepare psa
-  psa <- psa |>
+  x_psa <- psa |>
     filter(.data$time <= .env$time) |>
     group_by(subject_id) |>
     filter(.data$time == max(.data$time, na.rm = TRUE)) |>
     ungroup() |>
     select(subject_id, psa = psa_category)
+  
   # prepare gleason
-  gleason <- gleason |>
+  x_gleason <- gleason |>
     filter(.data$time <= .env$time) |>
     group_by(subject_id) |>
     filter(.data$time == max(.data$time, na.rm = TRUE)) |>
     ungroup() |>
     select(subject_id, gleason = gleason_category)
-  # drugs
-  drugs <- drugs |>
-    filter(.data$time <= .env$time & .data$time >= .env$time - 365) |>
-    distinct(subejct_id, concept_id) |>
-    mutate(value = 1) |>
-    pivot_wider(names_from = "concept_id", values_from = "value")
-  # conditions
-  conditions <- conditions |>
-    filter(.data$time <= .env$time) |>
-    distinct(subejct_id, concept_id) |>
-    mutate(value = 1) |>
-    pivot_wider(names_from = "concept_id", values_from = "value")
-  # prepare data
-  cohort <- cohort |>
-    mutate(status = if_else(followup > time, 1, 0)) |>
-    left_join(psa, by = "subject_id") |>
-    left_join(gleason, by = "subject_id") |>
-    left_join(conditions, by = "subject_id") |>
-    left_join(drugs, by = "subject_id") |>
-    mutate(across(starts_with("cov_"), \(x) coalesce(x, 0)))
   
-  coef <- list()
-  weights <- list()
+  # drugs
+  x_drugs <- drugs |>
+    filter(.data$time <= .env$time & .data$time >= .env$time - 365) |>
+    distinct(subject_id, covariate) |>
+    mutate(value = 1)
+  min_prev <- x_drugs |>
+    group_by(covariate) |>
+    tally() |>
+    filter(n >= n_min) |>
+    pull(covariate)
+  x_drugs <- x_drugs |>
+    filter(covariate %in% min_prev) |>
+    pivot_wider(names_from = "covariate", values_from = "value")
+  
+  # conditions
+  x_conditions <- conditions |>
+    filter(.data$time <= .env$time) |>
+    distinct(subject_id, covariate) |>
+    mutate(value = 1)
+  min_prev <- x_conditions |>
+    group_by(covariate) |>
+    tally() |>
+    filter(n >= n_min) |>
+    pull(covariate)
+  x_conditions <- x_conditions |>
+    filter(covariate %in% min_prev) |>
+    pivot_wider(names_from = "covariate", values_from = "value")
+  
+  # prepare data
+  cohort |>
+    mutate(status = if_else(follow_up > time, 1, 0)) |>
+    left_join(x_psa, by = "subject_id") |>
+    left_join(x_gleason, by = "subject_id") |>
+    left_join(x_conditions, by = "subject_id") |>
+    left_join(x_drugs, by = "subject_id") |>
+    mutate(across(starts_with("cov_"), \(x) coalesce(x, 0)))
+}
+modelWeights <- function(cohort, time) {
+  coef <- tibble(
+    variable = character(),
+    coef = numeric(),
+    cohort_name = character(),
+    time = numeric()
+  )
+  weights <- tibble(
+    subject_id = bit64::integer64(),
+    prob = numeric(),
+    weight = numeric(),
+    cohort_name = character(),
+    time = numeric()
+  )
   
   nms <- unique(cohort$cohort_name)
   for (nm in nms) {
-    cli_inform(c(i = "Calculating weights at time {.pkg time} and cohort: {.pkg nms}"))
+    cli_inform(c(i = "Calculating weights at time {.pkg {time}} and cohort: {.pkg {nm}}"))
     
     # filter cohort of interest
     x <- cohort |>
       filter(.data$cohort_name == .env$nm) |>
-      select("subject_id", "status", starts_with("cov_"))
+      select(!c("cohort_name", "follow_up"))
     
     # fit model
     res <- tryCatch(calculateWeights(x), error = function(e) as.character(e))
@@ -85,144 +117,61 @@ createCovariatesMatrix <- function(cohort, time, drugs, conditions, psa, gleason
       cli_inform(c(x = "failed to fit model"))
       cli_inform(message = res)
     } else {
-      coef <- append(coef, list(res$coef))
-      weights <- append(weights, list(res$weights))
+      coef <- coef |>
+        union_all(
+          res$coef |>
+            mutate(cohort_name = nm, time = time)
+        )
+      weights <- weights |>
+        union_all(
+          res$weights |>
+            mutate(cohort_name = nm, time = time)
+        )
     }
   }
   
+  list(coef = coef, weights = weights)
 }
 calculateWeights <- function(x) {
   # lasso
   X <- x |>
-    select(!c("subject_id", "status")) |>
+    select(starts_with("cov_")) |>
     as.matrix()
   lambdas <- 10^seq(2, -3, by = -.1)
   lasso_reg <- cv.glmnet(x = X, y = x$status, lambda = lambdas, standardize = TRUE, nfolds = 5, alpha = 1)
-  selected_cov <- coef(lasso_reg, s = lasso_reg$lambda.1se) |>
-    map(\(x) {
-      x <- names(x[(x[,1]!=0),1])
-      x[x != "(Intercept)"]
-    }) |>
-    unlist(use.names = FALSE) |>
-    unique()
-  
+  selected_cov <- coef(lasso_reg, s = lasso_reg$lambda.1se)[,1] |>
+    keep(\(x) x != 0) |>
+    names() |>
+    keep(\(x) !grepl("Intercept", x))
+
   # regression
   X <- x |>
-    select(all_of(c("year_of_birth", "index_year", selected_cov))) |>
-    as.matrix()
-  fit <- glmnet(x = X, y = x$status, lambda = 0)
+    select(!subject_id) |>
+    mutate(
+      missing_psa = if_else(is.na(psa), 1, 0),
+      missing_gleason = if_else(is.na(gleason), 1, 0),
+      psa = coalesce(psa, 0),
+      gleason = coalesce(gleason, 0)
+    )
+  
+  fit <- glm(status ~ ., data = X, family = binomial())
   
   # coefficients
   coeff <- fit |>
     coefficients() |>
-    as_tibble(rownames = "status") |>
-    pivot_longer(!"status", names_to = "covariate", values_to = "value")
+    as_tibble(rownames = "variable") |>
+    rename(coef = value)
   
   # save probabilities
-  probs <- predict(fit, type = "probs")
-  probabilities[[as.character(wti)]] <- xi |>
-    select("cohort_name", "subject_id") |>
-    bind_cols(as_tibble(probs))
+  weights <- tibble(subject_id = x$subject_id, prob = predict(fit, type = "response")) |>
+    mutate(
+      prob = if_else(prob < 0.05, 0.05, prob),
+      weight = 1 / prob
+    )
   
   list(coeff = coeff, weights = weights)
 }
 
-calculateWeights <- function(x, conditions, exposures, min_frequency) {
-  x <- x |>
-    select("cohort_name", "subject_id", "time" = "censor_time", "age")
-
-  sep <- 10
-  weights_time <- seq(from = 0, to = 730, by = sep)
-
-  coefficients <- list()
-  probabilities <- list()
-  weights <- list()
-
-  for (wti in weights_time) {
-    logMessage(paste0("Calculating weights at time: ", wti))
-
-    xi <- x |>
-      filter(time > wti)
-
-    subjects <- unique(xi$subject_id)
-
-    min_counts_i <- length(subjects) * min_frequency
-
-    # exposures
-    exps_i <- exposures |>
-      filter(subject_id %in% subjects) |>
-      group_by(concept_id) |>
-      tally() |>
-      filter(n >= min_counts_i) |>
-      pull(concept_id)
-    exposures_i <- exposures |>
-      filter(concept_id %in% exps_i) |>
-      mutate(value = 1, concept_id = paste0("cov_", concept_id)) |>
-      pivot_wider(names_from = "concept_id", values_from = "value")
-
-    # conditions
-    cond_i <- conditions |>
-      filter(subject_id %in% subjects) |>
-      group_by(concept_id) |>
-      tally() |>
-      filter(n >= min_counts_i) |>
-      pull(concept_id)
-    conditions_i <- conditions |>
-      filter(concept_id %in% cond_i) |>
-      mutate(value = 1, concept_id = paste0("cov_", concept_id)) |>
-      pivot_wider(names_from = "concept_id", values_from = "value")
-
-    # create matrix
-    covs <- paste0("cov_", c(cond_i, exps_i))
-    xi <- xi |>
-      left_join(conditions_i, by = "subject_id") |>
-      left_join(exposures_i, by = "subject_id") |>
-      mutate(across(all_of(covs), \(x) coalesce(x, 0)))
-
-    # lasso to select variables
-    X <- xi |>
-      select(!c("cohort_name", "subject_id", "time", "age")) |>
-      as.matrix()
-    y <- xi$cohort_name
-    lambdas <- 10^seq(2, -3, by = -.1)
-    lasso_reg <- cv.glmnet(x = X, y = y, lambda = lambdas, standardize = TRUE, nfolds = 5, family = "multinomial", alpha = 1)
-    selected_cov <- coef(lasso_reg, s = lasso_reg$lambda.1se) |>
-      map(\(x) {
-        x <- names(x[(x[,1]!=0),1])
-        x[x != "(Intercept)"]
-      }) |>
-      unlist(use.names = FALSE) |>
-      unique()
-
-    # logistic regression
-    X <- xi |>
-      select(all_of(c("cohort_name", "age", selected_cov)))
-    fit <- multinom(cohort_name ~ ., data = X, trace = FALSE, MaxNWts = 5000)
-
-    # save model
-    coefficients[[as.character(wti)]] <- fit |>
-      coefficients() |>
-      as_tibble(rownames = "group") |>
-      pivot_longer(!"group", names_to = "covariate", values_to = "value")
-
-    # save probabilities
-    probs <- predict(fit, type = "probs")
-    probabilities[[as.character(wti)]] <- xi |>
-      select("cohort_name", "subject_id") |>
-      bind_cols(as_tibble(probs))
-
-    # # save weights
-    # weights[[as.character(wti)]] <- probabilities[[as.character(wti)]] |>
-    #   mutate(weights = case_when(
-    #     cohort_name == "surveillance" ~ 1 - surveillance,
-    #     cohort_name == "prostatectomy" ~ 1 - prostatectomy,
-    #     cohort_name == "radiotheraphy" ~ 1 - radiotheraphy,
-    #   )) |>
-    #   select("cohort_name", "subject_id", "weights")
-  }
-
-  list(probabilities = probabilities, coefficients = coefficients)
-}
 summaryOutcome <- function(x, outcome, weights) {
   logMessage(paste0("Outcome model for: ", outcome))
   xo <- x |>

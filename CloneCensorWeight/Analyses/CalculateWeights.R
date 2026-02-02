@@ -59,11 +59,56 @@ gleason <- cdm$gleason |>
 
 # prepare subjects
 cohort <- cdm$my_cohort |>
-  addDateOfBirthQuerry() |>
+  addDateOfBirthQuery() |>
   mutate(
     year_of_birth = get_year(date_of_birth),
     index_year = get_year(cohort_start_date)
   ) |>
   addCohortName() |>
-  select(cohort_name, subject_id, cohort_start_date, year_of_birth, index_year) |>
+  select(cohort_name, subject_id, stage, follow_up, year_of_birth, index_year) |>
   collect()
+
+coef <- list()
+weights <- list()
+weights[["0"]] <- cohort |>
+  mutate(prob = 1, weight = 1, time = 0) |>
+  select(subject_id, prob, weight, cohort_name, time)
+for (ti in seq(from = 10, to = 1000, by = 10)) {
+  tictoc::tic()
+  x <- createCovariatesMatrix(cohort, ti, drugs, conditions, psa, gleason)
+  xm <- modelWeights(x, ti)
+  coef[[as.character(ti)]] <- xm$coef
+  weights[[as.character(ti)]] <- xm$weights
+  tictoc::toc()
+}
+coef <- bind_rows(coef)
+weights <- bind_rows(weights)
+
+# export coefficients
+concepts <- coef |>
+  filter(startsWith(variable, "cov_")) |>
+  mutate(concept_id = as.numeric(gsub("cov_", "", variable))) |>
+  distinct(concept_id) |>
+  pull()
+concepts <- cdm$concept |>
+  filter(concept_id %in% concepts) |>
+  select(variable = concept_id, concept_name) |>
+  collect() |>
+  mutate(
+    concept_name = paste0(concept_name, " (", variable, ")"),
+    variable = paste0("cov_", variable)
+  )
+coef <- coef |>
+  left_join(concepts, by = "variable") |>
+  mutate(
+    cdm_name = cdmName(cdm),
+    variable_name = coalesce(concept_name, variable),
+    variable_level = NA_character_,
+    result_type = "coefficients"
+  ) |>
+  transformToSummarisedResult(
+    group = "cohort_name",
+    strata = "time",
+    estimates = "coef",
+    settings = "result_type"
+  )
