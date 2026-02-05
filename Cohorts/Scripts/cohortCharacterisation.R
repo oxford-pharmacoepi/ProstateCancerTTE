@@ -38,7 +38,8 @@ result <- purrr::map(cohorts, \(cohort_name){
 
   omopgenerics::logMessage("Cohort characterisation")
 
-  characteristics <- CohortCharacteristics::summariseCharacteristics(cdm[[cohort_name]], cohortIntersectFlag = list(
+  characteristics <- CohortCharacteristics::summariseCharacteristics(cdm[[cohort_name]],
+                                                                     cohortIntersectFlag = list(
     "Conditions any time prior" = list(
       targetCohortTable = "conditions", window = c(-Inf, -1)
 
@@ -48,9 +49,22 @@ result <- purrr::map(cohorts, \(cohort_name){
       targetCohortTable = "medications", window = c(-365, -1)
     )
   ),
-  tableIntersectCount = list(
-    "Number visits prior year" = list(
-      tableName = "visit_occurrence", window = c(-365, -1)
+  conceptIntersectCount = list(
+    "Inpatient visits prior year" = list(
+      conceptSet = list(inpatient_visit = 9201),
+      window = c(-365, -1)
+    ),
+    "Office visits prior year" = list(
+      conceptSet = list(office_visit = 581477),
+      window = c(-365, -1)
+    ),
+    "Oncology clinic visits prior year" = list(
+      conceptSet = list(oncology_visit = 38004268),
+      window = c(-365, -1)
+    ),
+    "Radiation clinic visits prior year" = list(
+      conceptSet = list(radiation_visit = 38004269),
+      window = c(-365, -1)
     )
   ),
   otherVariables = c("latest_gleason_score_value", "latest_n_status", "psa_value", "latest_t_status", "latest_psa_value")
@@ -71,7 +85,7 @@ result <- purrr::map(cohorts, \(cohort_name){
   overlap <- CohortCharacteristics::summariseCohortOverlap(cdm[[cohort_name]])
 
   omopgenerics::bind(count, characteristics, lsc, attrition, overlap)
- 
+
 
 })
 
