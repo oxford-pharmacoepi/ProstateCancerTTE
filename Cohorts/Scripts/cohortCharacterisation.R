@@ -21,8 +21,6 @@ result <- purrr::map(cohorts, \(cohort_name){
   omopgenerics::logMessage(paste0("Start characterisation of cohort ", cohort_name))
 
   cdm[[cohort_name]] <- cdm[[cohort_name]] |>
-    CohortConstructor::renameCohort(cohortId = 1, newCohortName = paste0("ebrt_", cohort_name)) |>
-    CohortConstructor::renameCohort(cohortId = 2, newCohortName = paste0("rp_", cohort_name)) |>
     addCharacteristics()
 
   omopgenerics::logMessage("Get counts of the cohorts.")
@@ -93,5 +91,5 @@ omopgenerics::logMessage("Attrition prostate cancer between age 50 and 69 trial 
 result[["prostate_cancer_age_50_69"]] <- CohortCharacteristics::summariseCohortAttrition(cdm[["prostate_cancer_age_50_69"]])
 
 result <- omopgenerics::bind(result)
-omopgenerics::exportSummarisedResult(result, fileName = "pc_characterisation_cohorts_{cdm_name}_{date}.csv", path = output_folder )
+omopgenerics::exportSummarisedResult(result, fileName = "pc_characterisation_cohorts_{cdm_name}_{date}.csv", path = output_directory )
 

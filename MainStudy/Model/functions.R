@@ -8,7 +8,7 @@ longDataFromCohort <- function(cdm, cohort_name = "optima_pc_rwd", excluded_code
 
 
   cond_branch <- cdm[[cohort_name]] |>
-    dplyr::left_join(
+    dplyr::inner_join(
       cdm$condition_occurrence |> dplyr::select(person_id, condition_concept_id, condition_start_date),
       by = c("subject_id" = "person_id")
     ) |>
@@ -22,7 +22,7 @@ longDataFromCohort <- function(cdm, cohort_name = "optima_pc_rwd", excluded_code
     dplyr::compute(name = cond_tmp_name, temporary = TRUE)
 
   drug_branch <- cdm[[cohort_name]] |>
-    dplyr::left_join(
+    dplyr::inner_join(
       cdm$drug_exposure |> dplyr::select(person_id, drug_concept_id, drug_exposure_start_date, drug_exposure_end_date),
       by = c("subject_id" = "person_id")
     ) |>
@@ -88,8 +88,8 @@ return(frequent_concepts)
 visitsCount <- function(cdm, cohort_name = "optima_pc_rwd"){
   cohort_name_visits <- paste(cohort_name, "visits", sep = "_")
   cdm[[cohort_name_visits]] <- cdm[[cohort_name]] |>
-    dplyr::left_join(cdm$visit_occurrence |>
-                       dplyr::filter(!(.data$visit_concept_id %in% c(38004268, 38004269))) |>
+    dplyr::inner_join(cdm$visit_occurrence |>
+                       dplyr::filter(!(.data$visit_concept_id %in%  c(38004268, 38004269))) |>
                        dplyr::select("person_id", "visit_concept_id", "visit_start_date", "visit_end_date"),
                      by = c("subject_id" = "person_id")) |>
     dplyr::mutate(days_diff_start = as.integer(.data$cohort_start_date - .data$visit_start_date),
@@ -685,7 +685,7 @@ cohortCharacterisation <- function(cdm, cohort_name) {
     return(omopgenerics::emptySummarisedResult())
   }
   cdm[[cohort_name]] <- cdm[[cohort_name]] |>
-    CohortConstructor::renameCohort(cohortId = 1, newCohortName = paste0("ebrt_", cohort_name)) |>
+    CohortConstructor::renameCohort(cohortId = 1, newCohortName = paste0("rt_", cohort_name)) |>
     CohortConstructor::renameCohort(cohortId = 2, newCohortName = paste0("rp_", cohort_name)) |>
     addVariables()
 
@@ -701,9 +701,22 @@ cohortCharacterisation <- function(cdm, cohort_name) {
       targetCohortTable = "medications", window = c(-365, -1)
     )
   ),
-  tableIntersectCount = list(
-    "Number visits prior year" = list(
-      tableName = "visit_occurrence", window = c(-365, -1)
+  conceptIntersectCount = list(
+    "Inpatient visits prior year" = list(
+      conceptSet = list(inpatient_visit = 9201),
+      window = c(-365, -1)
+    ),
+    "Office visits prior year" = list(
+      conceptSet = list(office_visit = 581477),
+      window = c(-365, -1)
+    ),
+    "Oncology clinic visits prior year" = list(
+      conceptSet = list(oncology_visit = 38004268),
+      window = c(-365, -1)
+    ),
+    "Radiation clinic visits prior year" = list(
+      conceptSet = list(radiation_visit = 38004269),
+      window = c(-365, -1)
     )
   ),
   otherVariables = c("latest_gleason_score_value", "latest_n_status", "latest_t_status", "psa_value", "latest_psa_value")

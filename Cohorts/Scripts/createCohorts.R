@@ -300,7 +300,7 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
   omopgenerics::recordCohortAttrition(reason = "Exclude subjects both treatment the same day") |>
   dplyr::left_join(cdm$psa_trial |> dplyr::select("subject_id", "psa_value"), by = "subject_id") |>
   dplyr::compute(name = "optima_pc_trial") |>
-  CohortConstructor::renameCohort(cohortId = c("ebrt", "radical_prostatectomy"), newCohortName = c("ebrt_trial", "radical_prostatectomy_trial"))
+  CohortConstructor::renameCohort(cohortId = c("ebrt", "radical_prostatectomy"), newCohortName = c("rt_optima_pc_trial", "rp_optima_pc_trial"))
 
 omopgenerics::logMessage("Completed: optima_pc_trial")
 # rwd ----
@@ -354,7 +354,7 @@ cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist
   omopgenerics::recordCohortAttrition(reason = "Exclude subjects both treatment the same day") |>
   dplyr::compute(name = "optima_pc_rwd") |>
   CohortConstructor::renameCohort(cohortId = c("ebrt", "radical_prostatectomy"),
-                                  newCohortName = c("ebrt_rwd", "radical_prostatectomy_rwd"))
+                                  newCohortName = c("rt_optima_pc_rwd", "rp_optima_pc_rwd"))
 
 omopgenerics::logMessage("Completed: optima_pc_rwd")
 
@@ -363,16 +363,16 @@ omopgenerics::logMessage("Splitting rwd cohort by age: 50–69")
 cdm$optima_pc_rwd_50_69 <- cdm$optima_pc_rwd |>
   CohortConstructor::requireAge(ageRange = list(c(50,69)),
                                 name = "optima_pc_rwd_50_69" ) |>
-  CohortConstructor::renameCohort(cohortId = c("ebrt_rwd", "radical_prostatectomy_rwd"),
-                                  newCohortName = c("ebrt_rwd_50_69", "radical_prostatectomy_rwd_50_69"))
+  CohortConstructor::renameCohort(cohortId = c("rt_optima_pc_rwd", "rp_optima_pc_rwd"),
+                                  newCohortName = c("rt_optima_pc_rwd_50_69", "rp_optima_pc_rwd_50_69"))
 omopgenerics::logMessage("Completed: optima_pc_rwd_50_69")
 
 omopgenerics::logMessage("Splitting rwd cohort by age: 70+")
 cdm$optima_pc_rwd_70_inf <- cdm$optima_pc_rwd |>
   CohortConstructor::requireAge(ageRange = list(c(70,Inf)),
                                 name = "optima_pc_rwd_70_inf" ) |>
-  CohortConstructor::renameCohort(cohortId = c("ebrt_rwd", "radical_prostatectomy_rwd"),
-                                  newCohortName = c("ebrt_rwd_70_inf", "radical_prostatectomy_rwd_70_inf"))
+  CohortConstructor::renameCohort(cohortId = c("rt_optima_pc_rwd", "rp_optima_pc_rwd"),
+                                  newCohortName = c("rt_optima_pc_rwd_70_inf", "rp_optima_pc_rwd_70_inf"))
 omopgenerics::logMessage("Completed: optima_pc_rwd_70_inf")
 
 ## 2010-2020
@@ -380,30 +380,31 @@ omopgenerics::logMessage("Creating calendar-restricted subsets: 2010–2020")
 cdm$optima_pc_trial_2010_2020 <- cdm$optima_pc_trial |>
   CohortConstructor::requireInDateRange(dateRange = as.Date(c("2010-01-01","2019-12-31")),
                                         name = "optima_pc_trial_2010_2020") |>
-  CohortConstructor::renameCohort(cohortId = c("ebrt_trial", "radical_prostatectomy_trial"),
-                                  newCohortName = c("ebrt_trial_2010_2020", "radical_prostatectomy_trial_2010_2020"))
+  CohortConstructor::renameCohort(cohortId = c("rt_optima_pc_trial", "rp_optima_pc_trial"),
+                                  newCohortName = c("rt_optima_pc_trial_2010_2020", "rp_optima_pc_trial_2010_2020"))
 
 
 cdm$optima_pc_rwd_2010_2020 <- cdm$optima_pc_rwd |>
   CohortConstructor::requireInDateRange(dateRange = as.Date(c("2010-01-01","2019-12-31")),
                                         name = "optima_pc_rwd_2010_2020") |>
-  CohortConstructor::renameCohort(cohortId = c("ebrt_rwd", "radical_prostatectomy_rwd"),
-                                  newCohortName = c("ebrt_rwd_2010_2020", "radical_prostatectomy_rwd_2010_2020"))
+  CohortConstructor::renameCohort(cohortId = c("rt_optima_pc_rwd", "rp_optima_pc_rwd"),
+                                  newCohortName = c("rt_optima_pc_rwd_2010_2020", "rp_optima_pc_rwd_2010_2020"))
 
 
 
 cdm$optima_pc_rwd_50_69_2010_2020 <- cdm$optima_pc_rwd_50_69 |>
   CohortConstructor::requireInDateRange(dateRange = as.Date(c("2010-01-01","2019-12-31")),
                                         name = "optima_pc_rwd_50_69_2010_2020") |>
-  CohortConstructor::renameCohort(cohortId = c("ebrt_rwd_50_69", "radical_prostatectomy_rwd_50_69"),
-                                  newCohortName = c("ebrt_rwd_50_69_2010_2020", "radical_prostatectomy_rwd_50_69_2010_2020"))
+  CohortConstructor::renameCohort(cohortId = c("rt_optima_pc_rwd_50_69", "rp_optima_pc_rwd_50_69"),
+                                  newCohortName = c("rt_optima_pc_rwd_50_69_2010_2020", "rp_optima_pc_rwd_50_69_2010_2020"))
 
 
 
 cdm$optima_pc_rwd_70_inf_2010_2020 <- cdm$optima_pc_rwd_70_inf |>
   CohortConstructor::requireInDateRange(dateRange = as.Date(c("2010-01-01","2019-12-31")),
                                         name = "optima_pc_rwd_70_inf_2010_2020") |>
-  CohortConstructor::renameCohort(cohortId = c("ebrt_rwd_70_inf", "radical_prostatectomy_rwd_70_inf"), newCohortName = c("ebrt_rwd_70_inf_2010_2020", "radical_prostatectomy_rwd_70_inf_2010_2020"))
+  CohortConstructor::renameCohort(cohortId = c("rt_optima_pc_rwd_70_inf", "rp_optima_pc_rwd_70_inf"),
+                                  newCohortName = c("rt_optima_pc_rwd_70_inf_2010_2020", "rp_optima_pc_rwd_70_inf_2010_2020"))
 
 
 omopgenerics::logMessage("All cohort constructions finished")

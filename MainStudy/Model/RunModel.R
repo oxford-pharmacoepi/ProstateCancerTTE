@@ -6,7 +6,8 @@ excluded_codes <- omopgenerics::importCodelist(path = here::here("..", "Codelist
   unlist() |>
   unname()
 
-cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
+cohorts <- c("optima_pc_trial", "optima_pc_rwd")
+             #"optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
 #c( "optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
 
 results_per_cohort <- purrr::map(cohorts, \(cohort_name) {
