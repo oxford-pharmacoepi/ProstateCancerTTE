@@ -22,3 +22,7 @@ if (runModel) {
 
 }
 
+zip(
+  here::here("Results", "Results.zip"),
+  list.files(here::here("Results"), pattern = "\\.csv$", full.names = TRUE)
+)
