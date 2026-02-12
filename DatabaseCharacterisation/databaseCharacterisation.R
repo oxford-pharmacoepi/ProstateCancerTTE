@@ -11,7 +11,7 @@ if (observation_period == "linked") {
 # Database Characterisation
 
 if (characterise_op) {
-  source("observationPeriodCharacterisation.R")
+  source("R/observationPeriodCharacterisation.R")
 }
 
 if (characterise_clinical_tables) {
@@ -83,7 +83,11 @@ if (characterise_clinical_tables) {
 
 
 
-  source("clinicalTablesCharacterisation.R")
+  source("R/clinicalTablesCharacterisation.R")
+}
+if (get_overlap) {
+  source("R/getOverlap.R")
+
 }
 
 

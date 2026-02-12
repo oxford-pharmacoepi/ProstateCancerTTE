@@ -1,6 +1,6 @@
 # Start
 start_time <- Sys.time()
-outputFolder <-  here::here("Results/DatabaseCharacterisation")
+outputFolder <-  here::here("Results")
 
 logfile <- file.path( paste0(outputFolder,
                              "/log_", dbName, "_", format(Sys.time(), "%d_%m_%Y_%H_%M_%S"),".txt"
@@ -14,7 +14,7 @@ omopgenerics::logMessage("Start time recorded.")
 sex <- FALSE
 ageGroup <- list(c(0,17), c(18, 30), c(31, 40), c(41, 50), c(51,60), c(61, 70), c(71, 80), c(81, 90), c(91, Inf))
 
-dateRange <- NULL
+dateRange <- as.Date(c(NA, NA))
 
 result <- list()
 # Snapshot
@@ -56,7 +56,7 @@ omopgenerics::dropSourceTable(cdm = cdm, c("population_1", "population_2", "popu
 omopgenerics::logMessage("Summarising in observation records and person-days")
 result[["trend"]] <- OmopSketch::summariseTrend(cdm,
                                                 episode = "observation_period",
-                                                output = c("records","person-days", "age"),
+                                                output = c("record","person-days", "age"),
                                                 interval = "years",
                                                 sex = sex,
                                                 ageGroup = ageGroup,

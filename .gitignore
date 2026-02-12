@@ -55,4 +55,5 @@ rsconnect/
 *.DS_Store
 *.RData
 *.html
-
+**DatabaseCharacterisation/Results/**/*.csv
+**DatabaseCharacterisation/Results/**/*.png

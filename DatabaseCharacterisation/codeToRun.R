@@ -10,10 +10,10 @@ library(CDMConnector)
 
 minCellCount <- 5
 
-dbName <-"gold_rtds"
+dbName <-"aurum_pc"
 
 con <- dbConnect(drv = Postgres(),
-                 dbname = "cdm_gold_p22_001867_rtds",
+                 dbname = "cdm_aurum_p22_001867_rtds",
                  host = host,
                  port = port,
                  user = username,
@@ -31,11 +31,11 @@ cdm <- cdmFromCon(con = con,
 
 observation_period <-"linked"
 
-db_filter <- "RTDS"
+db_filter <- NULL
 
+get_overlap <- TRUE
 characterise_op <- FALSE
-
-characterise_clinical_tables <- TRUE
+characterise_clinical_tables <- FALSE
 
 source("databaseCharacterisation.R")
 
