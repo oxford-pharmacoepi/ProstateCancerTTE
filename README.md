@@ -7,7 +7,7 @@ The repo is organised as follows:
 - `Codelist` contains the different codelists used in the study.
 -   `Cohorts` contains the code to instantiate the cohort of the study.
 -   `Diagnostics` contains the PhenotypeR diagnostics code.
--   `DatabaseCharacteristics` contains the code to characterise the database.
+-   `DatabaseCharacteristics` contains the code to characterise the database (CPRD)
 -   `MainStudy` contains the code to conduct the Target Trial Emulation study.
 -   `DML` contains the code to conduct the Double Machine Learning study.
 -   `CloneCensorWeight` contains the code to conduct the Cloning-Censoring-Weighting study.
