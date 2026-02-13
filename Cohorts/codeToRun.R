@@ -12,8 +12,8 @@ minCellCount <- 5
 
 cdm <- CDMConnector::cdmFromCon(con = con,
                                 cdmSchema = cdmSchema,
-                                writeSchema = c(schema = writeSchema,
-                                                prefix = prefix),
+                                writeSchema =  writeSchema,
+                                writePrexix = prefix,
                                 cdmName = dbName)
 
 # cdm$observation_period<- cdm$observation_period |>

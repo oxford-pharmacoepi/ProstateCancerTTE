@@ -59,6 +59,26 @@ addCharacteristics <- function(cohort) {
       ) |>
       dplyr::compute(name = cohort_name)
   }
+
+
+  if (!("age_group" %in% cols)){
+    cohort <- cohort |>
+      PatientProfiles::addDemographics(age = FALSE,
+                                       sex = FALSE,
+                                       priorObservation = FALSE,
+                                       futureObservation = FALSE,
+                                       ageGroup = list(c(50, 69), c(70, Inf)),
+                                       name = cohort_name)
+  }
+
+  if (!("year_group"%in% cols)){
+    cohort <- cohort |>
+      dplyr::mutate(year_2010_2020 = dplyr::if_else(.data$cohort_start_date <= as.Date("2019-12-31")
+                                                    && (.data$cohort_start_date >= as.Date("2010-01-01")),
+                                                    "Yes",
+                                                    "No" )) |>
+      dplyr::compute(name = cohort_name)
+  }
   return(cohort)
 }
 

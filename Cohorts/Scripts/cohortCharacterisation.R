@@ -13,7 +13,7 @@ medications_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist"
 cdm$medications <- CohortConstructor::conceptCohort(cdm, conceptSet = medications_codelist, name = "medications")
 
 
-cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf", "optima_pc_trial_2010_2020", "optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
+cohorts <- c("optima_pc_trial", "optima_pc_rwd")
 
 
 result <- purrr::map(cohorts, \(cohort_name){
@@ -26,7 +26,7 @@ result <- purrr::map(cohorts, \(cohort_name){
   omopgenerics::logMessage("Get counts of the cohorts.")
 
 
-  count <- CohortCharacteristics::summariseCohortCount(cdm[[cohort_name]])
+  count <- CohortCharacteristics::summariseCohortCount(cdm[[cohort_name]], strata = list("age_group", "year_2010_2020"))
 
 
   omopgenerics::logMessage("Get atttrition")
@@ -37,6 +37,7 @@ result <- purrr::map(cohorts, \(cohort_name){
   omopgenerics::logMessage("Cohort characterisation")
 
   characteristics <- CohortCharacteristics::summariseCharacteristics(cdm[[cohort_name]],
+                                                                     strata = list("age_group", "year_2010_2020"),
                                                                      cohortIntersectFlag = list(
     "Conditions any time prior" = list(
       targetCohortTable = "conditions", window = c(-Inf, -1)
@@ -71,6 +72,7 @@ result <- purrr::map(cohorts, \(cohort_name){
   omopgenerics::logMessage("Large scale characterisation")
 
   lsc <- CohortCharacteristics::summariseLargeScaleCharacteristics(cdm[[cohort_name]],
+                                                                   strata = list("age_group", "year_2010_2020"),
                                                                    eventInWindow = c("condition_occurrence", "observation", "procedure_occurrence", "device_exposure"),
                                                                    episodeInWindow = "drug_exposure",
                                                                    window = list(c(-Inf, -366), c(-365, -31), c(-30, -1), c(0, 0), c(1, 30), c(31, 365), c(366, Inf)),

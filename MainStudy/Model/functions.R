@@ -575,8 +575,9 @@ survival_summary <- function(
 
 
 outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times = NULL) {
-
+  include_col <- paste0(outcome, "_include")
   x <- survival_data |>
+    dplyr::filter(.data[[include_col]]) |>
     dplyr::rename("outcome" = dplyr::all_of(outcome)) |>
     dplyr::mutate(
       status = dplyr::if_else(is.na(.data$outcome) | .data$outcome > .data$censor_time, 0L, 1L),
@@ -887,10 +888,11 @@ addOutcome <- function(cohort, outcome, outcome_codelist) {
   }
   pairs <- cohort |>
     dplyr::filter(.data[[washout_name]] == 1L) |>
-    dplyr::pull(.data$pair_id)
-
+    dplyr::pull(.data$pair_id) |>
+    unique()
+ include_col <- paste0(outcome, "_include")
  cohort |>
-   dplyr::mutate(!!rlang::sym(outcome) := dplyr::if_else(.data$pair_id %in% pairs, 999999L, .data[[outcome]])) |>
+   dplyr::mutate(!!rlang::sym(include_col) := dplyr::if_else(.data$pair_id %in% pairs, FALSE, TRUE)) |>
    dplyr::select(!dplyr::all_of(washout_name)) |>
    dplyr::compute(table_name)
 }
