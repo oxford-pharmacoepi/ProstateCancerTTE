@@ -1,0 +1,97 @@
+
+source(here::here("..", "Cohorts", "Scripts", "functions.R"))
+
+omopgenerics::logMessage("Building general conditions cohort")
+conditions_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions"), type = "csv")
+
+cdm$conditions <- CohortConstructor::conceptCohort(cdm, conceptSet = conditions_codelist, name = "conditions")
+
+omopgenerics::logMessage("Building general medications cohort")
+
+medications_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","medications"), type = "csv")
+
+cdm$medications <- CohortConstructor::conceptCohort(cdm, conceptSet = medications_codelist, name = "medications")
+
+
+cohorts <- c("optima_pc_trial", "optima_pc_rwd")
+
+
+result <- purrr::map(cohorts, \(cohort_name){
+
+  omopgenerics::logMessage(paste0("Start characterisation of cohort ", cohort_name))
+
+  cdm[[cohort_name]] <- cdm[[cohort_name]] |>
+    addCharacteristics()
+
+  omopgenerics::logMessage("Get counts of the cohorts.")
+
+
+  count <- CohortCharacteristics::summariseCohortCount(cdm[[cohort_name]], strata = list("age_group", "year_2010_2020"))
+
+
+  omopgenerics::logMessage("Get atttrition")
+
+
+  attrition <- CohortCharacteristics::summariseCohortAttrition(cdm[[cohort_name]])
+
+  omopgenerics::logMessage("Cohort characterisation")
+
+  characteristics <- CohortCharacteristics::summariseCharacteristics(cdm[[cohort_name]],
+                                                                     strata = list("age_group", "year_2010_2020"),
+                                                                     cohortIntersectFlag = list(
+    "Conditions any time prior" = list(
+      targetCohortTable = "conditions", window = c(-Inf, -1)
+
+    ),
+
+    "Medications in the prior year" = list(
+      targetCohortTable = "medications", window = c(-365, -1)
+    )
+  ),
+  conceptIntersectCount = list(
+    "Inpatient visits prior year" = list(
+      conceptSet = list(inpatient_visit = 9201),
+      window = c(-365, -1)
+    ),
+    "Office visits prior year" = list(
+      conceptSet = list(office_visit = 581477),
+      window = c(-365, -1)
+    ),
+    "Oncology clinic visits prior year" = list(
+      conceptSet = list(oncology_visit = 38004268),
+      window = c(-365, -1)
+    ),
+    "Radiation clinic visits prior year" = list(
+      conceptSet = list(radiation_visit = 38004269),
+      window = c(-365, -1)
+    )
+  ),
+  otherVariables = c("latest_gleason_score_value", "latest_n_status", "psa_value", "latest_t_status", "latest_psa_value")
+  )
+
+  omopgenerics::logMessage("Large scale characterisation")
+
+  lsc <- CohortCharacteristics::summariseLargeScaleCharacteristics(cdm[[cohort_name]],
+                                                                   strata = list("age_group", "year_2010_2020"),
+                                                                   eventInWindow = c("condition_occurrence", "observation", "procedure_occurrence", "device_exposure"),
+                                                                   episodeInWindow = "drug_exposure",
+                                                                   window = list(c(-Inf, -366), c(-365, -31), c(-30, -1), c(0, 0), c(1, 30), c(31, 365), c(366, Inf)),
+                                                                   minimumFrequency = 0.0
+  )
+
+
+
+  omopgenerics::logMessage("Get overlap")
+  overlap <- CohortCharacteristics::summariseCohortOverlap(cdm[[cohort_name]])
+
+  omopgenerics::bind(count, characteristics, lsc, attrition, overlap)
+
+
+})
+
+omopgenerics::logMessage("Attrition prostate cancer between age 50 and 69 trial cohort")
+result[["prostate_cancer_age_50_69"]] <- CohortCharacteristics::summariseCohortAttrition(cdm[["prostate_cancer_age_50_69"]])
+
+result <- omopgenerics::bind(result)
+omopgenerics::exportSummarisedResult(result, fileName = "pc_characterisation_cohorts_{cdm_name}_{date}.csv", path = output_directory )
+

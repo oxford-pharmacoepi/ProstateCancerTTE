@@ -8,7 +8,7 @@ longDataFromCohort <- function(cdm, cohort_name = "optima_pc_rwd", excluded_code
 
 
   cond_branch <- cdm[[cohort_name]] |>
-    dplyr::left_join(
+    dplyr::inner_join(
       cdm$condition_occurrence |> dplyr::select(person_id, condition_concept_id, condition_start_date),
       by = c("subject_id" = "person_id")
     ) |>
@@ -22,7 +22,7 @@ longDataFromCohort <- function(cdm, cohort_name = "optima_pc_rwd", excluded_code
     dplyr::compute(name = cond_tmp_name, temporary = TRUE)
 
   drug_branch <- cdm[[cohort_name]] |>
-    dplyr::left_join(
+    dplyr::inner_join(
       cdm$drug_exposure |> dplyr::select(person_id, drug_concept_id, drug_exposure_start_date, drug_exposure_end_date),
       by = c("subject_id" = "person_id")
     ) |>
@@ -88,8 +88,8 @@ return(frequent_concepts)
 visitsCount <- function(cdm, cohort_name = "optima_pc_rwd"){
   cohort_name_visits <- paste(cohort_name, "visits", sep = "_")
   cdm[[cohort_name_visits]] <- cdm[[cohort_name]] |>
-    dplyr::left_join(cdm$visit_occurrence |>
-                       dplyr::filter(!(.data$visit_concept_id %in% c(38004268, 38004269))) |>
+    dplyr::inner_join(cdm$visit_occurrence |>
+                       dplyr::filter(!(.data$visit_concept_id %in%  c(38004268, 38004269))) |>
                        dplyr::select("person_id", "visit_concept_id", "visit_start_date", "visit_end_date"),
                      by = c("subject_id" = "person_id")) |>
     dplyr::mutate(days_diff_start = as.integer(.data$cohort_start_date - .data$visit_start_date),
@@ -293,7 +293,7 @@ export_ps_density <- function(plot_data, bw = "nrd0", n = 256, kernel = "gaussia
 }
 
 computeASMD <- function(wide_data, features = c()) {
-
+  features <- intersect(features, colnames(wide_data))
   df <- wide_data |>
     dplyr::select(dplyr::all_of(c("treatment" ="y", features)))|>
     dplyr::mutate(
@@ -345,7 +345,7 @@ computeASMD <- function(wide_data, features = c()) {
 getMatchedData <- function(selectedFeatures, wide_data, cdm_name) {
 
   library(MatchIt)
-
+  selectedFeatures <- c("age", selectedFeatures) |> unique()
   needs_ticks <- selectedFeatures != make.names(selectedFeatures)
   rhs <- ifelse(needs_ticks, sprintf("`%s`", selectedFeatures), selectedFeatures)
   ps_formula <- as.formula(paste("y ~", paste(rhs, collapse = " + ")))
@@ -406,13 +406,14 @@ getMatchedData <- function(selectedFeatures, wide_data, cdm_name) {
 events_summary <- function(survival_data, outcome, covariates = NULL) {
 
 
-  survival_data |>
+  res <- survival_data |>
     dplyr::group_by(treatment) |>
     dplyr::summarise(
       count_events = sum(status),
       .groups = "drop"
     ) |>
     dplyr::mutate(outcome = outcome)
+
 }
 
 
@@ -574,8 +575,9 @@ survival_summary <- function(
 
 
 outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times = NULL) {
-
+  include_col <- paste0(outcome, "_include")
   x <- survival_data |>
+    dplyr::filter(.data[[include_col]]) |>
     dplyr::rename("outcome" = dplyr::all_of(outcome)) |>
     dplyr::mutate(
       status = dplyr::if_else(is.na(.data$outcome) | .data$outcome > .data$censor_time, 0L, 1L),
@@ -684,7 +686,7 @@ cohortCharacterisation <- function(cdm, cohort_name) {
     return(omopgenerics::emptySummarisedResult())
   }
   cdm[[cohort_name]] <- cdm[[cohort_name]] |>
-    CohortConstructor::renameCohort(cohortId = 1, newCohortName = paste0("ebrt_", cohort_name)) |>
+    CohortConstructor::renameCohort(cohortId = 1, newCohortName = paste0("rt_", cohort_name)) |>
     CohortConstructor::renameCohort(cohortId = 2, newCohortName = paste0("rp_", cohort_name)) |>
     addVariables()
 
@@ -700,9 +702,22 @@ cohortCharacterisation <- function(cdm, cohort_name) {
       targetCohortTable = "medications", window = c(-365, -1)
     )
   ),
-  tableIntersectCount = list(
-    "Number visits prior year" = list(
-      tableName = "visit_occurrence", window = c(-365, -1)
+  conceptIntersectCount = list(
+    "Inpatient visits prior year" = list(
+      conceptSet = list(inpatient_visit = 9201),
+      window = c(-365, -1)
+    ),
+    "Office visits prior year" = list(
+      conceptSet = list(office_visit = 581477),
+      window = c(-365, -1)
+    ),
+    "Oncology clinic visits prior year" = list(
+      conceptSet = list(oncology_visit = 38004268),
+      window = c(-365, -1)
+    ),
+    "Radiation clinic visits prior year" = list(
+      conceptSet = list(radiation_visit = 38004269),
+      window = c(-365, -1)
     )
   ),
   otherVariables = c("latest_gleason_score_value", "latest_n_status", "latest_t_status", "psa_value", "latest_psa_value")
@@ -785,3 +800,103 @@ mergedCohortCharacterisation <- function(cdm_g, cdm_a, cohort_name) {
 
 
 }
+
+deathSurvival <- function(cdm,
+                          cohort_name
+                         ) {
+  cdm[[cohort_name]] |>
+    PatientProfiles::addDeathDays(deathDaysName = "death", window = c(1, Inf)) |>
+    PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation") |>
+    dplyr::mutate(death = dplyr::coalesce(.data[["death"]], 999999L),
+                  death_include = TRUE) |>
+    dplyr::mutate(
+      censor_time = dplyr::case_when(
+        .data$death <= .data$end_of_observation ~ .data$death,
+        .default = .data$end_of_observation
+      ),
+      censor_reason = dplyr::case_when(
+        .data$censor_time == .data$death ~ "death",
+        .data$censor_time == .data$end_of_observation ~ "end of observation",
+        .default = "error"
+      ),
+      treatment = dplyr::case_when(
+        .data$cohort_definition_id == 1L ~ "EBRT",
+        .data$cohort_definition_id == 2L ~ "RP",
+        TRUE ~ as.character(.data$cohort_definition_id)
+      )
+    ) |>
+    dplyr::compute(name = cohort_name)
+}
+addCauseOfDeath <- function(cohort, death_pc_codes, death_cvd_codes) {
+  cohort |>
+    PatientProfiles::addTableIntersectField(
+    tableName = "death",
+    order = "first",
+    field = "cause_concept_id",
+    nameStyle = "cause_of_death") |>
+    dplyr::mutate(
+      cause_of_death = as.integer(as.numeric(.data$cause_of_death)),
+      death_pc  = dplyr::if_else(
+        !is.na(.data$cause_of_death) & .data$cause_of_death %in% death_pc_codes,
+        .data$death, 999999L
+      ),
+      death_cvd = dplyr::if_else(
+        !is.na(.data$cause_of_death) & .data$cause_of_death %in% death_cvd_codes,
+        .data$death, 999999L
+      ),
+      death_pc_include = TRUE,
+      death_cvd_include = TRUE
+    ) |>
+    dplyr::select(!"cause_of_death")
+}
+addOutcome <- function(cohort, outcome, outcome_codelist) {
+  washout_name <- paste0(outcome, "_washout")
+  post_window <- if (outcome == "androgen_deprivation") list(c(181, Inf)) else list(c(1, Inf))
+  pre_window  <- list(c(-365, 0))
+  table_name <- omopgenerics::tableName(cohort)
+  if (outcome != "type2_diabetes") {
+    cohort <- cohort |>
+      PatientProfiles::addConceptIntersectDays(
+        conceptSet = list(outcome = outcome_codelist[[outcome]]),
+        window = post_window,
+        order = "first",
+        nameStyle = outcome,
+        name = table_name
+      ) |>
+      PatientProfiles::addConceptIntersectFlag(
+        conceptSet = list(outcome = outcome_codelist[[outcome]]),
+        window = pre_window,
+        targetStartDate = "event_end_date",
+        name = table_name,
+        nameStyle = washout_name
+      ) |>
+      dplyr::mutate(!!rlang::sym(outcome) := dplyr::coalesce(.data[[outcome]], 999999L))
+  } else {
+    cohort <- cohort |>
+      PatientProfiles::addCohortIntersectDays(
+        targetCohortTable = "type2_diabetes",
+        window = post_window,
+        order = "first",
+        nameStyle = "type2_diabetes",
+        name = table_name
+      ) |>
+      PatientProfiles::addCohortIntersectFlag(
+        targetCohortTable = "type2_diabetes",
+        window = pre_window,
+        targetStartDate = "cohort_end_date",
+        name = table_name,
+        nameStyle = washout_name
+      ) |>
+      dplyr::mutate(!!rlang::sym(outcome) := dplyr::coalesce(.data[[outcome]], 999999L))
+  }
+  pairs <- cohort |>
+    dplyr::filter(.data[[washout_name]] == 1L) |>
+    dplyr::pull(.data$pair_id) |>
+    unique()
+ include_col <- paste0(outcome, "_include")
+ cohort |>
+   dplyr::mutate(!!rlang::sym(include_col) := dplyr::if_else(.data$pair_id %in% pairs, FALSE, TRUE)) |>
+   dplyr::select(!dplyr::all_of(washout_name)) |>
+   dplyr::compute(table_name)
+}
+
