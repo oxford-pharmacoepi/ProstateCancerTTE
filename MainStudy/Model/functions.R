@@ -293,7 +293,7 @@ export_ps_density <- function(plot_data, bw = "nrd0", n = 256, kernel = "gaussia
 }
 
 computeASMD <- function(wide_data, features = c()) {
-
+  features <- intersect(features, colnames(wide_data))
   df <- wide_data |>
     dplyr::select(dplyr::all_of(c("treatment" ="y", features)))|>
     dplyr::mutate(
@@ -807,7 +807,8 @@ deathSurvival <- function(cdm,
   cdm[[cohort_name]] |>
     PatientProfiles::addDeathDays(deathDaysName = "death", window = c(1, Inf)) |>
     PatientProfiles::addFutureObservation(futureObservationName = "end_of_observation") |>
-    dplyr::mutate(death = dplyr::coalesce(.data[["death"]], 999999L)) |>
+    dplyr::mutate(death = dplyr::coalesce(.data[["death"]], 999999L),
+                  death_include = TRUE) |>
     dplyr::mutate(
       censor_time = dplyr::case_when(
         .data$death <= .data$end_of_observation ~ .data$death,
@@ -842,7 +843,9 @@ addCauseOfDeath <- function(cohort, death_pc_codes, death_cvd_codes) {
       death_cvd = dplyr::if_else(
         !is.na(.data$cause_of_death) & .data$cause_of_death %in% death_cvd_codes,
         .data$death, 999999L
-      )
+      ),
+      death_pc_include = TRUE,
+      death_cvd_include = TRUE
     ) |>
     dplyr::select(!"cause_of_death")
 }

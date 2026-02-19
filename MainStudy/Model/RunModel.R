@@ -30,7 +30,7 @@ results_per_cohort <- purrr::map(cohorts, \(cohort_name) {
 
   ## Lasso ----
   cdm[[cohort_name]] <- cdm[[cohort_name]] |>
-    dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date") |>
+    dplyr::select(dplyr::all_of(c("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date"))) |>
     dplyr::compute(name = cohort_name)
 
   omopgenerics::logMessage("Get long data from cohort")
@@ -217,6 +217,7 @@ results_per_cohort <- purrr::map(cohorts, \(cohort_name) {
       PatientProfiles::addConceptIntersectDays(
         conceptSet = list(nco = nco_codelist[[nco]]),
         window = list(c(1, Inf)),
+        order = "first",
         nameStyle = nco,
         name = cohort_name_matched
       )
