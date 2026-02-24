@@ -1,8 +1,9 @@
 # characteristics ----
 
-
+omopgenerics::logMessage("Start: build characteristic cohorts (N and T status, Gleason, diabetes)")
 ## N status ----
-N_status_codelist <- omopgenerics::importCodelist("~/ProstateCancerTTE/Codelist/Characterisation/N-status", type = "csv")
+omopgenerics::logMessage("Creating N-status cohort")
+N_status_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","N-status"), type = "csv")
 
 cdm[["n_status"]] <- CohortConstructor::conceptCohort(cdm, conceptSet = N_status_codelist,
                                                       subsetCohort = "optima_pc_rwd",
@@ -30,9 +31,9 @@ cdm[["n_status_trial"]] <- cdm[["n_status"]]|>
   dplyr::compute(name = "n_status_trial")
 
 ## T status ----
-
-t1_status <- omopgenerics::importCodelist("~/ProstateCancerTTE/Codelist/Characterisation/conditions/t1.csv", type = "csv")
-t2_status <- omopgenerics::importCodelist("~/ProstateCancerTTE/Codelist/Characterisation/conditions/t2.csv", type = "csv")
+omopgenerics::logMessage("Creating T-status cohort")
+t1_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions", "t1.csv"), type = "csv")
+t1_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions", "t2.csv"), type = "csv")
 t_status_codelist <- omopgenerics::bind(t1_status, t2_status)
 
 cdm[["t_status"]] <- CohortConstructor::conceptCohort(cdm, conceptSet = t_status_codelist,
@@ -60,7 +61,7 @@ cdm[["t_status_trial"]] <- cdm[["t_status"]]|>
   dplyr::compute(name = "t_status_trial")
 
 ## Gleason score ----
-
+omopgenerics::logMessage("Creating Gleason measurement cohort")
 cdm[["gleason"]] <- cdm$measurement |>
   dplyr::filter(.data$measurement_concept_id %in% 619648) |>
   dplyr::select("person_id" , "measurement_date", "value_as_number") |>
@@ -122,15 +123,14 @@ cdm[["gleason_trial"]] <- cdm[["gleason"]]|>
 
 
 # diabetes ----
-
+omopgenerics::logMessage("Building type 2 diabetes cohort")
 diabetes_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Diabetes"), type = "csv")
 diabetes <- clean_names(names(diabetes_codelist))
 names(diabetes_codelist) <- diabetes
 
 cdm$type2_diabetes <- CohortConstructor::conceptCohort(cdm,
                                                        conceptSet = list("dm2_inc" = diabetes_codelist$dm2_inc),
-                                                       name = "type2_diabetes", 
-                                                       table = c("condition_occurrence", "procedure_occurrence", "observation")) |>
+                                                       name = "type2_diabetes") |>
   CohortConstructor::requireConceptIntersect(conceptSet = list("dm1_prev" = diabetes_codelist$dm1_prev), 
                                              window = c(-Inf, -1), 
                                              intersection = c(0,0)) |>
@@ -140,5 +140,8 @@ cdm$type2_diabetes <- CohortConstructor::conceptCohort(cdm,
   CohortConstructor::requireConceptIntersect(conceptSet = list("antidiabetics" = diabetes_codelist$antidiabetics), 
                                              window = c(-Inf, -1), 
                                              intersection = c(0,0))
+omopgenerics::logMessage("Finished: characteristic cohorts built")
+
+
 
 
