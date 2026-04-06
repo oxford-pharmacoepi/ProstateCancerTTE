@@ -13,7 +13,7 @@ minCellCount <- 5
 dbName <-"aurum_pc"
 
 con <- dbConnect(drv = Postgres(),
-                 dbname = "cdm_aurum_p22_001867",
+                 dbname = "cdm_aurum_p22_001867_rtds",
                  host = host,
                  port = port,
                  user = username,
@@ -31,13 +31,13 @@ cdm <- cdmFromCon(con = con,
 
 observation_period <-"linked"
 
-db_filter <- "NCRASCR"
+db_filter <- NULL
 
-characterise_op <- TRUE
-
+get_overlap <- TRUE
+characterise_op <- FALSE
 characterise_clinical_tables <- FALSE
 
-source("DatabaseCharacterisation/databaseCharacterisation.R")
+source("databaseCharacterisation.R")
 
 
 

@@ -47,7 +47,7 @@ drug_names <- c(
 )
 hormones <- CodelistGenerator::getCandidateCodes(cdm = cdm_a, keywords = drug_names, domains = "Drug")
 
-rectal_solutions <- CodelistGenerator::getDrugIngredientCodes(cdm = cdm_a,
+rectal_solutions <- CodelistGenerator::getDrugIngredientCodes(cdm = cdm,
                                           name = "sodium citrate",
                                           doseForm = "Rectal Solution")
 
@@ -62,3 +62,19 @@ excluded_drugs <- omopgenerics::newCodelist(list(hormones = hormones$concept_id,
 omopgenerics::exportCodelist(excluded_conditions, path = "~/ProstateCancerTTE/Codelist/ExcludedFromPS", type = "csv" )
 
 omopgenerics::exportCodelist(excluded_drugs, path = "~/ProstateCancerTTE/Codelist/ExcludedFromPS", type = "csv" )
+
+docusate <- CodelistGenerator::getCandidateCodes(
+  cdm,
+  keywords = "docusate",
+  exclude = c("otic", "topical", "ear"),
+  domains = "Drug",
+  standardConcept = "Standard")
+
+polyethilene_glycol <- CodelistGenerator::getDrugIngredientCodes(
+  cdm,
+  name = c(986417, 36808745, 40707795),
+  type = "codelist",
+  nameStyle = "{concept_name}"
+  )
+omopgenerics::exportCodelist(polyethilene_glycol, path = "~/ProstateCancerTTE/Codelist/ExcludedFromPS", type = "csv" )
+
