@@ -4,6 +4,8 @@ names(codelist)[names(codelist) == "ebrt"] <- "radiotheraphy"
 names(codelist)[names(codelist) == "radical_prostatectomy"] <- "prostatectomy"
 codelistOutcomes <- importCodelist(here("..", "Codelist", "Outcomes"), type = "csv")
 exclude <- importCodelist(path = here("..", "Codelist", "ExcludedFromPS"), type = "csv")
+nco <- importCodelist(here("..", "Codelist", "NCO"), type = "csv")
+pcDeath <- importCodelist(here("..", "Codelist", "CauseOfDeath", "prostate_cancer_death.csv"), "csv")
 
 names(codelist) <- toSnakeCase(names(codelist))
 names(codelistOutcomes) <- toSnakeCase(names(codelistOutcomes))
@@ -125,7 +127,10 @@ cdm$prostate_cancer <- cdm$prostate_cancer |>
     )
   ) |>
   select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage) |>
-  compute(name = "prostate_cancer")
+  compute(name = "prostate_cancer") |>
+  filter(stage == "early") |>
+  compute(name = "prostate_cancer") |>
+  recordCohortAttrition(reason = "Restrict to early stage")
 
 # psa
 cdm[["psa"]] <- cdm$measurement |>
@@ -223,5 +228,26 @@ cdm$outcomes <- conceptCohort(
   cdm = cdm,
   conceptSet = codelistOutcomes,
   name = "outcomes",
+  exit = "event_start_date"
+)
+
+# pca related death
+cdm$pc_death <- cdm$death |>
+  filter(cause_concept_id %in% pcDeath$prostate_cancer_death) |>
+  select("subject_id" = "person_id", "cohort_start_date" = "death_date") |>
+  compute(name = "pc_death") |>
+  mutate(cohort_definition_id = 1L, cohort_end_date = cohort_start_date) |>
+  filterInObservation(indexDate = "cohort_start_date") |>
+  compute(name = "pc_death") |>
+  newCohortTable(cohortSetRef = tibble(
+    cohort_definition_id = 1L, cohort_name = "prostate_cancer_death"
+  ))
+cdm <- bind(cdm$death_cohort, cdm$pc_death, name = "death_cohorts")
+
+# nco
+cdm$nco <- conceptCohort(
+  cdm = cdm,
+  conceptSet = nco,
+  name = "nco",
   exit = "event_start_date"
 )

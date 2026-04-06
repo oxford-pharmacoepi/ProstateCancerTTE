@@ -7,7 +7,7 @@ cdm$my_cohort  <- cdm$my_cohort  |>
   compute(name = "my_cohort")
 individuals <- cdm$my_cohort |>
   group_by(subject_id, cohort_start_date) |>
-  summarise(max_censor = max(follow_up), .groups = "drop") |>
+  summarise(max_censor = max(follow_up, na.rm = TRUE), .groups = "drop") |>
   rename(person_id = subject_id)
 total_ind <- individuals |>
   tally() |>
@@ -59,32 +59,109 @@ gleason <- cdm$gleason |>
 
 # prepare subjects
 cohort <- cdm$my_cohort |>
-  addDateOfBirthQuery() |>
-  mutate(
-    year_of_birth = get_year(date_of_birth),
-    index_year = get_year(cohort_start_date)
-  ) |>
+  addAgeQuery() |>
+  mutate(index_year = get_year(cohort_start_date)) |>
   addCohortName() |>
-  select(cohort_name, subject_id, stage, follow_up, year_of_birth, index_year) |>
+  select(cohort_name, subject_id, follow_up, age, index_year) |>
   collect()
 
-coef <- list()
-weights <- list()
-weights[["0"]] <- cohort |>
+# recalculate subject_id
+ids <- cohort |>
+  distinct(subject_id) |>
+  arrange(subject_id) |>
+  mutate(new_id = row_number())
+changeIds <- function(x) {
+  x |>
+    inner_join(ids, by = "subject_id") |>
+    select(!"subject_id") |>
+    rename(subject_id = "new_id")
+}
+cohort <- changeIds(cohort)
+conditions <- changeIds(conditions)
+drugs <- changeIds(drugs)
+psa <- changeIds(psa)
+gleason <- changeIds(gleason)
+
+# IPCW
+coefIPCW <- list()
+weightsIPCW <- list()
+weightsIPCW[["0"]] <- cohort |>
   mutate(prob = 1, weight = 1, time = 0) |>
   select(subject_id, prob, weight, cohort_name, time)
 for (ti in seq(from = 10, to = 1000, by = 10)) {
-  tictoc::tic()
+  startTime <- Sys.time()
+  cat(paste0("IPCW at time \033[34m\033[1m", ti, "\033[0m"))
   x <- createCovariatesMatrix(cohort, ti, drugs, conditions, psa, gleason)
   xm <- modelWeights(x, ti)
-  coef[[as.character(ti)]] <- xm$coef
-  weights[[as.character(ti)]] <- xm$weights
+  coefIPCW[[as.character(ti)]] <- xm$coef
+  weightsIPCW[[as.character(ti)]] <- xm$weights
+  endTime <- Sys.time()
+  td <- sprintf("%.1f", difftime(time = endTime, time2 = startTime, units = "secs"))
+  cat(paste0(" finished in \033[3m", td, " seconds.\033[0m\n"))
+}
+coefIPCW <- bind_rows(coefIPCW)
+weightsIPCW <- bind_rows(weightsIPCW)
+
+# IPTW
+coefIPTW <- list()
+weightsIPTW <- list()
+w0 <- cohort |>
+  mutate(prob = 1, weight = 1, time = 0) |>
+  select(subject_id, prob, weight, cohort_name, time)
+cohorts <- unique(cohort$cohort_name)
+comparisons <- expand_grid(
+  reference = cohorts,
+  comparator = cohorts
+) |>
+  filter(reference != comparator)
+weightsIPTW[["0"]] <- w0 |>
+  cross_join(comparisons) |>
+  filter(cohort_name == reference | cohort_name == comparator)
+
+for (ti in seq(from = 10, to = 1000, by = 10)) {
+  tictoc::tic()
+  cli_inform(c(i = "IPTW at time {.pkg {ti}}"))
+  x <- createCovariatesMatrix(cohort, ti, drugs, conditions, psa, gleason)
+  
+  for (k in seq_len(nrow(comparisons))) {
+    ref <- comparisons$reference[k]
+    comp <- comparisons$comparator[k]
+    xk <- x |>
+      filter(cohort_name %in% c(ref, comp))
+    if (length(unique(xk$cohort_name)) == 2) {
+      xm <- xk |>
+        mutate(
+          status = if_else(cohort_name == ref, 0, 1),
+          subject_id = paste0(cohort_name, "-", subject_id)
+        ) |>
+        select(!c("cohort_name", "follow_up")) |>
+        calculateWeights() |>
+        map(\(x) mutate(x, time = ti, reference = ref, comparator = comp))
+      coefIPTW[[paste0(ti, ref, comp)]] <- xm$coef
+      weightsIPTW[[paste0(ti, ref, comp)]] <- xm$weights |>
+        mutate(
+          cohort_name = str_extract(subject_id, "^[^-]+"),
+          subject_id = as.integer(str_extract(subject_id, "(?<=-).*")),
+          weight = if_else(reference == cohort_name, 1/(1 - prob), 1/prob)
+        )
+    }
+  }
   tictoc::toc()
 }
-coef <- bind_rows(coef)
-weights <- bind_rows(weights)
+coefIPTW <- bind_rows(coefIPTW)
+weightsIPTW <- bind_rows(weightsIPTW)
 
-# export coefficients
+# merge coefficients and prepare to export
+coef <- union_all(
+  coefIPTW |>
+    mutate(
+      cohort_name = paste0(reference, " vs ", comparator),
+      weight_type = "IPTW"
+    ) |>
+    select(!c("reference", "comparator")),
+  coefIPCW |>
+    mutate(weight_type = "IPCW")
+)
 concepts <- coef |>
   filter(startsWith(variable, "cov_")) |>
   mutate(concept_id = as.numeric(gsub("cov_", "", variable))) |>
@@ -109,6 +186,49 @@ coef <- coef |>
   transformToSummarisedResult(
     group = "cohort_name",
     strata = "time",
+    additional = "weight_type",
     estimates = "coef",
     settings = "result_type"
   )
+
+# merge weights
+weights <- weightsIPTW |>
+  mutate(weight_type = "IPTW") |>
+  select("weight_type", "reference", "comparator", "cohort_name", "subject_id", "time", "weight") |>
+  union_all(
+    weightsIPCW |>
+      cross_join(comparisons) |>
+      filter(cohort_name == reference | cohort_name == comparator) |>
+      mutate(weight_type = "IPCW") |>
+      select("weight_type", "reference", "comparator", "cohort_name", "subject_id", "time", "weight")
+  ) |>
+  union_all(
+    weightsIPTW |>
+      mutate(wt = weight) |>
+      select(!c("prob", "weight")) |>
+      inner_join(
+        weightsIPCW |>
+          mutate(wc = weight) |>
+          select(!c("prob", "weight")),
+        by = c("subject_id", "cohort_name", "time")
+      ) |>
+      mutate(
+        weight_type = "IPTCW", 
+        weight = wc * wt
+      ) |>
+      select("weight_type", "reference", "comparator", "cohort_name", "subject_id", "time", "weight")
+  )
+
+rm(weightsIPTW)
+rm(weightsIPCW)
+
+# prepare weights
+weights <- weights |>
+  left_join(
+    cohort |>
+      select("cohort_name", "subject_id", "follow_up", "age"),
+    by = c("cohort_name", "subject_id")
+  ) |>
+  filter(time < follow_up)
+
+save(weights, file = here("Results", "weights.RData"))
