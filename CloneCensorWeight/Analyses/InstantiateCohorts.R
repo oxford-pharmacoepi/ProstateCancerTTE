@@ -12,9 +12,11 @@ medications <- importCodelist(here("..", "Codelist", "Characterisation", "medica
 names(codelist) <- toSnakeCase(names(codelist))
 names(codelistOutcomes) <- toSnakeCase(names(codelistOutcomes))
 
+logMessage("Summarise code use")
 # code use
 codeUse <- summariseCodeUse(x = codelist, cdm = cdm)
 
+logMessage("Instantiate cohorts")
 # treatments
 cdm$treatments <- conceptCohort(
   cdm = cdm,
