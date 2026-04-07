@@ -6,9 +6,14 @@ codelistOutcomes <- importCodelist(here("..", "Codelist", "Outcomes"), type = "c
 exclude <- importCodelist(path = here("..", "Codelist", "ExcludedFromPS"), type = "csv")
 nco <- importCodelist(here("..", "Codelist", "NCO"), type = "csv")
 pcDeath <- importCodelist(here("..", "Codelist", "CauseOfDeath", "prostate_cancer_death.csv"), "csv")
+conditions <- importCodelist(here("..", "Codelist", "Characterisation", "conditions"), type = "csv")
+medications <- importCodelist(here("..", "Codelist", "Characterisation", "medications"), type = "csv")
 
 names(codelist) <- toSnakeCase(names(codelist))
 names(codelistOutcomes) <- toSnakeCase(names(codelistOutcomes))
+
+# code use
+codeUse <- summariseCodeUse(x = codelist, cdm = cdm)
 
 # treatments
 cdm$treatments <- conceptCohort(
@@ -250,4 +255,28 @@ cdm$nco <- conceptCohort(
   conceptSet = nco,
   name = "nco",
   exit = "event_start_date"
+)
+
+# visits
+cdm$visits <- conceptCohort(
+  cdm = cdm,
+  conceptSet = list(inpatient = 9201L, gp = 581477L, oncology_clinic = 38004268L),
+  exit = "event_start_date",
+  name = "visits"
+)
+
+# conditions
+cdm$conditions <- conceptCohort(
+  cdm = cdm,
+  conceptSet = conditions,
+  exit = "event_start_date",
+  name = "conditions"
+)
+
+# medications
+cdm$medications <- conceptCohort(
+  cdm = cdm,
+  conceptSet = medications,
+  exit = "event_end_date",
+  name = "medications"
 )

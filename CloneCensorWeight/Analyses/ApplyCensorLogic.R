@@ -325,3 +325,16 @@ followUpTime <- followUpTime |>
     estimates = "percentage",
     settings = "result_type"
   )
+
+# follow up by reason
+followUpTime2 <- cdm$my_cohort |>
+  addCohortName() |>
+  summariseResult(
+    group = "cohort_name",
+    strata = "follow_up_reason",
+    variables = list("follow_up", "follow_up_reason"),
+    estimates = list(c("min", "q05", "q25", "median", "q75", "q95", "max"), c("count", "percentage"))
+  ) |>
+  addResultType("follow_up_reason")
+
+followUpTime <- bind(followUpTime, followUpTime2)

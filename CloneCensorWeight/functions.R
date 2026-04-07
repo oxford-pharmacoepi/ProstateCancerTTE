@@ -205,17 +205,17 @@ characterisation <- function(cohort) {
     cohort = cohort,
     cohortIntersectFlag = list(
       "Prior comorbidities in [-Inf, -1]" = list(
-        targetCohortName = "conditions",
+        targetCohortTable = "conditions",
         window = c(-Inf, -1)
       ),
       "Prior medication in [-365, -1]" = list(
-        targetCohortName = "medications",
+        targetCohortTable = "medications",
         window = c(-365, -1)
       )
     ),
     cohortIntersectCount = list(
       "Number visists in [-365, -1]" = list(
-        targetCohortName = "visits",
+        targetCohortTable = "visits",
         window = c(-365, -1)
       )
     ),
@@ -255,7 +255,8 @@ summariseSmd <- function(x) {
       counts = FALSE, 
       variables = list("smd", "unbalanced"), 
       estimates = list(c("median", "mean", "max"), "count")
-    )
+    ) |>
+    addResultType("smd")
 }
 summariseOutcomeModel <- function(weights, outcomes, cdmName) {
   
@@ -399,4 +400,11 @@ summariseOutcomeModel <- function(weights, outcomes, cdmName) {
     )
   
   bind(resultHR, resultSurv)
+}
+addResultType <- function(result, resultType) {
+  result |>
+    newSummarisedResult(
+      settings = settings(result) |>
+        mutate(result_type = .env$resultType)
+    )
 }

@@ -149,6 +149,7 @@ for (t in time) {
     weights = "weight"
   ) |>
     suppressMessages() |>
+    addResultType("confounding_over_time") |>
     bind(
       summariseResult(
         counts = FALSE,
@@ -162,7 +163,8 @@ for (t in time) {
         estimates = c("percentage"),
         weights = "weight"
       ) |>
-        suppressMessages()
+        suppressMessages() |>
+        addResultType("confounding_over_time")
     ) |>
     bind(
       # smd at index
@@ -210,10 +212,11 @@ nms <- cdm$concept |>
   select("covariate", "variable_level")
 confoundingTime2 <- confoundingTime2 |>
   inner_join(nms, by = "covariate") |>
-  mutate(cdm_name = cdmName(cdm)) |>
+  mutate(cdm_name = cdmName(cdm), reuslt_type = "unbalanced_smds") |>
   transformToSummarisedResult(
     group = c("weight_type", "reference", "comparator"), 
-    estimates = "count"
+    estimates = "count",
+    settings = "result_type"
   )
 
 confoundingTime <- bind(confoundingTime, confoundingTime2)
