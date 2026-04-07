@@ -212,7 +212,7 @@ nms <- cdm$concept |>
   select("covariate", "variable_level")
 confoundingTime2 <- confoundingTime2 |>
   inner_join(nms, by = "covariate") |>
-  mutate(cdm_name = cdmName(cdm), reuslt_type = "unbalanced_smds") |>
+  mutate(cdm_name = cdmName(cdm), result_type = "unbalanced_smds") |>
   transformToSummarisedResult(
     group = c("weight_type", "reference", "comparator"), 
     estimates = "count",
