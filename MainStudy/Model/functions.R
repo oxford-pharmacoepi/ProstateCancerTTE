@@ -452,52 +452,206 @@ followup_summary <- function(survival_data, outcome, covariates = NULL) {
   dplyr::bind_rows(overall, by_reason) |>
     dplyr::mutate(outcome = outcome)
 }
+hr_summary <- function(survival_data, outcome, covariates = NULL,
+                       times_to_eval    = c(365,  1825, 3650, 5475)) {
 
-hr_summary <- function(survival_data, outcome, covariates = NULL) {
+  max_time <- max(survival_data$time)
+  times_to_eval <- times_to_eval[times_to_eval<=max_time]
+  adjustment_label <- if (is.null(covariates) || length(covariates) == 0L) "unadjusted" else "adjusted"
+  rhs <- c("treatment", covariates)
 
+
+  survival_data <- survival_data |> dplyr::filter(time > 0)
+
+
+  split_data <- survival::survSplit(survival_data ,
+                                    cut = times_to_eval,
+                                    end = "time",
+                                    start = "start",
+                                    event = "status",
+                                    episode = ".interval")
+  # Interval labels: "0-1", "1-5", "5-10", "10-15", ">15"
+  breaks <- c(0, times_to_eval)
+  labels <- c(
+    paste0(breaks[-length(breaks)], "-", breaks[-1]),
+    paste0(">", times_to_eval[length(times_to_eval)])
+  )
+
+  # Fit one Cox model per interval + one overall
+  intervals <- c("overall", seq_along(labels))
+  result <- list()
+  result$fitOverall <- NULL  # initialise
+  result$summary <- purrr::map_dfr(intervals, function(i) {
+    if (i == "overall") {
+      d <- survival_data
+      formula <- stats::as.formula(
+        paste("survival::Surv(time, status) ~", paste(rhs, collapse = " + ")))
+      lbl <- "overall"
+      fit <- tryCatch(
+        survival::coxph(formula, data = d, ties = "efron", cluster = d$pair_id, na.action = stats::na.exclude),
+        error = function(e) NULL
+      )
+
+      result$fitOverall <<- fit
+    } else {
+      d <- split_data[split_data$.interval == i, ]
+      formula <- stats::as.formula(
+        paste("survival::Surv(start, time, status) ~ ", paste(rhs, collapse = " + ")))
+      lbl <- labels[as.numeric(i)]
+      fit <- tryCatch(
+        survival::coxph(formula, data = d, ties = "efron", cluster = d$pair_id, na.action = stats::na.exclude),
+        error = function(e) NULL
+      )
+    }
+
+    if (is.null(fit)) return(NULL)
+
+    s <- summary(fit)
+
+    dplyr::left_join(
+      tibble::as_tibble(s$coefficients, rownames = "variable")|>
+        dplyr::select(
+          variable,
+          coef,
+          hr       = "exp(coef)",
+          se_coef  = "se(coef)",
+          z,
+          p        = "Pr(>|z|)"),
+      tibble::as_tibble(s$conf.int,     rownames = "variable")|>
+        dplyr::select(
+          variable,
+          lower_hr = `lower .95`,
+          upper_hr = `upper .95`
+        ) )|>
+
+      dplyr::mutate(
+        time_window     = lbl,
+        adjustment      = adjustment_label,
+        covariates_used = paste(covariates, collapse = "&"),
+        outcome         = outcome
+      )
+  })
+  return(result)
+
+}
+
+austin_ard_summary <- function(
+    survival_data,
+    fit,
+    outcome,
+    covariates       = NULL,
+    treated_level    = "RP",
+    control_level    = "EBRT",
+    times_to_eval    = c(365,  1825, 3650, 5475),
+    n_boot           = 1000
+) {
+  set.seed(42)
+
+  max_time <- max(survival_data$time)
+  times_to_eval <- c(times_to_eval[times_to_eval<=max_time], max_time) |> unique()
 
   adjustment_label <- if (is.null(covariates) || length(covariates) == 0L) "unadjusted" else "adjusted"
 
-  rhs <- c("treatment", covariates)
 
-  formula <- stats::as.formula(
+  if (all(survival_data$status |> unique() == 0L)){
+    return(  NULL)
+  }
+  # Counterfactual datasets
+  trt_df <- dplyr::mutate(survival_data, treatment = treated_level)
+  ctl_df <- dplyr::mutate(survival_data, treatment = control_level)
+
+  # Point estimates via Austin method
+  s_trt  <- rowMeans(summary(survival::survfit(fit, newdata = trt_df), times = times_to_eval, extend = TRUE)$surv)
+  s_ctl  <- rowMeans(summary(survival::survfit(fit, newdata = ctl_df), times = times_to_eval, extend = TRUE)$surv)
+
+  abs_risk_t <- 1 - s_trt
+  abs_risk_c <- 1 - s_ctl
+  RD_point  <- abs_risk_t - abs_risk_c
+
+  rhs <- c("treatment", covariates)
+  cox_formula <- stats::as.formula(
     paste("survival::Surv(time, status) ~", paste(rhs, collapse = " + "))
   )
 
-  fit <- survival::coxph(
-    formula = formula,
-    data = survival_data,
-    na.action = stats::na.exclude,
-    ties = "efron",
-    cluster = survival_data$pair_id
+  # --- boot package approach ---
+  pair_ids <- unique(survival_data$pair_id)
+  n_pairs  <- length(pair_ids)
+  K <- length(times_to_eval)
+
+  # boot() requires a statistic function with signature: f(data, indices)
+  # Here 'data' is the vector of pair_ids, and 'indices' are the resampled positions
+  boot_statistic <- function(pairs_vec, indices) {
+    sampled_pairs <- pairs_vec[indices]
+
+    boot_data <- dplyr::bind_rows(lapply(seq_along(sampled_pairs), function(i) {
+      rows <- survival_data[survival_data$pair_id == sampled_pairs[[i]], ]
+      rows$pair_id <- i
+      rows
+    }))
+
+    boot_fit <- tryCatch(
+      survival::coxph(cox_formula, data = boot_data, na.action = stats::na.exclude,
+                      ties = "efron", cluster = boot_data$pair_id, x = TRUE),
+      error = function(e) NULL
+    )
+
+    if (is.null(boot_fit)) return(rep(NA_real_, length(times_to_eval)))
+
+    b_trt <- dplyr::mutate(boot_data, treatment = treated_level)
+    b_ctl <- dplyr::mutate(boot_data, treatment = control_level)
+
+    tryCatch({
+      s_t <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_trt), times = times_to_eval, extend = TRUE)$surv)
+      s_c <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_ctl), times = times_to_eval, extend = TRUE)$surv)
+      ar_t  <- 1 - s_t
+      ar_c  <- 1 - s_c
+      rd  <- ar_t - ar_c
+      rd
+    }, error = function(e) rep(NA_real_, 2 * K))
+
+  }
+
+  boot_out <- boot::boot(
+    data      = pair_ids,
+    statistic = boot_statistic,
+    R         = n_boot
   )
 
-  coef_tbl <- summary(fit)$coefficients |>
-    tibble::as_tibble(rownames = "variable") |>
-    dplyr::select(
-      variable,
-      coef,
-      hr = `exp(coef)`,
-      se_coef = `se(coef)`,
-      z,
-      p = `Pr(>|z|)`
-    )
+  t_RD  <- boot_out$t[, 1:K,          drop = FALSE]
 
-  conf_tbl <- summary(fit)$conf.int |>
-    tibble::as_tibble(rownames = "variable") |>
-    dplyr::select(
-      variable,
-      lower_hr = `lower .95`,
-      upper_hr = `upper .95`
-    )
 
-  coef_tbl |>
-    dplyr::left_join(conf_tbl, by = "variable") |>
-    dplyr::mutate(
-      adjustment = adjustment_label,
-      covariates_used = paste(covariates, collapse = "&"),
-      outcome = outcome
+  ci <- function(mat, p) apply(mat, 2, quantile, probs = p, na.rm = TRUE)
+
+  lower_RD  <- ci(t_RD,  0.025)
+  upper_RD  <- ci(t_RD,  0.975)
+
+  labels <- as.character(times_to_eval)
+  labels[K]<- "overall"
+  # Assemble output
+  tibble::tibble(
+    time             = labels,
+    outcome          = outcome,
+    adjustment       = adjustment_label,
+    covariates_used  = paste(covariates, collapse = "&"),
+    treated_arm      = treated_level,
+    control_arm      = control_level,
+    abs_risk_treated = abs_risk_t,
+    abs_risk_control = abs_risk_c,
+    # Risk Difference
+    RD               = RD_point,
+    se_RD            = (upper_RD  - lower_RD)  / (2 * 1.96),
+    lower_RD         = lower_RD,
+    upper_RD         = upper_RD,
+
+    # Derived
+    NNT_NNH          = dplyr::if_else(RD_point != 0, abs(1 / RD_point), NA_real_),
+    direction        = dplyr::case_when(
+      RD_point < 0 ~ "reduction",
+      RD_point > 0 ~ "excess",
+      TRUE         ~ "none"
     )
+  ) |>
+    dplyr::arrange(time)
 }
 
 survival_summary <- function(
@@ -507,13 +661,12 @@ survival_summary <- function(
     risk_times = NULL
 ) {
 
-  # Default risk_times if user did not supply them (keeps original intention but
-  # *does not* forcibly overwrite user-supplied risk_times).
+
   if (is.null(risk_times)) {
     risk_times <- c(0:max(survival_data$time, na.rm = TRUE))
   }
 
-  # Build group the same way your original did
+
   group_cols <- c("treatment", covariates)
   if (length(group_cols) == 1L) {
     df <- survival_data |> dplyr::mutate(group = as.factor(.data[[group_cols]]))
@@ -529,7 +682,7 @@ survival_summary <- function(
 
   fit <- survival::survfit(survival::Surv(time, status) ~ group, data = df, cluster = pair_id)
 
-  # Request summary at requested times (same call as original)
+  # Request summary at requested times
   s <- summary(fit, times = risk_times)
 
   # Build treatment exactly like original did; handle NULL strata robustly but keep same parsing
@@ -575,6 +728,7 @@ survival_summary <- function(
 
 
 outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times = NULL) {
+  print(outcome)
   include_col <- paste0(outcome, "_include")
   x <- survival_data |>
     dplyr::filter(.data[[include_col]]) |>
@@ -586,14 +740,15 @@ outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times =
       pair_id = as.factor(pair_id)
     ) |>
     dplyr::select("treatment", "status","pair_id", "time","reason", dplyr::any_of(covariates))
-
+  hrs = hr_summary(x, outcome, covariates)
   list(
     events_summary   = events_summary(x, outcome, covariates),
     followup_summary = followup_summary(x, outcome, covariates),
-    hr_summary       = hr_summary(x, outcome, covariates),
+    hr_summary       = hrs$summary,
     survival_summary = survival_summary(
       survival_data = x, outcome = outcome, covariates = covariates, risk_times = risk_times
-    )
+    ),
+    austin_ard_summary = austin_ard_summary(survival_data = x, outcome = outcome, covariates = covariates, fit = hrs$fitOverall)
   )
 }
 
@@ -611,7 +766,7 @@ NCOModel <- function(survival_data, outcome) {
 
   list(
     events_summary   = events_summary(x, outcome),
-    hr_summary       = hr_summary(x, outcome, covariates)
+    hr_summary       = hr_summary(x, outcome, covariates)$summary
   )
 }
 
@@ -631,27 +786,31 @@ bindResults <- function(result, cdmName, cohort_name) {
     "hr_summary" = "variable",
     "survival_summary" = "treatment",
     "events_summary" = "treatment",
-    "followup_summary" = "treatment"
+    "followup_summary" = "treatment",
+    "austin_ard_summary" = "treated_arm"
 
   )
   strata <- list(
     "hr_summary" = "outcome",
     "survival_summary" = "outcome",
     "events_summary" = "outcome",
-    "followup_summary" = "outcome"
+    "followup_summary" = "outcome",
+    "austin_ard_summary" = "outcome"
 
   )
   additional <- list(
-    "hr_summary" = "covariates_used",
+    "hr_summary" = c("time_window", "covariates_used"),
     "survival_summary" = c("time", "covariates_used"),
     "events_summary" = character(0),
-    "followup_summary" = "reason"
+    "followup_summary" = "reason",
+    "austin_ard_summary" = c("time", "covariates_used","control_arm")
   )
   estimates <- list(
     "hr_summary" = c("coef", "hr", "se_coef", "z", "p", "lower_hr", "upper_hr"),
     "survival_summary" = c("survival", "lower_survival", "upper_survival", "count_subjects"),
     "events_summary" = "count_events",
-    "followup_summary" = c("count", "min", "q05", "q25", "median", "q75", "q95", "max")
+    "followup_summary" = c("count", "min", "q05", "q25", "median", "q75", "q95", "max"),
+    "austin_ard_summary" = c("abs_risk_treated", "abs_risk_control", "RD", "se_RD", "lower_RD", "upper_RD", "NNT_NNH", "direction")
   )
   names(result[[1]]) |>
     purrr::map(\(nm) {
@@ -659,6 +818,9 @@ bindResults <- function(result, cdmName, cohort_name) {
         purrr::map(\(x) x[[nm]]) |>
         dplyr::bind_rows() |>
         dplyr::select(where(~ !all(is.na(.x) | .x == "")))
+      if (nrow(x) == 0) {
+        return(omopgenerics::emptySummarisedResult())
+      }
       x |>
         dplyr::mutate(
           result_type = nm,
@@ -671,8 +833,8 @@ bindResults <- function(result, cdmName, cohort_name) {
           values_to = "variable_level"
         ) |>
         omopgenerics::transformToSummarisedResult(
-          group = "cohort", strata = strata[[nm]], additional = c(character(0), intersect(colnames(x),additional[[nm]])),
-          estimates = estimates[[nm]], settings = "result_type"
+          group = "cohort", strata = c(character(0),intersect(colnames(x),strata[[nm]])), additional = c(character(0), intersect(colnames(x),additional[[nm]])),
+      estimates =  c(character(0), intersect(colnames(x),estimates[[nm]]))    , settings = "result_type"
         )
     }) |>
     omopgenerics::bind()
@@ -899,4 +1061,5 @@ addOutcome <- function(cohort, outcome, outcome_codelist) {
    dplyr::select(!dplyr::all_of(washout_name)) |>
    dplyr::compute(table_name)
 }
+
 
