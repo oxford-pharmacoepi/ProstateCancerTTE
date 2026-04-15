@@ -330,7 +330,7 @@ for (cohort_name in cohort) {
   }
 
   nco_table <- cdm_g[[merged_matched_cohort_name]] |>
-    dplyr::collect()
+    dplyr::collect()|>
     dplyr::mutate(source = "gold") |>
     dplyr::bind_rows(cdm_a[[merged_matched_cohort_name]] |>
                        dplyr::collect() |>
