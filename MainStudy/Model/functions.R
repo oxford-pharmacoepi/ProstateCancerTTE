@@ -766,7 +766,7 @@ NCOModel <- function(survival_data, outcome) {
 
   list(
     events_summary   = events_summary(x, outcome),
-    hr_summary       = hr_summary(x, outcome, covariates)$summary
+    hr_summary       = hr_summary(x, outcome)$summary
   )
 }
 

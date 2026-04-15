@@ -125,7 +125,7 @@ cdm[["gleason_trial"]] <- cdm[["gleason"]]|>
 # diabetes ----
 omopgenerics::logMessage("Building type 2 diabetes cohort")
 diabetes_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Diabetes"), type = "csv")
-diabetes <- clean_names(names(diabetes_codelist))
+diabetes <- tolower(names(diabetes_codelist))
 names(diabetes_codelist) <- diabetes
 
 cdm$type2_diabetes <- CohortConstructor::conceptCohort(cdm,
