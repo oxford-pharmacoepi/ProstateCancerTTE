@@ -762,7 +762,7 @@ NCOModel <- function(survival_data, outcome) {
       reason = dplyr::if_else(.data$status == 0L, .data$censor_reason, "outcome"),
       pair_id = as.factor(pair_id)
     ) |>
-    dplyr::select("treatment", "status","pair_id", "time","reason", dplyr::any_of(covariates))
+    dplyr::select("treatment", "status","pair_id", "time","reason")
 
   list(
     events_summary   = events_summary(x, outcome),
