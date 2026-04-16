@@ -207,8 +207,8 @@ getSelectedFeatures <- function(wide_data, cdm, cdm_name) {
   y <- wide_data$y
   df <- wide_data |>
     dplyr::select(
-      -dplyr::any_of(c("y", "source", "psa_value")),
-      -dplyr::starts_with("latest"),
+      -dplyr::any_of(c("y", "source", "psa_value", "year_2010_2020")),
+      -dplyr::starts_with(c("latest")),
       -dplyr::ends_with("group")
     )
 
