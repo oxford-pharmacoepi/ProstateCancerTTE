@@ -11,7 +11,7 @@
   "Packages": {
     "CDMConnector": {
       "Package": "CDMConnector",
-      "Version": "2.3.0",
+      "Version": "2.5.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -23,6 +23,7 @@
         "dplyr",
         "generics",
         "glue",
+        "httr",
         "jsonlite",
         "lifecycle",
         "methods",
@@ -36,7 +37,7 @@
         "tidyselect",
         "withr"
       ],
-      "Hash": "bf77f505ff8ee7b8b293d354f3947b6e"
+      "Hash": "9ff57da5e073a54363b2706a10524d54"
     },
     "CodelistGenerator": {
       "Package": "CodelistGenerator",
@@ -65,7 +66,7 @@
     },
     "CohortCharacteristics": {
       "Package": "CohortCharacteristics",
-      "Version": "1.1.1",
+      "Version": "1.1.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -83,11 +84,11 @@
         "stringr",
         "tidyr"
       ],
-      "Hash": "ebce643410231951cd1885875bb68c9f"
+      "Hash": "e604669d351baaf55c813e5ab17f444e"
     },
     "CohortConstructor": {
       "Package": "CohortConstructor",
-      "Version": "0.6.1",
+      "Version": "0.6.3",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -101,10 +102,11 @@
         "omopgenerics",
         "purrr",
         "rlang",
+        "tibble",
         "tidyr",
         "utils"
       ],
-      "Hash": "f5b9c8631c3cae0de4b5f0384e352c35"
+      "Hash": "3d5ca3827a93b09a4062ba3306ee0a07"
     },
     "DBI": {
       "Package": "DBI",
@@ -155,7 +157,7 @@
     },
     "PatientProfiles": {
       "Package": "PatientProfiles",
-      "Version": "1.4.5",
+      "Version": "1.5.0",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -170,7 +172,7 @@
         "stringr",
         "tidyr"
       ],
-      "Hash": "813d690f05434f5513781228a7a70c42"
+      "Hash": "ceba13a7a98e77de7a048c98bfb4504b"
     },
     "R6": {
       "Package": "R6",
@@ -233,6 +235,16 @@
       "Repository": "CRAN",
       "Hash": "1c0aa18b97e6aaa17f93b8b866c0ace5"
     },
+    "askpass": {
+      "Package": "askpass",
+      "Version": "1.2.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "sys"
+      ],
+      "Hash": "c39f4155b3ceb1a9a2799d700fbd4b6a"
+    },
     "backports": {
       "Package": "backports",
       "Version": "1.5.0",
@@ -279,6 +291,18 @@
         "vctrs"
       ],
       "Hash": "1e0ae40898be928695fd90a80e816253"
+    },
+    "boot": {
+      "Package": "boot",
+      "Version": "1.3-30",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "graphics",
+        "stats"
+      ],
+      "Hash": "96abeed416a286d4a0f52e550b612343"
     },
     "checkmate": {
       "Package": "checkmate",
@@ -375,9 +399,19 @@
       ],
       "Hash": "859d96e65ef198fd43e82b9628d593ef"
     },
+    "curl": {
+      "Package": "curl",
+      "Version": "7.0.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R"
+      ],
+      "Hash": "aa27e963d3deccf4bade44d06b976977"
+    },
     "dbplyr": {
       "Package": "dbplyr",
-      "Version": "2.5.1",
+      "Version": "2.5.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -401,11 +435,11 @@
         "vctrs",
         "withr"
       ],
-      "Hash": "e38d7151c767b00b919091be4686e274"
+      "Hash": "751a4c05422caab7c7f74f10a94961fa"
     },
     "dplyr": {
       "Package": "dplyr",
-      "Version": "1.2.0",
+      "Version": "1.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -424,7 +458,7 @@
         "utils",
         "vctrs"
       ],
-      "Hash": "71a469a5d5f9fdbf7de6c0dbeece0e22"
+      "Hash": "d71f190466b9496cf8543c76641be5cf"
     },
     "foreach": {
       "Package": "foreach",
@@ -504,6 +538,21 @@
       ],
       "Hash": "2799ac720626cec589478b191e48b88b"
     },
+    "httr": {
+      "Package": "httr",
+      "Version": "1.4.8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "R6",
+        "curl",
+        "jsonlite",
+        "mime",
+        "openssl"
+      ],
+      "Hash": "10bcae7793493db63a6872096132e10c"
+    },
     "iterators": {
       "Package": "iterators",
       "Version": "1.0.14",
@@ -575,9 +624,19 @@
       ],
       "Hash": "8b3b213aa0c54a0dec254288ccb545d1"
     },
+    "mime": {
+      "Package": "mime",
+      "Version": "0.13",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "tools"
+      ],
+      "Hash": "0ec19f34c72fab674d8f2b4b1c6410e1"
+    },
     "omopgenerics": {
       "Package": "omopgenerics",
-      "Version": "1.3.6",
+      "Version": "1.3.7",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -597,7 +656,17 @@
         "tidyr",
         "vctrs"
       ],
-      "Hash": "21d3985f399b84b3fb2790db2f797345"
+      "Hash": "c6f31ce52da4836378cb9f317d351cbd"
+    },
+    "openssl": {
+      "Package": "openssl",
+      "Version": "2.3.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "askpass"
+      ],
+      "Hash": "cfb0063e43e91f0fb8114b4cacbc0943"
     },
     "pillar": {
       "Package": "pillar",
@@ -795,6 +864,13 @@
         "utils"
       ],
       "Hash": "e6e3071f471513e4b85f98ca041303c7"
+    },
+    "sys": {
+      "Package": "sys",
+      "Version": "3.4.3",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "de342ebfebdbf40477d0758d05426646"
     },
     "tibble": {
       "Package": "tibble",

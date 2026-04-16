@@ -16,7 +16,7 @@ excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codel
   unlist() |>
   unname()
 output_directory <- here::here("Results")
-cohort <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
+cohort <- c("optima_pc_trial")#, "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
 #cohort <- c("optima_pc_trial_2010_2020","optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
 for (cohort_name in cohort) {
   cohort_name_long <- paste(cohort_name, "long", sep = "_")
@@ -52,7 +52,7 @@ for (cohort_name in cohort) {
   dbName_gold <- "gold_pc"
   con_gold <- dbConnect(
     drv = Postgres(),
-    dbname = "cdm_gold_p22_001867",
+    dbname = "cdm_gold_p22_001867_rtds",
     host = host,
     port = port,
     user = username,
@@ -76,7 +76,7 @@ for (cohort_name in cohort) {
   dbName_aurum <- "aurum_pc"
   con_aurum <- dbConnect(
     drv = Postgres(),
-    dbname = "cdm_aurum_p22_001867",
+    dbname = "cdm_aurum_p22_001867_rtds",
     host = host,
     port = port,
     user = username,
@@ -86,7 +86,7 @@ for (cohort_name in cohort) {
 
   cdm_a <- cdmFromCon(
     con = con_aurum, cdmSchema = "public", writeSchema = "results", achillesSchema = "results", writePrefix = "cc_", .softValidation = TRUE, cdmName = dbName_aurum,
-    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, t_status_cohort, n_status_cohort, psa_cohort, gleason_cohort, "progression", "medications", "conditions", "type2_diabetes")
+    cohortTables = c(cohort_name, cohort_name_long, cohort_name_visits, t_status_cohort, n_status_cohort, psa_cohort, gleason_cohort,"medications", "conditions", "type2_diabetes")
   )
 
 
@@ -330,7 +330,7 @@ for (cohort_name in cohort) {
   }
 
   nco_table <- cdm_g[[merged_matched_cohort_name]] |>
-    dplyr::collect()
+    dplyr::collect()|>
     dplyr::mutate(source = "gold") |>
     dplyr::bind_rows(cdm_a[[merged_matched_cohort_name]] |>
                        dplyr::collect() |>
@@ -351,7 +351,7 @@ for (cohort_name in cohort) {
 
   ### Export ----
   result_to_export <- omopgenerics::bind(result)
-  omopgenerics::exportSummarisedResult(result, path = output_directory, fileName = paste0("results_{cdm_name}_", cohort_name, "_{date}.csv"))
+  omopgenerics::exportSummarisedResult(result_to_export, path = output_directory, fileName = paste0("results_{cdm_name}_", cohort_name, "_{date}.csv"))
 }
 CDMConnector::cdmDisconnect(cdm_a)
 
