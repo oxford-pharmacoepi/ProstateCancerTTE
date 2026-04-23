@@ -16,7 +16,7 @@ excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codel
   unlist() |>
   unname()
 output_directory <- here::here("Results")
-cohort <- c("optima_pc_trial")#, "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
+cohort <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf")
 #cohort <- c("optima_pc_trial_2010_2020","optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020")
 for (cohort_name in cohort) {
   cohort_name_long <- paste(cohort_name, "long", sep = "_")

@@ -514,7 +514,7 @@ hr_summary <- function(survival_data, outcome, covariates = NULL,
           variable,
           coef,
           hr       = "exp(coef)",
-          se_coef  = "se(coef)",
+          robust_se  = "robust se",
           z,
           p        = "Pr(>|z|)"),
       tibble::as_tibble(s$conf.int,     rownames = "variable")|>
@@ -543,7 +543,7 @@ austin_ard_summary <- function(
     treated_level    = "RP",
     control_level    = "EBRT",
     times_to_eval    = c(365,  1825, 3650, 5475),
-    n_boot           = 1000
+    n_boot           = 100
 ) {
   set.seed(42)
 
@@ -728,7 +728,6 @@ survival_summary <- function(
 
 
 outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times = NULL) {
-  print(outcome)
   include_col <- paste0(outcome, "_include")
   x <- survival_data |>
     dplyr::filter(.data[[include_col]]) |>
@@ -806,7 +805,7 @@ bindResults <- function(result, cdmName, cohort_name) {
     "austin_ard_summary" = c("time", "covariates_used","control_arm")
   )
   estimates <- list(
-    "hr_summary" = c("coef", "hr", "se_coef", "z", "p", "lower_hr", "upper_hr"),
+    "hr_summary" = c("coef", "hr", "robust_se", "z", "p", "lower_hr", "upper_hr"),
     "survival_summary" = c("survival", "lower_survival", "upper_survival", "count_subjects"),
     "events_summary" = "count_events",
     "followup_summary" = c("count", "min", "q05", "q25", "median", "q75", "q95", "max"),

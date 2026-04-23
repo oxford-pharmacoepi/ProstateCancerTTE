@@ -19,7 +19,7 @@ cohorts <- c("optima_pc_trial", "optima_pc_rwd", "optima_pc_rwd_50_69", "optima_
 cdm <- CDMConnector::cdmFromCon(con = con,
                                 cdmSchema = cdmSchema,
                                 writeSchema =  writeSchema,
-                                writePrexix = prefix,
+                                writePrefix = prefix,
                                 cdmName = dbName,
                                 cohortTables = c(cohorts, "psa_values_rwd", "psa_values_trial","prostate_cancer_age_50_69","n_status_rwd", "n_status_trial",
                                                  "t_status_rwd", "t_status_trial", "gleason_rwd", "gleason_trial", "conditions", "medications", "type2_diabetes" )[!createCohorts]
