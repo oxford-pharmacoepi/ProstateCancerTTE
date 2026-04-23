@@ -452,6 +452,7 @@ followup_summary <- function(survival_data, outcome, covariates = NULL) {
   dplyr::bind_rows(overall, by_reason) |>
     dplyr::mutate(outcome = outcome)
 }
+
 hr_summary <- function(survival_data, outcome, covariates = NULL,
                        times_to_eval    = c(365,  1825, 3650, 5475)) {
 
@@ -481,6 +482,11 @@ hr_summary <- function(survival_data, outcome, covariates = NULL,
   intervals <- c("overall", seq_along(labels))
   result <- list()
   result$fitOverall <- NULL  # initialise
+  is_degenerate <- function(fit) {
+    is.null(fit) ||
+      sum(fit$nevent) == 0 ||
+      all(is.na(fit$coefficients))
+  }
   result$summary <- purrr::map_dfr(intervals, function(i) {
     if (i == "overall") {
       d <- survival_data
@@ -504,7 +510,7 @@ hr_summary <- function(survival_data, outcome, covariates = NULL,
       )
     }
 
-    if (is.null(fit)) return(NULL)
+    if (is_degenerate(fit)) return(tibble::tibble())
 
     s <- summary(fit)
 
@@ -522,7 +528,7 @@ hr_summary <- function(survival_data, outcome, covariates = NULL,
           variable,
           lower_hr = `lower .95`,
           upper_hr = `upper .95`
-        ) )|>
+        ), by = "variable" )|>
 
       dplyr::mutate(
         time_window     = lbl,
@@ -728,6 +734,7 @@ survival_summary <- function(
 
 
 outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times = NULL) {
+  omopgenerics::logMessage(paste0("Outcome model: ", outcome))
   include_col <- paste0(outcome, "_include")
   x <- survival_data |>
     dplyr::filter(.data[[include_col]]) |>
