@@ -57,3 +57,5 @@ rsconnect/
 *.html
 **DatabaseCharacterisation/Results/**/*.csv
 **DatabaseCharacterisation/Results/**/*.png
+
+**SubjectsToRemove/**.csv

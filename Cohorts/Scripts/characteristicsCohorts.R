@@ -33,7 +33,7 @@ cdm[["n_status_trial"]] <- cdm[["n_status"]]|>
 ## T status ----
 omopgenerics::logMessage("Creating T-status cohort")
 t1_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions", "t1.csv"), type = "csv")
-t1_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions", "t2.csv"), type = "csv")
+t2_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions", "t2.csv"), type = "csv")
 t_status_codelist <- omopgenerics::bind(t1_status, t2_status)
 
 cdm[["t_status"]] <- CohortConstructor::conceptCohort(cdm, conceptSet = t_status_codelist,
@@ -125,20 +125,20 @@ cdm[["gleason_trial"]] <- cdm[["gleason"]]|>
 # diabetes ----
 omopgenerics::logMessage("Building type 2 diabetes cohort")
 diabetes_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Diabetes"), type = "csv")
-diabetes <- clean_names(names(diabetes_codelist))
+diabetes <- tolower(names(diabetes_codelist))
 names(diabetes_codelist) <- diabetes
 
 cdm$type2_diabetes <- CohortConstructor::conceptCohort(cdm,
                                                        conceptSet = list("dm2_inc" = diabetes_codelist$dm2_inc),
                                                        name = "type2_diabetes") |>
-  CohortConstructor::requireConceptIntersect(conceptSet = list("dm1_prev" = diabetes_codelist$dm1_prev), 
-                                             window = c(-Inf, -1), 
+  CohortConstructor::requireConceptIntersect(conceptSet = list("dm1_prev" = diabetes_codelist$dm1_prev),
+                                             window = c(-Inf, -1),
                                              intersection = c(0,0)) |>
-  CohortConstructor::requireConceptIntersect(conceptSet = list("dm2_prev" = diabetes_codelist$dm2_prev), 
-                                             window = c(-Inf, -1), 
+  CohortConstructor::requireConceptIntersect(conceptSet = list("dm2_prev" = diabetes_codelist$dm2_prev),
+                                             window = c(-Inf, -1),
                                              intersection = c(0,0)) |>
-  CohortConstructor::requireConceptIntersect(conceptSet = list("antidiabetics" = diabetes_codelist$antidiabetics), 
-                                             window = c(-Inf, -1), 
+  CohortConstructor::requireConceptIntersect(conceptSet = list("antidiabetics" = diabetes_codelist$antidiabetics),
+                                             window = c(-Inf, -1),
                                              intersection = c(0,0))
 omopgenerics::logMessage("Finished: characteristic cohorts built")
 
