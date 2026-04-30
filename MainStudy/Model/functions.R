@@ -98,13 +98,14 @@ visitsCount <- function(cdm, cohort_name = "optima_pc_rwd"){
     dplyr::group_by(.data$subject_id, .data$visit_concept_id, .data$cohort_definition_id, .data$cohort_start_date, .data$cohort_end_date) |>
     dplyr::tally() |>
     tidyr::pivot_wider(names_from = "visit_concept_id", values_from = "n", names_prefix = "visit", values_fill = list(n = 0)) |>
-    dplyr::rename("visit581477_365_0" = "visit581477", "visit9201_365_0" = "visit9201")|>
     dplyr::compute(name = cohort_name_visits)
+  cols_to_rename <- grep("^visit", colnames(cdm[[cohort_name_visits]]), value = TRUE)
+  rename_vec <- setNames(cols_to_rename, paste0(cols_to_rename, "_365_0"))
 
   cdm[[cohort_name_visits]] <- cdm[[cohort_name_visits]] |>
+    dplyr::rename(any_of(rename_vec)) |>
     dplyr::right_join(cdm[[cohort_name]]) |>
-    dplyr::mutate(visit581477_365_0 = dplyr::coalesce(.data$visit581477_365_0, 0),
-                  visit9201_365_0 = dplyr::coalesce(.data$visit9201_365_0, 0)) |>
+    dplyr::mutate(dplyr::across(dplyr::any_of(names(rename_vec)), ~ dplyr::coalesce(.x, 0))) |>
     dplyr::compute(name = cohort_name_visits)
   return(cdm)
 }
