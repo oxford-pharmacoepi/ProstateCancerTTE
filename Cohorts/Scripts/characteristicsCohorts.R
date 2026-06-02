@@ -98,12 +98,10 @@ cdm$gleason <- cdm$measurement |>
                 "cohort_start_date" = "measurement_date",
                 "cohort_end_date" = "measurement_date",
                 "gleason_group") |>
+  dplyr::distinct() |>
+  dplyr::filter(!is.na(.data$gleason_group)) |>
   dplyr::group_by(.data$subject_id, .data$cohort_start_date) |>
-
-  dplyr::filter(
-    !is.na(.data$gleason_group),
-    min(.data$gleason_group, na.rm = TRUE) == max(.data$gleason_group, na.rm = TRUE)
-  ) |>
+  dplyr::filter(n() == 1) |>
   dplyr::ungroup() |>
   dplyr::compute(name = "gleason") |>
   omopgenerics::newCohortTable()
