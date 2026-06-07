@@ -65,7 +65,7 @@ drugs <- changeIds(drugs)
 psa <- changeIds(psa)
 gleason <- changeIds(gleason)
 
-# IPCW
+# IPCW ----
 artificialCensor <- list(
   "surveillance" = c("prostatectomy", "radiotheraphy"),
   "surveillance_3_months" = c("end_surveillance", "prostatectomy", "radiotheraphy"),
@@ -127,7 +127,7 @@ for (nm in names(artificialCensor)) {
 weightsIPCW <- bind_rows(weightsIPCW)
 coefIPCW <- bind_rows(coefIPCW)
 
-# IPTW at 365
+# IPTW at 365 ----
 
 # prepare covariate matrix
 x <- createCovariatesMatrix(cohort, 0, drugs, conditions, psa, gleason)
@@ -186,7 +186,7 @@ for (i in seq_len(nrow(comparisons))) {
     mutate(reference = reference, exposed = exposed)
   
   ps <- predict(ps_model, newdata = xi, type = "response")
-  marginal <- mean(xi$cohort_name)
+  marginal <- mean(xi$y)
   
   weightsIPTW365[[i]] <- xi |>
     mutate(
@@ -204,7 +204,78 @@ for (i in seq_len(nrow(comparisons))) {
 coefIPTW365 <- bind_rows(coefIPTW365)
 weightsIPTW365 <- bind_rows(weightsIPTW365)
 
+# IPCW + IPTW365 ----
 
+coefIPCTW365 <- list()
+weightsIPCTW365 <- list()
+
+cohorts <- unique(cohort$cohort_name)
+comparisons <- expand_grid(
+  reference = cohorts,
+  exposed = cohorts
+) |>
+  filter(reference != exposed)
+
+for (i in seq_len(nrow(comparisons))) {
+  reference <- comparisons$reference[i]
+  exposed <- comparisons$exposed[i]
+  
+  xi <- x |>
+    filter(cohort_name %in% c(reference, exposed)) |>
+    mutate(y = if_else(cohort_name == reference, 0, 1)) |>
+    inner_join(
+      weightsIPCW |>
+        filter(cohort_name %in% c(reference, exposed), time == 370) |>
+        select("subject_id", "weight"),
+      by = "subject_id"
+    )
+  
+  if (sum(xi$y == 1) < 5 | sum(xi$y == 0) < 5) {
+    next
+  }
+  
+  # lasso variable selection
+  X <- xi |> 
+    select(starts_with("cov_")) |>
+    as.matrix()
+  y <- xi$y
+  fit <- cv.glmnet(X, y, family = "binomial", alpha = 1, weights = xi$weight)
+  selected <- coef(fit, s = "lambda.min") |>
+    (\(b) rownames(b)[b[, 1] != 0])() |>
+    keep(\(x) x != "(Intercept)")
+  
+  variables <- c("age", "index_year", "psa", "gleason", selected)
+  formula <- reformulate(variables, response = "y")
+  ps_model <- glm(
+    formula,
+    data = xi,
+    family = binomial(), 
+    weights = xi$weight
+  )
+  
+  coefIPCTW365[[i]] <- broom::tidy(ps_model) |> 
+    mutate(reference = reference, exposed = exposed)
+  
+  ps <- predict(ps_model, newdata = xi, type = "response")
+  marginal <- mean(xi$y)
+  
+  weightsIPCTW365[[i]] <- xi |>
+    mutate(
+      ps      = ps,
+      weight = if_else(
+        y == 1,
+        marginal / ps,
+        (1 - marginal) / (1 - ps)
+      ),
+      reference = reference, 
+      exposed = exposed
+    ) |>
+    select(subject_id, cohort_name, reference, exposed, weight)
+}
+coefIPCTW365 <- bind_rows(coefIPCTW365)
+weightsIPCTW365 <- bind_rows(weightsIPCTW365)
+
+# IPTW over time ----
 
 w0 <- cohort |>
   mutate(prob = 1, weight = 1, time = 0) |>
