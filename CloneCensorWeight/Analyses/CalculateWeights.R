@@ -28,16 +28,7 @@ psa <- cdm$psa |>
   ) |>
   mutate(time = date_count_between(index_date, cohort_start_date)) |>
   select(subject_id, time, psa_category) |>
-  collect() |>
-  mutate(psa_category = case_when(
-    psa_category == "[0, 3)" ~ 0,
-    psa_category == "[3, 6)" ~ 1,
-    psa_category == "[6, 10)" ~ 2,
-    psa_category == "[10, 20)" ~ 3,
-    psa_category == "[20, 40)" ~ 4,
-    psa_category == "[40, Inf)" ~ 5,
-    .default = NA
-  ))
+  collect()
 gleason <- cdm$gleason |>
   inner_join(
     cdm$my_cohort |>
@@ -47,22 +38,14 @@ gleason <- cdm$gleason |>
   ) |>
   mutate(time = date_count_between(index_date, cohort_start_date)) |>
   select(subject_id, time, gleason_category) |>
-  collect() |>
-  mutate(gleason_category = case_when(
-    gleason_category == "<2" ~ 0,
-    gleason_category == "2 to 6" ~ 1,
-    gleason_category == "7" ~ 2,
-    gleason_category == "8 to 10" ~ 3,
-    gleason_category == ">10" ~ 4,
-    .default = NA
-  ))
+  collect() 
 
 # prepare subjects
 cohort <- cdm$my_cohort |>
   addAgeQuery() |>
   mutate(index_year = get_year(cohort_start_date)) |>
   addCohortName() |>
-  select(cohort_name, subject_id, follow_up, age, index_year) |>
+  select(cohort_name, subject_id, follow_up, follow_up_reason, age, index_year) |>
   collect()
 
 # recalculate subject_id
@@ -83,28 +66,146 @@ psa <- changeIds(psa)
 gleason <- changeIds(gleason)
 
 # IPCW
-coefIPCW <- list()
-weightsIPCW <- list()
-weightsIPCW[["0"]] <- cohort |>
-  mutate(prob = 1, weight = 1, time = 0) |>
-  select(subject_id, prob, weight, cohort_name, time)
-for (ti in seq(from = 10, to = 1000, by = 10)) {
-  startTime <- Sys.time()
-  cat(paste0("IPCW at time \033[34m\033[1m", ti, "\033[0m"))
-  x <- createCovariatesMatrix(cohort, ti, drugs, conditions, psa, gleason)
-  xm <- modelWeights(x, ti)
-  coefIPCW[[as.character(ti)]] <- xm$coef
-  weightsIPCW[[as.character(ti)]] <- xm$weights
-  endTime <- Sys.time()
-  td <- sprintf("%.1f", difftime(time = endTime, time2 = startTime, units = "secs"))
-  cat(paste0(" finished in \033[3m", td, " seconds.\033[0m\n"))
-}
-coefIPCW <- bind_rows(coefIPCW)
-weightsIPCW <- bind_rows(weightsIPCW)
+artificialCensor <- list(
+  "surveillance" = c("prostatectomy", "radiotheraphy"),
+  "surveillance_3_months" = c("end_surveillance", "prostatectomy", "radiotheraphy"),
+  "surveillance_6_months" = c("end_surveillance", "prostatectomy", "radiotheraphy"),
+  "prostatectomy" = c("no prostatectomy", "radiotheraphy"),
+  "radiotheraphy" = c("no radiotheraphy", "prostatectomy")
+)
+ti <- 10
+tmax <- 1000
+times <- seq(0, tmax - 1, by = ti)
 
-# IPTW
-coefIPTW <- list()
-weightsIPTW <- list()
+# prepare covariate matrix
+x <- createCovariatesMatrix(cohort, 0, drugs, conditions, psa, gleason)
+
+# correct times
+x <- x |>
+  mutate(
+    follow_up_reason = if_else(follow_up > tmax, "censor", follow_up_reason),
+    follow_up = pmin(ceiling(follow_up/ti) * ti, tmax)
+  ) |>
+  arrange(subject_id)
+
+weightsIPCW <- list()
+coefIPCW <- list()
+for (nm in names(artificialCensor)) {
+  reasons <- artificialCensor[[nm]]
+  xi <- x |>
+    filter(cohort_name == nm) |>
+    mutate(status = if_else(follow_up_reason %in% reasons, 1, 0)) |>
+    select(!c("cohort_name", "follow_up_reason"))
+  
+  # lasso variable selection
+  X   <- xi |> 
+    select(starts_with("cov_")) |>
+    as.matrix()
+  y   <- Surv(xi$follow_up, xi$status)
+  fit <- cv.glmnet(X, y, family = "cox", alpha = 1)
+  selected <- coef(fit, s = "lambda.min") |>
+    (\(b) rownames(b)[b[, 1] != 0])()
+  
+  variables <- c("age", "index_year", "psa", "gleason", selected)
+  formula <- reformulate(variables, response = "Surv(follow_up, status)")
+  cox <- coxph(formula, data = xi, x = TRUE)
+  
+  coefIPCW[[nm]] <- broom::tidy(cox) |> 
+    mutate(cohort_name = nm)
+  
+  sv <- survfit(cox, newdata = xi)
+  
+  weightsIPCW[[nm]] <- times[times <= max(xi$follow_up)] |>
+    map(\(time) {
+      prob <- as.numeric(t(summary(sv, times = time, extend = TRUE)$surv))
+      prob <- pmax(prob, quantile(prob, 0.01))
+      tibble(subject_id = xi$subject_id, time = time, weight = 1 / prob)
+    }) |>
+    bind_rows() |>
+    mutate(cohort_name = nm)
+}
+weightsIPCW <- bind_rows(weightsIPCW)
+coefIPCW <- bind_rows(coefIPCW)
+
+# IPTW at 365
+
+# prepare covariate matrix
+x <- createCovariatesMatrix(cohort, 0, drugs, conditions, psa, gleason)
+
+# only not censored people
+x <- x |>
+  filter(follow_up > 365) |>
+  mutate(
+    follow_up_reason = if_else(follow_up > tmax, "censor", follow_up_reason),
+    follow_up = pmin(ceiling(follow_up/ti) * ti, tmax)
+  ) |>
+  arrange(subject_id)
+
+# IPTW at 365
+coefIPTW365 <- list()
+weightsIPTW365 <- list()
+
+cohorts <- unique(cohort$cohort_name)
+comparisons <- expand_grid(
+  reference = cohorts,
+  exposed = cohorts
+) |>
+  filter(reference != exposed)
+
+for (i in seq_len(nrow(comparisons))) {
+  reference <- comparisons$reference[i]
+  exposed <- comparisons$exposed[i]
+  
+  xi <- x |>
+    filter(cohort_name %in% c(reference, exposed)) |>
+    mutate(y = if_else(cohort_name == reference, 0, 1))
+  
+  if (sum(xi$y == 1) < 5 | sum(xi$y == 0) < 5) {
+    next
+  }
+  
+  # lasso variable selection
+  X <- xi |> 
+    select(starts_with("cov_")) |>
+    as.matrix()
+  y <- xi$y
+  fit <- cv.glmnet(X, y, family = "binomial", alpha = 1)
+  selected <- coef(fit, s = "lambda.min") |>
+    (\(b) rownames(b)[b[, 1] != 0])() |>
+    keep(\(x) x != "(Intercept)")
+  
+  variables <- c("age", "index_year", "psa", "gleason", selected)
+  formula <- reformulate(variables, response = "y")
+  ps_model <- glm(
+    formula,
+    data = xi,
+    family = binomial()
+  )
+  
+  coefIPTW365[[i]] <- broom::tidy(ps_model) |> 
+    mutate(reference = reference, exposed = exposed)
+  
+  ps <- predict(ps_model, newdata = xi, type = "response")
+  marginal <- mean(xi$cohort_name)
+  
+  weightsIPTW365[[i]] <- xi |>
+    mutate(
+      ps      = ps,
+      weight = if_else(
+        y == 1,
+        marginal / ps,
+        (1 - marginal) / (1 - ps)
+      ),
+      reference = reference, 
+      exposed = exposed
+    ) |>
+    select(subject_id, cohort_name, reference, exposed, weight)
+}
+coefIPTW365 <- bind_rows(coefIPTW365)
+weightsIPTW365 <- bind_rows(weightsIPTW365)
+
+
+
 w0 <- cohort |>
   mutate(prob = 1, weight = 1, time = 0) |>
   select(subject_id, prob, weight, cohort_name, time)
