@@ -1,0 +1,421 @@
+﻿Id,Name,Domain,Vocabulary,include,t1_patological,t2_patological
+1634381,AJCC/UICC 6th clinical T1 Category,Measurement,Cancer Modifier,y,,
+1633520,AJCC/UICC 6th clinical T1a Category,Measurement,Cancer Modifier,y,,
+1634828,AJCC/UICC 6th clinical T1a1 Category,Measurement,Cancer Modifier,y,,
+1634432,AJCC/UICC 6th clinical T1a2 Category,Measurement,Cancer Modifier,y,,
+1633492,AJCC/UICC 6th clinical T1b Category,Measurement,Cancer Modifier,y,,
+1634587,AJCC/UICC 6th clinical T1b1 Category,Measurement,Cancer Modifier,y,,
+1634547,AJCC/UICC 6th clinical T1b2 Category,Measurement,Cancer Modifier,y,,
+1635584,AJCC/UICC 6th clinical T1b3 Category,Measurement,Cancer Modifier,y,,
+1634501,AJCC/UICC 6th clinical T1c Category,Measurement,Cancer Modifier,y,,
+1635357,AJCC/UICC 6th clinical T1c1 Category,Measurement,Cancer Modifier,y,,
+1634309,AJCC/UICC 6th clinical T1c2 Category,Measurement,Cancer Modifier,y,,
+1635406,AJCC/UICC 6th clinical T1c3 Category,Measurement,Cancer Modifier,y,,
+1633497,AJCC/UICC 6th clinical T1d Category,Measurement,Cancer Modifier,y,,
+1633752,AJCC/UICC 6th clinical T1mi Category,Measurement,Cancer Modifier,y,,
+1633747,AJCC/UICC 6th clinical T2 Category,Measurement,Cancer Modifier,y,,
+1633947,AJCC/UICC 6th clinical T2a Category,Measurement,Cancer Modifier,y,,
+1634260,AJCC/UICC 6th clinical T2a1 Category,Measurement,Cancer Modifier,y,,
+1635665,AJCC/UICC 6th clinical T2a2 Category,Measurement,Cancer Modifier,y,,
+1635509,AJCC/UICC 6th clinical T2b Category,Measurement,Cancer Modifier,y,,
+1633545,AJCC/UICC 6th clinical T2c Category,Measurement,Cancer Modifier,y,,
+1634235,AJCC/UICC 6th clinical T2d Category,Measurement,Cancer Modifier,y,,
+1633445,AJCC/UICC 6th pathological T1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635059,AJCC/UICC 6th pathological T1a Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634047,AJCC/UICC 6th pathological T1a1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633848,AJCC/UICC 6th pathological T1a2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634578,AJCC/UICC 6th pathological T1b Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634961,AJCC/UICC 6th pathological T1b1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634012,AJCC/UICC 6th pathological T1b2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633412,AJCC/UICC 6th pathological T1b3 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633962,AJCC/UICC 6th pathological T1c Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634057,AJCC/UICC 6th pathological T1c1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633340,AJCC/UICC 6th pathological T1c2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634076,AJCC/UICC 6th pathological T1c3 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635078,AJCC/UICC 6th pathological T1d Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635803,AJCC/UICC 6th pathological T1mi Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634792,AJCC/UICC 6th pathological T2 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634221,AJCC/UICC 6th pathological T2a Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1635680,AJCC/UICC 6th pathological T2a1 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1635326,AJCC/UICC 6th pathological T2a2 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1635876,AJCC/UICC 6th pathological T2b Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1633999,AJCC/UICC 6th pathological T2c Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1633692,AJCC/UICC 6th pathological T2d Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1635874,AJCC/UICC 6th post therapy clinical T1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635627,AJCC/UICC 6th post therapy clinical T1a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633470,AJCC/UICC 6th post therapy clinical T1a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635346,AJCC/UICC 6th post therapy clinical T1a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635727,AJCC/UICC 6th post therapy clinical T1b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634257,AJCC/UICC 6th post therapy clinical T1b1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633930,AJCC/UICC 6th post therapy clinical T1b2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635123,AJCC/UICC 6th post therapy clinical T1b3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635703,AJCC/UICC 6th post therapy clinical T1c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635127,AJCC/UICC 6th post therapy clinical T1c1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634053,AJCC/UICC 6th post therapy clinical T1c2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635514,AJCC/UICC 6th post therapy clinical T1c3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633671,AJCC/UICC 6th post therapy clinical T1d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634486,AJCC/UICC 6th post therapy clinical T1mi Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635055,AJCC/UICC 6th post therapy clinical T2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634664,AJCC/UICC 6th post therapy clinical T2a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635143,AJCC/UICC 6th post therapy clinical T2a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635735,AJCC/UICC 6th post therapy clinical T2a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635414,AJCC/UICC 6th post therapy clinical T2b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634133,AJCC/UICC 6th post therapy clinical T2c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635383,AJCC/UICC 6th post therapy clinical T2d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634566,AJCC/UICC 6th post therapy pathological T1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633574,AJCC/UICC 6th post therapy pathological T1a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635804,AJCC/UICC 6th post therapy pathological T1a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635582,AJCC/UICC 6th post therapy pathological T1a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635789,AJCC/UICC 6th post therapy pathological T1b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633365,AJCC/UICC 6th post therapy pathological T1b1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635329,AJCC/UICC 6th post therapy pathological T1b2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635604,AJCC/UICC 6th post therapy pathological T1b3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634807,AJCC/UICC 6th post therapy pathological T1c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635845,AJCC/UICC 6th post therapy pathological T1c1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633532,AJCC/UICC 6th post therapy pathological T1c2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635586,AJCC/UICC 6th post therapy pathological T1c3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635521,AJCC/UICC 6th post therapy pathological T1d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633810,AJCC/UICC 6th post therapy pathological T1mi Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634274,AJCC/UICC 6th post therapy pathological T2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635756,AJCC/UICC 6th post therapy pathological T2a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635211,AJCC/UICC 6th post therapy pathological T2a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633732,AJCC/UICC 6th post therapy pathological T2a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633715,AJCC/UICC 6th post therapy pathological T2b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635438,AJCC/UICC 6th post therapy pathological T2c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635783,AJCC/UICC 6th post therapy pathological T2d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635713,AJCC/UICC 6th T1 Category,Measurement,Cancer Modifier,y,,
+1633451,AJCC/UICC 6th T1a Category,Measurement,Cancer Modifier,y,,
+1634369,AJCC/UICC 6th T1a1 Category,Measurement,Cancer Modifier,y,,
+1635678,AJCC/UICC 6th T1a2 Category,Measurement,Cancer Modifier,y,,
+1634178,AJCC/UICC 6th T1b Category,Measurement,Cancer Modifier,y,,
+1634843,AJCC/UICC 6th T1b1 Category,Measurement,Cancer Modifier,y,,
+1634646,AJCC/UICC 6th T1b2 Category,Measurement,Cancer Modifier,y,,
+1634360,AJCC/UICC 6th T1b3 Category,Measurement,Cancer Modifier,y,,
+1633486,AJCC/UICC 6th T1c Category,Measurement,Cancer Modifier,y,,
+1633780,AJCC/UICC 6th T1c1 Category,Measurement,Cancer Modifier,y,,
+1635788,AJCC/UICC 6th T1c2 Category,Measurement,Cancer Modifier,y,,
+1635306,AJCC/UICC 6th T1c3 Category,Measurement,Cancer Modifier,y,,
+1635205,AJCC/UICC 6th T1d Category,Measurement,Cancer Modifier,y,,
+1635447,AJCC/UICC 6th T1mi Category,Measurement,Cancer Modifier,y,,
+1634195,AJCC/UICC 6th T2 Category,Measurement,Cancer Modifier,y,,
+1633976,AJCC/UICC 6th T2a Category,Measurement,Cancer Modifier,y,,
+1634473,AJCC/UICC 6th T2a1 Category,Measurement,Cancer Modifier,y,,
+1635537,AJCC/UICC 6th T2a2 Category,Measurement,Cancer Modifier,y,,
+1633605,AJCC/UICC 6th T2b Category,Measurement,Cancer Modifier,y,,
+1634524,AJCC/UICC 6th T2c Category,Measurement,Cancer Modifier,y,,
+1633981,AJCC/UICC 6th T2d Category,Measurement,Cancer Modifier,y,,
+1635664,AJCC/UICC 7th clinical T1 Category,Measurement,Cancer Modifier,y,,
+1634728,AJCC/UICC 7th clinical T1a Category,Measurement,Cancer Modifier,y,,
+1634190,AJCC/UICC 7th clinical T1a1 Category,Measurement,Cancer Modifier,y,,
+1633417,AJCC/UICC 7th clinical T1a2 Category,Measurement,Cancer Modifier,y,,
+1634662,AJCC/UICC 7th clinical T1b Category,Measurement,Cancer Modifier,y,,
+1633454,AJCC/UICC 7th clinical T1b1 Category,Measurement,Cancer Modifier,y,,
+1634126,AJCC/UICC 7th clinical T1b2 Category,Measurement,Cancer Modifier,y,,
+1634783,AJCC/UICC 7th clinical T1b3 Category,Measurement,Cancer Modifier,y,,
+1635861,AJCC/UICC 7th clinical T1c Category,Measurement,Cancer Modifier,y,,
+1634258,AJCC/UICC 7th clinical T1c1 Category,Measurement,Cancer Modifier,y,,
+1634858,AJCC/UICC 7th clinical T1c2 Category,Measurement,Cancer Modifier,y,,
+1634588,AJCC/UICC 7th clinical T1c3 Category,Measurement,Cancer Modifier,y,,
+1635583,AJCC/UICC 7th clinical T1d Category,Measurement,Cancer Modifier,y,,
+1633858,AJCC/UICC 7th clinical T1mi Category,Measurement,Cancer Modifier,y,,
+1634029,AJCC/UICC 7th clinical T2 Category,Measurement,Cancer Modifier,y,,
+1635700,AJCC/UICC 7th clinical T2a Category,Measurement,Cancer Modifier,y,,
+1635026,AJCC/UICC 7th clinical T2a1 Category,Measurement,Cancer Modifier,y,,
+1634993,AJCC/UICC 7th clinical T2a2 Category,Measurement,Cancer Modifier,y,,
+1633958,AJCC/UICC 7th clinical T2b Category,Measurement,Cancer Modifier,y,,
+1634936,AJCC/UICC 7th clinical T2c Category,Measurement,Cancer Modifier,y,,
+1634277,AJCC/UICC 7th clinical T2d Category,Measurement,Cancer Modifier,y,,
+1635422,AJCC/UICC 7th pathological T1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633268,AJCC/UICC 7th pathological T1a Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633680,AJCC/UICC 7th pathological T1a1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634736,AJCC/UICC 7th pathological T1a2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634236,AJCC/UICC 7th pathological T1b Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634237,AJCC/UICC 7th pathological T1b1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633595,AJCC/UICC 7th pathological T1b2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633287,AJCC/UICC 7th pathological T1b3 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635010,AJCC/UICC 7th pathological T1c Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635048,AJCC/UICC 7th pathological T1c1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634301,AJCC/UICC 7th pathological T1c2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634032,AJCC/UICC 7th pathological T1c3 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635469,AJCC/UICC 7th pathological T1d Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634265,AJCC/UICC 7th pathological T1mi Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634491,AJCC/UICC 7th pathological T2 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1633341,AJCC/UICC 7th pathological T2a Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634765,AJCC/UICC 7th pathological T2a1 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1635442,AJCC/UICC 7th pathological T2a2 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1635038,AJCC/UICC 7th pathological T2b Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1635254,AJCC/UICC 7th pathological T2c Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1635342,AJCC/UICC 7th pathological T2d Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634509,AJCC/UICC 7th post therapy clinical T1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633556,AJCC/UICC 7th post therapy clinical T1a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633407,AJCC/UICC 7th post therapy clinical T1a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635259,AJCC/UICC 7th post therapy clinical T1a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635779,AJCC/UICC 7th post therapy clinical T1b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635353,AJCC/UICC 7th post therapy clinical T1b1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635178,AJCC/UICC 7th post therapy clinical T1b2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634170,AJCC/UICC 7th post therapy clinical T1b3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634347,AJCC/UICC 7th post therapy clinical T1c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634500,AJCC/UICC 7th post therapy clinical T1c1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635476,AJCC/UICC 7th post therapy clinical T1c2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634695,AJCC/UICC 7th post therapy clinical T1c3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635683,AJCC/UICC 7th post therapy clinical T1d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633814,AJCC/UICC 7th post therapy clinical T1mi Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634378,AJCC/UICC 7th post therapy clinical T2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635119,AJCC/UICC 7th post therapy clinical T2a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633893,AJCC/UICC 7th post therapy clinical T2a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634929,AJCC/UICC 7th post therapy clinical T2a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634790,AJCC/UICC 7th post therapy clinical T2b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633379,AJCC/UICC 7th post therapy clinical T2c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635407,AJCC/UICC 7th post therapy clinical T2d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634684,AJCC/UICC 7th post therapy pathological T1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633888,AJCC/UICC 7th post therapy pathological T1a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635699,AJCC/UICC 7th post therapy pathological T1a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634693,AJCC/UICC 7th post therapy pathological T1a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634600,AJCC/UICC 7th post therapy pathological T1b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635502,AJCC/UICC 7th post therapy pathological T1b1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633875,AJCC/UICC 7th post therapy pathological T1b2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635598,AJCC/UICC 7th post therapy pathological T1b3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634595,AJCC/UICC 7th post therapy pathological T1c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633289,AJCC/UICC 7th post therapy pathological T1c1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633746,AJCC/UICC 7th post therapy pathological T1c2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634200,AJCC/UICC 7th post therapy pathological T1c3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634288,AJCC/UICC 7th post therapy pathological T1d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633420,AJCC/UICC 7th post therapy pathological T1mi Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633353,AJCC/UICC 7th post therapy pathological T2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633787,AJCC/UICC 7th post therapy pathological T2a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635117,AJCC/UICC 7th post therapy pathological T2a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635225,AJCC/UICC 7th post therapy pathological T2a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635367,AJCC/UICC 7th post therapy pathological T2b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635652,AJCC/UICC 7th post therapy pathological T2c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633847,AJCC/UICC 7th post therapy pathological T2d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633549,AJCC/UICC 7th T1 Category,Measurement,Cancer Modifier,y,,
+1633764,AJCC/UICC 7th T1a Category,Measurement,Cancer Modifier,y,,
+1634676,AJCC/UICC 7th T1a1 Category,Measurement,Cancer Modifier,y,,
+1634521,AJCC/UICC 7th T1a2 Category,Measurement,Cancer Modifier,y,,
+1634319,AJCC/UICC 7th T1b Category,Measurement,Cancer Modifier,y,,
+1634668,AJCC/UICC 7th T1b1 Category,Measurement,Cancer Modifier,y,,
+1635493,AJCC/UICC 7th T1b2 Category,Measurement,Cancer Modifier,y,,
+1634255,AJCC/UICC 7th T1b3 Category,Measurement,Cancer Modifier,y,,
+1635626,AJCC/UICC 7th T1c Category,Measurement,Cancer Modifier,y,,
+1634753,AJCC/UICC 7th T1c1 Category,Measurement,Cancer Modifier,y,,
+1635219,AJCC/UICC 7th T1c2 Category,Measurement,Cancer Modifier,y,,
+1635328,AJCC/UICC 7th T1c3 Category,Measurement,Cancer Modifier,y,,
+1633570,AJCC/UICC 7th T1d Category,Measurement,Cancer Modifier,y,,
+1634186,AJCC/UICC 7th T1mi Category,Measurement,Cancer Modifier,y,,
+1634506,AJCC/UICC 7th T2 Category,Measurement,Cancer Modifier,y,,
+1635532,AJCC/UICC 7th T2a Category,Measurement,Cancer Modifier,y,,
+1635827,AJCC/UICC 7th T2a1 Category,Measurement,Cancer Modifier,y,,
+1634535,AJCC/UICC 7th T2a2 Category,Measurement,Cancer Modifier,y,,
+1635301,AJCC/UICC 7th T2b Category,Measurement,Cancer Modifier,y,,
+1635192,AJCC/UICC 7th T2c Category,Measurement,Cancer Modifier,y,,
+1634572,AJCC/UICC 7th T2d Category,Measurement,Cancer Modifier,y,,
+1633883,AJCC/UICC 8th clinical T1 Category,Measurement,Cancer Modifier,y,,
+1635229,AJCC/UICC 8th clinical T1a Category,Measurement,Cancer Modifier,y,,
+1634437,AJCC/UICC 8th clinical T1a1 Category,Measurement,Cancer Modifier,y,,
+1634945,AJCC/UICC 8th clinical T1a2 Category,Measurement,Cancer Modifier,y,,
+1633531,AJCC/UICC 8th clinical T1b Category,Measurement,Cancer Modifier,y,,
+1635568,AJCC/UICC 8th clinical T1b1 Category,Measurement,Cancer Modifier,y,,
+1633980,AJCC/UICC 8th clinical T1b2 Category,Measurement,Cancer Modifier,y,,
+1635512,AJCC/UICC 8th clinical T1b3 Category,Measurement,Cancer Modifier,y,,
+1635647,AJCC/UICC 8th clinical T1c Category,Measurement,Cancer Modifier,y,,
+1633432,AJCC/UICC 8th clinical T1c1 Category,Measurement,Cancer Modifier,y,,
+1634749,AJCC/UICC 8th clinical T1c2 Category,Measurement,Cancer Modifier,y,,
+1635322,AJCC/UICC 8th clinical T1c3 Category,Measurement,Cancer Modifier,y,,
+1634636,AJCC/UICC 8th clinical T1d Category,Measurement,Cancer Modifier,y,,
+1633949,AJCC/UICC 8th clinical T1mi Category,Measurement,Cancer Modifier,y,,
+1634651,AJCC/UICC 8th clinical T2 Category,Measurement,Cancer Modifier,y,,
+1635635,AJCC/UICC 8th clinical T2a Category,Measurement,Cancer Modifier,y,,
+1634840,AJCC/UICC 8th clinical T2a1 Category,Measurement,Cancer Modifier,y,,
+1633896,AJCC/UICC 8th clinical T2a2 Category,Measurement,Cancer Modifier,y,,
+1635451,AJCC/UICC 8th clinical T2b Category,Measurement,Cancer Modifier,y,,
+1635287,AJCC/UICC 8th clinical T2c Category,Measurement,Cancer Modifier,y,,
+1635071,AJCC/UICC 8th clinical T2d Category,Measurement,Cancer Modifier,y,,
+1635070,AJCC/UICC 8th pathological T1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633374,AJCC/UICC 8th pathological T1a Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634683,AJCC/UICC 8th pathological T1a1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634089,AJCC/UICC 8th pathological T1a2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633282,AJCC/UICC 8th pathological T1b Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634045,AJCC/UICC 8th pathological T1b1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634711,AJCC/UICC 8th pathological T1b2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634059,AJCC/UICC 8th pathological T1b3 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635810,AJCC/UICC 8th pathological T1c Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635487,AJCC/UICC 8th pathological T1c1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634933,AJCC/UICC 8th pathological T1c2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634846,AJCC/UICC 8th pathological T1c3 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633448,AJCC/UICC 8th pathological T1d Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633506,AJCC/UICC 8th pathological T1mi Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633307,AJCC/UICC 8th pathological T2 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1633453,AJCC/UICC 8th pathological T2a Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634786,AJCC/UICC 8th pathological T2a1 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634938,AJCC/UICC 8th pathological T2a2 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634781,AJCC/UICC 8th pathological T2b Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634709,AJCC/UICC 8th pathological T2c Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634409,AJCC/UICC 8th pathological T2d Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1635870,AJCC/UICC 8th post therapy clinical T1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635466,AJCC/UICC 8th post therapy clinical T1a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634857,AJCC/UICC 8th post therapy clinical T1a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633582,AJCC/UICC 8th post therapy clinical T1a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635158,AJCC/UICC 8th post therapy clinical T1b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635224,AJCC/UICC 8th post therapy clinical T1b1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634385,AJCC/UICC 8th post therapy clinical T1b2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633610,AJCC/UICC 8th post therapy clinical T1b3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635163,AJCC/UICC 8th post therapy clinical T1c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633378,AJCC/UICC 8th post therapy clinical T1c1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633969,AJCC/UICC 8th post therapy clinical T1c2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635150,AJCC/UICC 8th post therapy clinical T1c3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633487,AJCC/UICC 8th post therapy clinical T1d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635655,AJCC/UICC 8th post therapy clinical T1mi Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634518,AJCC/UICC 8th post therapy clinical T2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634173,AJCC/UICC 8th post therapy clinical T2a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634130,AJCC/UICC 8th post therapy clinical T2a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634276,AJCC/UICC 8th post therapy clinical T2a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633329,AJCC/UICC 8th post therapy clinical T2b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634616,AJCC/UICC 8th post therapy clinical T2c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633539,AJCC/UICC 8th post therapy clinical T2d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634111,AJCC/UICC 8th post therapy pathological T1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634322,AJCC/UICC 8th post therapy pathological T1a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633882,AJCC/UICC 8th post therapy pathological T1a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634493,AJCC/UICC 8th post therapy pathological T1a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633644,AJCC/UICC 8th post therapy pathological T1b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634744,AJCC/UICC 8th post therapy pathological T1b1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635364,AJCC/UICC 8th post therapy pathological T1b2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635210,AJCC/UICC 8th post therapy pathological T1b3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635580,AJCC/UICC 8th post therapy pathological T1c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634533,AJCC/UICC 8th post therapy pathological T1c1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634925,AJCC/UICC 8th post therapy pathological T1c2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634598,AJCC/UICC 8th post therapy pathological T1c3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635712,AJCC/UICC 8th post therapy pathological T1d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633269,AJCC/UICC 8th post therapy pathological T1mi Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634204,AJCC/UICC 8th post therapy pathological T2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634187,AJCC/UICC 8th post therapy pathological T2a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635759,AJCC/UICC 8th post therapy pathological T2a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634420,AJCC/UICC 8th post therapy pathological T2a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633631,AJCC/UICC 8th post therapy pathological T2b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634062,AJCC/UICC 8th post therapy pathological T2c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633398,AJCC/UICC 8th post therapy pathological T2d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635793,AJCC/UICC 8th T1 Category,Measurement,Cancer Modifier,y,,
+1634584,AJCC/UICC 8th T1a Category,Measurement,Cancer Modifier,y,,
+1635220,AJCC/UICC 8th T1a1 Category,Measurement,Cancer Modifier,y,,
+1633797,AJCC/UICC 8th T1a2 Category,Measurement,Cancer Modifier,y,,
+1635687,AJCC/UICC 8th T1b Category,Measurement,Cancer Modifier,y,,
+1635292,AJCC/UICC 8th T1b1 Category,Measurement,Cancer Modifier,y,,
+1634402,AJCC/UICC 8th T1b2 Category,Measurement,Cancer Modifier,y,,
+1633449,AJCC/UICC 8th T1b3 Category,Measurement,Cancer Modifier,y,,
+1634817,AJCC/UICC 8th T1c Category,Measurement,Cancer Modifier,y,,
+1635180,AJCC/UICC 8th T1c1 Category,Measurement,Cancer Modifier,y,,
+1634211,AJCC/UICC 8th T1c2 Category,Measurement,Cancer Modifier,y,,
+1635015,AJCC/UICC 8th T1c3 Category,Measurement,Cancer Modifier,y,,
+1633579,AJCC/UICC 8th T1d Category,Measurement,Cancer Modifier,y,,
+1635751,AJCC/UICC 8th T1mi Category,Measurement,Cancer Modifier,y,,
+1633339,AJCC/UICC 8th T2 Category,Measurement,Cancer Modifier,y,,
+1635181,AJCC/UICC 8th T2a Category,Measurement,Cancer Modifier,y,,
+1633583,AJCC/UICC 8th T2a1 Category,Measurement,Cancer Modifier,y,,
+1634149,AJCC/UICC 8th T2a2 Category,Measurement,Cancer Modifier,y,,
+1634429,AJCC/UICC 8th T2b Category,Measurement,Cancer Modifier,y,,
+1634169,AJCC/UICC 8th T2c Category,Measurement,Cancer Modifier,y,,
+1633552,AJCC/UICC 8th T2d Category,Measurement,Cancer Modifier,y,,
+1635661,AJCC/UICC clinical T1 Category,Measurement,Cancer Modifier,y,,
+1633742,AJCC/UICC clinical T1a Category,Measurement,Cancer Modifier,y,,
+1635676,AJCC/UICC clinical T1a1 Category,Measurement,Cancer Modifier,y,,
+1635081,AJCC/UICC clinical T1a2 Category,Measurement,Cancer Modifier,y,,
+1635039,AJCC/UICC clinical T1b Category,Measurement,Cancer Modifier,y,,
+1635701,AJCC/UICC clinical T1b1 Category,Measurement,Cancer Modifier,y,,
+1634659,AJCC/UICC clinical T1b2 Category,Measurement,Cancer Modifier,y,,
+1635348,AJCC/UICC clinical T1b3 Category,Measurement,Cancer Modifier,y,,
+1634320,AJCC/UICC clinical T1c Category,Measurement,Cancer Modifier,y,,
+1634515,AJCC/UICC clinical T1c1 Category,Measurement,Cancer Modifier,y,,
+1634184,AJCC/UICC clinical T1c2 Category,Measurement,Cancer Modifier,y,,
+1633494,AJCC/UICC clinical T1c3 Category,Measurement,Cancer Modifier,y,,
+1634931,AJCC/UICC clinical T1d Category,Measurement,Cancer Modifier,y,,
+1635832,AJCC/UICC clinical T1mi Category,Measurement,Cancer Modifier,y,,
+1635033,AJCC/UICC clinical T2 Category,Measurement,Cancer Modifier,y,,
+1634689,AJCC/UICC clinical T2a Category,Measurement,Cancer Modifier,y,,
+1635046,AJCC/UICC clinical T2a1 Category,Measurement,Cancer Modifier,y,,
+1635269,AJCC/UICC clinical T2a2 Category,Measurement,Cancer Modifier,y,,
+1633781,AJCC/UICC clinical T2b Category,Measurement,Cancer Modifier,y,,
+1634514,AJCC/UICC clinical T2c Category,Measurement,Cancer Modifier,y,,
+1633541,AJCC/UICC clinical T2d Category,Measurement,Cancer Modifier,y,,
+1634004,AJCC/UICC pathological T1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633722,AJCC/UICC pathological T1a Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634867,AJCC/UICC pathological T1a1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635881,AJCC/UICC pathological T1a2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633693,AJCC/UICC pathological T1b Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635168,AJCC/UICC pathological T1b1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635120,AJCC/UICC pathological T1b2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633919,AJCC/UICC pathological T1b3 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635017,AJCC/UICC pathological T1c Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633387,AJCC/UICC pathological T1c1 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1635112,AJCC/UICC pathological T1c2 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633779,AJCC/UICC pathological T1c3 Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634272,AJCC/UICC pathological T1d Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1634428,AJCC/UICC pathological T1mi Category,Measurement,Cancer Modifier,n,TRUE,FALSE
+1633978,AJCC/UICC pathological T2 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634597,AJCC/UICC pathological T2a Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634633,AJCC/UICC pathological T2a1 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634166,AJCC/UICC pathological T2a2 Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1635575,AJCC/UICC pathological T2b Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1634503,AJCC/UICC pathological T2c Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1633278,AJCC/UICC pathological T2d Category,Measurement,Cancer Modifier,n,FALSE,TRUE
+1633377,AJCC/UICC post therapy clinical T1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635371,AJCC/UICC post therapy clinical T1a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635698,AJCC/UICC post therapy clinical T1a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635481,AJCC/UICC post therapy clinical T1a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634217,AJCC/UICC post therapy clinical T1b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634011,AJCC/UICC post therapy clinical T1b1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634880,AJCC/UICC post therapy clinical T1b2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634763,AJCC/UICC post therapy clinical T1b3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634758,AJCC/UICC post therapy clinical T1c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633845,AJCC/UICC post therapy clinical T1c1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633803,AJCC/UICC post therapy clinical T1c2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634153,AJCC/UICC post therapy clinical T1c3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633703,AJCC/UICC post therapy clinical T1d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634018,AJCC/UICC post therapy clinical T1mi Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634819,AJCC/UICC post therapy clinical T2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634979,AJCC/UICC post therapy clinical T2a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634687,AJCC/UICC post therapy clinical T2a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634136,AJCC/UICC post therapy clinical T2a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634179,AJCC/UICC post therapy clinical T2b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634346,AJCC/UICC post therapy clinical T2c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635167,AJCC/UICC post therapy clinical T2d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635781,AJCC/UICC post therapy pathological T1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634793,AJCC/UICC post therapy pathological T1a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633812,AJCC/UICC post therapy pathological T1a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634685,AJCC/UICC post therapy pathological T1a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634264,AJCC/UICC post therapy pathological T1b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633380,AJCC/UICC post therapy pathological T1b1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635607,AJCC/UICC post therapy pathological T1b2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634311,AJCC/UICC post therapy pathological T1b3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633935,AJCC/UICC post therapy pathological T1c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635144,AJCC/UICC post therapy pathological T1c1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635548,AJCC/UICC post therapy pathological T1c2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634851,AJCC/UICC post therapy pathological T1c3 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635237,AJCC/UICC post therapy pathological T1d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635250,AJCC/UICC post therapy pathological T1mi Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634660,AJCC/UICC post therapy pathological T2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634246,AJCC/UICC post therapy pathological T2a Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633285,AJCC/UICC post therapy pathological T2a1 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635716,AJCC/UICC post therapy pathological T2a2 Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1634182,AJCC/UICC post therapy pathological T2b Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633867,AJCC/UICC post therapy pathological T2c Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1633478,AJCC/UICC post therapy pathological T2d Category,Measurement,Cancer Modifier,n,FALSE,FALSE
+1635564,AJCC/UICC T1 Category,Measurement,Cancer Modifier,y,,
+1633880,AJCC/UICC T1a Category,Measurement,Cancer Modifier,y,,
+1634674,AJCC/UICC T1a1 Category,Measurement,Cancer Modifier,y,,
+1635553,AJCC/UICC T1a2 Category,Measurement,Cancer Modifier,y,,
+1633921,AJCC/UICC T1b Category,Measurement,Cancer Modifier,y,,
+1633396,AJCC/UICC T1b1 Category,Measurement,Cancer Modifier,y,,
+1635666,AJCC/UICC T1b2 Category,Measurement,Cancer Modifier,y,,
+1633760,AJCC/UICC T1b3 Category,Measurement,Cancer Modifier,y,,
+1633529,AJCC/UICC T1c Category,Measurement,Cancer Modifier,y,,
+1635069,AJCC/UICC T1c1 Category,Measurement,Cancer Modifier,y,,
+1635668,AJCC/UICC T1c2 Category,Measurement,Cancer Modifier,y,,
+1634701,AJCC/UICC T1c3 Category,Measurement,Cancer Modifier,y,,
+1634100,AJCC/UICC T1d Category,Measurement,Cancer Modifier,y,,
+1635083,AJCC/UICC T1mi Category,Measurement,Cancer Modifier,y,,
+1635562,AJCC/UICC T2 Category,Measurement,Cancer Modifier,y,,
+1635327,AJCC/UICC T2a Category,Measurement,Cancer Modifier,y,,
+1633714,AJCC/UICC T2a1 Category,Measurement,Cancer Modifier,y,,
+1635685,AJCC/UICC T2a2 Category,Measurement,Cancer Modifier,y,,
+1633593,AJCC/UICC T2b Category,Measurement,Cancer Modifier,y,,
+1635270,AJCC/UICC T2c Category,Measurement,Cancer Modifier,y,,
+1633678,AJCC/UICC T2d Category,Measurement,Cancer Modifier,y,,

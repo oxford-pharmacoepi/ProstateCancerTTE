@@ -32,8 +32,8 @@ cdm[["n_status_trial"]] <- cdm[["n_status"]]|>
 
 ## T status ----
 omopgenerics::logMessage("Creating T-status cohort")
-t1_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions", "t1.csv"), type = "csv")
-t2_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "Characterisation","conditions", "t2.csv"), type = "csv")
+t1_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "InclusionCriteria", "t1.csv"), type = "csv")
+t2_status <- omopgenerics::importCodelist(here::here("..", "Codelist", "InclusionCriteria", "t2.csv"), type = "csv")
 t_status_codelist <- omopgenerics::bind(t1_status, t2_status)
 
 cdm[["t_status"]] <- CohortConstructor::conceptCohort(cdm, conceptSet = t_status_codelist,
@@ -61,65 +61,68 @@ cdm[["t_status_trial"]] <- cdm[["t_status"]]|>
   dplyr::compute(name = "t_status_trial")
 
 ## Gleason score ----
+
+gleason_group_1 = c(1633550, 1634230)
+gleason_group_2_3 = c(1633844, 1633826, 1635693, 1633596, 1634459)
+gleason_group_4 = c(1635475, 1635079)
+gleason_group_5 = c(1635009, 1633687, 1633655)
+
+
+gleason_scores <- c(619648, 734332)
+
+gleason_conceptset <- c(gleason_scores, gleason_group_1, gleason_group_2_3, gleason_group_4, gleason_group_5 )
+
+
 omopgenerics::logMessage("Creating Gleason measurement cohort")
-cdm[["gleason"]] <- cdm$measurement |>
-  dplyr::filter(.data$measurement_concept_id %in% 619648) |>
-  dplyr::select("person_id" , "measurement_date", "value_as_number") |>
-  dplyr::group_by(.data$person_id, .data$measurement_date) |>
-  dplyr::summarise(
-    min_val         = min(.data$value_as_number, na.rm = TRUE),
-    max_val         = max(.data$value_as_number, na.rm = TRUE),
-    all_na          = dplyr::if_else(sum(as.integer(!is.na(.data$value_as_number))) == 0L,TRUE, FALSE),
-    .groups = "drop"
-  ) |>
+cdm$gleason <- cdm$measurement |>
+  dplyr::filter(.data$measurement_concept_id %in% .env$gleason_conceptset) |>
+  dplyr::select("person_id" ,"measurement_concept_id", "measurement_date", "value_as_number") |>
   dplyr::mutate(
-    value_as_number = dplyr::case_when(
-      all_na ~ NA_real_,
-      min_val == max_val ~ min_val,
-      TRUE ~ NA_real_
-    )
+    gleason_group = dplyr::case_when(
+      .data$value_as_number < 2 ~ "<2",
+      .data$value_as_number >= 2 & .data$value_as_number <= 6 ~ "2-6",
+      .data$value_as_number == 7 ~ "7",
+      .data$value_as_number >= 8 & .data$value_as_number <=10 ~ "8-10",
+      .data$value_as_number > 10 ~ ">10",
+      TRUE ~ NA_character_
+      ),
+    gleason_group = dplyr::case_when(
+    .data$measurement_concept_id %in% .env$gleason_group_1 ~ "2-6",
+    .data$measurement_concept_id %in% .env$gleason_group_2_3 ~ "7",
+    .data$measurement_concept_id %in% .env$gleason_group_4 ~ "8-10",
+    .data$measurement_concept_id %in% .env$gleason_group_5 ~ "8-10",
+    TRUE ~ .data$gleason_group
+  ),
+  cohort_definition_id = 1L
   ) |>
-  dplyr::filter(!is.na(.data$value_as_number)) |>
-  dplyr::select("subject_id" = "person_id", "cohort_start_date" = "measurement_date", "cohort_end_date" = "measurement_date",
-                "gleason" = "value_as_number"
-  )|>
-  dplyr::mutate("cohort_definition_id" = 1L) |>
-  PatientProfiles::filterInObservation(indexDate = "cohort_start_date") |>
+  dplyr::select("cohort_definition_id",
+                "subject_id" = "person_id",
+                "cohort_start_date" = "measurement_date",
+                "cohort_end_date" = "measurement_date",
+                "gleason_group") |>
+  dplyr::distinct() |>
+  dplyr::filter(!is.na(.data$gleason_group)) |>
+  dplyr::group_by(.data$subject_id, .data$cohort_start_date) |>
+  dplyr::filter(n() == 1) |>
+  dplyr::ungroup() |>
   dplyr::compute(name = "gleason") |>
   omopgenerics::newCohortTable()
-
 
 
 cdm[["gleason_rwd"]] <- cdm[["gleason"]]|>
   CohortConstructor::requireTableIntersect(tableName = "optima_pc_rwd", window = c(0,  Inf), name = "gleason_rwd") |>
   CohortConstructor::requireIsLastEntry() |>
-  PatientProfiles::addCategories(variable = "gleason",
-                                 categories = list("latest_gleason_score_value" = list("<2" = c(0,1),
-                                                                                       "2 to 6" = c(2,6),
-                                                                                       "7" = c(7,7),
-                                                                                       "8 to 10" = c(8,10),
-                                                                                       ">10" = c(11, Inf)
-                                 )
-                                 ),
-                                 name = "gleason_rwd"
-  )
+  dplyr::rename("latest_gleason_score_value" = "gleason_group")|>
+  dplyr::compute(name = "gleason_rwd")
+
 
 
 
 cdm[["gleason_trial"]] <- cdm[["gleason"]]|>
   CohortConstructor::requireTableIntersect(tableName = "optima_pc_trial", window = c(0,  180), name = "gleason_trial") |>
   CohortConstructor::requireIsLastEntry() |>
-  PatientProfiles::addCategories(variable = "gleason",
-                                 categories = list("latest_gleason_score_value" = list("<2" = c(0,1),
-                                                                                       "2 to 6" = c(2,6),
-                                                                                       "7" = c(7,7),
-                                                                                       "8 to 10" = c(8,10),
-                                                                                       ">10" = c(11, Inf)
-                                 )
-                                 ),
-                                 name = "gleason_trial"
-  )
-
+  dplyr::rename("latest_gleason_score_value" = "gleason_group") |>
+  dplyr::compute(name = "gleason_trial" )
 
 
 # diabetes ----

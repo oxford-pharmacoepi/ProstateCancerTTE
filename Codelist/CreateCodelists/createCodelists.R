@@ -10,20 +10,20 @@ library(stringr)
 
 # inclusion criteria ----
 folder_path <- "~/ProstateCancerTTE/Codelist/CreateCodelists/SourceCodelists"
-# 
-# 
+#
+#
 # codelist_rp_rwd <- codesFromCohort(file.path(folder_path, "pca_rp_rwd.json"), cdm = cdm)
 # exportCodelist(codelist_rp_rwd, here("Codelist", "pca_rp_rwd"), type = 'csv')
-# 
+#
 # codelist_rt_rwd <- codesFromCohort(file.path(folder_path, "pca_rt_rwd.json"), cdm = cdm)
 # exportCodelist(codelist_rt_rwd, here("Codelist", "pca_rt_rwd"), type = 'csv')
-# 
+#
 # codelist_rp_trial <- codesFromCohort(file.path(folder_path, "pca_rp_trial.json"), cdm = cdm)
 # exportCodelist(codelist_rp_trial, here("Codelist", "pca_rp_trial"), type = 'csv')
-# 
+#
 # codelist_rt_trial <- codesFromCohort(file.path(folder_path, "pca_rt_trial.json"), cdm = cdm)
 # exportCodelist(codelist_rt_trial, here("Codelist", "pca_rt_trial"), type = 'csv')
-# 
+#
 
 # diabetes ----
 file_path <- paste0(folder_path,"/diabetes.xlsx")
@@ -32,7 +32,7 @@ out_path <- "~/ProstateCancerTTE/Codelist/Diabetes"
 for(sheet in sheets){
   x <- list(read_excel(path = file_path, sheet = sheet)$concept_id)
   names(x) <- sheet
-  
+
   exportCodelist(newCodelist(x), path = out_path , type = "csv")
 
 }
@@ -265,4 +265,21 @@ codelist <- codelist |>
   map(\(x) as.integer(x$condition_concept_id)) |>
   newCodelist()
 exportCodelist(x = codelist, path = out_path, type = "csv")
+# t1 t2 pathlogical
 
+x <- read.csv(file = paste0(folder_path, "/t1_t2_patological.csv"))
+t_pathological <- list("t1_pathological" = x |> dplyr::filter(.data$t1_patological == TRUE)|>dplyr::pull(Id),
+                       "t2_pathological" = x |> dplyr::filter(.data$t2_patological == TRUE)|>dplyr::pull(Id)) |>
+  newCodelist()
+
+t1_codelist <- importCodelist("~/ProstateCancerTTE/Codelist/InclusionCriteria/t1.csv", type = "csv")
+
+t1_broad <- addConcepts(t1_codelist, cdm, concepts = t_pathological$t1)
+names(t1_broad) <- "t1_broad"
+exportCodelist(t1_broad, path = "~/ProstateCancerTTE/Codelist/Characterisation/conditions", type = "csv")
+
+t2_codelist <- importCodelist("~/ProstateCancerTTE/Codelist/InclusionCriteria/t2.csv", type = "csv")
+
+t2_broad <- addConcepts(t2_codelist, cdm, concepts = t_pathological$t2)
+names(t2_broad) <- "t2_broad"
+exportCodelist(t2_broad, path = "~/ProstateCancerTTE/Codelist/Characterisation/conditions", type = "csv")

@@ -71,8 +71,8 @@ docusate <- CodelistGenerator::getCandidateCodes(
   standardConcept = "Standard")
 
 polyethilene_glycol <- CodelistGenerator::getDrugIngredientCodes(
-  cdm,
-  name = c(986417, 36808745, 40707795),
+  cdm = cdm,
+  name = c(986417, 36808745, 40707795, 42899937),
   type = "codelist",
   nameStyle = "{concept_name}"
   )

@@ -307,6 +307,8 @@ omopgenerics::logMessage("Completed: optima_pc_trial")
 omopgenerics::logMessage("Constructing rwd cohort with eligibility checks")
 cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_treatment, name = "optima_pc_rwd") |>
 
+  CohortConstructor::requireSex(sex = "Male") |>
+
   CohortConstructor::requireIsFirstEntry() |>
 
   dplyr::group_by(.data$subject_id) |>
