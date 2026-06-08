@@ -65,31 +65,43 @@ drugs <- changeIds(drugs)
 psa <- changeIds(psa)
 gleason <- changeIds(gleason)
 
+# comparisons ----
+cohorts <- unique(cohort$cohort_name)
+comparisons <- expand_grid(
+  reference = cohorts,
+  exposed = cohorts
+) |>
+  filter(reference != exposed) |>
+  mutate(comparison_id = row_number())
+coef <- list()
+weights <- list()
+
+ti <- 10
+tmax <- 1000
+times <- seq(0, tmax - 1, by = ti)
+
+# covariate matrix
+x <- createCovariatesMatrix(cohort, 0, drugs, conditions, psa, gleason) |>
+  mutate(follow_up = pmin(ceiling(follow_up/ti) * ti, tmax)) |>
+  arrange(subject_id)
+
 # IPCW ----
 artificialCensor <- list(
-  "surveillance" = c("prostatectomy", "radiotheraphy"),
+  "untreated" = c("prostatectomy", "radiotheraphy"),
   "surveillance_3_months" = c("end_surveillance", "prostatectomy", "radiotheraphy"),
   "surveillance_6_months" = c("end_surveillance", "prostatectomy", "radiotheraphy"),
   "prostatectomy" = c("no prostatectomy", "radiotheraphy"),
   "radiotheraphy" = c("no radiotheraphy", "prostatectomy")
 )
-ti <- 10
-tmax <- 1000
-times <- seq(0, tmax - 1, by = ti)
 
-# prepare covariate matrix
-x <- createCovariatesMatrix(cohort, 0, drugs, conditions, psa, gleason)
-
-# correct times
+# get censoring dates
 x <- x |>
   mutate(
-    follow_up_reason = if_else(follow_up > tmax, "censor", follow_up_reason),
-    follow_up = pmin(ceiling(follow_up/ti) * ti, tmax)
-  ) |>
-  arrange(subject_id)
+    follow_up_reason = if_else(follow_up > tmax, "censor", follow_up_reason)
+  )
 
-weightsIPCW <- list()
-coefIPCW <- list()
+we <- list()
+co <- list()
 for (nm in names(artificialCensor)) {
   reasons <- artificialCensor[[nm]]
   xi <- x |>
@@ -98,10 +110,10 @@ for (nm in names(artificialCensor)) {
     select(!c("cohort_name", "follow_up_reason"))
   
   # lasso variable selection
-  X   <- xi |> 
+  X <- xi |> 
     select(starts_with("cov_")) |>
     as.matrix()
-  y   <- Surv(xi$follow_up, xi$status)
+  y <- Surv(xi$follow_up, xi$status)
   fit <- cv.glmnet(X, y, family = "cox", alpha = 1)
   selected <- coef(fit, s = "lambda.min") |>
     (\(b) rownames(b)[b[, 1] != 0])()
@@ -110,51 +122,38 @@ for (nm in names(artificialCensor)) {
   formula <- reformulate(variables, response = "Surv(follow_up, status)")
   cox <- coxph(formula, data = xi, x = TRUE)
   
-  coefIPCW[[nm]] <- broom::tidy(cox) |> 
-    mutate(cohort_name = nm)
+  co[[nm]] <- broom::tidy(cox) |> 
+    mutate(cohort_name = nm, comparison_id = 0L)
   
   sv <- survfit(cox, newdata = xi)
   
-  weightsIPCW[[nm]] <- times[times <= max(xi$follow_up)] |>
+  we[[nm]] <- times[times <= max(xi$follow_up)] |>
     map(\(time) {
       prob <- as.numeric(t(summary(sv, times = time, extend = TRUE)$surv))
       prob <- pmax(prob, quantile(prob, 0.01))
       tibble(subject_id = xi$subject_id, time = time, weight = 1 / prob)
     }) |>
     bind_rows() |>
-    mutate(cohort_name = nm)
+    mutate(cohort_name = nm, comparison_id = 0L)
 }
-weightsIPCW <- bind_rows(weightsIPCW)
-coefIPCW <- bind_rows(coefIPCW)
+
+weights$ipcw <- bind_rows(we)
+rm(we)
+coef$ipcw <- bind_rows(co)
+rm(co)
 
 # IPTW at 365 ----
 
-# prepare covariate matrix
-x <- createCovariatesMatrix(cohort, 0, drugs, conditions, psa, gleason)
-
 # only not censored people
 x <- x |>
-  filter(follow_up > 365) |>
-  mutate(
-    follow_up_reason = if_else(follow_up > tmax, "censor", follow_up_reason),
-    follow_up = pmin(ceiling(follow_up/ti) * ti, tmax)
-  ) |>
-  arrange(subject_id)
+  filter(follow_up > 365)
 
-# IPTW at 365
-coefIPTW365 <- list()
-weightsIPTW365 <- list()
+co <- list()
+we <- list()
 
-cohorts <- unique(cohort$cohort_name)
-comparisons <- expand_grid(
-  reference = cohorts,
-  exposed = cohorts
-) |>
-  filter(reference != exposed)
-
-for (i in seq_len(nrow(comparisons))) {
-  reference <- comparisons$reference[i]
-  exposed <- comparisons$exposed[i]
+for (i in comparisons$comparison_id) {
+  reference <- comparisons$reference[comparisons$comparison_id == i]
+  exposed <- comparisons$exposed[comparisons$comparison_id == i]
   
   xi <- x |>
     filter(cohort_name %in% c(reference, exposed)) |>
@@ -182,13 +181,13 @@ for (i in seq_len(nrow(comparisons))) {
     family = binomial()
   )
   
-  coefIPTW365[[i]] <- broom::tidy(ps_model) |> 
+  co[[i]] <- broom::tidy(ps_model) |> 
     mutate(reference = reference, exposed = exposed)
   
   ps <- predict(ps_model, newdata = xi, type = "response")
   marginal <- mean(xi$y)
   
-  weightsIPTW365[[i]] <- xi |>
+  we[[i]] <- xi |>
     mutate(
       ps      = ps,
       weight = if_else(
@@ -196,29 +195,24 @@ for (i in seq_len(nrow(comparisons))) {
         marginal / ps,
         (1 - marginal) / (1 - ps)
       ),
-      reference = reference, 
-      exposed = exposed
+      comparison_id = i
     ) |>
-    select(subject_id, cohort_name, reference, exposed, weight)
+    select("subject_id", "cohort_name", "comparison_id", "weight")
 }
-coefIPTW365 <- bind_rows(coefIPTW365)
-weightsIPTW365 <- bind_rows(weightsIPTW365)
+
+weights$iptw365 <- bind_rows(we)
+rm(we)
+coef$iptw365 <- bind_rows(co)
+rm(co)
 
 # IPCW + IPTW365 ----
 
-coefIPCTW365 <- list()
-weightsIPCTW365 <- list()
+co <- list()
+we <- list()
 
-cohorts <- unique(cohort$cohort_name)
-comparisons <- expand_grid(
-  reference = cohorts,
-  exposed = cohorts
-) |>
-  filter(reference != exposed)
-
-for (i in seq_len(nrow(comparisons))) {
-  reference <- comparisons$reference[i]
-  exposed <- comparisons$exposed[i]
+for (i in comparisons$comparison_id) {
+  reference <- comparisons$reference[comparisons$comparison_id == i]
+  exposed <- comparisons$exposed[comparisons$comparison_id == i]
   
   xi <- x |>
     filter(cohort_name %in% c(reference, exposed)) |>
@@ -253,27 +247,36 @@ for (i in seq_len(nrow(comparisons))) {
     weights = xi$weight
   )
   
-  coefIPCTW365[[i]] <- broom::tidy(ps_model) |> 
+  co[[i]] <- broom::tidy(ps_model) |> 
     mutate(reference = reference, exposed = exposed)
   
   ps <- predict(ps_model, newdata = xi, type = "response")
   marginal <- mean(xi$y)
   
-  weightsIPCTW365[[i]] <- xi |>
+  we[[i]] <- xi |>
     mutate(
       ps      = ps,
-      weight = if_else(
+      we_iptw = if_else(
         y == 1,
         marginal / ps,
         (1 - marginal) / (1 - ps)
       ),
-      reference = reference, 
-      exposed = exposed
+      comparison_id = i
     ) |>
-    select(subject_id, cohort_name, reference, exposed, weight)
+    select("comparison_id", "cohort_name", "subject_id", "we_iptw")
 }
-coefIPCTW365 <- bind_rows(coefIPCTW365)
-weightsIPCTW365 <- bind_rows(weightsIPCTW365)
+
+weights$iptcw365 <- bind_rows(we) |>
+  inner_join(
+    weights$ipcw |>
+      select("cohort_name", "subject_id", "time", we_ipcw = "weight"),
+    by = c("cohort_name", "subject_id")
+  ) |>
+  mutate(weight = if_else(time <= 365, we_ipcw, we_iptw * we_ipcw)) |>
+  select(!c("we_ipcw", "we_iptw"))
+rm(we)
+coef$iptcw365 <- bind_rows(co)
+rm(co)
 
 # IPTW over time ----
 
@@ -323,17 +326,10 @@ for (ti in seq(from = 10, to = 1000, by = 10)) {
 coefIPTW <- bind_rows(coefIPTW)
 weightsIPTW <- bind_rows(weightsIPTW)
 
-# merge coefficients and prepare to export
-coef <- union_all(
-  coefIPTW |>
-    mutate(
-      cohort_name = paste0(reference, " vs ", comparator),
-      weight_type = "IPTW"
-    ) |>
-    select(!c("reference", "comparator")),
-  coefIPCW |>
-    mutate(weight_type = "IPCW")
-)
+# IPCW + IPTW over time ----
+
+# merge coefficients and prepare to export ----
+coef <- bind_rows(coef, .id = "weight_type") 
 concepts <- coef |>
   filter(startsWith(variable, "cov_")) |>
   mutate(concept_id = as.numeric(gsub("cov_", "", variable))) |>
@@ -341,7 +337,7 @@ concepts <- coef |>
   pull()
 concepts <- cdm$concept |>
   filter(concept_id %in% concepts) |>
-  select(variable = concept_id, concept_name) |>
+  select(variable = "concept_id", "concept_name") |>
   collect() |>
   mutate(
     concept_name = paste0(concept_name, " (", variable, ")"),
@@ -356,51 +352,23 @@ coef <- coef |>
     result_type = "coefficients"
   ) |>
   transformToSummarisedResult(
-    group = "cohort_name",
+    group = c("comparison_id", "cohort_name"),
     strata = "time",
     additional = "weight_type",
     estimates = "coef",
     settings = "result_type"
   )
 
-# merge weights
-weights <- weightsIPTW |>
-  mutate(weight_type = "IPTW") |>
-  select("weight_type", "reference", "comparator", "cohort_name", "subject_id", "time", "weight") |>
-  union_all(
-    weightsIPCW |>
-      cross_join(comparisons) |>
-      filter(cohort_name == reference | cohort_name == comparator) |>
-      mutate(weight_type = "IPCW") |>
-      select("weight_type", "reference", "comparator", "cohort_name", "subject_id", "time", "weight")
-  ) |>
-  union_all(
-    weightsIPTW |>
-      mutate(wt = weight) |>
-      select(!c("prob", "weight")) |>
-      inner_join(
-        weightsIPCW |>
-          mutate(wc = weight) |>
-          select(!c("prob", "weight")),
-        by = c("subject_id", "cohort_name", "time")
-      ) |>
-      mutate(
-        weight_type = "IPTCW", 
-        weight = wc * wt
-      ) |>
-      select("weight_type", "reference", "comparator", "cohort_name", "subject_id", "time", "weight")
-  )
-
-rm(weightsIPTW)
-rm(weightsIPCW)
-
-# prepare weights
-weights <- weights |>
+# save weights ----
+weights <- bind_rows(weights, .id = "weight_type") |>
   left_join(
     cohort |>
-      select("cohort_name", "subject_id", "follow_up", "age"),
+      select("cohort_name", "subject_id", "follow_up"),
     by = c("cohort_name", "subject_id")
   ) |>
-  filter(time < follow_up)
-
-save(weights, file = here("Results", "weights.RData"))
+  filter(time < follow_up) |>
+  select("weight_type", "comparison_id", "cohort_name", "subject_id", "time", "weight")
+con <- weightsCon()
+dbWriteTable(conn = con, name = "weights", value = weights)
+rm(weights)
+weights <- tbl(con, "weights")

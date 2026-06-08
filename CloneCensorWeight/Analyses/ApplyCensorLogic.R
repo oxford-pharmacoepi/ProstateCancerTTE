@@ -27,13 +27,13 @@ cdm$prostate_cancer <- cdm$prostate_cancer |>
   mutate(censor_event = if_else(censor_event <= 365, censor_event, 9999)) |>
   compute(name = "prostate_cancer")
 
-# surveillance arm
-cdm$surveillance <- cdm$prostate_cancer |>
-  compute(name = "surveillance") |>
+# untreated arm
+cdm$untreated <- cdm$prostate_cancer |>
+  compute(name = "untreated") |>
   newCohortTable(
     cohortSetRef = tibble(
       cohort_definition_id = 1L,
-      cohort_name = "surveillance"
+      cohort_name = "untreated"
     )
   ) |>
   mutate(
@@ -65,7 +65,7 @@ cdm$surveillance <- cdm$prostate_cancer |>
     )
   ) |>
   select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason, follow_up_nd, follow_up_nd_reason) |>
-  compute(name = "surveillance")
+  compute(name = "untreated")
 
 # surveillance arm 3 months
 psaTime <- cdm$prostate_cancer |>
@@ -281,7 +281,7 @@ cdm$radiotheraphy <- cdm$prostate_cancer |>
   compute(name = "radiotheraphy")
 
 # no outcome death
-cdm <- bind(cdm$surveillance, cdm$surveillance_3_months, cdm$surveillance_6_months, cdm$prostatectomy, cdm$radiotheraphy, name = "my_cohort")
+cdm <- bind(cdm$untreated, cdm$surveillance_3_months, cdm$surveillance_6_months, cdm$prostatectomy, cdm$radiotheraphy, name = "my_cohort")
 
 # follow up time
 ot <- cdm$my_cohort |>
@@ -296,7 +296,7 @@ total <- cdm$my_cohort |>
   collect()
 time <- 0:(365 * 5)
 followUpTime <- tibble(time = time)
-cols <- c("surveillance", "surveillance_3_months", "surveillance_6_months", "prostatectomy", "radiotheraphy")
+cols <- c("untreated", "surveillance_3_months", "surveillance_6_months", "prostatectomy", "radiotheraphy")
 for (col in cols) {
   followUpTime <- followUpTime |>
     mutate(!!col := map_dbl(time, \(x) {

@@ -408,3 +408,6 @@ addResultType <- function(result, resultType) {
         mutate(result_type = .env$resultType)
     )
 }
+weightsCon <- function() {
+  dbConnect(drv = duckdb(dbdir = here("data", "weights.duckdb")))
+}
