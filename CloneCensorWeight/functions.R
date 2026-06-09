@@ -411,3 +411,19 @@ addResultType <- function(result, resultType) {
 weightsCon <- function() {
   dbConnect(drv = duckdb(dbdir = here("data", "weights.duckdb")))
 }
+recordTime <- function(task) {
+  time <- Sys.time()
+  message <- paste0("Calculating ", task)
+  logMessage(message = message)
+  options(og.task = task)
+  options(og.time = time)
+}
+report <- function() {
+  ts <- getOption("og.time")
+  task <- getOption("og.task")
+  time <- Sys.time()
+  diff <- round(as.numeric(difftime(time1 = time, time2 = ts, units = "secs")))
+  diff <- sprintf("%ih %02im %02is", diff %/% 3600, diff %/% 60, diff %% 60)
+  message <- paste0("Finished ", task, " in ", diff)
+  logMessage(message = message)
+}

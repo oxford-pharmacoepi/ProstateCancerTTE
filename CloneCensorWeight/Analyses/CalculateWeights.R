@@ -72,7 +72,10 @@ comparisons <- expand_grid(
   exposed = cohorts
 ) |>
   filter(reference != exposed) |>
-  mutate(comparison_id = row_number())
+  mutate(
+    comparison_id = row_number(),
+    comparison_name = paste0(reference, " vs ", exposed)
+  )
 coef <- list()
 weights <- list()
 
@@ -84,6 +87,20 @@ times <- seq(0, tmax - 1, by = ti)
 x <- createCovariatesMatrix(cohort, 0, drugs, conditions, psa, gleason) |>
   mutate(follow_up = pmin(ceiling(follow_up/ti) * ti, tmax)) |>
   arrange(subject_id)
+
+covs <- colnames(x) |>
+  (\(b) b[startsWith(b, "cov_")])
+forced <- c("age", "index_year", "psa", "gleason")
+
+# Unweight analysis ----
+weights$unweighted <- xi |>
+  select("subject_id", "cohort_name") |>
+  mutate(
+    time_start = 0L,
+    time_end = tmax,
+    comparison_id = 0L,
+    weight = 1
+  )
 
 # IPCW ----
 artificialCensor <- list(
@@ -103,6 +120,8 @@ x <- x |>
 we <- list()
 co <- list()
 for (nm in names(artificialCensor)) {
+  recordTime(paste0("IPCW for ", nm))
+  
   reasons <- artificialCensor[[nm]]
   xi <- x |>
     filter(cohort_name == nm) |>
@@ -135,6 +154,8 @@ for (nm in names(artificialCensor)) {
     }) |>
     bind_rows() |>
     mutate(cohort_name = nm, comparison_id = 0L)
+  
+  report()
 }
 
 weights$ipcw <- bind_rows(we)
@@ -154,6 +175,9 @@ we <- list()
 for (i in comparisons$comparison_id) {
   reference <- comparisons$reference[comparisons$comparison_id == i]
   exposed <- comparisons$exposed[comparisons$comparison_id == i]
+  cn <- comparisons$comparison_name[comparisons$comparison_id == i]
+  
+  recordTime(paste0("IPTW at 365 for ", cn))
   
   xi <- x |>
     filter(cohort_name %in% c(reference, exposed)) |>
@@ -198,6 +222,8 @@ for (i in comparisons$comparison_id) {
       comparison_id = i
     ) |>
     select("subject_id", "cohort_name", "comparison_id", "weight")
+  
+  report()
 }
 
 weights$iptw365 <- bind_rows(we)
@@ -213,6 +239,9 @@ we <- list()
 for (i in comparisons$comparison_id) {
   reference <- comparisons$reference[comparisons$comparison_id == i]
   exposed <- comparisons$exposed[comparisons$comparison_id == i]
+  cn <- comparisons$comparison_name[comparisons$comparison_id == i]
+  
+  recordTime(paste0("IPTW at 365 with IPCW for ", cn))
   
   xi <- x |>
     filter(cohort_name %in% c(reference, exposed)) |>
@@ -264,6 +293,8 @@ for (i in comparisons$comparison_id) {
       comparison_id = i
     ) |>
     select("comparison_id", "cohort_name", "subject_id", "we_iptw")
+  
+  report()
 }
 
 weights$iptcw365 <- bind_rows(we) |>
@@ -280,18 +311,84 @@ rm(co)
 
 # IPTW over time ----
 
-w0 <- cohort |>
-  mutate(prob = 1, weight = 1, time = 0) |>
-  select(subject_id, prob, weight, cohort_name, time)
-cohorts <- unique(cohort$cohort_name)
-comparisons <- expand_grid(
-  reference = cohorts,
-  comparator = cohorts
-) |>
-  filter(reference != comparator)
-weightsIPTW[["0"]] <- w0 |>
-  cross_join(comparisons) |>
-  filter(cohort_name == reference | cohort_name == comparator)
+co <- list()
+we <- list()
+
+for (i in seq_len(nrow(comparisons))) {
+  reference <- comparisons$reference[comparisons$comparison_id == i]
+  exposed <- comparisons$exposed[comparisons$comparison_id == i]
+  cn <- comparisons$comparison_name[comparisons$comparison_id == i]
+  
+  recordTime(paste0("IPTW over time for ", cn))
+  
+  # Build pooled person-time dataset
+  xi <- x |>
+    filter(cohort_name %in% c(reference, exposed)) |>
+    mutate(y = if_else(cohort_name == reference, 0L, 1L))
+  
+  # build long data set
+  xi <- survSplit(
+    Surv(time, censor == "Censor") ~ .,
+    data = xi,
+    cut = sort(unique(xi$time)),
+    episode = "interval_id",
+    start = "time_start",
+    end = "time_end"
+  )
+
+  X <- model.matrix(
+    reformulate(c("ns(follow_up, df = 4)", forced, covs), intercept = FALSE),
+    data = xi
+  )
+  
+  # penalty for covs to use lasso as selection
+  pf <- c(rep(0, length(forced) + 4), rep(1, length(covs)))
+  
+  fit <- cv.glmnet(
+    X,
+    xi$y,
+    family = "binomial",
+    alpha = 1,
+    penalty.factor = pf,
+    nfolds = 10
+  )
+  
+  selected <- coef(fit, s = "lambda.min") |>
+    (\(b) rownames(b)[b[, 1] != 0])() |>
+    setdiff(c("(Intercept)", colnames(forced)))
+  
+  # Calculate ps with glm
+  formula   <- reformulate(c("ns(follow_up, df = 4)", forced, selected), response = "y")
+  fit <- glm(
+    formula,
+    data = xi,
+    family = binomial()
+  )
+  ps <- predict(fit, newdata = xi, type = "response")
+  
+  co[[i]] <- broom::tidy(fit) |>
+    mutate(comparison_id = i)
+  
+  # Calculate weights
+  marginal_t <- xi |>
+    group_by(time_end) |>
+    summarise(marginal = weighted.mean(y, weight), .groups = "drop")
+  
+  we[[i]] <- xi |>
+    mutate(ps = ps) |>
+    left_join(marginal_t, by = "time_end") |>
+    mutate(
+      weight = if_else(
+        y == 1,
+        marginal       / ps,
+        (1 - marginal) / (1 - ps)
+      ),
+      comparison = nm
+    ) |>
+    select(subject_id, cohort_name, time_start, time_end, weight, comparison)
+  
+  report()
+}
 
 for (ti in seq(from = 10, to = 1000, by = 10)) {
   tictoc::tic()
@@ -366,7 +463,7 @@ weights <- bind_rows(weights, .id = "weight_type") |>
       select("cohort_name", "subject_id", "follow_up"),
     by = c("cohort_name", "subject_id")
   ) |>
-  filter(time < follow_up) |>
+  filter(time_start < follow_up) |>
   select("weight_type", "comparison_id", "cohort_name", "subject_id", "time", "weight")
 con <- weightsCon()
 dbWriteTable(conn = con, name = "weights", value = weights)
