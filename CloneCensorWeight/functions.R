@@ -82,6 +82,10 @@ createCovariatesMatrix <- function(cohort, time, drugs, conditions, psa, gleason
     mutate(status = if_else(follow_up > time, 1, 0)) |>
     left_join(x_psa, by = "subject_id") |>
     left_join(x_gleason, by = "subject_id") |>
+    mutate(
+      psa = factor(coalesce(psa, "Missing"), levels = c("Missing", "[0, 3)", "[10, 20)", "[6, 10)", "[3, 6)", "[20, 40)", "[40, Inf)")),
+      gleason = factor(coalesce(gleason, "Missing"), levels = c("Missing", "2 to 6", "7", "8 to 10"))
+    ) |>
     left_join(x_conditions, by = "subject_id") |>
     left_join(x_drugs, by = "subject_id") |>
     mutate(across(starts_with("cov_"), \(x) coalesce(x, 0)))
@@ -426,4 +430,9 @@ report <- function() {
   diff <- sprintf("%ih %02im %02is", diff %/% 3600, diff %/% 60, diff %% 60)
   message <- paste0("Finished ", task, " in ", diff)
   logMessage(message = message)
+}
+getSelected <- function(fit) {
+  coef(fit, s = "lambda.min") |>
+    (\(b) rownames(b)[b[, 1] != 0])() |>
+    keep(\(x) startsWith(x, "cov_"))
 }

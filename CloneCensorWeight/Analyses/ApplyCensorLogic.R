@@ -24,7 +24,7 @@ cdm$prostate_cancer <- cdm$prostate_cancer |>
     \(x) coalesce(x, 9999)
   )) |>
   compute(name = "prostate_cancer") |>
-  mutate(censor_event = if_else(censor_event <= 365, censor_event, 9999)) |>
+  mutate(censor_event = if_else(censor_event <= 360, censor_event, 9999)) |>
   compute(name = "prostate_cancer")
 
 # untreated arm
@@ -67,7 +67,7 @@ cdm$untreated <- cdm$prostate_cancer |>
   select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason, follow_up_nd, follow_up_nd_reason) |>
   compute(name = "untreated")
 
-# surveillance arm 3 months
+# surveillance arm 4 months
 psaTime <- cdm$prostate_cancer |>
   select(subject_id, psa_date = cohort_start_date) |>
   mutate(index_date = psa_date) |>
@@ -90,21 +90,21 @@ psaTime <- cdm$prostate_cancer |>
   ) |>
   compute(name = "psa_time")
 psaTime4 <- psaTime |>
-  mutate(surveillance = if_else(next_psa_time <= 90, 0, 1, 1)) |>
+  mutate(surveillance = if_else(next_psa_time <= 120, 0, 1, 1)) |>
   group_by(subject_id) |>
   arrange(order_id) |>
   mutate(stop_surveillance = cumsum(surveillance)) |>
   filter(stop_surveillance == 1 & surveillance == 1) |>
-  compute(name = "psa_time_3") |>
+  compute(name = "psa_time_4") |>
   group_by(subject_id) |>
-  summarise(end_surveillance = date_count_between(max(index_date, na.rm = TRUE), max(psa_date, na.rm = TRUE)) + 90) |>
-  compute(name = "psa_time_3")
-cdm$surveillance_3_months <- cdm$prostate_cancer |>
-  compute(name = "surveillance_3_months") |>
+  summarise(end_surveillance = date_count_between(max(index_date, na.rm = TRUE), max(psa_date, na.rm = TRUE)) + 120) |>
+  compute(name = "psa_time_4")
+cdm$surveillance_4_months <- cdm$prostate_cancer |>
+  compute(name = "surveillance_4_months") |>
   newCohortTable(
     cohortSetRef = tibble(
       cohort_definition_id = 1L,
-      cohort_name = "surveillance_3_months"
+      cohort_name = "surveillance_4_months"
     )
   ) |>
   left_join(psaTime4, by = "subject_id") |>
@@ -141,7 +141,7 @@ cdm$surveillance_3_months <- cdm$prostate_cancer |>
     )
   ) |>
   select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason, follow_up_nd, follow_up_nd_reason) |>
-  compute(name = "surveillance_3_months")
+  compute(name = "surveillance_4_months")
 
 # surveillance arm 6 months
 psaTime6 <- psaTime |>
@@ -208,7 +208,7 @@ cdm$prostatectomy <- cdm$prostate_cancer |>
     )
   ) |>
   mutate(
-    prostatectomy_censor = if_else(prostatectomy <= 365, 9999, 365),
+    prostatectomy_censor = if_else(prostatectomy <= 360, 9999, 360),
     follow_up = case_when(
       prostatectomy_censor <= future_observation & prostatectomy_censor <= radiotheraphy & prostatectomy_censor <= censor_event & prostatectomy_censor <= death_cohort ~ prostatectomy_censor,
       radiotheraphy <= future_observation & radiotheraphy <= censor_event & radiotheraphy <= death_cohort ~ radiotheraphy,
@@ -249,7 +249,7 @@ cdm$radiotheraphy <- cdm$prostate_cancer |>
     )
   ) |>
   mutate(
-    radiotheraphy_censor = if_else(radiotheraphy <= 365, 9999, 365),
+    radiotheraphy_censor = if_else(radiotheraphy <= 360, 9999, 360),
     follow_up = case_when(
       radiotheraphy_censor <= future_observation & radiotheraphy_censor <= prostatectomy & radiotheraphy_censor <= censor_event & radiotheraphy_censor <= death_cohort ~ radiotheraphy_censor,
       prostatectomy <= future_observation & prostatectomy <= censor_event & prostatectomy <= death_cohort ~ prostatectomy,
@@ -281,7 +281,7 @@ cdm$radiotheraphy <- cdm$prostate_cancer |>
   compute(name = "radiotheraphy")
 
 # no outcome death
-cdm <- bind(cdm$untreated, cdm$surveillance_3_months, cdm$surveillance_6_months, cdm$prostatectomy, cdm$radiotheraphy, name = "my_cohort")
+cdm <- bind(cdm$untreated, cdm$surveillance_4_months, cdm$surveillance_6_months, cdm$prostatectomy, cdm$radiotheraphy, name = "my_cohort")
 
 # follow up time
 ot <- cdm$my_cohort |>
@@ -296,7 +296,7 @@ total <- cdm$my_cohort |>
   collect()
 time <- 0:(365 * 5)
 followUpTime <- tibble(time = time)
-cols <- c("untreated", "surveillance_3_months", "surveillance_6_months", "prostatectomy", "radiotheraphy")
+cols <- c("untreated", "surveillance_4_months", "surveillance_6_months", "prostatectomy", "radiotheraphy")
 for (col in cols) {
   followUpTime <- followUpTime |>
     mutate(!!col := map_dbl(time, \(x) {

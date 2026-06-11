@@ -1,3 +1,9 @@
+# penalty factors
+# weights calculation function (trimming)
+# marginal <- xi |>
+#   group_by(time_start) |>
+#   summarise(marginal = weighted.mean(y, weight), .groups = "drop")
+
 # extract data
 minFrequency <- 0.005
 excludeCodes <- c(0, unlist(exclude, use.names = FALSE), codelist$radiotheraphy, codelist$prostatectomy)
@@ -85,15 +91,19 @@ times <- seq(0, tmax - 1, by = ti)
 
 # covariate matrix
 x <- createCovariatesMatrix(cohort, 0, drugs, conditions, psa, gleason) |>
-  mutate(follow_up = pmin(ceiling(follow_up/ti) * ti, tmax)) |>
-  arrange(subject_id)
+  mutate(
+    follow_up = ceiling(follow_up/ti) * ti,
+    follow_up_reason = if_else(follow_up > tmax, "censor", follow_up_reason),
+    follow_up = if_else(follow_up > tmax, tmax, follow_up)
+  ) |>
+  arrange(cohort_name, subject_id)
 
 covs <- colnames(x) |>
-  (\(b) b[startsWith(b, "cov_")])
+  (\(b) b[startsWith(b, "cov_")])()
 forced <- c("age", "index_year", "psa", "gleason")
 
 # Unweight analysis ----
-weights$unweighted <- xi |>
+weights$unweighted <- x |>
   select("subject_id", "cohort_name") |>
   mutate(
     time_start = 0L,
@@ -105,17 +115,11 @@ weights$unweighted <- xi |>
 # IPCW ----
 artificialCensor <- list(
   "untreated" = c("prostatectomy", "radiotheraphy"),
-  "surveillance_3_months" = c("end_surveillance", "prostatectomy", "radiotheraphy"),
+  "surveillance_4_months" = c("end_surveillance", "prostatectomy", "radiotheraphy"),
   "surveillance_6_months" = c("end_surveillance", "prostatectomy", "radiotheraphy"),
   "prostatectomy" = c("no prostatectomy", "radiotheraphy"),
   "radiotheraphy" = c("no radiotheraphy", "prostatectomy")
 )
-
-# get censoring dates
-x <- x |>
-  mutate(
-    follow_up_reason = if_else(follow_up > tmax, "censor", follow_up_reason)
-  )
 
 we <- list()
 co <- list()
@@ -130,18 +134,21 @@ for (nm in names(artificialCensor)) {
   
   # lasso variable selection
   X <- xi |> 
-    select(starts_with("cov_")) |>
+    select(all_of(forced), starts_with("cov_")) |>
+    mutate(psa = as.numeric(psa), gleason = as.numeric(gleason)) |>
     as.matrix()
   y <- Surv(xi$follow_up, xi$status)
-  fit <- cv.glmnet(X, y, family = "cox", alpha = 1)
-  selected <- coef(fit, s = "lambda.min") |>
-    (\(b) rownames(b)[b[, 1] != 0])()
+  pf <- c(rep(0, length(forced)), rep(1, length(covs)))
+  fit <- cv.glmnet(X, y, family = "cox", alpha = 1, penalty.factor = pf)
+  selected <- getSelected(fit, forced)
   
-  variables <- c("age", "index_year", "psa", "gleason", selected)
+  variables <- c(forced, selected)
   formula <- reformulate(variables, response = "Surv(follow_up, status)")
   cox <- coxph(formula, data = xi, x = TRUE)
   
   co[[nm]] <- broom::tidy(cox) |> 
+    select(!c("statistic", "p.value")) |>
+    rename(std_error = "std.error") |>
     mutate(cohort_name = nm, comparison_id = 0L)
   
   sv <- survfit(cox, newdata = xi)
@@ -150,24 +157,31 @@ for (nm in names(artificialCensor)) {
     map(\(time) {
       prob <- as.numeric(t(summary(sv, times = time, extend = TRUE)$surv))
       prob <- pmax(prob, quantile(prob, 0.01))
-      tibble(subject_id = xi$subject_id, time = time, weight = 1 / prob)
+      tibble(subject_id = xi$subject_id, time_start = time, weight = 1 / prob)
     }) |>
     bind_rows() |>
-    mutate(cohort_name = nm, comparison_id = 0L)
+    mutate(time_end = time_start + ti, cohort_name = nm, comparison_id = 0L)
   
   report()
 }
 
-weights$ipcw <- bind_rows(we)
+weights$ipcw <- bind_rows(we) |>
+  inner_join(
+    x |>
+      select("subject_id", "cohort_name", "follow_up"), 
+    by = c("cohort_name", "subject_id")
+  ) |>
+  filter(time_start < follow_up) |>
+  select(!"follow_up")
 rm(we)
 coef$ipcw <- bind_rows(co)
 rm(co)
 
-# IPTW at 365 ----
+# IPTW at 360 ----
 
 # only not censored people
-x <- x |>
-  filter(follow_up > 365)
+x360 <- x |>
+  filter(follow_up > 360)
 
 co <- list()
 we <- list()
@@ -177,9 +191,9 @@ for (i in comparisons$comparison_id) {
   exposed <- comparisons$exposed[comparisons$comparison_id == i]
   cn <- comparisons$comparison_name[comparisons$comparison_id == i]
   
-  recordTime(paste0("IPTW at 365 for ", cn))
+  recordTime(paste0("IPTW at 360 for ", cn))
   
-  xi <- x |>
+  xi <- x360 |>
     filter(cohort_name %in% c(reference, exposed)) |>
     mutate(y = if_else(cohort_name == reference, 0, 1))
   
@@ -189,13 +203,13 @@ for (i in comparisons$comparison_id) {
   
   # lasso variable selection
   X <- xi |> 
-    select(starts_with("cov_")) |>
+    select(all_of(forced), starts_with("cov_")) |>
+    mutate(psa = as.numeric(psa), gleason = as.numeric(gleason)) |>
     as.matrix()
   y <- xi$y
-  fit <- cv.glmnet(X, y, family = "binomial", alpha = 1)
-  selected <- coef(fit, s = "lambda.min") |>
-    (\(b) rownames(b)[b[, 1] != 0])() |>
-    keep(\(x) x != "(Intercept)")
+  pf <- c(rep(0, length(forced)), rep(1, length(covs)))
+  fit <- cv.glmnet(X, y, family = "binomial", alpha = 1, penalty.factor = pf)
+  selected <- getSelected(fit, forced)
   
   variables <- c("age", "index_year", "psa", "gleason", selected)
   formula <- reformulate(variables, response = "y")
@@ -206,7 +220,9 @@ for (i in comparisons$comparison_id) {
   )
   
   co[[i]] <- broom::tidy(ps_model) |> 
-    mutate(reference = reference, exposed = exposed)
+    select(!c("statistic", "p.value")) |>
+    rename(std_error = "std.error") |>
+    mutate(cohort_name = NA_character_, comparison_id = i)
   
   ps <- predict(ps_model, newdata = xi, type = "response")
   marginal <- mean(xi$y)
@@ -226,31 +242,40 @@ for (i in comparisons$comparison_id) {
   report()
 }
 
-weights$iptw365 <- bind_rows(we)
+weights$iptw360 <- x |>
+  select("cohort_name", "subject_id") |>
+  mutate(
+    comparison_id = 0L,
+    time_start = 0,
+    time_end = 360,
+    weight = 1
+  ) |>
+  union_all(
+    bind_rows(we) |>
+      mutate(time_start = 360, time_end = tmax)
+  )
 rm(we)
-coef$iptw365 <- bind_rows(co)
+coef$iptw360 <- bind_rows(co)
 rm(co)
 
-# IPCW + IPTW365 ----
-
+# IPCW + IPTW360 ----
 co <- list()
 we <- list()
-
 for (i in comparisons$comparison_id) {
   reference <- comparisons$reference[comparisons$comparison_id == i]
   exposed <- comparisons$exposed[comparisons$comparison_id == i]
   cn <- comparisons$comparison_name[comparisons$comparison_id == i]
   
-  recordTime(paste0("IPTW at 365 with IPCW for ", cn))
+  recordTime(paste0("IPTW at 360 with IPCW for ", cn))
   
   xi <- x |>
-    filter(cohort_name %in% c(reference, exposed)) |>
+    filter(cohort_name %in% c(reference, exposed), follow_up > 360) |>
     mutate(y = if_else(cohort_name == reference, 0, 1)) |>
-    inner_join(
-      weightsIPCW |>
-        filter(cohort_name %in% c(reference, exposed), time == 370) |>
-        select("subject_id", "weight"),
-      by = "subject_id"
+    left_join(
+      weights$ipcw |>
+        filter(time_start == 360) |>
+        select("subject_id", "cohort_name", "weight"),
+      by = c("subject_id", "cohort_name")
     )
   
   if (sum(xi$y == 1) < 5 | sum(xi$y == 0) < 5) {
@@ -259,13 +284,13 @@ for (i in comparisons$comparison_id) {
   
   # lasso variable selection
   X <- xi |> 
-    select(starts_with("cov_")) |>
+    select(all_of(forced), starts_with("cov_")) |>
+    mutate(psa = as.numeric(psa), gleason = as.numeric(gleason)) |>
     as.matrix()
   y <- xi$y
-  fit <- cv.glmnet(X, y, family = "binomial", alpha = 1, weights = xi$weight)
-  selected <- coef(fit, s = "lambda.min") |>
-    (\(b) rownames(b)[b[, 1] != 0])() |>
-    keep(\(x) x != "(Intercept)")
+  pf <- c(rep(0, length(forced)), rep(1, length(covs)))
+  fit <- cv.glmnet(X, y, family = "binomial", alpha = 1, penalty.factor = pf, weights = xi$weight)
+  selected <- getSelected(fit, forced)
   
   variables <- c("age", "index_year", "psa", "gleason", selected)
   formula <- reformulate(variables, response = "y")
@@ -277,10 +302,12 @@ for (i in comparisons$comparison_id) {
   )
   
   co[[i]] <- broom::tidy(ps_model) |> 
-    mutate(reference = reference, exposed = exposed)
+    mutate(cohort_name = NA_character_, comparison_id = i)
   
   ps <- predict(ps_model, newdata = xi, type = "response")
-  marginal <- mean(xi$y)
+  marginal <- weighted.mean(xi$y, xi$weight)
+  
+  # needs trimming
   
   we[[i]] <- xi |>
     mutate(
@@ -297,20 +324,20 @@ for (i in comparisons$comparison_id) {
   report()
 }
 
-weights$iptcw365 <- bind_rows(we) |>
+weights$iptcw360 <- bind_rows(we) |>
   inner_join(
     weights$ipcw |>
-      select("cohort_name", "subject_id", "time", we_ipcw = "weight"),
-    by = c("cohort_name", "subject_id")
+      select("cohort_name", "subject_id", "time_start", "time_end", we_ipcw = "weight"),
+    by = c("cohort_name", "subject_id"),
+    relationship = "many-to-many"
   ) |>
-  mutate(weight = if_else(time <= 365, we_ipcw, we_iptw * we_ipcw)) |>
+  mutate(weight = if_else(time_start < 360, we_ipcw, we_iptw * we_ipcw)) |>
   select(!c("we_ipcw", "we_iptw"))
 rm(we)
-coef$iptcw365 <- bind_rows(co)
+coef$iptcw360 <- bind_rows(co)
 rm(co)
 
 # IPTW over time ----
-
 co <- list()
 we <- list()
 
@@ -324,25 +351,26 @@ for (i in seq_len(nrow(comparisons))) {
   # Build pooled person-time dataset
   xi <- x |>
     filter(cohort_name %in% c(reference, exposed)) |>
-    mutate(y = if_else(cohort_name == reference, 0L, 1L))
+    mutate(y = if_else(cohort_name == reference, 0L, 1L), status = 1)
   
   # build long data set
   xi <- survSplit(
-    Surv(time, censor == "Censor") ~ .,
+    Surv(follow_up, status) ~ .,
     data = xi,
-    cut = sort(unique(xi$time)),
+    cut = sort(unique(xi$follow_up)),
     episode = "interval_id",
     start = "time_start",
     end = "time_end"
   )
 
   X <- model.matrix(
-    reformulate(c("ns(follow_up, df = 4)", forced, covs), intercept = FALSE),
+    reformulate(c("ns(time_start, df = 4)", forced, covs), intercept = FALSE),
     data = xi
   )
   
   # penalty for covs to use lasso as selection
-  pf <- c(rep(0, length(forced) + 4), rep(1, length(covs)))
+  pf <- rep(0, ncol(X))
+  pf[startsWith(colnames(X), "cov_")] <- 1
   
   fit <- cv.glmnet(
     X,
@@ -353,12 +381,10 @@ for (i in seq_len(nrow(comparisons))) {
     nfolds = 10
   )
   
-  selected <- coef(fit, s = "lambda.min") |>
-    (\(b) rownames(b)[b[, 1] != 0])() |>
-    setdiff(c("(Intercept)", colnames(forced)))
+  selected <- getSelected(fit)
   
   # Calculate ps with glm
-  formula   <- reformulate(c("ns(follow_up, df = 4)", forced, selected), response = "y")
+  formula <- reformulate(c("ns(time_start, df = 4)", forced, selected), response = "y")
   fit <- glm(
     formula,
     data = xi,
@@ -370,78 +396,140 @@ for (i in seq_len(nrow(comparisons))) {
     mutate(comparison_id = i)
   
   # Calculate weights
-  marginal_t <- xi |>
-    group_by(time_end) |>
-    summarise(marginal = weighted.mean(y, weight), .groups = "drop")
+  marginal <- xi |>
+    group_by(time_start) |>
+    summarise(marginal = mean(y), .groups = "drop")
   
   we[[i]] <- xi |>
     mutate(ps = ps) |>
-    left_join(marginal_t, by = "time_end") |>
+    left_join(marginal, by = "time_start") |>
     mutate(
       weight = if_else(
         y == 1,
         marginal       / ps,
         (1 - marginal) / (1 - ps)
       ),
-      comparison = nm
+      comparison_id = i
     ) |>
-    select(subject_id, cohort_name, time_start, time_end, weight, comparison)
+    select("subject_id", "cohort_name", "time_start", "time_end", "weight", "comparison_id")
   
   report()
 }
 
-for (ti in seq(from = 10, to = 1000, by = 10)) {
-  tictoc::tic()
-  cli_inform(c(i = "IPTW at time {.pkg {ti}}"))
-  x <- createCovariatesMatrix(cohort, ti, drugs, conditions, psa, gleason)
-  
-  for (k in seq_len(nrow(comparisons))) {
-    ref <- comparisons$reference[k]
-    comp <- comparisons$comparator[k]
-    xk <- x |>
-      filter(cohort_name %in% c(ref, comp))
-    if (length(unique(xk$cohort_name)) == 2) {
-      xm <- xk |>
-        mutate(
-          status = if_else(cohort_name == ref, 0, 1),
-          subject_id = paste0(cohort_name, "-", subject_id)
-        ) |>
-        select(!c("cohort_name", "follow_up")) |>
-        calculateWeights() |>
-        map(\(x) mutate(x, time = ti, reference = ref, comparator = comp))
-      coefIPTW[[paste0(ti, ref, comp)]] <- xm$coef
-      weightsIPTW[[paste0(ti, ref, comp)]] <- xm$weights |>
-        mutate(
-          cohort_name = str_extract(subject_id, "^[^-]+"),
-          subject_id = as.integer(str_extract(subject_id, "(?<=-).*")),
-          weight = if_else(reference == cohort_name, 1/(1 - prob), 1/prob)
-        )
-    }
-  }
-  tictoc::toc()
-}
-coefIPTW <- bind_rows(coefIPTW)
-weightsIPTW <- bind_rows(weightsIPTW)
+weights$iptw <- bind_rows(we)
+rm(we)
+coef$iptw <- bind_rows(co)
+rm(co)
 
 # IPCW + IPTW over time ----
+
+co <- list()
+we <- list()
+
+for (i in seq_len(nrow(comparisons))) {
+  reference <- comparisons$reference[comparisons$comparison_id == i]
+  exposed <- comparisons$exposed[comparisons$comparison_id == i]
+  cn <- comparisons$comparison_name[comparisons$comparison_id == i]
+  
+  recordTime(paste0("IPCW + IPTW over time for ", cn))
+  
+  # Build pooled person-time dataset
+  xi <- x |>
+    filter(cohort_name %in% c(reference, exposed)) |>
+    mutate(y = if_else(cohort_name == reference, 0L, 1L), status = 1)
+  
+  # build long data set
+  xi <- survSplit(
+    Surv(follow_up, status) ~ .,
+    data = xi,
+    cut = sort(unique(xi$follow_up)),
+    episode = "interval_id",
+    start = "time_start",
+    end = "time_end"
+  ) |>
+    left_join(
+      weights$ipcw |>
+        select("cohort_name", "subject_id", "time_start", "weight"),
+      by = c("cohort_name", "subject_id", "time_start")
+    )
+  
+  X <- model.matrix(
+    reformulate(c("ns(time_start, df = 4)", forced, covs), intercept = FALSE),
+    data = xi
+  )
+  
+  # penalty for covs to use lasso as selection
+  pf <- rep(0, ncol(X))
+  pf[startsWith(colnames(X), "cov_")] <- 1
+  
+  fit <- cv.glmnet(
+    X,
+    xi$y,
+    family = "binomial",
+    alpha = 1,
+    penalty.factor = pf,
+    weight = xi$weight,
+    nfolds = 10
+  )
+  
+  selected <- getSelected(fit)
+  
+  # Calculate ps with glm
+  formula <- reformulate(c("ns(time_start, df = 4)", forced, selected), response = "y")
+  fit <- glm(
+    formula,
+    data = xi,
+    family = binomial(),
+    weight = xi$weight
+  )
+  ps <- predict(fit, newdata = xi, type = "response")
+  
+  co[[i]] <- broom::tidy(fit) |>
+    mutate(comparison_id = i)
+  
+  # Calculate weights
+  marginal <- xi |>
+    group_by(time_start) |>
+    summarise(marginal = weighted.mean(y, weight), .groups = "drop")
+  
+  we[[i]] <- xi |>
+    mutate(ps = ps) |>
+    left_join(marginal, by = "time_start") |>
+    mutate(
+      weight = if_else(
+        y == 1,
+        marginal       / ps * weight,
+        (1 - marginal) / (1 - ps) * weight
+      ),
+      comparison_id = i
+    ) |>
+    select("subject_id", "cohort_name", "time_start", "time_end", "weight", "comparison_id")
+  
+  report()
+}
+
+weights$iptw <- bind_rows(we)
+rm(we)
+coef$iptw <- bind_rows(co)
+rm(co)
 
 # merge coefficients and prepare to export ----
 coef <- bind_rows(coef, .id = "weight_type") 
 concepts <- coef |>
-  filter(startsWith(variable, "cov_")) |>
-  mutate(concept_id = as.numeric(gsub("cov_", "", variable))) |>
+  filter(startsWith(term, "cov_")) |>
+  mutate(concept_id = as.numeric(gsub("cov_", "", term))) |>
   distinct(concept_id) |>
   pull()
 concepts <- cdm$concept |>
   filter(concept_id %in% concepts) |>
-  select(variable = "concept_id", "concept_name") |>
+  select(term = "concept_id", "concept_name") |>
   collect() |>
   mutate(
-    concept_name = paste0(concept_name, " (", variable, ")"),
-    variable = paste0("cov_", variable)
+    concept_name = paste0(concept_name, " (", term, ")"),
+    term = paste0("cov_", term)
   )
 coef <- coef |>
-  left_join(concepts, by = "variable") |>
+  left_join(concepts, by = "term") |>
   mutate(
     cdm_name = cdmName(cdm),
     variable_name = coalesce(concept_name, variable),
