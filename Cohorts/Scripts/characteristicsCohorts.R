@@ -106,6 +106,8 @@ cdm$gleason <- cdm$measurement |>
   dplyr::filter(n() == 1) |>
   dplyr::ungroup() |>
   dplyr::compute(name = "gleason") |>
+  PatientProfiles::filterInObservation(indexDate = "cohort_start_date") |>
+  dplyr::compute(name = "gleason") |>
   omopgenerics::newCohortTable()
 
 
