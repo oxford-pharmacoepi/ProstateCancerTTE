@@ -267,7 +267,7 @@ codelist <- codelist |>
 exportCodelist(x = codelist, path = out_path, type = "csv")
 # t1 t2 pathlogical
 
-x <- read.csv(file = paste0(folder_path, "/t1_t2_patological.csv"))
+x <- read.csv(file = paste0(folder_path, "/t1_t2_pathological.csv"))
 t_pathological <- list("t1_pathological" = x |> dplyr::filter(.data$t1_patological == TRUE)|>dplyr::pull(Id),
                        "t2_pathological" = x |> dplyr::filter(.data$t2_patological == TRUE)|>dplyr::pull(Id)) |>
   newCodelist()
