@@ -587,6 +587,9 @@ austin_ard_summary <- function(
   # boot() requires a statistic function with signature: f(data, indices)
   # Here 'data' is the vector of pair_ids, and 'indices' are the resampled positions
   boot_statistic <- function(pairs_vec, indices) {
+
+    sampled_pairs <- pairs_vec[indices]
+
     sampled_pairs <- pairs_vec[indices]
 
     boot_data <- dplyr::bind_rows(lapply(seq_along(sampled_pairs), function(i) {
@@ -595,10 +598,16 @@ austin_ard_summary <- function(
       rows
     }))
 
+
+    boot_formula <- stats::update(cox_formula, . ~ . + cluster(pair_id))
+
     boot_fit <- tryCatch(
-      survival::coxph(cox_formula, data = boot_data, na.action = stats::na.exclude,
-                      ties = "efron", cluster = boot_data$pair_id, x = TRUE),
-      error = function(e) NULL
+      survival::coxph(boot_formula, data = boot_data, na.action = stats::na.exclude,
+                      ties = "efron", x = TRUE),
+      error = function(e) {
+        message("Bootstrap iteration failed at coxph(): ", conditionMessage(e))
+        NULL
+      }
     )
 
     if (is.null(boot_fit)) return(rep(NA_real_, length(times_to_eval)))
@@ -607,14 +616,19 @@ austin_ard_summary <- function(
     b_ctl <- dplyr::mutate(boot_data, treatment = control_level)
 
     tryCatch({
-      s_t <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_trt), times = times_to_eval, extend = TRUE)$surv)
-      s_c <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_ctl), times = times_to_eval, extend = TRUE)$surv)
-      ar_t  <- 1 - s_t
-      ar_c  <- 1 - s_c
-      rd  <- ar_t - ar_c
-      rd
-    }, error = function(e) rep(NA_real_, 2 * K))
+      s_t <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_trt),
+                              times = times_to_eval, extend = TRUE)$surv)
+      s_c <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_ctl),
+                              times = times_to_eval, extend = TRUE)$surv)
 
+      ar_t <- 1 - s_t
+      ar_c <- 1 - s_c
+      rd   <- ar_t - ar_c
+      rd
+    }, error = function(e) {
+      message("Bootstrap iteration failed at survfit(): ", conditionMessage(e))
+      rep(NA_real_, length(times_to_eval))
+    })
   }
 
   boot_out <- boot::boot(
@@ -622,6 +636,9 @@ austin_ard_summary <- function(
     statistic = boot_statistic,
     R         = n_boot
   )
+
+  boot_out
+
 
   t_RD  <- boot_out$t[, 1:K,          drop = FALSE]
 

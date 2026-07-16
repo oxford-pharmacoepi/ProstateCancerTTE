@@ -80,17 +80,17 @@ cdm$gleason <- cdm$measurement |>
   dplyr::mutate(
     gleason_group = dplyr::case_when(
       .data$value_as_number < 2 ~ "<2",
-      .data$value_as_number >= 2 & .data$value_as_number <= 6 ~ "2-6",
+      .data$value_as_number >= 2 & .data$value_as_number <= 6 ~ "2 to 6",
       .data$value_as_number == 7 ~ "7",
-      .data$value_as_number >= 8 & .data$value_as_number <=10 ~ "8-10",
+      .data$value_as_number >= 8 & .data$value_as_number <=10 ~ "8 to 10",
       .data$value_as_number > 10 ~ ">10",
       TRUE ~ NA_character_
       ),
     gleason_group = dplyr::case_when(
-    .data$measurement_concept_id %in% .env$gleason_group_1 ~ "2-6",
+    .data$measurement_concept_id %in% .env$gleason_group_1 ~ "2 to 6",
     .data$measurement_concept_id %in% .env$gleason_group_2_3 ~ "7",
-    .data$measurement_concept_id %in% .env$gleason_group_4 ~ "8-10",
-    .data$measurement_concept_id %in% .env$gleason_group_5 ~ "8-10",
+    .data$measurement_concept_id %in% .env$gleason_group_4 ~ "8 to 10",
+    .data$measurement_concept_id %in% .env$gleason_group_5 ~ "8 to 10",
     TRUE ~ .data$gleason_group
   ),
   cohort_definition_id = 1L
