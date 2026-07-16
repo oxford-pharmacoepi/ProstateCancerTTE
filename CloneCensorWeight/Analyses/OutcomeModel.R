@@ -61,12 +61,5 @@ outcomes <- outcomes |>
       mutate(outcome_type = "nco")
   )
 
-# prepare timings
-weights <- weights |>
-  select(!any_of(c("psa_at_index", "psa_at_weight", "gleason_at_index", "gleason_at_weight", "age"))) |>
-  mutate(time_end = time + 10) |>
-  mutate(time_end = if_else(follow_up <= time_end, follow_up, time_end)) |>
-  select(!"follow_up")
-
 # calculate outcome model
-outcomeModel <- summariseOutcomeModel(weights, outcomes, cdmName(cdm))
+results$outcome <- summariseOutcomeModel(weightTypes, outcomes, cdmName(cdm))

@@ -140,7 +140,7 @@ for (nm in names(artificialCensor)) {
   y <- Surv(xi$follow_up, xi$status)
   pf <- c(rep(0, length(forced)), rep(1, length(covs)))
   fit <- cv.glmnet(X, y, family = "cox", alpha = 1, penalty.factor = pf)
-  selected <- getSelected(fit, forced)
+  selected <- getSelected(fit)
   
   variables <- c(forced, selected)
   formula <- reformulate(variables, response = "Surv(follow_up, status)")
@@ -209,9 +209,9 @@ for (i in comparisons$comparison_id) {
   y <- xi$y
   pf <- c(rep(0, length(forced)), rep(1, length(covs)))
   fit <- cv.glmnet(X, y, family = "binomial", alpha = 1, penalty.factor = pf)
-  selected <- getSelected(fit, forced)
+  selected <- getSelected(fit)
   
-  variables <- c("age", "index_year", "psa", "gleason", selected)
+  variables <- c(forced, selected)
   formula <- reformulate(variables, response = "y")
   ps_model <- glm(
     formula,
@@ -290,9 +290,9 @@ for (i in comparisons$comparison_id) {
   y <- xi$y
   pf <- c(rep(0, length(forced)), rep(1, length(covs)))
   fit <- cv.glmnet(X, y, family = "binomial", alpha = 1, penalty.factor = pf, weights = xi$weight)
-  selected <- getSelected(fit, forced)
+  selected <- getSelected(fit)
   
-  variables <- c("age", "index_year", "psa", "gleason", selected)
+  variables <- c(forced, selected)
   formula <- reformulate(variables, response = "y")
   ps_model <- glm(
     formula,
@@ -508,9 +508,9 @@ for (i in seq_len(nrow(comparisons))) {
   report()
 }
 
-weights$iptw <- bind_rows(we)
+weights$iptcw <- bind_rows(we)
 rm(we)
-coef$iptw <- bind_rows(co)
+coef$iptcw <- bind_rows(co)
 rm(co)
 
 # merge coefficients and prepare to export ----
@@ -528,19 +528,18 @@ concepts <- cdm$concept |>
     concept_name = paste0(concept_name, " (", term, ")"),
     term = paste0("cov_", term)
   )
-coef <- coef |>
+results$coef <- coef |>
   left_join(concepts, by = "term") |>
   mutate(
     cdm_name = cdmName(cdm),
-    variable_name = coalesce(concept_name, variable),
+    variable_name = coalesce(concept_name, term),
     variable_level = NA_character_,
     result_type = "coefficients"
   ) |>
   transformToSummarisedResult(
     group = c("comparison_id", "cohort_name"),
-    strata = "time",
     additional = "weight_type",
-    estimates = "coef",
+    estimates = c("estimate", "std_error"),
     settings = "result_type"
   )
 
@@ -552,8 +551,12 @@ weights <- bind_rows(weights, .id = "weight_type") |>
     by = c("cohort_name", "subject_id")
   ) |>
   filter(time_start < follow_up) |>
-  select("weight_type", "comparison_id", "cohort_name", "subject_id", "time", "weight")
+  select("weight_type", "comparison_id", "cohort_name", "subject_id", "time_start", "time_end", "weight")
 con <- weightsCon()
-dbWriteTable(conn = con, name = "weights", value = weights)
+dbWriteTable(conn = con, name = "weights", value = weights, overwrite = TRUE)
 rm(weights)
 weights <- tbl(con, "weights")
+
+weightTypes <- weights |>
+  distinct(weight_type) |>
+  pull()

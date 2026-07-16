@@ -14,7 +14,7 @@ names(codelistOutcomes) <- toSnakeCase(names(codelistOutcomes))
 
 logMessage("Summarise code use")
 # code use
-codeUse <- summariseCodeUse(x = codelist, cdm = cdm)
+results$code_use <- summariseCodeUse(x = codelist, cdm = cdm)
 
 logMessage("Instantiate cohorts")
 # treatments

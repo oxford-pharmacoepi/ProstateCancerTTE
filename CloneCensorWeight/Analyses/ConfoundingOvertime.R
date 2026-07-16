@@ -1,222 +1,150 @@
-# add variables of interest
-weights <- weights |>
-  # psa at index
-  left_join(
-    psa |>
-      filter(time <= 0) |>
-      group_by(subject_id) |>
-      filter(time == max(time)) |>
-      ungroup() |>
-      select("subject_id", "psa_at_index" = "psa_category"),
-    by = "subject_id"
-  ) |>
-  # psa at weights
-  left_join(
-    psa |>
-      rename(psa_time = "time") |>
-      inner_join(
-        weights |>
-          select("subject_id", "time") |>
-          distinct(),
-        by = "subject_id",
-        relationship = "many-to-many"
-      ) |>
-      filter(psa_time <= time) |>
-      group_by(subject_id, time) |>
-      filter(psa_time == max(psa_time)) |>
-      ungroup() |>
-      select("subject_id", "time", "psa_at_weight" = "psa_category"),
-    by = c("subject_id", "time")
-  ) |>
-  # gleason at index
-  left_join(
-    gleason |>
-      filter(time <= 0) |>
-      group_by(subject_id) |>
-      filter(time == max(time)) |>
-      ungroup() |>
-      select("subject_id", "gleason_at_index" = "gleason_category"),
-    by = "subject_id"
-  ) |>
-  # gleason at weights
-  left_join(
-    gleason |>
-      rename(gleason_time = "time") |>
-      inner_join(
-        weights |>
-          select("subject_id", "time") |>
-          distinct(),
-        by = "subject_id",
-        relationship = "many-to-many"
-      ) |>
-      filter(gleason_time <= time) |>
-      group_by(subject_id, time) |>
-      filter(gleason_time == max(gleason_time)) |>
-      ungroup() |>
-      select("subject_id", "time", "gleason_at_weight" = "gleason_category"),
-    by = c("subject_id", "time")
-  )
 
-cov0 <- conditions |>
-  filter(time <= 0) |>
-  distinct(subject_id, covariate) |>
-  union_all(
-    drugs |>
-      filter(time <= 0 & time >= -365) |>
-      distinct(subject_id, covariate)
-  )
+assesConfounding <- c(0, 180, 360, 361, 540, 720)
 
-confoundingTime <- list()
-time <- unique(weights$time)
-unbalanced0 <- tibble(
-  weight_type = character(),
-  reference = character(),
-  comparator = character(),
-  covariate = character()
-)
-unbalancedT <- tibble(
-  weight_type = character(),
-  reference = character(),
-  comparator = character(),
-  covariate = character()
-)
-for (t in time) {
-  
-  cli_inform(c(i = "Confounding at time = {.pkg {t}}"))
-  
-  # individuals
-  wt <- weights |>
-    filter(time == t)
-  tt <- sprintf("%s", t)
-  
-  # smds
-  covT <- conditions |>
-    filter(time <= t) |>
-    distinct(subject_id, covariate) |>
-    union_all(
-      drugs |>
-        filter(time <= t & time >= t-365) |>
-        distinct(subject_id, covariate)
-    )
-  den <- wt |>
-    group_by(weight_type, reference, comparator, cohort_name) |>
-    summarise(total = sum(weight), .groups = "drop")
-  
-  # calculate smds at index
-  smd0 <- wt |>
-    select("weight_type", "reference", "comparator", "subject_id", "cohort_name", "weight") |>
-    inner_join(cov0, by = "subject_id", relationship = "many-to-many") |>
-    group_by(weight_type, reference, comparator, cohort_name, covariate) |>
-    summarise(sum = sum(weight), .groups = "drop") |>
-    left_join(den, by = c("weight_type", "reference", "comparator", "cohort_name")) |>
-    mutate(p = sum / total) |>
-    select("weight_type", "reference", "comparator", "cohort_name", "covariate", "p") |>
-    calculateSmd()
-  
-  # unbalanced at index
-  unbalanced0 <- unbalanced0 |>
-    union_all(
-      smd0 |>
-        filter(unbalanced == 1) |>
-        select("weight_type", "reference", "comparator", "covariate")
-    )
-  
-  # calculate smds at weights
-  smdT <- wt |>
-    select("weight_type", "reference", "comparator", "subject_id", "cohort_name", "weight") |>
-    inner_join(covT, by = "subject_id", relationship = "many-to-many") |>
-    group_by(weight_type, reference, comparator, cohort_name, covariate) |>
-    summarise(sum = sum(weight), .groups = "drop") |>
-    left_join(den, by = c("weight_type", "reference", "comparator", "cohort_name")) |>
-    mutate(p = sum / total) |>
-    select("weight_type", "reference", "comparator", "cohort_name", "covariate", "p") |>
-    calculateSmd()
-  
-  # unbalanced at weights
-  unbalancedT <- unbalancedT |>
-    union_all(
-      smdT |>
-        filter(unbalanced == 1) |>
-        select("weight_type", "reference", "comparator", "covariate")
-    )
-  
-  # age psa and gleason
-  confoundingTime[[tt]] <- summariseResult(
-    table = wt,
-    group = list(c("weight_type", "reference", "comparator", "cohort_name")),
-    variables = c("age", "psa_at_index", "psa_at_weight", "gleason_at_index", "gleason_at_weight"),
-    estimates = c("min", "q25", "median", "q75", "max", "mean", "sd", "percentage_missing"),
-    weights = "weight"
-  ) |>
-    suppressMessages() |>
-    addResultType("confounding_over_time") |>
-    bind(
-      summariseResult(
-        counts = FALSE,
-        table = wt |>
-          mutate(across(
-            c("psa_at_index", "psa_at_weight", "gleason_at_index", "gleason_at_weight"),
-            as.character
-          )),
-        group = list(c("weight_type", "reference", "comparator", "cohort_name")),
-        variables = c("psa_at_index", "psa_at_weight", "gleason_at_index", "gleason_at_weight"),
-        estimates = c("percentage"),
-        weights = "weight"
-      ) |>
-        suppressMessages() |>
-        addResultType("confounding_over_time")
-    ) |>
-    bind(
-      # smd at index
-      smd0 |>
-        summariseSmd() |>
-        mutate(variable_name = paste0(variable_name, "_at_index")) |>
-        suppressMessages()
-    ) |>
-    bind(
-      # smd at weights
-      smdT |>
-        summariseSmd() |>
-        mutate(variable_name = paste0(variable_name, "_at_weight")) |>
-        suppressMessages()
-    ) |>
-    splitStrata() |>
-    mutate(time = tt) |>
-    uniteStrata(cols = "time")
-}
-confoundingTime <- bind(confoundingTime) |>
+confoundingTime <- weightTypes |>
+  map(\(wt) {
+    comparisons |>
+      pmap(\(reference, exposed, comparison_id, comparison_name) {
+        ind <- getWeights(comparison_id, wt) |>
+          inner_join(followUp, by = c("cohort_name", "subject_id")) |>
+          mutate(time_end = if_else(time_end > follow_up, follow_up, time_end)) |>
+          filter(time_start < time_end) |>
+          select(!"follow_up")
+        assesConfounding |>
+          map(\(t) {
+            tryCatch({
+              xt <- ind |>
+                filter(time_start < t & t <= time_end) |>
+                select(!c("time_start", "time_end")) |>
+                inner_join(cohort, by = c("cohort_name", "subject_id")) |>
+                createCovariatesMatrix(0, drugs, conditions, psa, gleason)
+              
+              if (length(unique(xt$cohort_name)) == 2) {
+                smdCov <- xt |>
+                  select("cohort_name", "subject_id", "weight", starts_with("cov_")) |>
+                  pivot_longer(cols = starts_with("cov_"), names_to = "covariate", values_to = "value") |>
+                  group_by(cohort_name, covariate) |>
+                  summarise(prob = sum(value * weight) / sum(weight), .groups = "drop") |>
+                  mutate(cohort_name = if_else(cohort_name == exposed, "pe", "pr")) |>
+                  pivot_wider(names_from = "cohort_name", values_from = "prob", values_fill = 0) |>
+                  mutate(
+                    smd = if_else(pr == pe, 0, abs(pr - pe) /  sqrt((pe * (1 - pe) + pr * (1 - pr)) / 2))
+                  ) |>
+                  rename(mean_exposed = "pe", mean_reference = "pr")
+                
+                smdNum <- xt |>
+                  select("cohort_name", "subject_id", "weight", "age", "index_year") |>
+                  mutate(age = as.numeric(age), index_year = as.numeric(index_year)) |>
+                  pivot_longer(cols = c("age", "index_year"), names_to = "covariate", values_to = "value") |>
+                  group_by(cohort_name, covariate) |>
+                  summarise(
+                    mean = weighted.mean(value, weight),
+                    var = weighted.var(value, weight),
+                    .groups = "drop"
+                  ) |>
+                  mutate(cohort_name = if_else(cohort_name == exposed, "e", "r")) |>
+                  pivot_longer(c("mean", "var")) |>
+                  pivot_wider(names_from = c("name", "cohort_name"), values_from = "value", values_fill = 0) |>
+                  mutate(
+                    smd = abs(mean_e - mean_r) / sqrt((var_e + var_r) / 2)
+                  ) |>
+                  select("covariate", "mean_exposed" = "mean_e", "mean_reference" = "mean_r", "smd")
+                
+                smdCat <- xt |>
+                  select("cohort_name", "subject_id", "weight", "psa", "gleason") |>
+                  pivot_longer(cols = c("psa", "gleason"), names_to = "covariate", values_to = "value") |>
+                  group_by(cohort_name, covariate) |>
+                  mutate(denominator = sum(weight)) |>
+                  ungroup() |>
+                  mutate(covariate = paste0(covariate, " ", value)) |>
+                  group_by(cohort_name, covariate, denominator) |>
+                  summarise(prob = sum(weight), .groups = "drop") |>
+                  mutate(
+                    prob = prob / denominator,
+                    cohort_name = if_else(cohort_name == exposed, "pe", "pr")
+                  ) |>
+                  select(!"denominator") |>
+                  pivot_wider(names_from = "cohort_name", values_from = "prob", values_fill = 0) |>
+                  mutate(
+                    smd = if_else(pr == pe, 0, abs(pr - pe) /  sqrt((pe * (1 - pe) + pr * (1 - pr)) / 2))
+                  ) |>
+                  rename(mean_exposed = "pe", mean_reference = "pr")
+                
+                smd <- smdCov |>
+                  union_all(smdCat) |>
+                  union_all(smdNum)
+                
+                smdStats <- smd |>
+                  summarise(
+                    mean_smd = mean(smd),
+                    min_smd = min(smd),
+                    max_smd = max(smd),
+                    sd_smd = sd(smd),
+                    median_smd = median(smd),
+                    q25_smd = quantile(smd, 0.25),
+                    q75_smd = quantile(smd, 0.75),
+                    unbalanced = sum(smd > 0.1)
+                  ) |>
+                  pivot_longer(everything()) |>
+                  mutate(variable_name = "Standardised Mean Differences")
+                
+                unbalanced <- smd |>
+                  filter(smd > 0.1) |>
+                  pivot_longer(!"covariate") |>
+                  rename(variable_name = "covariate")
+                
+                smdStats |>
+                  union_all(unbalanced) |>
+                  mutate(time = t)
+              } else {
+                NULL
+              }
+            },
+            error = function(e) {
+              cli_inform("Error in {wt}; {comparison_name}; {t}")
+              NULL
+            }
+            )
+          }) |>
+          bind_rows() |>
+          mutate(
+            comparison_id = comparison_id,
+            reference = reference,
+            exposed = exposed
+          )
+      }) |>
+      bind_rows() |>
+      mutate(weight_type = wt)
+  })
+
+confoundingTime <- bind_rows(confoundingTime) |>
   mutate(cdm_name = cdmName(cdm))
 
-confoundingTime2 <- unbalanced0 |>
-  group_by(across(everything())) |>
-  tally(name = "count") |>
-  ungroup() |>
-  mutate(variable_name = "Unbalanced at index") |>
-  union_all(
-    unbalancedT |>
-      group_by(across(everything())) |>
-      tally(name = "count") |>
-      ungroup() |>
-      mutate(variable_name = "Unbalanced at weights")
-  ) |>
-  mutate(covariate = gsub("cov_", "", covariate))
-concepts <- as.integer(unique(confoundingTime2$covariate))
+concepts <- unique(confoundingTime$variable_name) |>
+  keep(\(x) startsWith(x, "cov_")) |>
+  str_remove("cov_") |>
+  as.integer()
 nms <- cdm$concept |>
   filter(concept_id %in% concepts) |>
   select(concept_id, concept_name) |>
   collect() |>
   mutate(
-    covariate = as.character(concept_id),
-    variable_level = paste0(concept_name, " (", concept_id, ")")
+    variable_name = paste0("cov_", as.character(concept_id)),
+    new_variable_name = paste0(concept_name, " (", concept_id, ")")
   ) |>
-  select("covariate", "variable_level")
-confoundingTime2 <- confoundingTime2 |>
-  inner_join(nms, by = "covariate") |>
-  mutate(cdm_name = cdmName(cdm), result_type = "unbalanced_smds") |>
+  select("variable_name", "new_variable_name")
+confoundingTime <- confoundingTime |>
+  left_join(nms, by = "variable_name") |>
+  mutate(variable_name = coalesce(new_variable_name, variable_name)) |>
+  select(!"new_variable_name")
+
+results$confounding <- confoundingTime |>
+  mutate(variable_level = sprintf("%.0f", time), result_type = "smd") |>
+  select(!"time") |>
+  pivot_wider() |>
   transformToSummarisedResult(
-    group = c("weight_type", "reference", "comparator"), 
-    estimates = "count",
+    group = c("comparison_id", "reference", "exposed"),
+    strata = "weight_type",
+    estimates = c("mean_smd", "min_smd", "max_smd", "sd_smd", "median_smd", "q25_smd", "q75_smd", "unbalanced", "mean_exposed", "mean_reference", "smd"),
     settings = "result_type"
   )
-
-confoundingTime <- bind(confoundingTime, confoundingTime2)
