@@ -11,7 +11,7 @@ if (createCohorts) {
   source(here::here("..", "Cohorts", "Scripts", "characteristicsCohorts.R"))
 
   omopgenerics::logMessage("Summarising cohorts' characteristics")
-  source(here::here("..", "Cohorts", "Scripts", "cohortCharacterisation.R"))
+  #source(here::here("..", "Cohorts", "Scripts", "cohortCharacterisation.R"))
 
 
  }
@@ -26,4 +26,4 @@ withr::with_dir(here::here("Results"), {
   csv_files <- list.files(pattern = "\\.csv$", full.names = FALSE)
   zip(zipfile = "Results.zip", files = csv_files)
 })
-ff
+

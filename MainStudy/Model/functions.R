@@ -223,10 +223,16 @@ getSelectedFeatures <- function(wide_data, cdm, cdm_name) {
     ~ . - cohort_definition_id - cohort_start_date - cohort_end_date - subject_id + age + year,
     data = df[used_rows,]
   )[, -1, drop = FALSE]
-  y_matched <- y[used_rows]   # align y to the rows that model.matrix used
 
+  X_mat <- X_mat[, sort(colnames(X_mat))]
+  dup_cols <- duplicated(t(X_mat))
+
+  y_matched <- y[used_rows]   # align y to the rows that model.matrix used
   set.seed(2025)
-  lasso_fit <- glmnet::cv.glmnet(x = X_mat, y = y_matched, family = "binomial", alpha = 1)
+  foldid <- sample(rep(1:10, length.out = length(y_matched)))
+  set.seed(2025)
+  lasso_fit <- glmnet::cv.glmnet(x = X_mat, y = y_matched, family = "binomial",
+                                 alpha = 1, foldid = foldid)
 
   coefs <- glmnet::coef.glmnet(lasso_fit, s = "lambda.1se")
   selectedLassoFeatures <- names(coefs[(coefs[,1]!=0),1])
