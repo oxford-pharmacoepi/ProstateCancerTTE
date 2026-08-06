@@ -11,7 +11,7 @@ if (createCohorts) {
   source(here::here("..", "Cohorts", "Scripts", "characteristicsCohorts.R"))
 
   omopgenerics::logMessage("Summarising cohorts' characteristics")
-  #source(here::here("..", "Cohorts", "Scripts", "cohortCharacterisation.R"))
+  source(here::here("..", "Cohorts", "Scripts", "cohortCharacterisation.R"))
 
 
  }
