@@ -871,7 +871,7 @@ bindResults <- function(result, cdmName, cohort_name) {
 
 
 
-cohortCharacterisation <- function(cdm, cohort_name) {
+cohortCharacterisation <- function(cdm, cohort_name, largeScale = TRUE) {
   len <- cdm[[cohort_name]] |> dplyr::tally()|> dplyr::pull()
   if(len==0){
     return(omopgenerics::emptySummarisedResult())
@@ -880,10 +880,10 @@ cohortCharacterisation <- function(cdm, cohort_name) {
     CohortConstructor::renameCohort(cohortId = 1, newCohortName = paste0("rt_", cohort_name)) |>
     CohortConstructor::renameCohort(cohortId = 2, newCohortName = paste0("rp_", cohort_name)) |>
     addVariables()
+  result <- list()
+  result[["count"]] <- CohortCharacteristics::summariseCohortCount(cdm[[cohort_name]])
 
-  count <- CohortCharacteristics::summariseCohortCount(cdm[[cohort_name]])
-
-  characteristics <- CohortCharacteristics::summariseCharacteristics(cdm[[cohort_name]], cohortIntersectFlag = list(
+  result[["characteristics"]] <- CohortCharacteristics::summariseCharacteristics(cdm[[cohort_name]], cohortIntersectFlag = list(
     "Conditions any time prior" = list(
       targetCohortTable = "conditions", window = c(-Inf, -1)
 
@@ -913,23 +913,24 @@ cohortCharacterisation <- function(cdm, cohort_name) {
   ),
   otherVariables = c("latest_gleason_score_value", "latest_n_status", "latest_t_status", "psa_value", "latest_psa_value")
   )
-
-  lsc <- CohortCharacteristics::summariseLargeScaleCharacteristics(cdm[[cohort_name]],
+  if(largeScale) {
+  result[["lsc"]] <- CohortCharacteristics::summariseLargeScaleCharacteristics(cdm[[cohort_name]],
                                                                    eventInWindow = c("condition_occurrence", "observation", "procedure_occurrence", "device_exposure"),
                                                                    episodeInWindow = "drug_exposure",
                                                                    window = list(c(-Inf, -366), c(-365, -31), c(-30, -1), c(0, 0), c(1, 30), c(31, 365), c(366, Inf)),
                                                                    minimumFrequency = 0.0
   )
-  result <- omopgenerics::bind(count, characteristics, lsc)
+  }
+  result <- omopgenerics::bind(result)
 
   return(result)
 
 }
 
 
-mergedCohortCharacterisation <- function(cdm_g, cdm_a, cohort_name) {
-  res <- cohortCharacterisation(cdm = cdm_g, cohort_name = cohort_name) |>
-    omopgenerics::bind(cohortCharacterisation(cdm = cdm_a, cohort_name = cohort_name))
+mergedCohortCharacterisation <- function(cdm_g, cdm_a, cohort_name, largeScale = TRUE) {
+  res <- cohortCharacterisation(cdm = cdm_g, cohort_name = cohort_name, largeScale = largeScale) |>
+    omopgenerics::bind(cohortCharacterisation(cdm = cdm_a, cohort_name = cohort_name, largeScale = largeScale))
   set <- omopgenerics::settings(res)
   result_count <- res |>
     dplyr::filter(.data$estimate_name == "count") |>

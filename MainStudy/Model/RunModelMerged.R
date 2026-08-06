@@ -16,8 +16,7 @@ excluded_codes <- omopgenerics::importCodelist(path = "~/ProstateCancerTTE/Codel
   unlist() |>
   unname()
 output_directory <- here::here("Results")
-#"optima_pc_trial", "optima_pc_rwd","optima_pc_rwd_50_69", "optima_pc_rwd_70_inf","optima_pc_rwd_2010_2020", "optima_pc_rwd_50_69_2010_2020", "optima_pc_rwd_70_inf_2010_2020"
-cohort <- c("optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf","optima_pc_rwd_2010_2020")
+cohort <- c("optima_pc_trial","optima_pc_rwd", "optima_pc_rwd_50_69", "optima_pc_rwd_70_inf","optima_pc_rwd_2010_2020")
 for (cohort_name in cohort) {
   cohort_name_long <- paste(cohort_name, "long", sep = "_")
   cohort_name_visits <- paste(cohort_name, "visits", sep = "_")
@@ -106,6 +105,8 @@ for (cohort_name in cohort) {
       PatientProfiles::addAge() |>
       dplyr::collect()
   )
+
+  result[[paste0("characterisation_merged_", cohort_name)]] <- mergedCohortCharacterisation(cdm_g = cdm_g, cdm_a = cdm_a, cohort_name = cohort_name, largeScale = FALSE)
 
   frequent_concepts <- getFrequentConcepts(cohort = cohort_merged)
 
