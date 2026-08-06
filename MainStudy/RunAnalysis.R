@@ -22,7 +22,8 @@ if (runModel) {
 
 }
 
-zip(
-  here::here("Results", "Results.zip"),
-  list.files(here::here("Results"), pattern = "\\.csv$", full.names = TRUE)
-)
+withr::with_dir(here::here("Results"), {
+  csv_files <- list.files(pattern = "\\.csv$", full.names = FALSE)
+  zip(zipfile = "Results.zip", files = csv_files)
+})
+

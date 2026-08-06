@@ -224,10 +224,16 @@ getSelectedFeatures <- function(wide_data, cdm, cdm_name) {
     ~ . - cohort_definition_id - cohort_start_date - cohort_end_date - subject_id + age + year,
     data = df[used_rows,]
   )[, -1, drop = FALSE]
-  y_matched <- y[used_rows]   # align y to the rows that model.matrix used
 
+  X_mat <- X_mat[, sort(colnames(X_mat))]
+  dup_cols <- duplicated(t(X_mat))
+
+  y_matched <- y[used_rows]   # align y to the rows that model.matrix used
   set.seed(2025)
-  lasso_fit <- glmnet::cv.glmnet(x = X_mat, y = y_matched, family = "binomial", alpha = 1)
+  foldid <- sample(rep(1:10, length.out = length(y_matched)))
+  set.seed(2025)
+  lasso_fit <- glmnet::cv.glmnet(x = X_mat, y = y_matched, family = "binomial",
+                                 alpha = 1, foldid = foldid)
 
   coefs <- glmnet::coef.glmnet(lasso_fit, s = "lambda.1se")
   selectedLassoFeatures <- names(coefs[(coefs[,1]!=0),1])
@@ -588,6 +594,9 @@ austin_ard_summary <- function(
   # boot() requires a statistic function with signature: f(data, indices)
   # Here 'data' is the vector of pair_ids, and 'indices' are the resampled positions
   boot_statistic <- function(pairs_vec, indices) {
+
+    sampled_pairs <- pairs_vec[indices]
+
     sampled_pairs <- pairs_vec[indices]
 
     boot_data <- dplyr::bind_rows(lapply(seq_along(sampled_pairs), function(i) {
@@ -596,10 +605,16 @@ austin_ard_summary <- function(
       rows
     }))
 
+
+    boot_formula <- stats::update(cox_formula, . ~ . + cluster(pair_id))
+
     boot_fit <- tryCatch(
-      survival::coxph(cox_formula, data = boot_data, na.action = stats::na.exclude,
-                      ties = "efron", cluster = boot_data$pair_id, x = TRUE),
-      error = function(e) NULL
+      survival::coxph(boot_formula, data = boot_data, na.action = stats::na.exclude,
+                      ties = "efron", x = TRUE),
+      error = function(e) {
+        message("Bootstrap iteration failed at coxph(): ", conditionMessage(e))
+        NULL
+      }
     )
 
     if (is.null(boot_fit)) return(rep(NA_real_, length(times_to_eval)))
@@ -608,14 +623,19 @@ austin_ard_summary <- function(
     b_ctl <- dplyr::mutate(boot_data, treatment = control_level)
 
     tryCatch({
-      s_t <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_trt), times = times_to_eval, extend = TRUE)$surv)
-      s_c <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_ctl), times = times_to_eval, extend = TRUE)$surv)
-      ar_t  <- 1 - s_t
-      ar_c  <- 1 - s_c
-      rd  <- ar_t - ar_c
-      rd
-    }, error = function(e) rep(NA_real_, 2 * K))
+      s_t <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_trt),
+                              times = times_to_eval, extend = TRUE)$surv)
+      s_c <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_ctl),
+                              times = times_to_eval, extend = TRUE)$surv)
 
+      ar_t <- 1 - s_t
+      ar_c <- 1 - s_c
+      rd   <- ar_t - ar_c
+      rd
+    }, error = function(e) {
+      message("Bootstrap iteration failed at survfit(): ", conditionMessage(e))
+      rep(NA_real_, length(times_to_eval))
+    })
   }
 
   boot_out <- boot::boot(
@@ -623,6 +643,9 @@ austin_ard_summary <- function(
     statistic = boot_statistic,
     R         = n_boot
   )
+
+  boot_out
+
 
   t_RD  <- boot_out$t[, 1:K,          drop = FALSE]
 
@@ -849,7 +872,7 @@ bindResults <- function(result, cdmName, cohort_name) {
 
 
 
-cohortCharacterisation <- function(cdm, cohort_name) {
+cohortCharacterisation <- function(cdm, cohort_name, largeScale = TRUE) {
   len <- cdm[[cohort_name]] |> dplyr::tally()|> dplyr::pull()
   if(len==0){
     return(omopgenerics::emptySummarisedResult())
@@ -858,10 +881,10 @@ cohortCharacterisation <- function(cdm, cohort_name) {
     CohortConstructor::renameCohort(cohortId = 1, newCohortName = paste0("rt_", cohort_name)) |>
     CohortConstructor::renameCohort(cohortId = 2, newCohortName = paste0("rp_", cohort_name)) |>
     addVariables()
+  result <- list()
+  result[["count"]] <- CohortCharacteristics::summariseCohortCount(cdm[[cohort_name]])
 
-  count <- CohortCharacteristics::summariseCohortCount(cdm[[cohort_name]])
-
-  characteristics <- CohortCharacteristics::summariseCharacteristics(cdm[[cohort_name]], cohortIntersectFlag = list(
+  result[["characteristics"]] <- CohortCharacteristics::summariseCharacteristics(cdm[[cohort_name]], cohortIntersectFlag = list(
     "Conditions any time prior" = list(
       targetCohortTable = "conditions", window = c(-Inf, -1)
 
@@ -891,23 +914,24 @@ cohortCharacterisation <- function(cdm, cohort_name) {
   ),
   otherVariables = c("latest_gleason_score_value", "latest_n_status", "latest_t_status", "psa_value", "latest_psa_value")
   )
-
-  lsc <- CohortCharacteristics::summariseLargeScaleCharacteristics(cdm[[cohort_name]],
+  if(largeScale) {
+  result[["lsc"]] <- CohortCharacteristics::summariseLargeScaleCharacteristics(cdm[[cohort_name]],
                                                                    eventInWindow = c("condition_occurrence", "observation", "procedure_occurrence", "device_exposure"),
                                                                    episodeInWindow = "drug_exposure",
                                                                    window = list(c(-Inf, -366), c(-365, -31), c(-30, -1), c(0, 0), c(1, 30), c(31, 365), c(366, Inf)),
                                                                    minimumFrequency = 0.0
   )
-  result <- omopgenerics::bind(count, characteristics, lsc)
+  }
+  result <- omopgenerics::bind(result)
 
   return(result)
 
 }
 
 
-mergedCohortCharacterisation <- function(cdm_g, cdm_a, cohort_name) {
-  res <- cohortCharacterisation(cdm = cdm_g, cohort_name = cohort_name) |>
-    omopgenerics::bind(cohortCharacterisation(cdm = cdm_a, cohort_name = cohort_name))
+mergedCohortCharacterisation <- function(cdm_g, cdm_a, cohort_name, largeScale = TRUE) {
+  res <- cohortCharacterisation(cdm = cdm_g, cohort_name = cohort_name, largeScale = largeScale) |>
+    omopgenerics::bind(cohortCharacterisation(cdm = cdm_a, cohort_name = cohort_name, largeScale = largeScale))
   set <- omopgenerics::settings(res)
   result_count <- res |>
     dplyr::filter(.data$estimate_name == "count") |>
