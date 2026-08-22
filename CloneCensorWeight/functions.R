@@ -262,115 +262,117 @@ summariseSmd <- function(x) {
     ) |>
     addResultType("smd")
 }
-summariseOutcomeModel <- function(weights, outcomes, cdmName) {
-  
-  weights <- weights |>
-    dplyr::group_by(weight_type, reference, comparator) |>
-    dplyr::group_split() |>
-    as.list()
+summariseOutcomeModel <- function(weightTypes, outcomes, cdmName) {
   
   outs <- outcomes |>
     distinct(outcome, outcome_type)
   
-  resultHR <- list()
-  resultSurv <- list()
-  
-  for (k in seq_len(nrow(outs))) {
-    
-    # outcomes
-    outcome <- outs$outcome[k]
-    outcomeType <- outs$outcome_type[k]
-    
-    cli_inform(c(i = "Fitting model for outcome: {.pkg {outcome}} ({outcomeType})"))
-    
-    outData <- outcomes |>
-      filter(.data$outcome == .env$outcome) |>
-      select(subject_id, out_time = time)
-    
-    res <- weights |>
-      map(\(w) {
-        data <- w |>
-          left_join(
-            outData, 
-            by = "subject_id",
-            relationship = "many-to-one"
-          ) |>
-          mutate(
-            out_time = coalesce(out_time, 9999),
-            time_end = if_else(out_time <= time_end, out_time, time_end),
-            status = if_else(time_end == out_time, 1, 0)
-          ) |>
-          filter(time < time_end) |>
-          select(!"out_time")
-        
-        wt <- unique(w$weight_type)
-        ref <- unique(w$reference)
-        comp <- unique(w$comparator)
-        
-        data <- data |>
-          mutate(cohort_name = factor(cohort_name, c(ref, comp)))
-        
-        if (outcomeType == "main") {
-          # fit survival model
-          fit <- survfit(Surv(time, time_end, status) ~ cohort_name, 
-                         data = data, 
-                         weights = weight)
+  result <- weightTypes |>
+    map(\(wt) {
+      compResult <- comparisons |>
+        pmap(\(reference, exposed, comparison_id, comparison_name) {
+          ind <- getWeights(comparison_id, wt) |>
+            inner_join(followUp, by = c("cohort_name", "subject_id")) |>
+            mutate(time_end = if_else(time_end > follow_up, follow_up, time_end)) |>
+            filter(time_start < time_end) |>
+            select(!"follow_up")
           
-          # export survival probabilities
-          summary_time <- sort(unique(c(0, data$time_end)))
-          surv <- summary(fit, times = summary_time)
-          surv <- tibble(
-            weight_type = wt,
-            reference = ref,
-            comparator = comp,
-            time = surv$time,
-            survival = surv$surv,
-            lower_survival = surv$lower,
-            upper_survival = surv$upper,
-            cohort_name = str_replace(surv$strata, "^cohort_name=", "")
+          outResult <- outs |>
+            pmap(\(outcome, outcome_type) {
+              cli_inform(c(i = "Fitting model for: {wt}; {comparison_name}; {outcome}"))
+              
+              tryCatch({
+                outData <- outcomes |>
+                  filter(.data$outcome == .env$outcome) |>
+                  select(subject_id, out_time = time)
+                
+                data <- ind |>
+                  left_join(outData, by = "subject_id") |>
+                  mutate(
+                    out_time = coalesce(out_time, 9999),
+                    time_end = if_else(out_time <= time_end, out_time, time_end),
+                    status = if_else(time_end == out_time, 1, 0)
+                  ) |>
+                  filter(time_start < time_end) |>
+                  select(!"out_time") |>
+                  mutate(cohort_name = factor(cohort_name, c(reference, exposed)))
+                
+                if (outcome_type == "main") {
+                  # fit survival model
+                  fit <- survfit(Surv(time_start, time_end, status) ~ cohort_name, 
+                                 data = data, 
+                                 weights = weight)
+                  
+                  # export survival probabilities
+                  summary_time <- sort(unique(c(0, data$time_end)))
+                  surv <- summary(fit, times = summary_time)
+                  surv <- tibble(
+                    weight_type = wt,
+                    reference = reference,
+                    exposed = exposed,
+                    comparison_id = comparison_id,
+                    time = surv$time,
+                    survival = surv$surv,
+                    lower_survival = surv$lower,
+                    upper_survival = surv$upper,
+                    cohort_name = str_replace(surv$strata, "^cohort_name=", ""),
+                    outcome = outcome,
+                    outcome_type = outcome_type
+                  )
+                } else {
+                  surv <- NULL
+                }
+                
+                # fit cox model
+                fit <- coxph(Surv(time_start, time_end, status) ~ cohort_name,
+                             data = data,
+                             weights = weight,
+                             cluster = subject_id)
+                
+                # export hazard ratios
+                hr <- summary(fit) |>
+                  coefficients() |>
+                  as_tibble(rownames = "exposed") |>
+                  mutate(reference = reference) |>
+                  rename("se_coef" = "se(coef)") |>
+                  mutate(exposed = str_replace(exposed, "cohort_name", "")) |>
+                  select("reference", "exposed", "coef", "se_coef") |>
+                  mutate(
+                    comparison_id = comparison_id,
+                    weight_type = wt,
+                    outcome = outcome,
+                    outcome_type = outcome_type
+                  )
+                
+                list(hr = hr, surv = surv)
+              },
+              error = function(e) {
+                cli_inform(c(x = "ERROR!", as.character(e)))
+                list(hr = NULL, surv = NULL)
+              })
+              
+            })
+          
+          list(
+            hr = map(outResult, "hr") |>
+              bind_rows(),
+            surv = map(outResult, "surv") |>
+              bind_rows()
           )
-        }
-        
-        # fit cox model
-        fit <- coxph(Surv(time, time_end, status) ~ cohort_name,
-                     data = data,
-                     weights = weight,
-                     cluster = subject_id)
-        
-        # export hazard ratios
-        hr <- summary(fit) |>
-          coefficients() |>
-          as_tibble(rownames = "comparator") |>
-          mutate(reference = ref) |>
-          rename("se_coef" = "se(coef)") |>
-          mutate(comparator = str_replace(comparator, "cohort_name", "")) |>
-          select(reference, comparator, coef, se_coef) |>
-          mutate(weight_type = wt)
-        
-        if (outcomeType == "main") {
-          list(hr = hr, surv = surv)
-        } else {
-          list(hr = hr)
-        }
-      })
-    
-    resultHR[[outcome]] <- res |>
-      map("hr") |>
-      bind_rows() |>
-      mutate(outcome = outcome, outcome_type = outcomeType)
-    
-    if (outcomeType == "main") {
-      resultSurv[[outcome]] <- res |>
-        map("surv") |>
-        bind_rows() |>
-        mutate(outcome = outcome, outcome_type = outcomeType)
-    }
-  }
-  
+        })
+      
+      list(
+        hr = map(compResult, "hr") |>
+          bind_rows(),
+        surv = map(compResult, "surv") |>
+          bind_rows()
+      )
+    })
+
   # format results
   cli_inform(c(i = "Formatting results"))
   
-  resultHR <- resultHR |>
+  resultHR <- map(result, "hr") |>
     bind_rows() |>
     mutate(
       cdm_name = cdmName,
@@ -382,22 +384,22 @@ summariseOutcomeModel <- function(weights, outcomes, cdmName) {
       hr_upper = exp(coef + 1.96 * se_coef)
     ) |>
     transformToSummarisedResult(
-      group = c("weight_type", "reference", "comparator"),
+      group = c("weight_type", "reference", "exposed", "comparison_id"),
       strata = c("outcome_type", "outcome"),
       estimates = c("hr", "hr_lower", "hr_upper", "coef", "se_coef"),
       settings = "result_type"
     )
   
-  resultSurv <- resultSurv |>
+  resultSurv <- map(result, "surv") |>
     bind_rows() |>
     mutate(
       cdm_name = cdmName,
       variable_name = "Survival probability",
-      variable_level = sprintf("%i", time),
+      variable_level = sprintf("%.0f", .data$time),
       result_type = "survival_probability"
     ) |>
     transformToSummarisedResult(
-      group = c("weight_type", "reference", "comparator", "cohort_name"),
+      group = c("weight_type", "reference", "exposed", "comparison_id", "cohort_name"),
       strata = c("outcome_type", "outcome"),
       estimates = c("survival", "lower_survival", "upper_survival"),
       settings = "result_type"
@@ -435,4 +437,17 @@ getSelected <- function(fit) {
   coef(fit, s = "lambda.min") |>
     (\(b) rownames(b)[b[, 1] != 0])() |>
     keep(\(x) startsWith(x, "cov_"))
+}
+getWeights <- function(comparisonId, weightType) {
+  cohorts <- comparisons |>
+    filter(comparison_id == comparisonId) |>
+    select("exposed", "reference") |>
+    pivot_longer(everything()) |>
+    pull("value")
+  weights |>
+    filter(weight_type == weightType) |>
+    filter(cohort_name %in% cohorts) |>
+    filter(comparison_id %in% c(0, comparisonId)) |>
+    select("cohort_name", "subject_id", "time_start", "time_end", "weight") |>
+    collect()
 }

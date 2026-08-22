@@ -552,10 +552,13 @@ weights <- bind_rows(weights, .id = "weight_type") |>
   ) |>
   filter(time_start < follow_up) |>
   select("weight_type", "comparison_id", "cohort_name", "subject_id", "time_start", "time_end", "weight")
+
+nw <- paste0("weights_", toSnakeCase(cdmName(cdm)))
+
 con <- weightsCon()
-dbWriteTable(conn = con, name = "weights", value = weights, overwrite = TRUE)
+dbWriteTable(conn = con, name = nw, value = weights, overwrite = TRUE)
 rm(weights)
-weights <- tbl(con, "weights")
+weights <- tbl(con, nw)
 
 weightTypes <- weights |>
   distinct(weight_type) |>
