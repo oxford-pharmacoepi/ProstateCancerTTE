@@ -1,353 +1,453 @@
-summaryOutcome <- function(x, outcome, conditions, exposures, min_frequency) {
-  logMessage(paste0("Start analysis for outcome: ", outcome))
-  x <- x |>
-    rename(outcome = all_of(outcome)) |>
-    mutate(
-      status = if_else(is.na(outcome) | outcome > censor_time, 0, 1),
-      time = if_else(status == 0, censor_time, outcome),
-      reason = if_else(status == 0, censor_reason, "outcome")
-    ) |>
-    select("cohort_name", "subject_id", "status", "time", "reason", "age")
 
-  sep <- 30
-  weights_time <- seq(from = 0, to = 730, by = sep)
-
-  coefficients <- list()
-  probabilities <- list()
-
-  for (wti in weights_time) {
-    logMessage(paste0("Calculating weights at time: ", wti))
-
-    xi <- x |>
-      filter(time > wti)
-
-    min_counts_i <- nrow(xi) * min_frequency
-
-    # exposures
-    exposures_i <- exposures |>
-      filter(cov_time <= wti & cov_time + 365 >= wti) |>
-      inner_join(
-        xi |>
-          select("cohort_name", "subject_id"),
-        by = "subject_id",
-        relationship = "many-to-many"
-      ) |>
-      distinct(cohort_name, subject_id, concept_id)
-    exps_i <- exposures_i |>
-      group_by(concept_id) |>
-      tally() |>
-      filter(n >= min_counts_i) |>
-      pull(concept_id)
-    exposures_i <- exposures_i |>
-      filter(concept_id %in% exps_i) |>
-      mutate(value = 1, concept_id = paste0("cov_", concept_id)) |>
-      pivot_wider(names_from = "concept_id", values_from = "value")
-
-    # conditions
-    conditions_i <- conditions |>
-      filter(cov_time <= wti) |>
-      inner_join(
-        xi |>
-          select("cohort_name", "subject_id"),
-        by = "subject_id",
-        relationship = "many-to-many"
-      ) |>
-      distinct(cohort_name, subject_id, concept_id)
-    cond_i <- conditions_i |>
-      group_by(concept_id) |>
-      tally() |>
-      filter(n >= min_counts_i) |>
-      pull(concept_id)
-    conditions_i <- conditions_i |>
-      filter(concept_id %in% cond_i) |>
-      mutate(value = 1, concept_id = paste0("cov_", concept_id)) |>
-      pivot_wider(names_from = "concept_id", values_from = "value")
-
-    # create matrix
-    covs <- paste0("cov_", c(cond_i, exps_i))
-    xi <- xi |>
-      left_join(conditions_i, by = c("cohort_name", "subject_id")) |>
-      left_join(exposures_i, by = c("cohort_name", "subject_id")) |>
-      mutate(across(all_of(covs), \(x) coalesce(x, 0)))
-
-    # lasso to select variables
-    X <- xi |>
-      select(!c("cohort_name", "subject_id", "status", "time", "reason", "age")) |>
-      as.matrix()
-    y <- xi$cohort_name
-    lambdas <- 10^seq(2, -3, by = -.1)
-    lasso_reg <- cv.glmnet(x = X, y = y, lambda = lambdas, standardize = TRUE, nfolds = 5, family = "multinomial", alpha = 1)
-    selected_cov <- coef(lasso_reg, s = lasso_reg$lambda.1se) |>
-      map(\(x) {
-        x <- names(x[(x[,1]!=0),1])
-        x[x != "(Intercept)"]
-      }) |>
-      unlist(use.names = FALSE) |>
-      unique()
-
-    # logistic regression
-    X <- xi |>
-      select(all_of(c("cohort_name", "age", selected_cov)))
-    fit <- multinom(cohort_name ~ ., data = X, trace = FALSE, MaxNWts = 5000)
-
-    # save model
-    coefficients[[as.character(wti)]] <- fit |>
-      coefficients() |>
-      as_tibble(rownames = "group") |>
-      pivot_longer(!"group", names_to = "covariate", values_to = "value")
-
-    # save weights
-    probs <- predict(fit, type = "probs")
-    probabilities[[as.character(wti)]] <- xi |>
-      select("cohort_name", "subject_id") |>
-      bind_cols(as_tibble(probs))
-  }
-
-  # survival over time
-  logMessage("Summarising survival data")
-  surv_data <- probabilities |>
-    bind_rows(.id = "time_start") |>
-    mutate(
-      weight = case_when(
-        cohort_name == "surveillance" ~ 1 - surveillance,
-        cohort_name == "prostatectomy" ~ 1 - prostatectomy,
-        cohort_name == "radiotheraphy" ~ 1 - radiotheraphy
-      ),
-      time_start = as.numeric(time_start),
-      time_end = time_start + sep
-    ) |>
+extractCovariates <- function(table, individuals, total_ind, minFrequency, excludeCodes) {
+  cdm <- cdmReference(individuals)
+  id <- omopColumns(table = table, field = "standard_concept")
+  date <- omopColumns(table = table, field = "start_date")
+  
+  allCov <- cdm[[table]] |>
+    rename(concept_id = all_of(id), date = all_of(date)) |>
+    inner_join(individuals, by = "person_id") |>
+    mutate(time = date_count_between(cohort_start_date, date)) |>
+    filter(time <= max_censor) |>
+    select(person_id, time, concept_id) |>
+    compute(name = "all_cov")
+  covOfInterest <- allCov |>
+    group_by(concept_id) |>
+    summarise(n_ind = n_distinct(person_id)) |>
+    mutate(percentage = n_ind / total_ind) |>
+    filter(!concept_id %in% excludeCodes & percentage >= minFrequency) |>
+    compute(name = "selected_cov")
+  allCov <- allCov |>
     inner_join(
-      x |>
-        select(!"age"),
-      by = c("cohort_name", "subject_id")
+      covOfInterest |>
+        select(concept_id),
+      by = "concept_id"
     ) |>
-    mutate(
-      status = if_else(time_start < time & time <= time_end, status, 0),
-      time_end = if_else(time_start < time & time <= time_end, time, time_end)
-    ) |>
-    select(!c("surveillance", "prostatectomy", "radiotheraphy"))
-  fit <- survfit(Surv(time_start, time_end, status) ~ cohort_name, data = surv_data, weights = weight)
-  summary_time <- c(0:max(surv_data$time_end))
-  survival_summary <- summary(fit, times = summary_time)
-  survival_summary <- tibble(
-    time = survival_summary$time,
-    survival = survival_summary$surv,
-    lower_survival = survival_summary$lower,
-    upper_survival = survival_summary$upper,
-    cohort_name = str_replace(survival_summary$strata, "^cohort_name=", "")
-  ) |>
-    mutate(outcome = outcome) |>
-    left_join(
-      summary_time |>
-        map_df(\(st) {
-          lw <- if_else(st == 0, 0.01, st)
-          surv_data |>
-            filter(time_start < lw &  st <= time_end) |>
-            group_by(cohort_name) |>
-            summarise(
-              number_subjects = n(),
-              number_weighted_subjects = sum(weight),
-              .groups = "drop"
-            ) |>
-            mutate(time = st)
-        }),
-      by = c("time", "cohort_name")
-    )
-
-  # hazard ratio
-  logMessage("Calculating hazard ratio")
-  surv_data <- surv_data |>
-    group_by(cohort_name, subject_id) |>
-    mutate(id = cur_group_id()) |>
-    ungroup()
-  hr_summary <- list("overall" = c(0, Inf), "first year" = c(0, 365), "second year" = c(366, 730)) |>
-    map(\(interval) {
-      data <- surv_data |>
-        filter(interval[1] <= time_end & time_start <= interval[2]) |>
-        mutate(
-          time_start = if_else(time_start <= interval[1], interval[1], time_start),
-          time_end = if_else(interval[2] <= time_end, interval[2], time_end),
-          status = if_else(time == time_end, status, 0)
-        ) |>
-        filter(time_start < time_end)
-      fit1 <- coxph(Surv(time_start, time_end, status) ~ cohort_name,
-                    data = data,
-                    weights = weight,
-                    cluster = id)
-      fit2 <- coxph(Surv(time_start, time_end, status) ~ cohort_name,
-                    data = data |>
-                      filter(cohort_name != "surveillance") |>
-                      mutate(cohort_name = factor(cohort_name, levels = c("prostatectomy", "radiotheraphy"))),
-                    weights = weight,
-                    cluster = id)
-      summary(fit1) |>
-        coefficients() |>
-        as_tibble(rownames = "comparator") |>
-        mutate(reference = "surveillance") |>
-        union_all(
-          summary(fit2) |>
-            coefficients() |>
-            as_tibble(rownames = "comparator") |>
-            mutate(reference = "prostatectomy")
-        ) |>
-        rename(
-          "hazard_ratio" = "exp(coef)",
-          "se_coef" = "se(coef)",
-          "se_coef_robust" = "robust se",
-          "p_value" = "Pr(>|z|)"
-        ) |>
-        mutate(comparator = str_replace(comparator, "cohort_name", ""))
-    }) |>
-    bind_rows(.id = "interval") |>
-    mutate(outcome = outcome) |>
-    relocate("interval", "comparator", "reference", "outcome")
-
-  # number events
-  logMessage("Summarising number of events")
-  events <- surv_data |>
-    group_by(time_start, cohort_name) |>
-    summarise(
-      number_events = sum(status),
-      number_weighted_events = sum(status * weight),
-      .groups = "drop"
-    ) |>
-    mutate(time_end = time_start + sep, outcome = outcome)
-
-  # followup summary
-  logMessage("Summarising follow up summary")
-  followup_summary <- x |>
-    group_by(cohort_name) |>
-    summarise(
-      n = n(),
-      min = min(time),
-      q05 = quantile(time, 0.05),
-      q25 = quantile(time, 0.25),
-      median = median(time),
-      q75 = quantile(time, 0.75),
-      q95 = quantile(time, 0.95),
-      max = max(time),
-      .groups = "drop"
-    ) |>
-    mutate(reason = "overall") |>
-    relocate("cohort_name", "reason") |>
-    union_all(
-      x |>
-        group_by(cohort_name, reason) |>
-        summarise(
-          n = n(),
-          min = min(time),
-          q05 = quantile(time, 0.05),
-          q25 = quantile(time, 0.25),
-          median = median(time),
-          q75 = quantile(time, 0.75),
-          q95 = quantile(time, 0.95),
-          max = max(time),
-          .groups = "drop"
-        )
-    ) |>
-    mutate(outcome = outcome)
-
-  # export coefficients
-  logMessage("Summarising coeficients")
-  coefficients <- coefficients |>
-    bind_rows(.id = "time_start") |>
-    mutate(time_start = as.numeric(time_start), outcome = outcome)
-
-  # export probabilities
-  logMessage("Summarising weights distribution")
-  hist_sep <- 0.01
-  breaks <- seq(from = 0, to = 1, by = hist_sep)
-  labels <- as.character(breaks[-1] - hist_sep/2)
-  probabilities <- probabilities |>
-    map(\(x) {
-      x |>
-        pivot_longer(
-          cols = c("surveillance", "prostatectomy", "radiotheraphy"),
-          names_to = "prob_label",
-          values_to = "prob"
-        ) |>
-        select(!"subject_id")
-    }) |>
-    bind_rows(.id = "time_start") |>
-    mutate(prob_bin = as.character(cut(x = prob, breaks = breaks, labels = labels))) |>
-    group_by(time_start, cohort_name, prob_label, prob_bin) |>
-    summarise(n = n(), .groups = "drop") |>
-    group_by(time_start, cohort_name, prob_label) |>
-    mutate(freq = n / sum(n)) |>
-    ungroup() |>
-    select(!"n") |>
-    full_join(
-      expand_grid(
-        time_start = names(probabilities),
-        cohort_name = c("surveillance", "prostatectomy", "radiotheraphy"),
-        prob_label = c("surveillance", "prostatectomy", "radiotheraphy"),
-        prob_bin = labels
-      ),
-      by = c("time_start", "cohort_name", "prob_label", "prob_bin")
-    ) |>
-    mutate(
-      freq = coalesce(freq, 0),
-      time_start = as.numeric(time_start),
-      prob_bin = as.numeric(prob_bin),
-      outcome = outcome
-    ) |>
-    arrange(time_start, cohort_name, prob_label, prob_bin)
-
-  list(
-    hr_summary = hr_summary,
-    survival_summary = survival_summary,
-    events = events,
-    followup_summary = followup_summary,
-    coefficients = coefficients,
-    probabilities = probabilities
-  )
+    mutate(covariate = paste0("cov_", concept_id), table = table) |>
+    distinct(person_id, time, covariate, table) |>
+    collect() |>
+    rename(subject_id = person_id)
+  dropSourceTable(cdm = cdm, name = c("selected_cov", "all_cov"))
+  allCov
 }
-bindResults <- function(result, cdmName) {
-  group <- list(
-    "hr_summary" = c("comparator", "reference"),
-    "survival_summary" = "cohort_name",
-    "events" = "cohort_name",
-    "followup_summary" = "cohort_name",
-    "coefficients" = "group",
-    "probabilities" = c("cohort_name", "outcome")
+createCovariatesMatrix <- function(cohort, time, drugs, conditions, psa, gleason) {
+  n_min <- floor(0.005 * nrow(cohort))
+  
+  # prepare psa
+  x_psa <- psa |>
+    filter(.data$time <= .env$time) |>
+    group_by(subject_id) |>
+    filter(.data$time == max(.data$time, na.rm = TRUE)) |>
+    ungroup() |>
+    select(subject_id, psa = psa_category)
+  
+  # prepare gleason
+  x_gleason <- gleason |>
+    filter(.data$time <= .env$time) |>
+    group_by(subject_id) |>
+    filter(.data$time == max(.data$time, na.rm = TRUE)) |>
+    ungroup() |>
+    select(subject_id, gleason = gleason_category)
+  
+  # drugs
+  x_drugs <- drugs |>
+    filter(.data$time <= .env$time & .data$time >= .env$time - 365) |>
+    distinct(subject_id, covariate) |>
+    mutate(value = 1)
+  min_prev <- x_drugs |>
+    group_by(covariate) |>
+    tally() |>
+    filter(n >= n_min) |>
+    pull(covariate)
+  x_drugs <- x_drugs |>
+    filter(covariate %in% min_prev) |>
+    pivot_wider(names_from = "covariate", values_from = "value")
+  
+  # conditions
+  x_conditions <- conditions |>
+    filter(.data$time <= .env$time) |>
+    distinct(subject_id, covariate) |>
+    mutate(value = 1)
+  min_prev <- x_conditions |>
+    group_by(covariate) |>
+    tally() |>
+    filter(n >= n_min) |>
+    pull(covariate)
+  x_conditions <- x_conditions |>
+    filter(covariate %in% min_prev) |>
+    pivot_wider(names_from = "covariate", values_from = "value")
+  
+  # prepare data
+  cohort |>
+    mutate(status = if_else(follow_up > time, 1, 0)) |>
+    left_join(x_psa, by = "subject_id") |>
+    left_join(x_gleason, by = "subject_id") |>
+    mutate(
+      psa = factor(coalesce(psa, "Missing"), levels = c("Missing", "[0, 3)", "[10, 20)", "[6, 10)", "[3, 6)", "[20, 40)", "[40, Inf)")),
+      gleason = factor(coalesce(gleason, "Missing"), levels = c("Missing", "2 to 6", "7", "8 to 10"))
+    ) |>
+    left_join(x_conditions, by = "subject_id") |>
+    left_join(x_drugs, by = "subject_id") |>
+    mutate(across(starts_with("cov_"), \(x) coalesce(x, 0)))
+}
+modelWeights <- function(cohort, time) {
+  coef <- tibble(
+    variable = character(),
+    coef = numeric(),
+    cohort_name = character(),
+    time = numeric()
   )
-  strata <- list(
-    "hr_summary" = "outcome",
-    "survival_summary" = "outcome",
-    "events" = "outcome",
-    "followup_summary" = "outcome",
-    "coefficients" = "outcome",
-    "probabilities" = c("prob_bin", "prob_label")
+  weights <- tibble(
+    subject_id = integer(),
+    prob = numeric(),
+    weight = numeric(),
+    cohort_name = character(),
+    time = numeric()
   )
-  additional <- list(
-    "hr_summary" = "interval",
-    "survival_summary" = "time",
-    "events" = c("time_start", "time_end"),
-    "followup_summary" = "reason",
-    "coefficients" = c("covariate", "time_start"),
-    "probabilities" = c("time_start")
-  )
-  estimates <- list(
-    "hr_summary" = c("coef", "hazard_ratio", "se_coef", "se_coef_robust", "z", "p_value"),
-    "survival_summary" = c("survival", "lower_survival", "upper_survival", "number_subjects", "number_weighted_subjects"),
-    "events" = c("number_events", "number_weighted_events"),
-    "followup_summary" = c("n", "min", "q05", "q25", "median", "q75", "q95", "max"),
-    "coefficients" = "value",
-    "probabilities" = c("freq")
-  )
-  names(result[[1]]) |>
-    map(\(nm) {
-      x <- result |>
-        map(\(x) x[[nm]]) |>
-        bind_rows() |>
-        mutate(
-          result_type = nm,
-          cdm_name = cdmName
-        ) |>
-        transformToSummarisedResult(
-          group = group[[nm]], strata = strata[[nm]], additional = additional[[nm]],
-          estimates = estimates[[nm]], settings = "result_type"
+  
+  nms <- unique(cohort$cohort_name)
+  for (nm in nms) {
+    
+    # filter cohort of interest
+    x <- cohort |>
+      filter(.data$cohort_name == .env$nm) |>
+      select(!c("cohort_name", "follow_up"))
+    
+    # fit model
+    res <- tryCatch(calculateWeights(x), error = function(e) as.character(e))
+    
+    if (is.character(res)) {
+      cli_inform(c(x = "failed to fit model"))
+      cli_inform(message = res)
+      weights <- weights |>
+        union_all(
+          x |>
+            distinct(subject_id) |>
+            mutate(
+              prob = 1,
+              weight = 1,
+              cohort_name = nm, 
+              time = time
+            )
         )
-    }) |>
-    bind()
+    } else {
+      coef <- coef |>
+        union_all(
+          res$coef |>
+            mutate(cohort_name = nm, time = time)
+        )
+      weights <- weights |>
+        union_all(
+          res$weights |>
+            mutate(cohort_name = nm, time = time)
+        )
+    }
+  }
+  
+  list(coef = coef, weights = weights)
+}
+calculateWeights <- function(x) {
+  # lasso
+  X <- x |>
+    select(starts_with("cov_")) |>
+    as.matrix()
+  lambdas <- 10^seq(2, -3, by = -.1)
+  lasso_reg <- cv.glmnet(x = X, y = x$status, lambda = lambdas, standardize = TRUE, nfolds = 5, alpha = 1)
+  selected_cov <- coef(lasso_reg, s = lasso_reg$lambda.1se)[,1] |>
+    keep(\(x) x != 0) |>
+    names() |>
+    keep(\(x) !grepl("Intercept", x))
+  
+  # regression
+  X <- x |>
+    select(!subject_id) |>
+    mutate(
+      missing_psa = if_else(is.na(psa), 1, 0),
+      missing_gleason = if_else(is.na(gleason), 1, 0),
+      psa = coalesce(psa, 0),
+      gleason = coalesce(gleason, 0)
+    )
+  
+  fit <- glm(status ~ ., data = X, family = binomial())
+  
+  # coefficients
+  coeff <- fit |>
+    coefficients() |>
+    as_tibble(rownames = "variable") |>
+    rename(coef = value)
+  
+  # save probabilities
+  weights <- tibble(subject_id = x$subject_id, prob = predict(fit, type = "response")) |>
+    mutate(
+      prob = if_else(prob < 0.05, 0.05, prob),
+      weight = 1 / prob
+    )
+  
+  list(coeff = coeff, weights = weights)
+}
+characterisation <- function(cohort) {
+  cohort <- cohort |>
+    addTableIntersectField(
+      tableName = "psa",
+      field = "psa_category",
+      window = c(-Inf, 0),
+      order = "last",
+      nameStyle = "last_psa"
+    ) |>
+    addTableIntersectField(
+      tableName = "gleason",
+      field = "gleason_category",
+      window = c(-Inf, 0),
+      order = "last",
+      nameStyle = "last_gleason"
+    ) |>
+    mutate(across(c("last_psa", "last_gleason"), \(x) coalesce(x, "Unknown")))
+  
+  attrition <- summariseCohortAttrition(cohort = cohort)
+  
+  char <- summariseCharacteristics(
+    cohort = cohort,
+    cohortIntersectFlag = list(
+      "Prior comorbidities in [-Inf, -1]" = list(
+        targetCohortTable = "conditions",
+        window = c(-Inf, -1)
+      ),
+      "Prior medication in [-365, -1]" = list(
+        targetCohortTable = "medications",
+        window = c(-365, -1)
+      )
+    ),
+    cohortIntersectCount = list(
+      "Number visists in [-365, -1]" = list(
+        targetCohortTable = "visits",
+        window = c(-365, -1)
+      )
+    ),
+    otherVariables = c("last_psa", "last_gleason"), 
+    estimates = list(other = c("count", "percentage"))
+  )
+  
+  bind(attrition, char)
+}
+calculateSmd <- function(x) {
+  labs <- x |>
+    distinct(weight_type, reference, comparator, cohort_name)
+  
+  # all covariates
+  x <- x |>
+    full_join(
+      x |>
+        distinct(covariate) |>
+        cross_join(labs),
+      by = c("covariate", "reference", "comparator", "weight_type", "cohort_name")
+    ) |>
+    mutate(p = coalesce(p, 0))
+  
+  # calculate smd
+  x |>
+    mutate(cohort_name = if_else(cohort_name == reference, "pr", "pc")) |>
+    pivot_wider(names_from = "cohort_name", values_from = "p") |>
+    mutate(
+      smd = if_else(pr == pc, 0, abs(pr - pc) /  sqrt((pc * (1 - pc) + pr * (1 - pr)) / 2)),
+      unbalanced = if_else(smd > 0.1, 1, 0)
+    )
+}
+summariseSmd <- function(x) {
+  x |>
+    summariseResult(
+      group = list(c("weight_type", "reference", "comparator")),
+      counts = FALSE, 
+      variables = list("smd", "unbalanced"), 
+      estimates = list(c("median", "mean", "max"), "count")
+    ) |>
+    addResultType("smd")
+}
+summariseOutcomeModel <- function(weightTypes, outcomes, cdmName) {
+  
+  outs <- outcomes |>
+    distinct(outcome, outcome_type)
+  
+  result <- weightTypes |>
+    map(\(wt) {
+      compResult <- comparisons |>
+        pmap(\(reference, exposed, comparison_id, comparison_name) {
+          ind <- getWeights(comparison_id, wt) |>
+            inner_join(followUp, by = c("cohort_name", "subject_id")) |>
+            mutate(time_end = if_else(time_end > follow_up, follow_up, time_end)) |>
+            filter(time_start < time_end) |>
+            select(!"follow_up")
+          
+          outResult <- outs |>
+            pmap(\(outcome, outcome_type) {
+              cli_inform(c(i = "Fitting model for: {wt}; {comparison_name}; {outcome}"))
+              
+              tryCatch({
+                outData <- outcomes |>
+                  filter(.data$outcome == .env$outcome) |>
+                  select(subject_id, out_time = time)
+                
+                data <- ind |>
+                  left_join(outData, by = "subject_id") |>
+                  mutate(
+                    out_time = coalesce(out_time, 9999),
+                    time_end = if_else(out_time <= time_end, out_time, time_end),
+                    status = if_else(time_end == out_time, 1, 0)
+                  ) |>
+                  filter(time_start < time_end) |>
+                  select(!"out_time") |>
+                  mutate(cohort_name = factor(cohort_name, c(reference, exposed)))
+                
+                if (outcome_type == "main") {
+                  # fit survival model
+                  fit <- survfit(Surv(time_start, time_end, status) ~ cohort_name, 
+                                 data = data, 
+                                 weights = weight)
+                  
+                  # export survival probabilities
+                  summary_time <- sort(unique(c(0, data$time_end)))
+                  surv <- summary(fit, times = summary_time)
+                  surv <- tibble(
+                    weight_type = wt,
+                    reference = reference,
+                    exposed = exposed,
+                    comparison_id = comparison_id,
+                    time = surv$time,
+                    survival = surv$surv,
+                    lower_survival = surv$lower,
+                    upper_survival = surv$upper,
+                    cohort_name = str_replace(surv$strata, "^cohort_name=", ""),
+                    outcome = outcome,
+                    outcome_type = outcome_type
+                  )
+                } else {
+                  surv <- NULL
+                }
+                
+                # fit cox model
+                fit <- coxph(Surv(time_start, time_end, status) ~ cohort_name,
+                             data = data,
+                             weights = weight,
+                             cluster = subject_id)
+                
+                # export hazard ratios
+                hr <- summary(fit) |>
+                  coefficients() |>
+                  as_tibble(rownames = "exposed") |>
+                  mutate(reference = reference) |>
+                  rename("se_coef" = "se(coef)") |>
+                  mutate(exposed = str_replace(exposed, "cohort_name", "")) |>
+                  select("reference", "exposed", "coef", "se_coef") |>
+                  mutate(
+                    comparison_id = comparison_id,
+                    weight_type = wt,
+                    outcome = outcome,
+                    outcome_type = outcome_type
+                  )
+                
+                list(hr = hr, surv = surv)
+              },
+              error = function(e) {
+                cli_inform(c(x = "ERROR!", as.character(e)))
+                list(hr = NULL, surv = NULL)
+              })
+              
+            })
+          
+          list(
+            hr = map(outResult, "hr") |>
+              bind_rows(),
+            surv = map(outResult, "surv") |>
+              bind_rows()
+          )
+        })
+      
+      list(
+        hr = map(compResult, "hr") |>
+          bind_rows(),
+        surv = map(compResult, "surv") |>
+          bind_rows()
+      )
+    })
+
+  # format results
+  cli_inform(c(i = "Formatting results"))
+  
+  resultHR <- map(result, "hr") |>
+    bind_rows() |>
+    mutate(
+      cdm_name = cdmName,
+      variable_name = "Cox model",
+      variable_level = NA_character_,
+      result_type = "cox_regression",
+      hr = exp(coef),
+      hr_lower = exp(coef - 1.96 * se_coef),
+      hr_upper = exp(coef + 1.96 * se_coef)
+    ) |>
+    transformToSummarisedResult(
+      group = c("weight_type", "reference", "exposed", "comparison_id"),
+      strata = c("outcome_type", "outcome"),
+      estimates = c("hr", "hr_lower", "hr_upper", "coef", "se_coef"),
+      settings = "result_type"
+    )
+  
+  resultSurv <- map(result, "surv") |>
+    bind_rows() |>
+    mutate(
+      cdm_name = cdmName,
+      variable_name = "Survival probability",
+      variable_level = sprintf("%.0f", .data$time),
+      result_type = "survival_probability"
+    ) |>
+    transformToSummarisedResult(
+      group = c("weight_type", "reference", "exposed", "comparison_id", "cohort_name"),
+      strata = c("outcome_type", "outcome"),
+      estimates = c("survival", "lower_survival", "upper_survival"),
+      settings = "result_type"
+    )
+  
+  bind(resultHR, resultSurv)
+}
+addResultType <- function(result, resultType) {
+  result |>
+    newSummarisedResult(
+      settings = settings(result) |>
+        mutate(result_type = .env$resultType)
+    )
+}
+weightsCon <- function() {
+  dbConnect(drv = duckdb(dbdir = here("data", "weights.duckdb")))
+}
+recordTime <- function(task) {
+  time <- Sys.time()
+  message <- paste0("Calculating ", task)
+  logMessage(message = message)
+  options(og.task = task)
+  options(og.time = time)
+}
+report <- function() {
+  ts <- getOption("og.time")
+  task <- getOption("og.task")
+  time <- Sys.time()
+  diff <- round(as.numeric(difftime(time1 = time, time2 = ts, units = "secs")))
+  diff <- sprintf("%ih %02im %02is", diff %/% 3600, diff %/% 60, diff %% 60)
+  message <- paste0("Finished ", task, " in ", diff)
+  logMessage(message = message)
+}
+getSelected <- function(fit) {
+  coef(fit, s = "lambda.min") |>
+    (\(b) rownames(b)[b[, 1] != 0])() |>
+    keep(\(x) startsWith(x, "cov_"))
+}
+getWeights <- function(comparisonId, weightType) {
+  cohorts <- comparisons |>
+    filter(comparison_id == comparisonId) |>
+    select("exposed", "reference") |>
+    pivot_longer(everything()) |>
+    pull("value")
+  weights |>
+    filter(weight_type == weightType) |>
+    filter(cohort_name %in% cohorts) |>
+    filter(comparison_id %in% c(0, comparisonId)) |>
+    select("cohort_name", "subject_id", "time_start", "time_end", "weight") |>
+    collect()
 }
