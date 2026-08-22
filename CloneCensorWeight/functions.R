@@ -90,101 +90,6 @@ createCovariatesMatrix <- function(cohort, time, drugs, conditions, psa, gleason
     left_join(x_drugs, by = "subject_id") |>
     mutate(across(starts_with("cov_"), \(x) coalesce(x, 0)))
 }
-modelWeights <- function(cohort, time) {
-  coef <- tibble(
-    variable = character(),
-    coef = numeric(),
-    cohort_name = character(),
-    time = numeric()
-  )
-  weights <- tibble(
-    subject_id = integer(),
-    prob = numeric(),
-    weight = numeric(),
-    cohort_name = character(),
-    time = numeric()
-  )
-  
-  nms <- unique(cohort$cohort_name)
-  for (nm in nms) {
-    
-    # filter cohort of interest
-    x <- cohort |>
-      filter(.data$cohort_name == .env$nm) |>
-      select(!c("cohort_name", "follow_up"))
-    
-    # fit model
-    res <- tryCatch(calculateWeights(x), error = function(e) as.character(e))
-    
-    if (is.character(res)) {
-      cli_inform(c(x = "failed to fit model"))
-      cli_inform(message = res)
-      weights <- weights |>
-        union_all(
-          x |>
-            distinct(subject_id) |>
-            mutate(
-              prob = 1,
-              weight = 1,
-              cohort_name = nm, 
-              time = time
-            )
-        )
-    } else {
-      coef <- coef |>
-        union_all(
-          res$coef |>
-            mutate(cohort_name = nm, time = time)
-        )
-      weights <- weights |>
-        union_all(
-          res$weights |>
-            mutate(cohort_name = nm, time = time)
-        )
-    }
-  }
-  
-  list(coef = coef, weights = weights)
-}
-calculateWeights <- function(x) {
-  # lasso
-  X <- x |>
-    select(starts_with("cov_")) |>
-    as.matrix()
-  lambdas <- 10^seq(2, -3, by = -.1)
-  lasso_reg <- cv.glmnet(x = X, y = x$status, lambda = lambdas, standardize = TRUE, nfolds = 5, alpha = 1)
-  selected_cov <- coef(lasso_reg, s = lasso_reg$lambda.1se)[,1] |>
-    keep(\(x) x != 0) |>
-    names() |>
-    keep(\(x) !grepl("Intercept", x))
-  
-  # regression
-  X <- x |>
-    select(!subject_id) |>
-    mutate(
-      missing_psa = if_else(is.na(psa), 1, 0),
-      missing_gleason = if_else(is.na(gleason), 1, 0),
-      psa = coalesce(psa, 0),
-      gleason = coalesce(gleason, 0)
-    )
-  
-  fit <- glm(status ~ ., data = X, family = binomial())
-  
-  # coefficients
-  coeff <- fit |>
-    coefficients() |>
-    as_tibble(rownames = "variable") |>
-    rename(coef = value)
-  
-  # save probabilities
-  weights <- tibble(subject_id = x$subject_id, prob = predict(fit, type = "response")) |>
-    mutate(
-      prob = if_else(prob < 0.05, 0.05, prob),
-      weight = 1 / prob
-    )
-  
-  list(coeff = coeff, weights = weights)
-}
 characterisation <- function(cohort) {
   cohort <- cohort |>
     addTableIntersectField(
@@ -434,9 +339,24 @@ report <- function() {
   logMessage(message = message)
 }
 getSelected <- function(fit) {
-  coef(fit, s = "lambda.min") |>
+  # lambda.1se (not lambda.min): the more parsimonious choice, intended to
+  # avoid pulling noise covariates into the weight models
+  coef(fit, s = "lambda.1se") |>
     (\(b) rownames(b)[b[, 1] != 0])() |>
     keep(\(x) startsWith(x, "cov_"))
+}
+trimWeights <- function(weight, lower = 0.01, upper = 0.99) {
+  # symmetric percentile truncation, applied to the finished weight (not the
+  # underlying probability) so it behaves the same way regardless of which
+  # model produced the weight
+  bounds <- quantile(weight, probs = c(lower, upper), na.rm = TRUE, names = FALSE)
+  pmin(pmax(weight, bounds[1]), bounds[2])
+}
+clipProb <- function(p, eps = 1e-6) {
+  # hard floor/ceiling so a probability of exactly 0 or 1 (a boundary
+  # prediction, or a fully extrapolated survival curve) can't turn into an
+  # infinite weight before trimWeights() gets a chance to act on it
+  pmin(pmax(p, eps), 1 - eps)
 }
 getWeights <- function(comparisonId, weightType) {
   cohorts <- comparisons |>

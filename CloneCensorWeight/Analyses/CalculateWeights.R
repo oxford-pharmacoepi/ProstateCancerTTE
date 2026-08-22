@@ -1,8 +1,8 @@
-# penalty factors
-# weights calculation function (trimming)
-# marginal <- xi |>
-#   group_by(time_start) |>
-#   summarise(marginal = weighted.mean(y, weight), .groups = "drop")
+# Weight trimming: all weight schemes below are computed untrimmed, then
+# percentile-truncated in one place (see "trim weights" step near the end of
+# this script) using trimWeights() from functions.R. Trimming is applied
+# within weight_type x comparison_id x time_start, since the weight
+# distribution shifts as the risk set changes over follow-up.
 
 # extract data
 minFrequency <- 0.005
@@ -156,7 +156,7 @@ for (nm in names(artificialCensor)) {
   we[[nm]] <- times[times <= max(xi$follow_up)] |>
     map(\(time) {
       prob <- as.numeric(t(summary(sv, times = time, extend = TRUE)$surv))
-      prob <- pmax(prob, quantile(prob, 0.01))
+      prob <- clipProb(prob)
       tibble(subject_id = xi$subject_id, time_start = time, weight = 1 / prob)
     }) |>
     bind_rows() |>
@@ -224,7 +224,7 @@ for (i in comparisons$comparison_id) {
     rename(std_error = "std.error") |>
     mutate(cohort_name = NA_character_, comparison_id = i)
   
-  ps <- predict(ps_model, newdata = xi, type = "response")
+  ps <- clipProb(predict(ps_model, newdata = xi, type = "response"))
   marginal <- mean(xi$y)
   
   we[[i]] <- xi |>
@@ -304,10 +304,10 @@ for (i in comparisons$comparison_id) {
   co[[i]] <- broom::tidy(ps_model) |> 
     mutate(cohort_name = NA_character_, comparison_id = i)
   
-  ps <- predict(ps_model, newdata = xi, type = "response")
+  ps <- clipProb(predict(ps_model, newdata = xi, type = "response"))
   marginal <- weighted.mean(xi$y, xi$weight)
   
-  # needs trimming
+  # combined weight is trimmed later, in the centralised "trim weights" step
   
   we[[i]] <- xi |>
     mutate(
@@ -390,7 +390,7 @@ for (i in seq_len(nrow(comparisons))) {
     data = xi,
     family = binomial()
   )
-  ps <- predict(fit, newdata = xi, type = "response")
+  ps <- clipProb(predict(fit, newdata = xi, type = "response"))
   
   co[[i]] <- broom::tidy(fit) |>
     mutate(comparison_id = i)
@@ -482,7 +482,7 @@ for (i in seq_len(nrow(comparisons))) {
     family = binomial(),
     weight = xi$weight
   )
-  ps <- predict(fit, newdata = xi, type = "response")
+  ps <- clipProb(predict(fit, newdata = xi, type = "response"))
   
   co[[i]] <- broom::tidy(fit) |>
     mutate(comparison_id = i)
@@ -512,6 +512,19 @@ weights$iptcw <- bind_rows(we)
 rm(we)
 coef$iptcw <- bind_rows(co)
 rm(co)
+
+# Final weights run (primary analysis) ----
+# This is the combined, time-varying IPCW x IPTW weight (pooled logistic
+# regression with time splines for both the treatment and the censoring
+# models, LASSO-selected covariates, trimmed). It's the scheme closest to
+# what current CCW methods literature recommends for a multi-arm target
+# trial with informative artificial censoring - richer than a single
+# time-fixed weighting step (as in the ccwtutorial example) or a default
+# 2-arm ITT/PP run (as in TrialEmulation). The other weight types above stay
+# in the output as a sensitivity ladder; "final" is the one intended to
+# drive the headline results.
+weights$final <- weights$iptcw
+coef$final <- coef$iptcw
 
 # merge coefficients and prepare to export ----
 coef <- bind_rows(coef, .id = "weight_type") 
@@ -552,6 +565,16 @@ weights <- bind_rows(weights, .id = "weight_type") |>
   ) |>
   filter(time_start < follow_up) |>
   select("weight_type", "comparison_id", "cohort_name", "subject_id", "time_start", "time_end", "weight")
+
+# trim weights ----
+# percentile truncation (1st/99th by default, see trimWeights() in
+# functions.R), applied within weight_type x comparison_id x time_start so
+# the cutoff tracks the risk set as it shrinks over follow-up. Leaves
+# "unweighted" (weight == 1 everywhere) untouched.
+weights <- weights |>
+  group_by(weight_type, comparison_id, time_start) |>
+  mutate(weight = trimWeights(weight)) |>
+  ungroup()
 
 nw <- paste0("weights_", toSnakeCase(cdmName(cdm)))
 

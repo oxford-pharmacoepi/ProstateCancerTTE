@@ -50,21 +50,9 @@ cdm$untreated <- cdm$prostate_cancer |>
       follow_up == death_cohort ~ "death",
       follow_up == censor_event ~ "censor",
       .default = "future_observation"
-    ),
-    follow_up_nd = case_when(
-      prostatectomy <= future_observation & prostatectomy <= radiotheraphy & prostatectomy <= censor_event ~ prostatectomy,
-      radiotheraphy <= future_observation & radiotheraphy <= censor_event ~ radiotheraphy,
-      censor_event <= future_observation ~ censor_event,
-      .default = future_observation
-    ),
-    follow_up_nd_reason = case_when(
-      follow_up_nd == prostatectomy ~ "prostatectomy",
-      follow_up_nd == radiotheraphy ~ "radiotheraphy",
-      follow_up_nd == censor_event ~ "censor",
-      .default = "future_observation"
     )
   ) |>
-  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason, follow_up_nd, follow_up_nd_reason) |>
+  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason) |>
   compute(name = "untreated")
 
 # surveillance arm 4 months
@@ -124,23 +112,9 @@ cdm$surveillance_4_months <- cdm$prostate_cancer |>
       follow_up == death_cohort ~ "death",
       follow_up == censor_event ~ "censor",
       .default = "future_observation"
-    ),
-    follow_up_nd = case_when(
-      end_surveillance <= prostatectomy & end_surveillance <= future_observation & end_surveillance <= radiotheraphy & end_surveillance <= censor_event ~ end_surveillance,
-      prostatectomy <= future_observation & prostatectomy <= radiotheraphy & prostatectomy <= censor_event ~ prostatectomy,
-      radiotheraphy <= future_observation & radiotheraphy <= censor_event~ radiotheraphy,
-      censor_event <= future_observation ~ censor_event,
-      .default = future_observation
-    ),
-    follow_up_nd_reason = case_when(
-      follow_up == end_surveillance ~ "end_surveillance",
-      follow_up == prostatectomy ~ "prostatectomy",
-      follow_up == radiotheraphy ~ "radiotheraphy",
-      follow_up == censor_event ~ "censor",
-      .default = "future_observation"
     )
   ) |>
-  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason, follow_up_nd, follow_up_nd_reason) |>
+  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason) |>
   compute(name = "surveillance_4_months")
 
 # surveillance arm 6 months
@@ -179,23 +153,9 @@ cdm$surveillance_6_months <- cdm$prostate_cancer |>
       follow_up == death_cohort ~ "death",
       follow_up == censor_event ~ "censor",
       .default = "future_observation"
-    ),
-    follow_up_nd = case_when(
-      end_surveillance <= prostatectomy & end_surveillance <= future_observation & end_surveillance <= radiotheraphy & end_surveillance <= censor_event ~ end_surveillance,
-      prostatectomy <= future_observation & prostatectomy <= radiotheraphy & prostatectomy <= censor_event ~ prostatectomy,
-      radiotheraphy <= future_observation & radiotheraphy <= censor_event ~ radiotheraphy,
-      censor_event <= future_observation ~ censor_event,
-      .default = future_observation
-    ),
-    follow_up_nd_reason = case_when(
-      follow_up == end_surveillance ~ "end_surveillance",
-      follow_up == prostatectomy ~ "prostatectomy",
-      follow_up == radiotheraphy ~ "radiotheraphy",
-      follow_up == censor_event ~ "censor",
-      .default = "future_observation"
     )
   ) |>
-  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason, follow_up_nd, follow_up_nd_reason) |>
+  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason) |>
   compute(name = "surveillance_6_months")
 
 # prostatectomy arm
@@ -222,21 +182,9 @@ cdm$prostatectomy <- cdm$prostate_cancer |>
       follow_up == death_cohort ~ "death",
       follow_up == censor_event ~ "censor",
       .default = "future_observation"
-    ),
-    follow_up_nd = case_when(
-      prostatectomy_censor <= future_observation & prostatectomy_censor <= radiotheraphy & prostatectomy_censor <= censor_event ~ prostatectomy_censor,
-      radiotheraphy <= future_observation & radiotheraphy <= censor_event ~ radiotheraphy,
-      censor_event <= future_observation ~ censor_event,
-      .default = future_observation
-    ),
-    follow_up_nd_reason = case_when(
-      follow_up == prostatectomy_censor ~ "no prostatectomy",
-      follow_up == radiotheraphy ~ "radiotheraphy",
-      follow_up == censor_event ~ "censor",
-      .default = "future_observation"
     )
   ) |>
-  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason, follow_up_nd, follow_up_nd_reason) |>
+  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason) |>
   compute(name = "prostatectomy")
 
 # radiotheraphy arm
@@ -263,21 +211,9 @@ cdm$radiotheraphy <- cdm$prostate_cancer |>
       follow_up == death_cohort ~ "death",
       follow_up == censor_event ~ "censor",
       .default = "future_observation"
-    ),
-    follow_up_nd = case_when(
-      radiotheraphy_censor <= future_observation & radiotheraphy_censor <= prostatectomy & radiotheraphy_censor <= censor_event ~ radiotheraphy_censor,
-      prostatectomy <= future_observation & prostatectomy <= censor_event ~ prostatectomy,
-      censor_event <= future_observation ~ censor_event,
-      .default = future_observation
-    ),
-    follow_up_nd_reason = case_when(
-      follow_up == radiotheraphy_censor ~ "no radiotheraphy",
-      follow_up == prostatectomy ~ "prostatectomy",
-      follow_up == censor_event ~ "censor",
-      .default = "future_observation"
     )
   ) |>
-  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason, follow_up_nd, follow_up_nd_reason) |>
+  select(cohort_definition_id, subject_id, cohort_start_date, cohort_end_date, stage, follow_up, follow_up_reason) |>
   compute(name = "radiotheraphy")
 
 # no outcome death
