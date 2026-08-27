@@ -1,0 +1,145 @@
+---
+title: "Report ISPE"
+format: html
+editor: visual
+execute:
+  message: false
+  echo: false
+  warning: false
+---
+
+```{r}
+library(omopgenerics)
+library(dplyr)
+library(purrr)
+library(tidyr)
+library(visOmopResults)
+library(here)
+library(rlang)
+library(ggplot2)
+library(stringr)
+
+resultG <- omopgenerics::importSummarisedResult(here::here("Results", "results_all_CPRD GOLD.csv"))
+
+resG <- resultG |>
+  settings() |>
+  distinct(result_type) |>
+  pull() |>
+  set_names() |>
+  map(\(x) {
+    result |>
+      filterSettings(result_type == x) |>
+      tidy()
+  })
+
+resultA <- omopgenerics::importSummarisedResult(here::here("Results", "results_all_CPRD Aurum_v2.csv"))
+
+resA <- resultA |>
+  settings() |>
+  distinct(result_type) |>
+  pull() |>
+  set_names() |>
+  map(\(x) {
+    result |>
+      filterSettings(result_type == x) |>
+      tidy()
+  })
+
+save(resA, resG, file = here::here("Results", "reportData.RData"))
+
+load(file = here::here("Results", "reportData.RData"))
+
+```
+
+## Negative control outcomes
+
+```{r, results='asis'}
+x <- res$cox_regression |>
+  filter(outcome_type == "nco") |>
+  mutate(comparison_name = str_wrap(paste0(reference, " vs ", exposed), 20)) |>
+  mutate(excludes_null = hr_lower > 1 | hr_upper < 1) |>
+  filter(comparison_id %in% c(3, 4, 5))
+
+boundary <- tibble(coef = seq(from = -2.3, to = 2.3, length.out = 101)) |>
+  mutate(se_min = abs(coef) / 1.96)
+
+tws <- unique(x$time_window)
+
+for (tw in tws) {
+  xw <- x |>
+    filter(time_window == tw)
+  print(
+    ggplot(data = xw, aes(x = hr, y = se_coef)) +
+      geom_ribbon(
+        data = boundary,
+        aes(x = exp(coef), ymin = 0, ymax = se_min),
+        inherit.aes = FALSE,
+        fill = "#F4A340",
+        alpha = 0.55
+      ) +
+      geom_line(
+        data = boundary,
+        aes(x = exp(coef), y = se_min),
+        inherit.aes = FALSE,
+        colour = "#E87511",
+        linewidth = 0.45
+      ) +
+      scale_x_log10(breaks = c(0.5, 0.75, 1, 1.5, 2)) +
+      scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6)) +
+      coord_cartesian(xlim = c(0.5, 2), ylim = c(0, 0.6)) +
+      geom_vline(xintercept = 1, colour = "grey45", linetype = "dashed", linewidth = 0.4) +
+      geom_point(aes(colour = excludes_null), alpha = 0.55, size = 1.8) +
+      scale_colour_manual(
+        values = c("FALSE" = "#315A7D", "TRUE" = "#B23A48"),
+        labels = c("FALSE" = "CI includes 1", "TRUE" = "CI excludes 1"),
+        name = NULL,
+        drop = FALSE
+      ) +
+      facet_grid(weight_type ~ comparison_name) +
+      labs(x = "Hazard ratio (log scale)", y = "Standard error of log(HR)", title = tw) +
+      theme_minimal(base_size = 10) +
+      theme(
+        panel.grid.minor = element_blank(),
+        panel.grid.major.x = element_line(colour = "grey88", linewidth = 0.25),
+        panel.grid.major.y = element_line(colour = "grey88", linewidth = 0.25),
+        strip.text = element_text(face = "bold", colour = "grey20"),
+        legend.position = "top",
+        legend.justification = "left",
+        plot.title = element_text(face = "bold", size = 11),
+        plot.margin = margin(5, 8, 5, 5)
+      )
+  )
+}
+
+```
+
+## Death KM
+
+```{r}
+x <- res$survival_probability |>
+  filter(outcome == "death_cohort") |>
+  mutate(comparison_name = str_wrap(paste0(reference, " vs ", exposed), 20)) |>
+  mutate(variable_level = as.integer(variable_level)) |>
+  filter(comparison_id %in% c(3, 4, 5))
+
+ggplot(data = x, aes(x = variable_level, y = survival, ymax = upper_survival, ymin = lower_survival, colour = cohort_name)) +
+  geom_line() +
+  facet_grid(weight_type ~ comparison_name) +
+  theme(legend.position = "top")
+```
+
+## Confounding
+
+```{r}
+x <- res$smd |>
+  mutate(comparison_name = str_wrap(paste0(reference, " vs ", exposed), 20)) |>
+  filter(!is.na(unbalanced)) |>
+  mutate(variable_level = as.integer(variable_level)) |>
+  mutate(col = if_else(variable_level > 360.5, "after", "before")) |>
+  filter(comparison_id %in% c(3, 4, 5))
+
+ggplot(data = x, aes(x = variable_level, y = unbalanced, colour = col)) +
+  geom_point() +
+  facet_grid(weight_type ~ comparison_name) +
+  theme(legend.position = "top")
+```

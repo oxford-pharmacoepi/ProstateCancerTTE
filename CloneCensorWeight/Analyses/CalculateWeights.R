@@ -72,7 +72,9 @@ psa <- changeIds(psa)
 gleason <- changeIds(gleason)
 
 # comparisons ----
-cohorts <- unique(cohort$cohort_name)
+cohorts <- unique(cohort$cohort_name) |>
+  purrr::keep(\(x) !x %in% c("surveillance_4_months", "untreated")) |>
+  sort()
 comparisons <- expand_grid(
   reference = cohorts,
   exposed = cohorts
@@ -81,12 +83,14 @@ comparisons <- expand_grid(
   mutate(
     comparison_id = row_number(),
     comparison_name = paste0(reference, " vs ", exposed)
-  )
+  ) |>
+  filter(comparison_id %in% c(1, 2, 5))
+  
 coef <- list()
 weights <- list()
 
 ti <- 10
-tmax <- 1000
+tmax <- 365 * 10
 times <- seq(0, tmax - 1, by = ti)
 
 # covariate matrix
@@ -120,6 +124,7 @@ artificialCensor <- list(
   "prostatectomy" = c("no prostatectomy", "radiotheraphy"),
   "radiotheraphy" = c("no radiotheraphy", "prostatectomy")
 )
+artificialCensor <- artificialCensor[cohorts]
 
 we <- list()
 co <- list()
@@ -324,15 +329,50 @@ for (i in comparisons$comparison_id) {
   report()
 }
 
-weights$iptcw360 <- bind_rows(we) |>
+comparisonCohorts <- comparisons |>
+  select("comparison_id", "reference", "exposed") |>
+  pivot_longer(
+    cols = c("reference", "exposed"),
+    names_to = "arm",
+    values_to = "cohort_name"
+  ) |>
+  select("comparison_id", "cohort_name") |>
+  distinct()
+
+weIptw360 <- bind_rows(we) |>
+  select("comparison_id", "cohort_name", "subject_id", we_iptw = "we_iptw")
+
+# Everyone contributes their IPCW-weighted person-time before day 360. The
+# 360-day treatment weight is only defined for people observed beyond day 360,
+# so it is applied only to their post-360 intervals.
+pre360 <- weights$ipcw |>
+  select(!"comparison_id") |>
   inner_join(
-    weights$ipcw |>
-      select("cohort_name", "subject_id", "time_start", "time_end", we_ipcw = "weight"),
-    by = c("cohort_name", "subject_id"),
+    comparisonCohorts,
+    by = "cohort_name",
     relationship = "many-to-many"
   ) |>
-  mutate(weight = if_else(time_start < 360, we_ipcw, we_iptw * we_ipcw)) |>
-  select(!c("we_ipcw", "we_iptw"))
+  filter(time_start < 360) |>
+  select("comparison_id", "cohort_name", "subject_id", "time_start", "time_end", "weight")
+
+post360 <- weights$ipcw |>
+  select(!"comparison_id") |>
+  inner_join(
+    comparisonCohorts,
+    by = "cohort_name",
+    relationship = "many-to-many"
+  ) |>
+  filter(time_start >= 360) |>
+  inner_join(
+    weIptw360,
+    by = c("comparison_id", "cohort_name", "subject_id"),
+    relationship = "many-to-one"
+  ) |>
+  mutate(weight = weight * we_iptw) |>
+  select("comparison_id", "cohort_name", "subject_id", "time_start", "time_end", "weight")
+
+weights$iptcw360 <- bind_rows(pre360, post360)
+rm(pre360, post360, comparisonCohorts, weIptw360)
 rm(we)
 coef$iptcw360 <- bind_rows(co)
 rm(co)
@@ -341,7 +381,7 @@ rm(co)
 co <- list()
 we <- list()
 
-for (i in seq_len(nrow(comparisons))) {
+for (i in comparisons$comparison_id) {
   reference <- comparisons$reference[comparisons$comparison_id == i]
   exposed <- comparisons$exposed[comparisons$comparison_id == i]
   cn <- comparisons$comparison_name[comparisons$comparison_id == i]
@@ -426,7 +466,7 @@ rm(co)
 co <- list()
 we <- list()
 
-for (i in seq_len(nrow(comparisons))) {
+for (i in comparisons$comparison_id) {
   reference <- comparisons$reference[comparisons$comparison_id == i]
   exposed <- comparisons$exposed[comparisons$comparison_id == i]
   cn <- comparisons$comparison_name[comparisons$comparison_id == i]
@@ -512,19 +552,6 @@ weights$iptcw <- bind_rows(we)
 rm(we)
 coef$iptcw <- bind_rows(co)
 rm(co)
-
-# Final weights run (primary analysis) ----
-# This is the combined, time-varying IPCW x IPTW weight (pooled logistic
-# regression with time splines for both the treatment and the censoring
-# models, LASSO-selected covariates, trimmed). It's the scheme closest to
-# what current CCW methods literature recommends for a multi-arm target
-# trial with informative artificial censoring - richer than a single
-# time-fixed weighting step (as in the ccwtutorial example) or a default
-# 2-arm ITT/PP run (as in TrialEmulation). The other weight types above stay
-# in the output as a sensitivity ladder; "final" is the one intended to
-# drive the headline results.
-weights$final <- weights$iptcw
-coef$final <- coef$iptcw
 
 # merge coefficients and prepare to export ----
 coef <- bind_rows(coef, .id = "weight_type") 

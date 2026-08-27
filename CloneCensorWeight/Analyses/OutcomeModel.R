@@ -61,5 +61,17 @@ outcomes <- outcomes |>
       mutate(outcome_type = "nco")
   )
 
-# calculate outcome model
-results$outcome <- summariseOutcomeModel(weightTypes, outcomes, cdmName(cdm))
+# calculate outcome model in prespecified follow-up windows
+outcomeWindows <- list(
+  `0-1 years` = c(0, 365),
+  `1-5 years` = c(365, 365 * 5),
+  `5-10 years` = c(365 * 5, 365 * 10),
+  `1-10 years` = c(365, 365 * 10),
+  `0-10 years` = c(0, 365 * 10)
+)
+results$outcome <- summariseOutcomeModel(
+  weightTypes = weightTypes,
+  outcomes = outcomes,
+  cdmName = cdmName(cdm),
+  windows = outcomeWindows
+)
