@@ -229,8 +229,14 @@ for (cohort_name in cohort) {
     dplyr::select(!"covariate") |>
     omopgenerics::newSummarisedResult(settings = tibble::tibble(result_id = 1L, result_type = "asmd"))
 
+  unbalanced_covariates <- asmd_matched |>
+    dplyr::filter(.data$asmd >0.1) |>
+    dplyr::distinct(covariate) |>
+    dplyr::pull()
+
   matched_data <- matched_data |>
-    dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date", "pair_id", "source", dplyr::starts_with("latest"))
+    dplyr::select("cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date", "pair_id", "source",
+                  dplyr::starts_with("latest"), dplyr::all_of(unbalanced_covariates) )
 
 
   gold_matched <- matched_data |>
@@ -257,7 +263,6 @@ for (cohort_name in cohort) {
 
   ### Outcome model ----
 
-  covariates <- NULL
   outcome_codelist <- omopgenerics::importCodelist(here::here("..", "Codelist", "Outcomes"), type = "csv")
   outcomes <- clean_names(names(outcome_codelist))
   names(outcome_codelist) <- outcomes
@@ -292,11 +297,11 @@ for (cohort_name in cohort) {
                        dplyr::collect() |>
       dplyr::mutate(source = "aurum"))
 
-  outcomes <- c("death", "death_cvd", "death_pc", outcomes)
+  outcomes <- c("death", "death_cvd", "death_pc", "type2_diabetes", outcomes)
 
   res_outcomes <- outcomes |>
     purrr::map(\(out) {
-      outcomeModel(survival_data = survival_data, outcome = out)
+      outcomeModel(survival_data = survival_data, outcome = out, covariates = unbalanced_covariates)
     })
   result[["survival"]] <- res_outcomes |>
     bindResults(cdmName = "merged", cohort_name = cohort_name)

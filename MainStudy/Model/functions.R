@@ -559,19 +559,30 @@ austin_ard_summary <- function(
     n_boot           = 100
 ) {
   set.seed(42)
-
+  lv <- c(control_level, treated_level)
+  survival_data <- survival_data |>
+    dplyr::mutate(
+      treatment = factor(.data$treatment, levels = lv),
+      dplyr::across(dplyr::all_of(covariates), \(v) if (is.character(v)) factor(v) else v)
+    )
   max_time <- max(survival_data$time)
   times_to_eval <- c(times_to_eval[times_to_eval<=max_time], max_time) |> unique()
+  K <- length(times_to_eval)
 
   adjustment_label <- if (is.null(covariates) || length(covariates) == 0L) "unadjusted" else "adjusted"
 
-
-  if (all(survival_data$status |> unique() == 0L)){
-    return(  NULL)
+  # No events or no fitted model: nothing can be estimated
+  if (is.null(fit) || all(survival_data$status == 0L)) {
+    omopgenerics::logMessage(
+      paste0("Skipping austin_ard_summary for ", outcome, " (", adjustment_label,
+             "): no events or Cox model failed")
+    )
+    return(tibble::tibble())
   }
+
   # Counterfactual datasets
-  trt_df <- dplyr::mutate(survival_data, treatment = treated_level)
-  ctl_df <- dplyr::mutate(survival_data, treatment = control_level)
+  trt_df <- dplyr::mutate(survival_data, treatment = factor(treated_level, levels = lv))
+  ctl_df <- dplyr::mutate(survival_data, treatment = factor(control_level, levels = lv))
 
   # Point estimates via Austin method
   s_trt  <- rowMeans(summary(survival::survfit(fit, newdata = trt_df), times = times_to_eval, extend = TRUE)$surv)
@@ -586,16 +597,10 @@ austin_ard_summary <- function(
     paste("survival::Surv(time, status) ~", paste(rhs, collapse = " + "))
   )
 
-  # --- boot package approach ---
   pair_ids <- unique(survival_data$pair_id)
-  n_pairs  <- length(pair_ids)
-  K <- length(times_to_eval)
 
-  # boot() requires a statistic function with signature: f(data, indices)
-  # Here 'data' is the vector of pair_ids, and 'indices' are the resampled positions
+  # boot() statistic: f(data, indices); 'data' is the vector of pair_ids
   boot_statistic <- function(pairs_vec, indices) {
-
-    sampled_pairs <- pairs_vec[indices]
 
     sampled_pairs <- pairs_vec[indices]
 
@@ -605,36 +610,40 @@ austin_ard_summary <- function(
       rows
     }))
 
-
-    boot_formula <- stats::update(cox_formula, . ~ . + cluster(pair_id))
+    # give the formula this function's environment so boot_data is visible
+    boot_formula <- cox_formula
+    environment(boot_formula) <- environment()
 
     boot_fit <- tryCatch(
-      survival::coxph(boot_formula, data = boot_data, na.action = stats::na.exclude,
-                      ties = "efron", x = TRUE),
+      survival::coxph(boot_formula, data = boot_data, cluster = pair_id,
+                      na.action = stats::na.exclude, ties = "efron",
+                      x = TRUE, y = TRUE),
       error = function(e) {
         message("Bootstrap iteration failed at coxph(): ", conditionMessage(e))
         NULL
       }
     )
 
-    if (is.null(boot_fit)) return(rep(NA_real_, length(times_to_eval)))
+    if (is.null(boot_fit)) return(rep(NA_real_, K))
 
-    b_trt <- dplyr::mutate(boot_data, treatment = treated_level)
-    b_ctl <- dplyr::mutate(boot_data, treatment = control_level)
+    b_trt <- dplyr::mutate(boot_data, treatment = factor(treated_level, levels = lv))
+    b_ctl <- dplyr::mutate(boot_data, treatment = factor(control_level, levels = lv))
 
     tryCatch({
       s_t <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_trt),
                               times = times_to_eval, extend = TRUE)$surv)
       s_c <- rowMeans(summary(survival::survfit(boot_fit, newdata = b_ctl),
                               times = times_to_eval, extend = TRUE)$surv)
-
-      ar_t <- 1 - s_t
-      ar_c <- 1 - s_c
-      rd   <- ar_t - ar_c
-      rd
+      (1 - s_t) - (1 - s_c)
     }, error = function(e) {
       message("Bootstrap iteration failed at survfit(): ", conditionMessage(e))
-      rep(NA_real_, length(times_to_eval))
+      message("  levels per column: ",
+              paste(names(boot_data),
+                    sapply(boot_data, function(v) if (is.factor(v)) nlevels(v) else NA),
+                    collapse = ", "))
+      message("  fit xlevels: ",
+              paste(names(boot_fit$xlevels), sapply(boot_fit$xlevels, length), collapse = ", "))
+      rep(NA_real_, K)
     })
   }
 
@@ -644,19 +653,15 @@ austin_ard_summary <- function(
     R         = n_boot
   )
 
-  boot_out
-
-
-  t_RD  <- boot_out$t[, 1:K,          drop = FALSE]
-
-
+  t_RD <- boot_out$t[, 1:K, drop = FALSE]
   ci <- function(mat, p) apply(mat, 2, quantile, probs = p, na.rm = TRUE)
 
-  lower_RD  <- ci(t_RD,  0.025)
-  upper_RD  <- ci(t_RD,  0.975)
+  lower_RD <- ci(t_RD, 0.025)
+  upper_RD <- ci(t_RD, 0.975)
 
   labels <- as.character(times_to_eval)
-  labels[K]<- "overall"
+  labels[K] <- "overall"
+
   # Assemble output
   tibble::tibble(
     time             = labels,
@@ -669,7 +674,7 @@ austin_ard_summary <- function(
     abs_risk_control = abs_risk_c,
     # Risk Difference
     RD               = RD_point,
-    se_RD            = (upper_RD  - lower_RD)  / (2 * 1.96),
+    se_RD            = (upper_RD - lower_RD) / (2 * 1.96),
     lower_RD         = lower_RD,
     upper_RD         = upper_RD,
 
@@ -683,7 +688,6 @@ austin_ard_summary <- function(
   ) |>
     dplyr::arrange(time)
 }
-
 survival_summary <- function(
     survival_data,
     outcome,
