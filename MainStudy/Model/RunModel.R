@@ -158,11 +158,18 @@ result[["asmd_matched"]] <- asmd_matched |>
   dplyr::select(!"covariate") |>
   omopgenerics::newSummarisedResult(settings = tibble::tibble(result_id = 1L, result_type = "asmd"))
 
+unbalanced_covariates <- asmd_matched |>
+  dplyr::filter(.data$asmd >0.1) |>
+  dplyr::distinct(covariate) |>
+  dplyr::pull()
+
+
 matched_data <- matched_data |>
   dplyr::select(
     "pair_id", "cohort_definition_id", "subject_id", "cohort_start_date", "cohort_end_date",
-    dplyr::starts_with("latest"), dplyr::starts_with("psa")
+    dplyr::starts_with("latest"), dplyr::starts_with("psa"), dplyr::all_of(unbalanced_covariates)
   )
+
 
   cdm <- omopgenerics::insertTable(cdm = cdm, name = cohort_name_matched, table = matched_data)
   cdm[[cohort_name_matched]] <- omopgenerics::newCohortTable(table = cdm[[cohort_name_matched]])
@@ -197,7 +204,7 @@ matched_data <- matched_data |>
 
   omopgenerics::logMessage("Running outcome models")
   res_outcomes <- outcomes_all |>
-    purrr::map(\(out) outcomeModel(survival_data = survival_data, outcome = out))
+    purrr::map(\(out) outcomeModel(survival_data = survival_data, outcome = out, covariates = unbalanced_covariates))
 
   result[["survival"]] <- res_outcomes |>
     bindResults(cdmName = dbName, cohort_name = cohort_name)

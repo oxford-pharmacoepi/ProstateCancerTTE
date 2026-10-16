@@ -687,7 +687,6 @@ austin_ard_summary <- function(
 survival_summary <- function(
     survival_data,
     outcome,
-    covariates = NULL,
     risk_times = NULL
 ) {
 
@@ -697,7 +696,7 @@ survival_summary <- function(
   }
 
 
-  group_cols <- c("treatment", covariates)
+  group_cols <- c("treatment")
   if (length(group_cols) == 1L) {
     df <- survival_data |> dplyr::mutate(group = as.factor(.data[[group_cols]]))
   } else {
@@ -732,12 +731,8 @@ survival_summary <- function(
     survival = s$surv,
     lower_survival = s$lower,
     upper_survival = s$upper,
-    treatment = treatment_vec
-  ) |>
-    dplyr::mutate(
-      outcome = outcome,
-      adjustment = if (is.null(covariates) || length(covariates) == 0L) "unadjusted" else "adjusted",
-      covariates_used = paste(covariates, collapse = "&")
+    treatment = treatment_vec,
+    outcome = outcome
     )
 
   # Compute number_subjects at each risk time per treatment exactly like original
@@ -769,16 +764,35 @@ outcomeModel <- function(survival_data, outcome, covariates = NULL, risk_times =
       reason = dplyr::if_else(.data$status == 0L, .data$censor_reason, "outcome"),
       pair_id = as.factor(pair_id)
     ) |>
-    dplyr::select("treatment", "status","pair_id", "time","reason", dplyr::any_of(covariates))
-  hrs = hr_summary(x, outcome, covariates)
+    dplyr::select("treatment", "status", "pair_id", "time", "reason", dplyr::any_of(covariates))
+
+  # 1. Everything without covariates
+  hrs_null <- hr_summary(x, outcome, covariates = NULL)
+
+  hr_results <- hrs_null$summary
+  austin_results <- austin_ard_summary(
+    survival_data = x, outcome = outcome, covariates = NULL, fit = hrs_null$fitOverall
+  )
+
+  # 2. hr_summary and austin_ard_summary again, with covariates (only if supplied)
+  if (length(covariates) > 0) {
+    hrs_cov <- hr_summary(x, outcome, covariates = covariates)
+
+    hr_results <- dplyr::bind_rows(hr_results, hrs_cov$summary)
+    austin_results <- dplyr::bind_rows(
+      austin_results,
+      austin_ard_summary(
+        survival_data = x, outcome = outcome, covariates = covariates, fit = hrs_cov$fitOverall
+      )
+    )
+  }
+
   list(
-    events_summary   = events_summary(x, outcome, covariates),
-    followup_summary = followup_summary(x, outcome, covariates),
-    hr_summary       = hrs$summary,
-    survival_summary = survival_summary(
-      survival_data = x, outcome = outcome, covariates = covariates, risk_times = risk_times
-    ),
-    austin_ard_summary = austin_ard_summary(survival_data = x, outcome = outcome, covariates = covariates, fit = hrs$fitOverall)
+    events_summary     = events_summary(x, outcome),
+    followup_summary   = followup_summary(x, outcome),
+    hr_summary         = hr_results,
+    survival_summary   = survival_summary(x, outcome, risk_times = risk_times),
+    austin_ard_summary = austin_results
   )
 }
 
@@ -821,16 +835,16 @@ bindResults <- function(result, cdmName, cohort_name) {
 
   )
   strata <- list(
-    "hr_summary" = "outcome",
+    "hr_summary" = c("outcome","adjustment"),
     "survival_summary" = "outcome",
     "events_summary" = "outcome",
     "followup_summary" = "outcome",
-    "austin_ard_summary" = "outcome"
+    "austin_ard_summary" = c("outcome","adjustment")
 
   )
   additional <- list(
     "hr_summary" = c("time_window", "covariates_used"),
-    "survival_summary" = c("time", "covariates_used"),
+    "survival_summary" = c("time"),
     "events_summary" = character(0),
     "followup_summary" = "reason",
     "austin_ard_summary" = c("time", "covariates_used","control_arm")

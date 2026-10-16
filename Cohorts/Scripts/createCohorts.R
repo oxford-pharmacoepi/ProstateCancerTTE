@@ -8,11 +8,11 @@ omopgenerics::logMessage(paste0("Reading codelists from: ", folder_path))
 
 codelist <- omopgenerics::importCodelist(paste0(folder_path), "csv")
 
-codelist_treatment <- list("ebrt" = codelist$ebrt, "radical_prostatectomy" = codelist$radical_prostatectomy)
+codelist_treatment <- codelist[c("ebrt", "radical_prostatectomy")]
 
-codelist_early_stage <- list("t1_t2" = c(codelist$t1, codelist$t2) , "stage1_2" = codelist$stage1_2)
+codelist_early_stage <- list("t1_t2" = c(codelist$t1, codelist$t2) , "stage1_2" = codelist$stage1_2) |> omopgenerics::newCodelist()
 
-codelist_advanced_stage <- list("t3_t4" =  codelist$t3_t4 , "stage3_4" = codelist$stage3_4)
+codelist_advanced_stage <- codelist[c("t3_t4","stage3_4", "m1")]
 
 
 
@@ -32,7 +32,7 @@ if (grepl("gold", dbName)) {
 omopgenerics::logMessage("Building age restricted prostate cancer cohort (50–69)")
 
 cdm$prostate_cancer_age_50_69 <- CohortConstructor::conceptCohort(cdm,
-                                                                  conceptSet = list("prostate_cancer" = codelist$prostate_cancer),
+                                                                  conceptSet = codelist["prostate_cancer"],
                                                                   name = "prostate_cancer_age_50_69" ) |>
   CohortConstructor::requireIsFirstEntry() |>
   CohortConstructor::requireDemographics(sex = "Male",
@@ -73,14 +73,16 @@ cdm[["psa_values_rwd"]] <- cdm[["psa_values"]] |>
                                              name = "psa_values_rwd",
                                              window = c(0, 180) ) |>
   CohortConstructor::requireIsLastEntry() |>
-  PatientProfiles::addCategories(variable = "psa_value", categories = list("latest_psa_value" = list("<3" = c(0, 2.99),
-                                                                                                     "3 to 5.99" = c(3, 5.99),
-                                                                                                     "6 to 9.99" = c(6, 9.99),
-                                                                                                     "10 to 19.99" = c(10, 19.99),
-                                                                                                     "20 to 39.99" = c(20, 39.99),
+  PatientProfiles::addCategories(variable = "psa_value", categories = list("latest_psa_value" = list("<3" = c(0, 3),
+                                                                                                     "3 to 5.99" = c(3, 6),
+                                                                                                     "6 to 9.99" = c(6, 10),
+                                                                                                     "10 to 19.99" = c(10, 20),
+                                                                                                     "20 to 39.99" = c(20, 40),
                                                                                                      ">40" = c(40, Inf)
   )
   ),
+  includeLowerBound = TRUE,
+  includeUpperBound = FALSE,
   name = "psa_values_rwd")
 
 cdm[["psa_values_trial"]] <- cdm[["psa_values"]] |>
@@ -88,19 +90,21 @@ cdm[["psa_values_trial"]] <- cdm[["psa_values"]] |>
                                              name = "psa_values_trial",
                                              window = c(0, 180) ) |>
   CohortConstructor::requireIsLastEntry() |>
-  PatientProfiles::addCategories(variable = "psa_value", categories = list("latest_psa_value" = list("<3" = c(0, 2.99),
-                                                                                                     "3 to 5.99" = c(3, 5.99),
-                                                                                                     "6 to 9.99" = c(6, 9.99),
-                                                                                                     "10 to 19.99" = c(10, 19.99),
-                                                                                                     "20 to 39.99" = c(20, 39.99),
+  PatientProfiles::addCategories(variable = "psa_value", categories = list("latest_psa_value" = list("<3" = c(0, 3),
+                                                                                                     "3 to 5.99" = c(3, 6),
+                                                                                                     "6 to 9.99" = c(6, 10),
+                                                                                                     "10 to 19.99" = c(10, 20),
+                                                                                                     "20 to 39.99" = c(20, 40),
                                                                                                      ">40" = c(40, Inf)
                                                                                                     )
   ),
+  includeLowerBound = TRUE,
+  includeUpperBound = FALSE,
   name = "psa_values_trial")
 
 
 cdm$psa_trial <- cdm$psa_values_trial |>
-  dplyr::filter(.data$psa_value <= 19.99 & .data$psa_value >=3) |>
+  dplyr::filter(.data$psa_value < 20 & .data$psa_value >=3) |>
   dplyr::compute(name = "psa_trial")
 
 omopgenerics::logMessage("Building early-stage cohort")
@@ -108,7 +112,7 @@ cdm$early_stage <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_e
   PatientProfiles::addConceptIntersectDate(conceptSet = list("treatment" = unname(unlist(codelist_treatment))), nameStyle = "treatment_date", name = "early_stage")
 
 cdm$early_stage_trial <- cdm$early_stage |>
-  CohortConstructor::requireConceptIntersect(conceptSet = list("m0" = codelist$m0),
+  CohortConstructor::requireConceptIntersect(conceptSet = codelist["m0"],
                                              window = c(-180, 0),
                                              indexDate = "treatment_date",
                                              cohortId = "t1_t2",
@@ -118,7 +122,7 @@ cdm$early_stage_trial <- cdm$early_stage |>
   CohortConstructor::unionCohorts(name = "early_stage_trial")
 
 cdm$early_stage_rwd <- cdm$early_stage |>
-  CohortConstructor::requireConceptIntersect(conceptSet = list("m0" = codelist$m0),
+  CohortConstructor::requireConceptIntersect(conceptSet = codelist["m0"],
                                              window = c(-Inf, 0),
                                              indexDate = "treatment_date",
                                              cohortId = "t1_t2",
@@ -130,25 +134,8 @@ cdm$early_stage_rwd <- cdm$early_stage |>
 omopgenerics::logMessage("Building advanced-stage cohort")
 
 cdm$advanced_stage <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist_advanced_stage, name = "advanced_stage") |>
-  PatientProfiles::addConceptIntersectDate(conceptSet = list("treatment" = unname(unlist(codelist_treatment))), nameStyle = "{concept_name}_date", name = "advanced_stage")
+  CohortConstructor::unionCohorts(cohortName = "advanced_stage")
 
-cdm$advanced_stage_trial <- cdm$advanced_stage |>
-  CohortConstructor::requireConceptIntersect(conceptSet = list("m1" = codelist$m1),
-                                             window = c(-180, 0),
-                                             indexDate = "treatment_date",
-                                             cohortId = "t3_t4",
-                                             intersections = c(1, Inf),
-                                             name = "advanced_stage_trial") |>
-  CohortConstructor::unionCohorts( name = "advanced_stage_trial")
-
-cdm$advanced_stage_rwd <- cdm$advanced_stage |>
-  CohortConstructor::requireConceptIntersect(conceptSet = list("m1" = codelist$m1),
-                                             window = c(-Inf, 0),
-                                             indexDate = "treatment_date",
-                                             cohortId = "t3_t4",
-                                             intersections = c(1, Inf),
-                                             name = "advanced_stage_rwd") |>
-  CohortConstructor::unionCohorts( name = "advanced_stage_rwd")
 
 
 # tte ----
@@ -161,7 +148,7 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
 
   dplyr::slice_min(.data$cohort_start_date) |>
 
-  CohortConstructor::requireConceptIntersect(conceptSet = list("rp_to_exclude" = codelist$rp_exclude),
+  CohortConstructor::requireConceptIntersect(conceptSet = codelist["rp_exclude"],
                                              window = c(-Inf, 0),
                                              intersection = c(0,0),
                                              cohortId = "radical_prostatectomy") |>
@@ -184,7 +171,7 @@ cdm$optima_pc_trial <- CohortConstructor::conceptCohort(cdm, conceptSet = codeli
     targetEndDate = "cohort_start_date",
   ) |>
   CohortConstructor::requireCohortIntersect(
-    targetCohortTable = "advanced_stage_trial",
+    targetCohortTable = "advanced_stage",
     window = c(-Inf, 0),
     intersections = 0,
     cohortId = NULL,
@@ -343,7 +330,7 @@ cdm$optima_pc_rwd <- CohortConstructor::conceptCohort(cdm, conceptSet = codelist
                                             targetEndDate = "cohort_start_date",
                                             window = c(-Inf, 0),
                                             intersections = c(1, Inf)) |>
-  CohortConstructor::requireCohortIntersect(targetCohortTable = "advanced_stage_rwd",
+  CohortConstructor::requireCohortIntersect(targetCohortTable = "advanced_stage",
                                             targetStartDate = "cohort_start_date",
                                             targetEndDate = "cohort_start_date",
                                             window = c(-Inf, 0),
