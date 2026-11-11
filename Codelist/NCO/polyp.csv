@@ -1,6 +1,6 @@
-concept_id
-444444
-444459
-4216644
-4285898
-4303233
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+444444,Benign neoplasm of transverse colon,Condition,SNOMED,standard
+444459,Benign neoplasm of sigmoid colon,Condition,SNOMED,standard
+4216644,Rectal polyp,Condition,SNOMED,standard
+4285898,Polyp of colon,Condition,SNOMED,standard
+4303233,Gastric polyp,Condition,SNOMED,standard

@@ -1,84 +1,84 @@
-concept_id
-312648
-312938
-314958
-316866
-317895
-317898
-318437
-319826
-320128
-443771
-762994
-1340364
-3169253
-3191244
-3656115
-4006325
-4023318
-4028741
-4028951
-4032952
-4048212
-4049389
-4058987
-4061667
-4083723
-4094374
-4108213
-4110947
-4110948
-4118910
-4146816
-4148205
-4151903
-4159755
-4167358
-4178312
-4180283
-4199306
-4209293
-4212496
-4215640
-4217486
-4218088
-4219323
-4221991
-4242878
-4249016
-4253928
-4262182
-4263067
-4269358
-4276511
-4279525
-4289933
-4305599
-4311246
-4321603
-4322735
-35624277
-36684653
-36684718
-36713024
-36715087
-37208172
-37311147
-37311148
-40481896
-42538697
-43020424
-43021830
-44783643
-44784484
-44809026
-44809027
-44809548
-44809569
-44811110
-44811932
-44811933
-45757756
-45757787
-45766198
-45768449
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+312648,Benign essential hypertension,Condition,SNOMED,standard
+312938,Hypertensive encephalopathy,Condition,SNOMED,standard
+314958,Benign secondary hypertension,Condition,SNOMED,standard
+316866,Hypertensive disorder,Condition,SNOMED,standard
+317895,Renovascular hypertension,Condition,SNOMED,standard
+317898,Malignant essential hypertension,Condition,SNOMED,standard
+318437,Malignant secondary hypertension,Condition,SNOMED,standard
+319826,Secondary hypertension,Condition,SNOMED,standard
+320128,Essential hypertension,Condition,SNOMED,standard
+443771,Renal hypertension,Condition,SNOMED,standard
+762994,Perioperative hypertension,Condition,SNOMED,standard
+1340364,Exacerbation of hypertensive disorder,Condition,OMOP Extension,standard
+3169253,Hypertension with apparent mineralocorticoid excess,Condition,Nebraska Lexicon,standard
+3191244,Hypertension with hyperadrenergic findings,Condition,Nebraska Lexicon,standard
+3656115,Hypertension due to aortic arch obstruction,Condition,SNOMED,standard
+4006325,Hypertension secondary to renal disease in obstetric context,Condition,SNOMED,standard
+4023318,Malignant hypertension complicating AND/OR reason for care during childbirth,Condition,SNOMED,standard
+4028741,Benign hypertension,Condition,SNOMED,standard
+4028951,Malignant hypertension complicating AND/OR reason for care during puerperium,Condition,SNOMED,standard
+4032952,Renal sclerosis with hypertension,Condition,SNOMED,standard
+4048212,Goldblatt hypertension,Condition,SNOMED,standard
+4049389,Paroxysmal hypertension,Condition,SNOMED,standard
+4058987,High-renin essential hypertension,Condition,SNOMED,standard
+4061667,Hypertension induced by oral contraceptive pill,Condition,SNOMED,standard
+4083723,Essential hypertension complicating AND/OR reason for care during childbirth,Condition,SNOMED,standard
+4094374,Hypertension secondary to renal disease complicating AND/OR reason for care during childbirth,Condition,SNOMED,standard
+4108213,Hypertension secondary to drug,Condition,SNOMED,standard
+4110947,Malignant secondary renovascular hypertension,Condition,SNOMED,standard
+4110948,Hypertension secondary to endocrine disorder,Condition,SNOMED,standard
+4118910,Maternal hypertension,Condition,SNOMED,standard
+4146816,Pre-existing hypertension complicating AND/OR reason for care during childbirth,Condition,SNOMED,standard
+4148205,Benign essential hypertension complicating AND/OR reason for care during puerperium,Condition,SNOMED,standard
+4151903,Pre-existing hypertension complicating AND/OR reason for care during puerperium,Condition,SNOMED,standard
+4159755,Labile essential hypertension,Condition,SNOMED,standard
+4167358,Diastolic hypertension,Condition,SNOMED,standard
+4178312,Hypertension secondary to kidney transplant,Condition,SNOMED,standard
+4180283,Systolic essential hypertension,Condition,SNOMED,standard
+4199306,Transient hypertension,Condition,SNOMED,standard
+4209293,Systolic hypertension,Condition,SNOMED,standard
+4212496,Parenchymal renal hypertension,Condition,SNOMED,standard
+4215640,Benign essential hypertension complicating AND/OR reason for care during childbirth,Condition,SNOMED,standard
+4217486,Essential hypertension in obstetric context,Condition,SNOMED,standard
+4218088,Malignant hypertension in obstetric context,Condition,SNOMED,standard
+4219323,Hypertension secondary to renal disease complicating AND/OR reason for care during puerperium,Condition,SNOMED,standard
+4221991,Rebound hypertension,Condition,SNOMED,standard
+4242878,Sustained diastolic hypertension,Condition,SNOMED,standard
+4249016,Benign secondary renovascular hypertension,Condition,SNOMED,standard
+4253928,Secondary diastolic hypertension,Condition,SNOMED,standard
+4262182,Hypertension with albuminuria,Condition,SNOMED,standard
+4263067,Low-renin essential hypertension,Condition,SNOMED,standard
+4269358,Benign essential hypertension in obstetric context,Condition,SNOMED,standard
+4276511,Labile diastolic hypertension,Condition,SNOMED,standard
+4279525,Hypertension in the obstetric context,Condition,SNOMED,standard
+4289933,Malignant hypertension,Condition,SNOMED,standard
+4305599,Renal arterial hypertension,Condition,SNOMED,standard
+4311246,Pre-existing hypertension in obstetric context,Condition,SNOMED,standard
+4321603,Essential hypertension complicating AND/OR reason for care during puerperium,Condition,SNOMED,standard
+4322735,Hypertension associated with transplantation,Condition,SNOMED,standard
+35624277,Hypertension due to gain-of-function mutation in mineralocorticoid receptor,Condition,SNOMED,standard
+36684653,Hypertension with disorder of right retina,Condition,SNOMED,standard
+36684718,Hypertension with disorder of left retina,Condition,SNOMED,standard
+36713024,Labile systemic arterial hypertension,Condition,SNOMED,standard
+36715087,Brachydactyly and arterial hypertension syndrome,Condition,SNOMED,standard
+37208172,Resistant hypertensive disorder,Condition,SNOMED,standard
+37311147,Hypertension stage 1,Condition,SNOMED,standard
+37311148,Hypertension stage 2,Condition,SNOMED,standard
+40481896,Hypertensive urgency,Condition,SNOMED,standard
+42538697,Diastolic hypertension and systolic hypertension,Condition,SNOMED,standard
+43020424,Hypertensive emergency,Condition,SNOMED,standard
+43021830,Postoperative hypertension,Condition,SNOMED,standard
+44783643,Intermittent hypertension,Condition,SNOMED,standard
+44784484,Hypertension in the puerperium with pulmonary edema,Condition,SNOMED,standard
+44809026,Stage 1 hypertension (NICE - National Institute for Health and Clinical Excellence 2011),Condition,SNOMED,standard
+44809027,Severe hypertension (NICE - National Institute for Health and Clinical Excellence 2011),Condition,SNOMED,standard
+44809548,Hypertension resistant to drug therapy,Condition,SNOMED,standard
+44809569,Stage 2 hypertension (NICE - National Institute for Health and Clinical Excellence 2011),Condition,SNOMED,standard
+44811110,Nocturnal hypertension,Condition,SNOMED,standard
+44811932,Stage 1 hypertension (NICE 2011) without evidence of end organ damage,Condition,SNOMED,standard
+44811933,Stage 1 hypertension (NICE 2011) with evidence of end organ damage,Condition,SNOMED,standard
+45757756,Page kidney,Condition,SNOMED,standard
+45757787,Postpartum pre-existing essential hypertension,Condition,SNOMED,standard
+45766198,Autosomal dominant progressive nephropathy with hypertension,Condition,SNOMED,standard
+45768449,Hypertensive crisis,Condition,SNOMED,standard

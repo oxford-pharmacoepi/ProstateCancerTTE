@@ -1,4 +1,4 @@
-concept_id
-375545
-439297
-4317977
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+375545,Cataract,Condition,SNOMED,standard
+439297,Nuclear senile cataract,Condition,SNOMED,standard
+4317977,Bilateral cataracts,Condition,SNOMED,standard

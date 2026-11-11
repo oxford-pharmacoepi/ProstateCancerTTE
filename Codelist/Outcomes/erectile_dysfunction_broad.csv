@@ -1,26 +1,26 @@
-concept_id
-606407
-606410
-606412
-609094
-762437
-1340324
-3655355
-3655356
-3655357
-3655358
-3655359
-3655360
-3655361
-3655362
-4177050
-35626763
-37016340
-37016371
-37109304
-37109306
-37109307
-43021236
-43021237
-43531565
-45769867
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+606407,Erectile dysfunction due to venous disorder,Condition,SNOMED,standard
+606410,Erectile dysfunction due to injury,Condition,SNOMED,standard
+606412,Erectile dysfunction due to fibrosis of corpus cavernosum,Condition,SNOMED,standard
+609094,Erectile dysfunction due to and following radiation therapy,Condition,SNOMED,standard
+762437,Erectile dysfunction following simple prostatectomy,Condition,SNOMED,standard
+1340324,Exacerbation of erectile dysfunction,Condition,OMOP Extension,standard
+3655355,Erectile dysfunction,Condition,SNOMED,standard
+3655356,Erectile dysfunction caused by drug,Condition,SNOMED,standard
+3655357,Relative erectile dysfunction,Condition,SNOMED,standard
+3655358,Absolute erectile dysfunction,Condition,SNOMED,standard
+3655359,Erectile dysfunction due to psychophysiologic disorder,Condition,SNOMED,standard
+3655360,Erectile dysfunction due to arterial disease,Condition,SNOMED,standard
+3655361,Erectile dysfunction due to endocrine disease,Condition,SNOMED,standard
+3655362,Erectile dysfunction due to neuropathy,Condition,SNOMED,standard
+4177050,Erectile dysfunction due to type 2 diabetes mellitus,Condition,SNOMED,standard
+35626763,Erectile dysfunction due to diabetes mellitus,Condition,SNOMED,standard
+37016340,Erectile dysfunction co-occurrent and due to arterial insufficiency,Condition,SNOMED,standard
+37016371,Erectile dysfunction following prostate brachytherapy,Condition,SNOMED,standard
+37109304,Male erectile disorder due to corporovenous occlusion,Condition,SNOMED,standard
+37109306,Erectile dysfunction following radical cystectomy,Condition,SNOMED,standard
+37109307,Erectile dysfunction following radical prostatectomy,Condition,SNOMED,standard
+43021236,Primary erectile dysfunction,Condition,SNOMED,standard
+43021237,Secondary erectile dysfunction,Condition,SNOMED,standard
+43531565,Erectile dysfunction due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769867,Vasculopathic erectile dysfunction,Condition,SNOMED,standard

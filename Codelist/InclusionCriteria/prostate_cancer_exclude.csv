@@ -1,4 +1,4 @@
-concept_id
-4141960
-4200890
-36712762
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+4141960,Hormone refractory prostate cancer,Condition,SNOMED,standard
+4200890,Local recurrence of malignant tumor of prostate,Condition,SNOMED,standard
+36712762,Recurrent malignant neoplasm of prostate,Condition,SNOMED,standard

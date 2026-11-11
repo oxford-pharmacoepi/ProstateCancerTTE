@@ -1,26 +1,26 @@
-concept_id
-201254
-201531
-435216
-439770
-443412
-443592
-3046418
-4047906
-4102018
-4128019
-4224254
-4228112
-4324885
-36715571
-37016348
-37016353
-40484648
-40484649
-42535540
-43530660
-44805585
-44807868
-45757432
-45757674
-45769876
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+201254,Type 1 diabetes mellitus,Condition,SNOMED,standard
+201531,Hyperosmolar coma due to type 1 diabetes mellitus,Condition,SNOMED,standard
+435216,Disorder due to type 1 diabetes mellitus,Condition,SNOMED,standard
+439770,Ketoacidosis due to type 1 diabetes mellitus,Condition,SNOMED,standard
+443412,Type 1 diabetes mellitus without complication,Condition,SNOMED,non-standard
+443592,Hyperosmolality due to uncontrolled type 1 diabetes mellitus,Condition,SNOMED,standard
+3046418,Insulin dependent diabetes mellitus [Presence],Observation,LOINC,standard
+4047906,Insulin dependent diabetes mellitus type 1A,Condition,SNOMED,standard
+4102018,Insulin dependent diabetes mellitus type 1B,Condition,SNOMED,standard
+4128019,Brittle type 1 diabetes mellitus,Condition,SNOMED,non-standard
+4224254,Ketoacidotic coma due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4228112,Hypoglycemic coma due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4324885,Dietary education for type 1 diabetes mellitus,Observation,SNOMED,standard
+36715571,Acidosis due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37016348,Hyperglycemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37016353,Dyslipidemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+40484648,Uncontrolled type 1 diabetes mellitus,Condition,SNOMED,non-standard
+40484649,Well controlled type 1 diabetes mellitus,Condition,SNOMED,standard
+42535540,Hyperosmolarity due to type 1 diabetes mellitus,Condition,SNOMED,standard
+43530660,Mixed hyperlipidemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+44805585,Referral to type I diabetes structured education programme,Observation,SNOMED,standard
+44807868,Education about ketoacidosis,Observation,SNOMED,standard
+45757432,Hyperlipidemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757674,Diabetes mellitus type 1 without retinopathy,Condition,SNOMED,standard
+45769876,Hypoglycemia due to type 1 diabetes mellitus,Condition,SNOMED,standard

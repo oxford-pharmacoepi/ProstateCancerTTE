@@ -1,595 +1,595 @@
-concept_id
-200962
-432851
-604497
-704985
-704986
-712644
-712645
-712646
-712647
-1553105
-1553133
-1553599
-4082919
-4116087
-4141960
-4145870
-4147162
-4158910
-4161028
-4163261
-4164017
-4200890
-4288534
-4312276
-35225469
-35225531
-35225538
-35225539
-35225540
-35225542
-35225543
-35225544
-35225545
-35225547
-35225549
-35225550
-35225551
-35225552
-35225553
-35225554
-35225555
-35225556
-35225559
-35225560
-35225561
-35225562
-35225563
-35225564
-35225565
-35225566
-35225567
-35225568
-35225569
-35225570
-35225571
-35225572
-35225573
-35225574
-35225576
-35225577
-35225578
-35225579
-35225580
-35225584
-35225585
-35225587
-35225588
-35225589
-35225590
-35225591
-35225592
-35225593
-35225594
-35225595
-35225596
-35225597
-35225598
-35225599
-35225600
-35225601
-35225602
-35225604
-35225605
-35225606
-35225607
-35225612
-35225613
-35225614
-35225615
-35225617
-35225618
-35225619
-35225620
-35225621
-35225622
-35225623
-35225624
-35225625
-35225626
-35225629
-35225630
-35225632
-35225633
-35225634
-35225635
-35225636
-35225638
-35225639
-35225640
-35225642
-35225643
-35225645
-35225646
-35225647
-35225648
-35225649
-35225650
-35225651
-35225653
-35225654
-35225655
-35225657
-35225659
-35225660
-35225661
-35225662
-35225663
-35225664
-35225665
-35225666
-35225667
-35225668
-35225669
-35225670
-35225671
-35225672
-35225673
-35225674
-35225675
-35225676
-35225677
-35225678
-35225679
-35225680
-35225681
-35225682
-35225683
-35225684
-35225685
-35225686
-35225687
-35225688
-35225689
-35225690
-35225691
-35225692
-35225693
-35225694
-35225695
-35225696
-35225697
-35225698
-35225700
-35225701
-35225702
-35225703
-35225704
-35225705
-35225706
-35225707
-35225708
-35225709
-35225711
-35225712
-35225713
-35225714
-35225715
-35225716
-35225717
-35225718
-35225719
-35225723
-35225724
-35225725
-35225726
-35225727
-35225728
-35225729
-35225730
-35225731
-35225732
-35225733
-35225734
-35225735
-35225736
-35225737
-35225738
-35225739
-35225740
-35225741
-35225742
-35225743
-35225744
-35225745
-35225746
-35225747
-35225748
-35225749
-35225750
-35225751
-35225752
-35225753
-35225754
-35225755
-35225756
-35225757
-35225758
-35225759
-35225760
-35225761
-35225762
-35225763
-35225764
-35225765
-35225766
-35225767
-35225768
-35225769
-35225770
-35225771
-35225772
-35225773
-35225774
-35225775
-35225776
-35225777
-35225778
-35225779
-35225787
-35226024
-35226025
-35226026
-35226027
-35226028
-35226029
-35226031
-35226032
-35226033
-35226034
-35226035
-35226036
-35226038
-35226039
-35226040
-35226041
-35226042
-35226043
-35226044
-35226045
-35226046
-35226047
-35226048
-35226049
-35226050
-35226051
-35226052
-35226053
-35226054
-35226055
-35226056
-35226057
-35226058
-35226059
-35226060
-35226061
-35226062
-35226063
-35226064
-35226065
-35226066
-35226067
-35226068
-35226069
-35226070
-35226071
-35226074
-35226075
-35226076
-35226077
-35226078
-35226079
-35226083
-35226084
-35226085
-35226086
-35226087
-35226088
-35226089
-35226090
-35226091
-35226092
-35226093
-35226094
-35226095
-35226096
-35226098
-35226099
-35226100
-35226101
-35226102
-35226103
-35226105
-35226106
-35226107
-35226108
-35226109
-35226111
-35226112
-35226114
-35226115
-35226116
-35226117
-35226119
-35226120
-35226121
-35226122
-35226123
-35226124
-35226125
-35226126
-35226128
-35226129
-35226131
-35226134
-35226135
-35226136
-35226137
-35226138
-35226139
-35226140
-35226141
-35226142
-35226144
-35226145
-35226146
-35226147
-35226148
-35226149
-35226150
-35226151
-35226152
-35226154
-35226155
-35226156
-35226157
-35226158
-35226159
-35226160
-35226161
-35226162
-35226163
-35226164
-35226165
-35226166
-35226167
-35226168
-35226169
-35226170
-35226171
-35226172
-35226173
-35226174
-35226175
-35226176
-35226177
-35226178
-35226179
-35226180
-35226181
-35226182
-35226183
-35226184
-35226185
-35226186
-35226187
-35226188
-35226189
-35226190
-35226191
-35226192
-35226193
-35226194
-35226195
-35226196
-35226197
-35226198
-35226199
-35226200
-35226201
-35226202
-35226203
-35226205
-35226206
-35226207
-35226208
-35226209
-35226210
-35226212
-35226213
-35226214
-35226215
-35226216
-35226217
-35226218
-35226219
-35226220
-35226221
-35226222
-35226231
-35226232
-35226233
-35226234
-35226236
-35226237
-35226238
-35226239
-35226240
-35226241
-35226242
-35226243
-35226244
-35226245
-35226246
-35226247
-35226248
-35226249
-35226251
-35226252
-35226253
-35226254
-35226255
-35226256
-35226257
-35226258
-35226259
-35226260
-35226261
-35226262
-35226263
-35226264
-35226265
-35226266
-35226267
-35226268
-35226269
-35226270
-35226271
-35226273
-35226274
-35226275
-35226276
-35226280
-35226281
-35226282
-35226283
-35226284
-35226287
-35226288
-35226291
-35226292
-35226293
-35226294
-35226295
-35226296
-35226297
-35226298
-35226299
-35226300
-35226301
-35226302
-35226303
-35226304
-35226305
-35226306
-35226307
-35226308
-35226310
-35226311
-35226313
-35226315
-35226316
-35226319
-35226320
-35226326
-35226327
-35226338
-36517801
-36519743
-36520178
-36520903
-36525831
-36528487
-36529044
-36529897
-36530505
-36532395
-36532454
-36533342
-36533689
-36534013
-36534105
-36535056
-36535925
-36538788
-36539709
-36540099
-36540664
-36543006
-36543315
-36543338
-36545616
-36547882
-36548533
-36550033
-36550817
-36552560
-36552590
-36554023
-36554139
-36554370
-36559613
-36564577
-36566722
-36568174
-36712762
-36716186
-36768082
-36768083
-36768130
-36768171
-36768587
-36768630
-36768862
-36769180
-36769243
-36769269
-36769301
-36769532
-36769664
-36770040
-36770091
-36770283
-36770544
-37162723
-37163177
-37165664
-37166255
-37166455
-37166518
-37166521
-37166523
-37166525
-37166560
-37174104
-37208188
-37311236
-37311683
-37395835
-42512655
-42512952
-44499514
-44499641
-44499712
-44499820
-44499864
-44500341
-44500459
-44500494
-44500595
-44500716
-44500734
-44501350
-44501366
-44501528
-44501627
-44501968
-44502000
-44502035
-44502766
-44503133
-44503145
-44503555
-44503558
-45767695
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+200962,Primary malignant neoplasm of prostate,Condition,SNOMED,standard
+432851,Metastatic malignant neoplasm,Condition,SNOMED,standard
+604497,Metastatic adenocarcinoma,Condition,SNOMED,standard
+704985,Metastasis to abdomen,Measurement,Cancer Modifier,standard
+704986,Metastasis to meninges,Measurement,Cancer Modifier,standard
+712644,Metastasis to left kidney,Measurement,Cancer Modifier,standard
+712645,Metastasis to right kidney,Measurement,Cancer Modifier,standard
+712646,Metastasis to left renal pelvis,Measurement,Cancer Modifier,standard
+712647,Metastasis to right renal pelvis,Measurement,Cancer Modifier,standard
+1553105,Adenosarcoma of prostate gland,Condition,ICDO3,standard
+1553133,Non-small cell carcinoma of prostate gland,Condition,ICDO3,standard
+1553599,Adenocarcinoid tumor of prostate gland,Condition,ICDO3,standard
+4082919,Endometrioid carcinoma of prostate,Condition,SNOMED,standard
+4116087,Carcinoma of prostate,Condition,SNOMED,standard
+4141960,Hormone refractory prostate cancer,Condition,SNOMED,standard
+4145870,Metastatic adenocarcinoma of unknown origin,Condition,SNOMED,standard
+4147162,Metastatic malignant neoplasm to respiratory and digestive systems,Condition,SNOMED,standard
+4158910,Metastatic malignant neoplasm to unknown site,Condition,SNOMED,non-standard
+4161028,Adenocarcinoma of prostate,Condition,SNOMED,standard
+4163261,Malignant neoplasm of prostate,Condition,SNOMED,standard
+4164017,Squamous cell carcinoma of prostate,Condition,SNOMED,standard
+4200890,Local recurrence of malignant tumor of prostate,Condition,SNOMED,standard
+4288534,Small cell carcinoma of prostate,Condition,SNOMED,non-standard
+4312276,Metastatic malignant neoplasm to blood vessel,Condition,SNOMED,non-standard
+35225469,Metastasis to anal canal,Measurement,Cancer Modifier,standard
+35225531,Metastasis to pharynx,Measurement,Cancer Modifier,standard
+35225538,Metastasis to false vocal cord,Measurement,Cancer Modifier,standard
+35225539,Metastasis to epicardium,Measurement,Cancer Modifier,standard
+35225540,Metastasis to epididymis,Measurement,Cancer Modifier,standard
+35225542,Metastasis to mediastinum,Measurement,Cancer Modifier,standard
+35225543,Metastasis to large intestine,Measurement,Cancer Modifier,standard
+35225544,Metastasis to muscle of pelvis,Measurement,Cancer Modifier,standard
+35225545,Metastasis to phalanx of hand,Measurement,Cancer Modifier,standard
+35225547,Metastasis to mesentery,Measurement,Cancer Modifier,standard
+35225549,Metastasis to pineal gland,Measurement,Cancer Modifier,standard
+35225550,Metastasis to inguinal region,Measurement,Cancer Modifier,standard
+35225551,Metastasis to brain stem,Measurement,Cancer Modifier,standard
+35225552,Metastasis to male breast,Measurement,Cancer Modifier,standard
+35225553,Metastasis to mesocolon,Measurement,Cancer Modifier,standard
+35225554,Metastasis to metacarpal bone,Measurement,Cancer Modifier,standard
+35225555,Metastasis to paraganglion,Measurement,Cancer Modifier,standard
+35225556,Metastasis to breast,Measurement,Cancer Modifier,standard
+35225559,Metastasis to abdominal esophagus,Measurement,Cancer Modifier,standard
+35225560,Metastasis to abducens nerve,Measurement,Cancer Modifier,standard
+35225561,Metastasis to accessory nerve,Measurement,Cancer Modifier,standard
+35225562,Metastasis to accessory sinus,Measurement,Cancer Modifier,standard
+35225563,Metastasis to acoustic nerve,Measurement,Cancer Modifier,standard
+35225564,Metastasis to acromion,Measurement,Cancer Modifier,standard
+35225565,Metastasis to adenoid,Measurement,Cancer Modifier,standard
+35225566,Metastasis to adnexa of skin,Measurement,Cancer Modifier,standard
+35225567,Metastasis to adrenal cortex,Measurement,Cancer Modifier,standard
+35225568,Metastasis to adrenal gland,Measurement,Cancer Modifier,standard
+35225569,Metastasis to adrenal medulla,Measurement,Cancer Modifier,standard
+35225570,Metastasis to alveolar ridge mucosa,Measurement,Cancer Modifier,standard
+35225571,Metastasis to ampulla of vater,Measurement,Cancer Modifier,standard
+35225572,Metastasis to anterior aspect of epiglottis,Measurement,Cancer Modifier,standard
+35225573,Metastasis to anterior mediastinum,Measurement,Cancer Modifier,standard
+35225574,Metastasis to anterior portion of floor of mouth,Measurement,Cancer Modifier,standard
+35225576,Metastasis to ureter,Measurement,Cancer Modifier,standard
+35225577,Metastasis to ureteric orifice of urinary bladder,Measurement,Cancer Modifier,standard
+35225578,Metastasis to urethra,Measurement,Cancer Modifier,standard
+35225579,Metastasis to urinary bladder neck,Measurement,Cancer Modifier,standard
+35225580,Metastasis to urinary system,Measurement,Cancer Modifier,standard
+35225584,Metastasis to uveal tract,Measurement,Cancer Modifier,standard
+35225585,Metastasis to uvula,Measurement,Cancer Modifier,standard
+35225587,Metastasis to vagus nerve,Measurement,Cancer Modifier,standard
+35225588,Metastasis to vallecula,Measurement,Cancer Modifier,standard
+35225589,Metastasis to vas deferens,Measurement,Cancer Modifier,standard
+35225590,Metastasis to ventral surface of tongue,Measurement,Cancer Modifier,standard
+35225591,Metastasis to vermilion border of lip,Measurement,Cancer Modifier,standard
+35225592,Metastasis to vermilion border of lower lip,Measurement,Cancer Modifier,standard
+35225593,Metastasis to vermilion border of upper lip,Measurement,Cancer Modifier,standard
+35225594,Metastasis to vertebral column,Measurement,Cancer Modifier,standard
+35225595,Metastasis to vestibule of nose,Measurement,Cancer Modifier,standard
+35225596,Metastasis to vestibule of mouth,Measurement,Cancer Modifier,standard
+35225597,Metastasis to viscera,Measurement,Cancer Modifier,standard
+35225598,Metastasis to visceral pleura,Measurement,Cancer Modifier,standard
+35225599,Metastasis to vocal cord,Measurement,Cancer Modifier,standard
+35225600,Metastasis to vomer,Measurement,Cancer Modifier,standard
+35225601,Metastasis to ischium,Measurement,Cancer Modifier,standard
+35225602,Metastasis to islets of langerhans,Measurement,Cancer Modifier,standard
+35225604,Metastasis to jaw,Measurement,Cancer Modifier,standard
+35225605,Metastasis to jejunum,Measurement,Cancer Modifier,standard
+35225606,Metastasis to junctional region of epiglottis,Measurement,Cancer Modifier,standard
+35225607,Metastasis to junctional zone of tongue,Measurement,Cancer Modifier,standard
+35225612,Metastasis to lacrimal drainage system,Measurement,Cancer Modifier,standard
+35225613,Metastasis to lacrimal duct,Measurement,Cancer Modifier,standard
+35225614,Metastasis to lacrimal gland,Measurement,Cancer Modifier,standard
+35225615,Metastasis to lacrimal gland duct,Measurement,Cancer Modifier,standard
+35225617,Metastasis to laryngeal aspect of aryepiglottic fold,Measurement,Cancer Modifier,standard
+35225618,Metastasis to laryngeal aspect of interarytenoid fold,Measurement,Cancer Modifier,standard
+35225619,Metastasis to laryngeal commissure,Measurement,Cancer Modifier,standard
+35225620,Metastasis to laryngeal surface of epiglottis,Measurement,Cancer Modifier,standard
+35225621,Metastasis to larynx,Measurement,Cancer Modifier,standard
+35225622,Metastasis to lateral portion of floor of mouth,Measurement,Cancer Modifier,standard
+35225623,Metastasis to lateral wall of nasopharynx,Measurement,Cancer Modifier,standard
+35225624,Metastasis to lateral wall of oropharynx,Measurement,Cancer Modifier,standard
+35225625,Metastasis to lateral wall of urinary bladder,Measurement,Cancer Modifier,standard
+35225626,Metastasis to left adrenal gland,Measurement,Cancer Modifier,standard
+35225629,Metastasis to left lower lobe of lung,Measurement,Cancer Modifier,standard
+35225630,Metastasis to left lung,Measurement,Cancer Modifier,standard
+35225632,Metastasis to left upper lobe of lung,Measurement,Cancer Modifier,standard
+35225633,Metastasis to leg,Measurement,Cancer Modifier,standard
+35225634,Metastasis to lesser curvature of stomach,Measurement,Cancer Modifier,standard
+35225635,Metastasis to lingual tonsil,Measurement,Cancer Modifier,standard
+35225636,Metastasis to lip,Measurement,Cancer Modifier,standard
+35225638,Metastasis to long bone of lower limb,Measurement,Cancer Modifier,standard
+35225639,Metastasis to long bone of upper limb,Measurement,Cancer Modifier,standard
+35225640,Metastasis to lower gum,Measurement,Cancer Modifier,standard
+35225642,Metastasis to lower leg,Measurement,Cancer Modifier,standard
+35225643,Metastasis to lower limb,Measurement,Cancer Modifier,standard
+35225645,Metastasis to lower third of esophagus,Measurement,Cancer Modifier,standard
+35225646,Metastasis to lumbar vertebral column,Measurement,Cancer Modifier,standard
+35225647,Metastasis to lumbosacral plexus,Measurement,Cancer Modifier,standard
+35225648,Metastasis to lunate bone,Measurement,Cancer Modifier,standard
+35225649,Metastasis to main bronchus,Measurement,Cancer Modifier,standard
+35225650,Metastasis to major salivary gland,Measurement,Cancer Modifier,standard
+35225651,Metastasis to male genital organ,Measurement,Cancer Modifier,standard
+35225653,Metastasis to mandible,Measurement,Cancer Modifier,standard
+35225654,Metastasis to mastoid air cells,Measurement,Cancer Modifier,standard
+35225655,Metastasis to maxilla,Measurement,Cancer Modifier,standard
+35225657,Metastasis to right upper lobe of lung,Measurement,Cancer Modifier,standard
+35225659,Metastasis to sacrococcygeal region,Measurement,Cancer Modifier,standard
+35225660,Metastasis to sacrum,Measurement,Cancer Modifier,standard
+35225661,Metastasis to scaphoid bone,Measurement,Cancer Modifier,standard
+35225662,Metastasis to scapula,Measurement,Cancer Modifier,standard
+35225663,Metastasis to sclera,Measurement,Cancer Modifier,standard
+35225664,Metastasis to scrotum,Measurement,Cancer Modifier,standard
+35225665,Metastasis to sebaceous gland,Measurement,Cancer Modifier,standard
+35225666,Metastasis to second cuneiform bone of foot,Measurement,Cancer Modifier,standard
+35225667,Metastasis to seminal vesicle,Measurement,Cancer Modifier,standard
+35225668,Metastasis to septum of nose,Measurement,Cancer Modifier,standard
+35225669,Metastasis to short bone of lower limb,Measurement,Cancer Modifier,standard
+35225670,Metastasis to short bone of upper limb,Measurement,Cancer Modifier,standard
+35225671,Metastasis to shoulder,Measurement,Cancer Modifier,standard
+35225672,Metastasis to sigmoid colon,Measurement,Cancer Modifier,standard
+35225673,Metastasis to skin,Measurement,Cancer Modifier,standard
+35225674,Metastasis to skin of abdomen,Measurement,Cancer Modifier,standard
+35225675,Metastasis to skin of ankle,Measurement,Cancer Modifier,standard
+35225676,Metastasis to skin of arm,Measurement,Cancer Modifier,standard
+35225677,Metastasis to skin of axilla,Measurement,Cancer Modifier,standard
+35225678,Metastasis to skin of back,Measurement,Cancer Modifier,standard
+35225679,Metastasis to skin of breast,Measurement,Cancer Modifier,standard
+35225680,Metastasis to skin of buttock,Measurement,Cancer Modifier,standard
+35225681,Metastasis to skin of cheek,Measurement,Cancer Modifier,standard
+35225682,Metastasis to skin of chest,Measurement,Cancer Modifier,standard
+35225683,Metastasis to skin of chin,Measurement,Cancer Modifier,standard
+35225684,Metastasis to skin of nose,Measurement,Cancer Modifier,standard
+35225685,Metastasis to skin of ear,Measurement,Cancer Modifier,standard
+35225686,Metastasis to skin of elbow,Measurement,Cancer Modifier,standard
+35225687,Metastasis to skin of external auditory canal,Measurement,Cancer Modifier,standard
+35225688,Metastasis to skin of eyebrow,Measurement,Cancer Modifier,standard
+35225689,Metastasis to skin of eyelid,Measurement,Cancer Modifier,standard
+35225690,Metastasis to skin of face,Measurement,Cancer Modifier,standard
+35225691,Metastasis to skin of finger,Measurement,Cancer Modifier,standard
+35225692,Metastasis to skin of foot,Measurement,Cancer Modifier,standard
+35225693,Metastasis to skin of forearm,Measurement,Cancer Modifier,standard
+35225694,Metastasis to skin of forehead,Measurement,Cancer Modifier,standard
+35225695,Metastasis to skin of groin,Measurement,Cancer Modifier,standard
+35225696,Metastasis to skin of hand,Measurement,Cancer Modifier,standard
+35225697,Metastasis to skin of head,Measurement,Cancer Modifier,standard
+35225698,Metastasis to skin of hip,Measurement,Cancer Modifier,standard
+35225700,Metastasis to skin of knee,Measurement,Cancer Modifier,standard
+35225701,Metastasis to skin of leg,Measurement,Cancer Modifier,standard
+35225702,Metastasis to skin of lip,Measurement,Cancer Modifier,standard
+35225703,Metastasis to skin of lower leg,Measurement,Cancer Modifier,standard
+35225704,Metastasis to skin of lower limb,Measurement,Cancer Modifier,standard
+35225705,Metastasis to skin of neck,Measurement,Cancer Modifier,standard
+35225706,Metastasis to skin of perineum,Measurement,Cancer Modifier,standard
+35225707,Metastasis to skin of popliteal area,Measurement,Cancer Modifier,standard
+35225708,Metastasis to skin of scalp,Measurement,Cancer Modifier,standard
+35225709,Metastasis to skin of shoulder,Measurement,Cancer Modifier,standard
+35225711,Metastasis to skin of temporal region,Measurement,Cancer Modifier,standard
+35225712,Metastasis to skin of thigh,Measurement,Cancer Modifier,standard
+35225713,Metastasis to skin of toe,Measurement,Cancer Modifier,standard
+35225714,Metastasis to skin of trunk,Measurement,Cancer Modifier,standard
+35225715,Metastasis to skin of umbilicus,Measurement,Cancer Modifier,standard
+35225716,Metastasis to skin of upper arm,Measurement,Cancer Modifier,standard
+35225717,Metastasis to skin of upper limb,Measurement,Cancer Modifier,standard
+35225718,Metastasis to skin of wrist,Measurement,Cancer Modifier,standard
+35225719,Metastasis to small intestine,Measurement,Cancer Modifier,standard
+35225723,Metastasis to soft palate,Measurement,Cancer Modifier,standard
+35225724,Metastasis to soft tissues,Measurement,Cancer Modifier,standard
+35225725,Metastasis to soft tissues of abdomen,Measurement,Cancer Modifier,standard
+35225726,Metastasis to soft tissues of axilla,Measurement,Cancer Modifier,standard
+35225727,Metastasis to soft tissues of buttock,Measurement,Cancer Modifier,standard
+35225728,Metastasis to soft tissues of face,Measurement,Cancer Modifier,standard
+35225729,Metastasis to soft tissues of head,Measurement,Cancer Modifier,standard
+35225730,Metastasis to soft tissues of hip,Measurement,Cancer Modifier,standard
+35225731,Metastasis to soft tissues of inguinal region,Measurement,Cancer Modifier,standard
+35225732,Metastasis to soft tissues of lower limb,Measurement,Cancer Modifier,standard
+35225733,Metastasis to soft tissues of neck,Measurement,Cancer Modifier,standard
+35225734,Metastasis to soft tissues of pelvis,Measurement,Cancer Modifier,standard
+35225735,Metastasis to soft tissues of perineum,Measurement,Cancer Modifier,standard
+35225736,Metastasis to soft tissues of shoulder,Measurement,Cancer Modifier,standard
+35225737,Metastasis to soft tissues of thorax,Measurement,Cancer Modifier,standard
+35225738,Metastasis to soft tissues of trunk,Measurement,Cancer Modifier,standard
+35225739,Metastasis to soft tissues of upper limb,Measurement,Cancer Modifier,standard
+35225740,Metastasis to spermatic cord,Measurement,Cancer Modifier,standard
+35225741,Metastasis to sphenoidal sinus,Measurement,Cancer Modifier,standard
+35225742,Metastasis to sphenoid bone,Measurement,Cancer Modifier,standard
+35225743,Metastasis to spinal cord,Measurement,Cancer Modifier,standard
+35225744,Metastasis to spinal meninges,Measurement,Cancer Modifier,standard
+35225745,Metastasis to splenic flexure of colon,Measurement,Cancer Modifier,standard
+35225746,Metastasis to sternum,Measurement,Cancer Modifier,standard
+35225747,Metastasis to stomach,Measurement,Cancer Modifier,standard
+35225748,Metastasis to subglottis,Measurement,Cancer Modifier,standard
+35225749,Metastasis to sublingual gland,Measurement,Cancer Modifier,standard
+35225750,Metastasis to submaxillary gland,Measurement,Cancer Modifier,standard
+35225751,Metastasis to superior wall of nasopharynx,Measurement,Cancer Modifier,standard
+35225752,Metastasis to supraclavicular region,Measurement,Cancer Modifier,standard
+35225753,Metastasis to supraglottis,Measurement,Cancer Modifier,standard
+35225754,Metastasis to sweat gland,Measurement,Cancer Modifier,standard
+35225755,Metastasis to tail of pancreas,Measurement,Cancer Modifier,standard
+35225756,Metastasis to talus,Measurement,Cancer Modifier,standard
+35225757,Metastasis to tarsal bone,Measurement,Cancer Modifier,standard
+35225758,Metastasis to temporal bone,Measurement,Cancer Modifier,standard
+35225759,Metastasis to temporal lobe,Measurement,Cancer Modifier,standard
+35225760,Metastasis to testis,Measurement,Cancer Modifier,standard
+35225761,Metastasis to thigh,Measurement,Cancer Modifier,standard
+35225762,Metastasis to third cuneiform bone of foot,Measurement,Cancer Modifier,standard
+35225763,Metastasis to thoracic esophagus,Measurement,Cancer Modifier,standard
+35225764,Metastasis to thoracic vertebral column,Measurement,Cancer Modifier,standard
+35225765,Metastasis to thymus,Measurement,Cancer Modifier,standard
+35225766,Metastasis to thyroglossal duct,Measurement,Cancer Modifier,standard
+35225767,Metastasis to thyroid gland,Measurement,Cancer Modifier,standard
+35225768,Metastasis to tibia,Measurement,Cancer Modifier,standard
+35225769,Metastasis to calcaneus,Measurement,Cancer Modifier,standard
+35225770,Metastasis to frontal bone,Measurement,Cancer Modifier,standard
+35225771,Metastasis to frontal lobe,Measurement,Cancer Modifier,standard
+35225772,Metastasis to frontal sinus,Measurement,Cancer Modifier,standard
+35225773,Metastasis to neck,Measurement,Cancer Modifier,standard
+35225774,Metastasis to cauda equina,Measurement,Cancer Modifier,standard
+35225775,Metastasis to nervous system,Measurement,Cancer Modifier,standard
+35225776,Metastasis to cecum,Measurement,Cancer Modifier,standard
+35225777,Metastasis to gallbladder,Measurement,Cancer Modifier,standard
+35225778,Metastasis to pyriform sinus,Measurement,Cancer Modifier,standard
+35225779,Metastasis to radius,Measurement,Cancer Modifier,standard
+35225787,Metastasis to duodenum,Measurement,Cancer Modifier,standard
+35226024,Metastasis to anterior wall of nasopharynx,Measurement,Cancer Modifier,standard
+35226025,Metastasis to anterior wall of urinary bladder,Measurement,Cancer Modifier,standard
+35226026,Metastasis to anus,Measurement,Cancer Modifier,standard
+35226027,Metastasis to aortic body,Measurement,Cancer Modifier,standard
+35226028,Metastasis to apex of urinary bladder,Measurement,Cancer Modifier,standard
+35226029,Metastasis to appendix,Measurement,Cancer Modifier,standard
+35226031,Metastasis to areola of male breast,Measurement,Cancer Modifier,standard
+35226032,Metastasis to arm,Measurement,Cancer Modifier,standard
+35226033,Metastasis to articular cartilage,Measurement,Cancer Modifier,standard
+35226034,Metastasis to ascending colon,Measurement,Cancer Modifier,standard
+35226035,Metastasis to axilla,Measurement,Cancer Modifier,standard
+35226036,Metastasis to axillary tail of breast,Measurement,Cancer Modifier,standard
+35226038,Metastasis to back,Measurement,Cancer Modifier,standard
+35226039,Metastasis to base of tongue,Measurement,Cancer Modifier,standard
+35226040,Metastasis to biliary tract,Measurement,Cancer Modifier,standard
+35226041,Metastasis to bladder,Measurement,Cancer Modifier,standard
+35226042,Metastasis to blood vessel,Measurement,Cancer Modifier,standard
+35226043,Metastasis to blood vessel of abdomen,Measurement,Cancer Modifier,standard
+35226044,Metastasis to blood vessel of arm,Measurement,Cancer Modifier,standard
+35226045,Metastasis to blood vessel of axilla,Measurement,Cancer Modifier,standard
+35226046,Metastasis to blood vessel of buttock,Measurement,Cancer Modifier,standard
+35226047,Metastasis to blood vessel of face,Measurement,Cancer Modifier,standard
+35226048,Metastasis to blood vessel of finger,Measurement,Cancer Modifier,standard
+35226049,Metastasis to blood vessel of foot,Measurement,Cancer Modifier,standard
+35226050,Metastasis to blood vessel of forearm,Measurement,Cancer Modifier,standard
+35226051,Metastasis to blood vessel of hand,Measurement,Cancer Modifier,standard
+35226052,Metastasis to blood vessel of head,Measurement,Cancer Modifier,standard
+35226053,Metastasis to blood vessel of hip,Measurement,Cancer Modifier,standard
+35226054,Metastasis to blood vessel of inguinal region,Measurement,Cancer Modifier,standard
+35226055,Metastasis to blood vessel of leg,Measurement,Cancer Modifier,standard
+35226056,Metastasis to blood vessel of lower leg,Measurement,Cancer Modifier,standard
+35226057,Metastasis to blood vessel of lower limb,Measurement,Cancer Modifier,standard
+35226058,Metastasis to blood vessel of neck,Measurement,Cancer Modifier,standard
+35226059,Metastasis to blood vessel of pelvis,Measurement,Cancer Modifier,standard
+35226060,Metastasis to blood vessel of perineum,Measurement,Cancer Modifier,standard
+35226061,Metastasis to blood vessel of popliteal space,Measurement,Cancer Modifier,standard
+35226062,Metastasis to blood vessel of shoulder,Measurement,Cancer Modifier,standard
+35226063,Metastasis to blood vessel of thigh,Measurement,Cancer Modifier,standard
+35226064,Metastasis to blood vessel of thorax,Measurement,Cancer Modifier,standard
+35226065,Metastasis to blood vessel of toe,Measurement,Cancer Modifier,standard
+35226066,Metastasis to blood vessel of trunk,Measurement,Cancer Modifier,standard
+35226067,Metastasis to blood vessel of upper arm,Measurement,Cancer Modifier,standard
+35226068,Metastasis to blood vessel of upper limb,Measurement,Cancer Modifier,standard
+35226069,Metastasis to body of pancreas,Measurement,Cancer Modifier,standard
+35226070,Metastasis to body of penis,Measurement,Cancer Modifier,standard
+35226071,Metastasis to body of stomach,Measurement,Cancer Modifier,standard
+35226074,Metastasis to bone marrow,Measurement,Cancer Modifier,standard
+35226075,Metastasis to bone of face,Measurement,Cancer Modifier,standard
+35226076,Metastasis to bone of lower limb,Measurement,Cancer Modifier,standard
+35226077,Metastasis to bone of skull,Measurement,Cancer Modifier,standard
+35226078,Metastasis to metatarsal bone,Measurement,Cancer Modifier,standard
+35226079,Metastasis to bone of upper limb,Measurement,Cancer Modifier,standard
+35226083,Metastasis to broad ligament,Measurement,Cancer Modifier,standard
+35226084,Metastasis to bronchus,Measurement,Cancer Modifier,standard
+35226085,Metastasis to bronchus of left lower lobe,Measurement,Cancer Modifier,standard
+35226086,Metastasis to bronchus of left upper lobe,Measurement,Cancer Modifier,standard
+35226087,Metastasis to bronchus of right lower lobe,Measurement,Cancer Modifier,standard
+35226088,Metastasis to bronchus of right middle lobe,Measurement,Cancer Modifier,standard
+35226089,Metastasis to bronchus of right upper lobe,Measurement,Cancer Modifier,standard
+35226090,Metastasis to buccal mucosa,Measurement,Cancer Modifier,standard
+35226091,Metastasis to cardia of stomach,Measurement,Cancer Modifier,standard
+35226092,Metastasis to carina,Measurement,Cancer Modifier,standard
+35226093,Metastasis to carotid body,Measurement,Cancer Modifier,standard
+35226094,Metastasis to carpal bone,Measurement,Cancer Modifier,standard
+35226095,Metastasis to cartilage of nose,Measurement,Cancer Modifier,standard
+35226096,Metastasis to central nervous system,Measurement,Cancer Modifier,standard
+35226098,Metastasis to cerebellum,Measurement,Cancer Modifier,standard
+35226099,Metastasis to cerebral meninges,Measurement,Cancer Modifier,standard
+35226100,Metastasis to cerebral ventricle,Measurement,Cancer Modifier,standard
+35226101,Metastasis to cerebrum,Measurement,Cancer Modifier,standard
+35226102,Metastasis to cervical esophagus,Measurement,Cancer Modifier,standard
+35226103,Metastasis to cervical vertebral column,Measurement,Cancer Modifier,standard
+35226105,Metastasis to cheek,Measurement,Cancer Modifier,standard
+35226106,Metastasis to chest wall,Measurement,Cancer Modifier,standard
+35226107,Metastasis to choroid,Measurement,Cancer Modifier,standard
+35226108,Metastasis to ciliary body,Measurement,Cancer Modifier,standard
+35226109,Metastasis to clavicle,Measurement,Cancer Modifier,standard
+35226111,Metastasis to coccyx,Measurement,Cancer Modifier,standard
+35226112,Metastasis to colon,Measurement,Cancer Modifier,standard
+35226114,Metastasis to commissure of lip,Measurement,Cancer Modifier,standard
+35226115,Metastasis to common bile duct,Measurement,Cancer Modifier,standard
+35226116,Metastasis to conjunctiva,Measurement,Cancer Modifier,standard
+35226117,Metastasis to connective tissue and other soft tissues of extremities,Measurement,Cancer Modifier,standard
+35226119,Metastasis to cornea,Measurement,Cancer Modifier,standard
+35226120,Metastasis to cranial nerve,Measurement,Cancer Modifier,standard
+35226121,Metastasis to craniopharyngeal duct,Measurement,Cancer Modifier,standard
+35226122,Metastasis to cuboid,Measurement,Cancer Modifier,standard
+35226123,Metastasis to cystic duct,Measurement,Cancer Modifier,standard
+35226124,Metastasis to descending colon,Measurement,Cancer Modifier,standard
+35226125,Metastasis to diaphragm,Measurement,Cancer Modifier,standard
+35226126,Metastasis to dorsal surface of tongue,Measurement,Cancer Modifier,standard
+35226128,Metastasis to ectopic male breast tissue,Measurement,Cancer Modifier,standard
+35226129,Metastasis to endocardium,Measurement,Cancer Modifier,standard
+35226131,Metastasis to endocrine gland,Measurement,Cancer Modifier,standard
+35226134,Metastasis to epiglottis,Measurement,Cancer Modifier,standard
+35226135,Metastasis to esophagus,Measurement,Cancer Modifier,standard
+35226136,Metastasis to ethmoidal sinus,Measurement,Cancer Modifier,standard
+35226137,Metastasis to ethmoid bone,Measurement,Cancer Modifier,standard
+35226138,Metastasis to eustachian tube,Measurement,Cancer Modifier,standard
+35226139,Metastasis to extrahepatic bile ducts,Measurement,Cancer Modifier,standard
+35226140,Metastasis to eye,Measurement,Cancer Modifier,standard
+35226141,Metastasis to face,Measurement,Cancer Modifier,standard
+35226142,Metastasis to facial nerve,Measurement,Cancer Modifier,standard
+35226144,Metastasis to femur,Measurement,Cancer Modifier,standard
+35226145,Metastasis to fibula,Measurement,Cancer Modifier,standard
+35226146,Metastasis to first cuneiform bone of foot,Measurement,Cancer Modifier,standard
+35226147,Metastasis to flank,Measurement,Cancer Modifier,standard
+35226148,Metastasis to floor of mouth,Measurement,Cancer Modifier,standard
+35226149,Metastasis to foot,Measurement,Cancer Modifier,standard
+35226150,Metastasis to forearm,Measurement,Cancer Modifier,standard
+35226151,Metastasis to fundus of stomach,Measurement,Cancer Modifier,standard
+35226152,Metastasis to genital organs,Measurement,Cancer Modifier,standard
+35226154,Metastasis to gingival mucosa,Measurement,Cancer Modifier,standard
+35226155,Metastasis to glans penis,Measurement,Cancer Modifier,standard
+35226156,Metastasis to glomus jugulare,Measurement,Cancer Modifier,standard
+35226157,Metastasis to glossopharyngeal nerve,Measurement,Cancer Modifier,standard
+35226158,Metastasis to glottis,Measurement,Cancer Modifier,standard
+35226159,Metastasis to greater curvature of stomach,Measurement,Cancer Modifier,standard
+35226160,Metastasis to great vessels,Measurement,Cancer Modifier,standard
+35226161,Metastasis to gum,Measurement,Cancer Modifier,standard
+35226162,Metastasis to hamate bone,Measurement,Cancer Modifier,standard
+35226163,Metastasis to hand,Measurement,Cancer Modifier,standard
+35226164,Metastasis to hard palate,Measurement,Cancer Modifier,standard
+35226165,Metastasis to head,Measurement,Cancer Modifier,standard
+35226166,Metastasis to head of pancreas,Measurement,Cancer Modifier,standard
+35226167,Metastasis to heart,Measurement,Cancer Modifier,standard
+35226168,Metastasis to hepatic flexure of colon,Measurement,Cancer Modifier,standard
+35226169,Metastasis to hilus of lung,Measurement,Cancer Modifier,standard
+35226170,Metastasis to hypoglossal nerve,Measurement,Cancer Modifier,standard
+35226171,Metastasis to hypopharyngeal aspect of aryepiglottic fold,Measurement,Cancer Modifier,standard
+35226172,Metastasis to hypopharyngeal aspect of interarytenoid fold,Measurement,Cancer Modifier,standard
+35226173,Metastasis to hypopharynx,Measurement,Cancer Modifier,standard
+35226174,Metastasis to ileum,Measurement,Cancer Modifier,standard
+35226175,Metastasis to ilium,Measurement,Cancer Modifier,standard
+35226176,Metastasis to inner aspect of lip,Measurement,Cancer Modifier,standard
+35226177,Metastasis to inner aspect of lower lip,Measurement,Cancer Modifier,standard
+35226178,Metastasis to inner aspect of upper lip,Measurement,Cancer Modifier,standard
+35226179,Metastasis to intestinal tract,Measurement,Cancer Modifier,standard
+35226180,Metastasis to intrahepatic bile ducts,Measurement,Cancer Modifier,standard
+35226181,Metastasis to intrathoracic organs,Measurement,Cancer Modifier,standard
+35226182,Metastasis to maxillary sinus,Measurement,Cancer Modifier,standard
+35226183,Metastasis to meckel's diverticulum,Measurement,Cancer Modifier,standard
+35226184,Metastasis to middle ear,Measurement,Cancer Modifier,standard
+35226185,Metastasis to middle third of esophagus,Measurement,Cancer Modifier,standard
+35226186,Metastasis to minor salivary gland,Measurement,Cancer Modifier,standard
+35226187,Metastasis to mouth,Measurement,Cancer Modifier,standard
+35226188,Metastasis to multiple endocrine glands,Measurement,Cancer Modifier,standard
+35226189,Metastasis to muscle,Measurement,Cancer Modifier,standard
+35226190,Metastasis to muscle of abdomen,Measurement,Cancer Modifier,standard
+35226191,Metastasis to muscle of buttock,Measurement,Cancer Modifier,standard
+35226192,Metastasis to muscle of face,Measurement,Cancer Modifier,standard
+35226193,Metastasis to muscle of head,Measurement,Cancer Modifier,standard
+35226194,Metastasis to muscle of hip,Measurement,Cancer Modifier,standard
+35226195,Metastasis to muscle of inguinal region,Measurement,Cancer Modifier,standard
+35226196,Metastasis to muscle of lower limb,Measurement,Cancer Modifier,standard
+35226197,Metastasis to muscle of neck,Measurement,Cancer Modifier,standard
+35226198,Metastasis to muscle of perineum,Measurement,Cancer Modifier,standard
+35226199,Metastasis to muscle of shoulder,Measurement,Cancer Modifier,standard
+35226200,Metastasis to muscle of thorax,Measurement,Cancer Modifier,standard
+35226201,Metastasis to muscle of trunk,Measurement,Cancer Modifier,standard
+35226202,Metastasis to muscle of upper limb,Measurement,Cancer Modifier,standard
+35226203,Metastasis to myocardium,Measurement,Cancer Modifier,standard
+35226205,Metastasis to nasal bone,Measurement,Cancer Modifier,standard
+35226206,Metastasis to nasal cavity,Measurement,Cancer Modifier,standard
+35226207,Metastasis to nasal concha,Measurement,Cancer Modifier,standard
+35226208,Metastasis to nasopharyngeal wall,Measurement,Cancer Modifier,standard
+35226209,Metastasis to nasopharynx,Measurement,Cancer Modifier,standard
+35226210,Metastasis to navicular bone of foot,Measurement,Cancer Modifier,standard
+35226212,Metastasis to nipple of male breast,Measurement,Cancer Modifier,standard
+35226213,Metastasis to nose,Measurement,Cancer Modifier,standard
+35226214,Metastasis to occipital bone,Measurement,Cancer Modifier,standard
+35226215,Metastasis to occipital lobe,Measurement,Cancer Modifier,standard
+35226216,Metastasis to oculomotor nerve,Measurement,Cancer Modifier,standard
+35226217,Metastasis to olfactory nerve,Measurement,Cancer Modifier,standard
+35226218,Metastasis to omentum,Measurement,Cancer Modifier,standard
+35226219,Metastasis to optic nerve,Measurement,Cancer Modifier,standard
+35226220,Metastasis to orbit,Measurement,Cancer Modifier,standard
+35226221,Metastasis to oropharynx,Measurement,Cancer Modifier,standard
+35226222,Metastasis to digestive organ,Measurement,Cancer Modifier,standard
+35226231,Metastasis to palate,Measurement,Cancer Modifier,standard
+35226232,Metastasis to palatine bone,Measurement,Cancer Modifier,standard
+35226233,Metastasis to pancreas,Measurement,Cancer Modifier,standard
+35226234,Metastasis to pancreatic duct,Measurement,Cancer Modifier,standard
+35226236,Metastasis to parathyroid gland,Measurement,Cancer Modifier,standard
+35226237,Metastasis to paraurethral glands,Measurement,Cancer Modifier,standard
+35226238,Metastasis to parietal bone,Measurement,Cancer Modifier,standard
+35226239,Metastasis to parietal lobe,Measurement,Cancer Modifier,standard
+35226240,Metastasis to parietal peritoneum,Measurement,Cancer Modifier,standard
+35226241,Metastasis to parietal pleura,Measurement,Cancer Modifier,standard
+35226242,Metastasis to parotid gland,Measurement,Cancer Modifier,standard
+35226243,Metastasis to patella,Measurement,Cancer Modifier,standard
+35226244,Metastasis to pelvic bone,Measurement,Cancer Modifier,standard
+35226245,Metastasis to pelvic peritoneum,Measurement,Cancer Modifier,standard
+35226246,Metastasis to pelvis,Measurement,Cancer Modifier,standard
+35226247,Metastasis to penis,Measurement,Cancer Modifier,standard
+35226248,Metastasis to periadrenal tissue,Measurement,Cancer Modifier,standard
+35226249,Metastasis to perianal skin,Measurement,Cancer Modifier,standard
+35226251,Metastasis to pericardium,Measurement,Cancer Modifier,standard
+35226252,Metastasis to perirenal tissue,Measurement,Cancer Modifier,standard
+35226253,Metastasis to peritoneum,Measurement,Cancer Modifier,standard
+35226254,Metastasis to phalanx of foot,Measurement,Cancer Modifier,standard
+35226255,Metastasis to pisiform bone of hand,Measurement,Cancer Modifier,standard
+35226256,Metastasis to pituitary gland,Measurement,Cancer Modifier,standard
+35226257,Metastasis to placenta,Measurement,Cancer Modifier,standard
+35226258,Metastasis to pleura,Measurement,Cancer Modifier,standard
+35226259,Metastasis to postcricoid region,Measurement,Cancer Modifier,standard
+35226260,Metastasis to posterior hypopharyngeal wall,Measurement,Cancer Modifier,standard
+35226261,Metastasis to posterior mediastinum,Measurement,Cancer Modifier,standard
+35226262,Metastasis to posterior wall of nasopharynx,Measurement,Cancer Modifier,standard
+35226263,Metastasis to posterior wall of oropharynx,Measurement,Cancer Modifier,standard
+35226264,Metastasis to posterior wall of urinary bladder,Measurement,Cancer Modifier,standard
+35226265,Metastasis to prepuce,Measurement,Cancer Modifier,standard
+35226266,Metastasis to presacral region,Measurement,Cancer Modifier,standard
+35226267,Metastasis to prostate,Measurement,Cancer Modifier,standard
+35226268,Metastasis to pubis,Measurement,Cancer Modifier,standard
+35226269,Metastasis to pyloric antrum,Measurement,Cancer Modifier,standard
+35226270,Metastasis to pylorus,Measurement,Cancer Modifier,standard
+35226271,Metastasis to rectosigmoid junction,Measurement,Cancer Modifier,standard
+35226273,Metastasis to rectovaginal septum,Measurement,Cancer Modifier,standard
+35226274,Metastasis to rectovesical septum,Measurement,Cancer Modifier,standard
+35226275,Metastasis to rectum,Measurement,Cancer Modifier,standard
+35226276,Metastasis to renal pelvis,Measurement,Cancer Modifier,standard
+35226280,Metastasis to respiratory tract,Measurement,Cancer Modifier,standard
+35226281,Metastasis to retina,Measurement,Cancer Modifier,standard
+35226282,Metastasis to retrocecal tissue,Measurement,Cancer Modifier,standard
+35226283,Metastasis to retromolar area,Measurement,Cancer Modifier,standard
+35226284,Metastasis to retroperitoneum,Measurement,Cancer Modifier,standard
+35226287,Metastasis to rib,Measurement,Cancer Modifier,standard
+35226288,Metastasis to right adrenal gland,Measurement,Cancer Modifier,standard
+35226291,Metastasis to right lower lobe of lung,Measurement,Cancer Modifier,standard
+35226292,Metastasis to right lung,Measurement,Cancer Modifier,standard
+35226293,Metastasis to right middle lobe of lung,Measurement,Cancer Modifier,standard
+35226294,Metastasis to tip and lateral border of tongue,Measurement,Cancer Modifier,standard
+35226295,Metastasis to tongue,Measurement,Cancer Modifier,standard
+35226296,Metastasis to tonsil,Measurement,Cancer Modifier,standard
+35226297,Metastasis to tonsillar fossa,Measurement,Cancer Modifier,standard
+35226298,Metastasis to tonsillar pillar,Measurement,Cancer Modifier,standard
+35226299,Metastasis to trachea,Measurement,Cancer Modifier,standard
+35226300,Metastasis to transverse colon,Measurement,Cancer Modifier,standard
+35226301,Metastasis to trapezium,Measurement,Cancer Modifier,standard
+35226302,Metastasis to trapezoid bone,Measurement,Cancer Modifier,standard
+35226303,Metastasis to trigeminal nerve,Measurement,Cancer Modifier,standard
+35226304,Metastasis to trigone of urinary bladder,Measurement,Cancer Modifier,standard
+35226305,Metastasis to trochlear nerve,Measurement,Cancer Modifier,standard
+35226306,Metastasis to trunk,Measurement,Cancer Modifier,standard
+35226307,Metastasis to ulna,Measurement,Cancer Modifier,standard
+35226308,Metastasis to undescended testis,Measurement,Cancer Modifier,standard
+35226310,Metastasis to upper arm,Measurement,Cancer Modifier,standard
+35226311,Metastasis to upper gum,Measurement,Cancer Modifier,standard
+35226313,Metastasis to upper limb,Measurement,Cancer Modifier,standard
+35226315,Metastasis to upper respiratory tract,Measurement,Cancer Modifier,standard
+35226316,Metastasis to upper third of esophagus,Measurement,Cancer Modifier,standard
+35226319,Metastasis to waldeyer's ring,Measurement,Cancer Modifier,standard
+35226320,Metastasis to zygomatic bone,Measurement,Cancer Modifier,standard
+35226326,Metastasis to para-aortic body,Measurement,Cancer Modifier,standard
+35226327,Metastasis to anterior two-thirds of tongue,Measurement,Cancer Modifier,standard
+35226338,Metastasis to intra-abdominal organs,Measurement,Cancer Modifier,standard
+36517801,Superficial spreading adenocarcinoma of prostate gland,Condition,ICDO3,standard
+36519743,Adenocarcinoma in tubulovillous adenoma of prostate gland,Condition,ICDO3,standard
+36520178,"Neuroendocrine tumor, NOS, of prostate gland",Condition,ICDO3,standard
+36520903,Adenocarcinoma with cartilaginous and osseous metaplasia of prostate gland,Condition,ICDO3,standard
+36525831,Mixed type rhabdomyosarcoma of prostate gland,Condition,ICDO3,standard
+36528487,Basaloid carcinoma of prostate gland,Condition,ICDO3,standard
+36529044,"Papillary carcinoma, NOS, of prostate gland",Condition,ICDO3,standard
+36529897,Giant cell and spindle cell carcinoma of prostate gland,Condition,ICDO3,standard
+36530505,Adenocarcinoma with spindle cell metaplasia of prostate gland,Condition,ICDO3,standard
+36532395,"Squamous cell carcinoma, microinvasive of prostate gland",Condition,ICDO3,standard
+36532454,"Squamous cell carcinoma, small cell, nonkeratinizing of prostate gland",Condition,ICDO3,standard
+36533342,"Epithelioid sarcoma, NOS, of prostate gland",Condition,ICDO3,standard
+36533689,Pleomorphic carcinoma of prostate gland,Condition,ICDO3,standard
+36534013,"Squamous cell carcinoma, keratinizing, NOS, of prostate gland",Condition,ICDO3,standard
+36534105,Squamous cell carcinoma with horn formation of prostate gland,Condition,ICDO3,standard
+36535056,Adenocarcinoma with squamous metaplasia of prostate gland,Condition,ICDO3,standard
+36535925,Giant cell carcinoma of prostate gland,Condition,ICDO3,standard
+36538788,Adenocarcinoma in villous adenoma of prostate gland,Condition,ICDO3,standard
+36539709,"Solid carcinoma, NOS, of prostate gland",Condition,ICDO3,standard
+36540099,"Malignant tumor, giant cell type of prostate gland",Condition,ICDO3,standard
+36540664,Adenoid cystic carcinoma of prostate gland,Condition,ICDO3,standard
+36543006,"Carcinosarcoma, NOS, of prostate gland",Condition,ICDO3,standard
+36543315,"Squamous cell carcinoma, spindle cell of prostate gland",Condition,ICDO3,standard
+36543338,Villous adenocarcinoma of prostate gland,Condition,ICDO3,standard
+36545616,Glassy cell carcinoma of prostate gland,Condition,ICDO3,standard
+36547882,Myoepithelial carcinoma of prostate gland,Condition,ICDO3,standard
+36548533,"Carcinosarcoma, embryonal of prostate gland",Condition,ICDO3,standard
+36550033,Acinar cell cystadenocarcinoma of prostate gland,Condition,ICDO3,standard
+36550817,Alveolar adenocarcinoma of prostate gland,Condition,ICDO3,standard
+36552560,Adenocarcinoma with apocrine metaplasia of prostate gland,Condition,ICDO3,standard
+36552590,"Small cell carcinoma, fusiform cell of prostate gland",Condition,ICDO3,standard
+36554023,Basal cell adenocarcinoma of prostate gland,Condition,ICDO3,standard
+36554139,Tubular adenocarcinoma of prostate gland,Condition,ICDO3,standard
+36554370,"Large cell carcinoma, NOS, of prostate gland",Condition,ICDO3,standard
+36559613,Carcinoma with osteoclast-like giant cells of prostate gland,Condition,ICDO3,standard
+36564577,"Duct carcinoma, desmoplastic type of prostate gland",Condition,ICDO3,standard
+36566722,"Carcinoma, anaplastic, NOS, of prostate gland",Condition,ICDO3,standard
+36568174,"Tumor cells, malignant of prostate gland",Condition,ICDO3,standard
+36712762,Recurrent malignant neoplasm of prostate,Condition,SNOMED,standard
+36716186,Hormone sensitive prostate cancer,Condition,SNOMED,standard
+36768082,Metastasis to kidney,Measurement,Cancer Modifier,standard
+36768083,Metastasis to same lobe of lung,Measurement,Cancer Modifier,standard
+36768130,Generalized metastases,Measurement,Cancer Modifier,standard
+36768171,Metastasis to a different ipsilateral lobe of lung,Measurement,Cancer Modifier,standard
+36768587,Spread to lymph node,Measurement,Cancer Modifier,standard
+36768630,Metastasis to spleen,Measurement,Cancer Modifier,standard
+36768862,Metastasis to brain,Measurement,Cancer Modifier,standard
+36769180,Metastasis,Measurement,Cancer Modifier,standard
+36769243,Distant spread to lymph node,Measurement,Cancer Modifier,standard
+36769269,Regional spread to lymph node,Measurement,Cancer Modifier,standard
+36769301,Metastasis to bone,Measurement,Cancer Modifier,standard
+36769532,Metastasis to ipsilateral lung,Measurement,Cancer Modifier,standard
+36769664,Circulating tumor cells,Measurement,Cancer Modifier,standard
+36770040,Metastasis to gastrointestinal tract,Measurement,Cancer Modifier,standard
+36770091,Metastasis to contralateral lobe of lung,Measurement,Cancer Modifier,standard
+36770283,Metastasis to lung,Measurement,Cancer Modifier,standard
+36770544,Metastasis to liver,Measurement,Cancer Modifier,standard
+37162723,Metastatic carcinoma to lymph node of lower limb,Condition,SNOMED,standard
+37163177,Small cell neuroendocrine carcinoma of prostate,Condition,SNOMED,standard
+37165664,Oligometastatic malignant neoplasm,Condition,SNOMED,standard
+37166255,Primary carcinoma of prostate,Condition,SNOMED,standard
+37166455,Primary small cell carcinoma of prostate,Condition,SNOMED,non-standard
+37166518,Primary acinar cell cystadenocarcinoma of prostate,Condition,SNOMED,standard
+37166521,Primary infiltrating duct carcinoma of prostate,Condition,SNOMED,standard
+37166523,Primary adenocarcinoma of prostate,Condition,SNOMED,standard
+37166525,Primary endometrioid carcinoma of prostate,Condition,SNOMED,standard
+37166560,Primary small cell neuroendocrine carcinoma of prostate,Condition,SNOMED,standard
+37174104,Primary malignant hormone-refractory neoplasm of prostate,Condition,SNOMED,standard
+37208188,Non-metastatic prostate cancer,Condition,SNOMED,standard
+37311236,Infiltrating duct carcinoma of prostate,Condition,SNOMED,standard
+37311683,Acinar cell cystadenocarcinoma of prostate,Condition,SNOMED,standard
+37395835,Familial prostate cancer,Condition,SNOMED,standard
+42512655,Mixed acinar-ductal carcinoma of prostate gland,Condition,ICDO3,standard
+42512952,Mixed adenoneuroendocrine carcinoma of prostate gland,Condition,ICDO3,standard
+44499514,"Infiltrating duct carcinoma, NOS, of prostate gland",Condition,ICDO3,standard
+44499641,"Papillary adenocarcinoma, NOS, of prostate gland",Condition,ICDO3,standard
+44499712,"Carcinoma, undifferentiated, NOS, of prostate gland",Condition,ICDO3,standard
+44499820,Adenocarcinoma with neuroendocrine differentiation of prostate gland,Condition,ICDO3,standard
+44499864,Large cell neuroendocrine carcinoma of prostate gland,Condition,ICDO3,standard
+44500341,Combined small cell carcinoma of prostate gland,Condition,ICDO3,standard
+44500459,Signet ring cell carcinoma of prostate gland,Condition,ICDO3,standard
+44500494,"Basal cell carcinoma, NOS, of prostate gland",Condition,ICDO3,standard
+44500595,Adenocarcinoma with mixed subtypes of prostate gland,Condition,ICDO3,standard
+44500716,"Squamous cell carcinoma, adenoid of prostate gland",Condition,ICDO3,standard
+44500734,Mixed cell adenocarcinoma of prostate gland,Condition,ICDO3,standard
+44501350,Mucinous adenocarcinoma of prostate gland,Condition,ICDO3,standard
+44501366,Alveolar rhabdomyosarcoma of prostate gland,Condition,ICDO3,standard
+44501528,Mucin-producing adenocarcinoma of prostate gland,Condition,ICDO3,standard
+44501627,"Neuroendocrine carcinoma, NOS, of prostate gland",Condition,ICDO3,standard
+44501968,Giant cell sarcoma of prostate gland,Condition,ICDO3,standard
+44502000,"Neoplasm, malignant of prostate gland",Condition,ICDO3,standard
+44502035,Acinar cell carcinoma of prostate gland,Condition,ICDO3,standard
+44502766,"Small cell carcinoma, NOS, of prostate gland",Condition,ICDO3,standard
+44503133,"Carcinoma, NOS, of prostate gland",Condition,ICDO3,standard
+44503145,"Cribriform carcinoma, NOS, of prostate gland",Condition,ICDO3,standard
+44503555,Intraductal papillary adenocarcinoma with invasion of prostate gland,Condition,ICDO3,standard
+44503558,Adenosquamous carcinoma of prostate gland,Condition,ICDO3,standard
+45767695,Metastatic carcinoid tumor,Condition,SNOMED,non-standard

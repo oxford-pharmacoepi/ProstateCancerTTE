@@ -1,2 +1,2 @@
-concept_id
-4192174
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+4192174,Illness,Condition,SNOMED,standard

@@ -1,4 +1,4 @@
-concept_id
-138825
-141932
-40568467
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+138825,Actinic keratosis,Condition,SNOMED,standard
+141932,Senile hyperkeratosis,Condition,SNOMED,standard
+40568467,Seborrheic keratosis,Condition,SNOMED,standard

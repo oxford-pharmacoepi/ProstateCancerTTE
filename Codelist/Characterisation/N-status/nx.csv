@@ -1,21 +1,21 @@
-concept_id
-1633416
-1633461
-1633679
-1633740
-1633885
-1634117
-1634163
-1634216
-1634263
-1634352
-1634356
-1634505
-1634722
-1634797
-1635104
-1635170
-1635503
-1635614
-1635816
-1635823
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+1633416,AJCC/UICC 7th post therapy clinical NX Category,Measurement,Cancer Modifier,standard
+1633461,AJCC/UICC 6th post therapy pathological NX Category,Measurement,Cancer Modifier,standard
+1633679,AJCC/UICC 7th clinical NX Category,Measurement,Cancer Modifier,standard
+1633740,AJCC/UICC 8th post therapy clinical NX Category,Measurement,Cancer Modifier,standard
+1633885,AJCC/UICC NX Category,Measurement,Cancer Modifier,standard
+1634117,AJCC/UICC 8th pathological NX Category,Measurement,Cancer Modifier,standard
+1634163,AJCC/UICC 6th NX Category,Measurement,Cancer Modifier,standard
+1634216,AJCC/UICC 8th NX Category,Measurement,Cancer Modifier,standard
+1634263,AJCC/UICC 6th post therapy clinical NX Category,Measurement,Cancer Modifier,standard
+1634352,AJCC/UICC 7th post therapy pathological NX Category,Measurement,Cancer Modifier,standard
+1634356,AJCC/UICC post therapy clinical NX Category,Measurement,Cancer Modifier,standard
+1634505,AJCC/UICC 7th pathological NX Category,Measurement,Cancer Modifier,standard
+1634722,AJCC/UICC clinical NX Category,Measurement,Cancer Modifier,standard
+1634797,AJCC/UICC 8th clinical NX Category,Measurement,Cancer Modifier,standard
+1635104,AJCC/UICC 6th clinical NX Category,Measurement,Cancer Modifier,standard
+1635170,AJCC/UICC pathological NX Category,Measurement,Cancer Modifier,standard
+1635503,AJCC/UICC post therapy pathological NX Category,Measurement,Cancer Modifier,standard
+1635614,AJCC/UICC 8th post therapy pathological NX Category,Measurement,Cancer Modifier,standard
+1635816,AJCC/UICC 7th NX Category,Measurement,Cancer Modifier,standard
+1635823,AJCC/UICC 6th pathological NX Category,Measurement,Cancer Modifier,standard

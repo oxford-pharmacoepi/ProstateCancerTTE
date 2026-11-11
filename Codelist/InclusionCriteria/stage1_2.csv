@@ -1,145 +1,145 @@
-concept_id
-1633306
-1633321
-1633345
-1633366
-1633403
-1633425
-1633482
-1633489
-1633516
-1633526
-1633565
-1633617
-1633618
-1633627
-1633669
-1633677
-1633698
-1633701
-1633704
-1633734
-1633743
-1633753
-1633761
-1633774
-1633835
-1633841
-1633856
-1633897
-1633905
-1633917
-1633940
-1633944
-1633948
-1633968
-1633970
-1633971
-1634008
-1634019
-1634021
-1634027
-1634028
-1634056
-1634066
-1634095
-1634099
-1634123
-1634141
-1634160
-1634171
-1634181
-1634205
-1634209
-1634226
-1634294
-1634316
-1634332
-1634338
-1634349
-1634351
-1634353
-1634368
-1634419
-1634433
-1634457
-1634465
-1634468
-1634470
-1634474
-1634479
-1634494
-1634512
-1634542
-1634553
-1634593
-1634604
-1634627
-1634671
-1634690
-1634698
-1634718
-1634761
-1634794
-1634801
-1634813
-1634814
-1634860
-1634861
-1634868
-1634888
-1634895
-1634900
-1634903
-1634912
-1634914
-1634917
-1634927
-1634932
-1634937
-1634958
-1634987
-1635020
-1635034
-1635056
-1635074
-1635115
-1635138
-1635182
-1635184
-1635191
-1635193
-1635199
-1635215
-1635216
-1635217
-1635239
-1635243
-1635248
-1635288
-1635293
-1635347
-1635458
-1635474
-1635482
-1635486
-1635494
-1635546
-1635579
-1635601
-1635608
-1635611
-1635659
-1635721
-1635726
-1635730
-1635738
-1635758
-1635786
-1635790
-1635802
-1635811
-1635814
-1635867
-1635877
-1635896
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+1633306,AJCC/UICC Stage 1,Measurement,Cancer Modifier,standard
+1633321,AJCC/UICC 7th clinical Stage 1E,Measurement,Cancer Modifier,standard
+1633345,AJCC/UICC 7th clinical Stage 2A,Measurement,Cancer Modifier,standard
+1633366,AJCC/UICC 7th clinical Stage 1C,Measurement,Cancer Modifier,standard
+1633403,AJCC/UICC 6th clinical Stage 1B1,Measurement,Cancer Modifier,standard
+1633425,AJCC/UICC 7th clinical Stage 1A3,Measurement,Cancer Modifier,standard
+1633482,AJCC/UICC 6th Stage 2A,Measurement,Cancer Modifier,standard
+1633489,AJCC/UICC clinical Stage 2A2,Measurement,Cancer Modifier,standard
+1633516,AJCC/UICC 8th Stage 1A,Measurement,Cancer Modifier,standard
+1633526,AJCC/UICC 8th Stage 1B1,Measurement,Cancer Modifier,standard
+1633565,AJCC/UICC Stage 1A1,Measurement,Cancer Modifier,standard
+1633617,AJCC/UICC 7th Stage 1B1,Measurement,Cancer Modifier,standard
+1633618,AJCC/UICC clinical Stage 1B,Measurement,Cancer Modifier,standard
+1633627,AJCC/UICC 7th Stage 2E,Measurement,Cancer Modifier,standard
+1633669,AJCC/UICC 7th Stage 1A,Measurement,Cancer Modifier,standard
+1633677,AJCC/UICC 7th Stage 1A2,Measurement,Cancer Modifier,standard
+1633698,AJCC/UICC 8th clinical Stage 1s,Measurement,Cancer Modifier,standard
+1633701,AJCC/UICC Stage 1E,Measurement,Cancer Modifier,standard
+1633704,AJCC/UICC 8th Stage 1A3,Measurement,Cancer Modifier,standard
+1633734,AJCC/UICC 6th Stage 1A1,Measurement,Cancer Modifier,standard
+1633743,AJCC/UICC Stage 2A1,Measurement,Cancer Modifier,standard
+1633753,AJCC/UICC 6th Stage 2,Measurement,Cancer Modifier,standard
+1633761,AJCC/UICC 6th Stage 1B2,Measurement,Cancer Modifier,standard
+1633774,AJCC/UICC 6th Stage 2A1,Measurement,Cancer Modifier,standard
+1633835,AJCC/UICC 6th clinical Stage 2C,Measurement,Cancer Modifier,standard
+1633841,AJCC/UICC clinical Stage 2,Measurement,Cancer Modifier,standard
+1633856,AJCC/UICC 6th clinical Stage 1C,Measurement,Cancer Modifier,standard
+1633897,AJCC/UICC 6th clinical Stage 1B,Measurement,Cancer Modifier,standard
+1633905,AJCC/UICC 6th clinical Stage 1,Measurement,Cancer Modifier,standard
+1633917,AJCC/UICC 7th Stage 1B2,Measurement,Cancer Modifier,standard
+1633940,AJCC/UICC 8th clinical Stage 2A1,Measurement,Cancer Modifier,standard
+1633944,AJCC/UICC 8th Stage 1A2,Measurement,Cancer Modifier,standard
+1633948,AJCC/UICC clinical Stage 1A2,Measurement,Cancer Modifier,standard
+1633968,AJCC/UICC 8th Stage 1C,Measurement,Cancer Modifier,standard
+1633970,AJCC/UICC 8th clinical Stage 1A1,Measurement,Cancer Modifier,standard
+1633971,AJCC/UICC 7th Stage 1A3,Measurement,Cancer Modifier,standard
+1634008,AJCC/UICC 6th clinical Stage 2B,Measurement,Cancer Modifier,standard
+1634019,AJCC/UICC Stage 1B1,Measurement,Cancer Modifier,standard
+1634021,AJCC/UICC 8th clinical Stage 1A2,Measurement,Cancer Modifier,standard
+1634027,AJCC/UICC 6th Stage 1A,Measurement,Cancer Modifier,standard
+1634028,AJCC/UICC Stage 2B,Measurement,Cancer Modifier,standard
+1634056,AJCC/UICC 8th clinical Stage 2B,Measurement,Cancer Modifier,standard
+1634066,AJCC/UICC 8th clinical Stage 1A,Measurement,Cancer Modifier,standard
+1634095,AJCC/UICC 6th clinical Stage 1A2,Measurement,Cancer Modifier,standard
+1634099,AJCC/UICC 7th clinical Stage 2A1,Measurement,Cancer Modifier,standard
+1634123,AJCC/UICC Stage 2A,Measurement,Cancer Modifier,standard
+1634141,AJCC/UICC 8th clinical Stage 2A2,Measurement,Cancer Modifier,standard
+1634160,AJCC/UICC 8th clinical Stage 1B,Measurement,Cancer Modifier,standard
+1634171,AJCC/UICC 6th Stage 1A3,Measurement,Cancer Modifier,standard
+1634181,AJCC/UICC 7th Stage 2,Measurement,Cancer Modifier,standard
+1634205,AJCC/UICC 6th clinical Stage 1A,Measurement,Cancer Modifier,standard
+1634209,AJCC/UICC Stage 2,Measurement,Cancer Modifier,standard
+1634226,AJCC/UICC 8th Stage 2A,Measurement,Cancer Modifier,standard
+1634294,AJCC/UICC 7th clinical Stage 1B1,Measurement,Cancer Modifier,standard
+1634316,AJCC/UICC 8th Stage 2,Measurement,Cancer Modifier,standard
+1634332,AJCC/UICC clinical Stage 2B,Measurement,Cancer Modifier,standard
+1634338,AJCC/UICC Stage 2A2,Measurement,Cancer Modifier,standard
+1634349,AJCC/UICC 6th clinical Stage 1s,Measurement,Cancer Modifier,standard
+1634351,AJCC/UICC 8th Stage 1B2,Measurement,Cancer Modifier,standard
+1634353,AJCC/UICC Stage 1A3,Measurement,Cancer Modifier,standard
+1634368,AJCC/UICC 7th Stage 2B,Measurement,Cancer Modifier,standard
+1634419,AJCC/UICC 7th Stage 1E,Measurement,Cancer Modifier,standard
+1634433,AJCC/UICC 6th clinical Stage 1B2,Measurement,Cancer Modifier,standard
+1634457,AJCC/UICC 7th clinical Stage 1,Measurement,Cancer Modifier,standard
+1634465,AJCC/UICC 7th clinical Stage 2C,Measurement,Cancer Modifier,standard
+1634468,AJCC/UICC 7th clinical Stage 1A1,Measurement,Cancer Modifier,standard
+1634470,AJCC/UICC 7th Stage 1C,Measurement,Cancer Modifier,standard
+1634474,AJCC/UICC 6th Stage 1E,Measurement,Cancer Modifier,standard
+1634479,AJCC/UICC 6th clinical Stage 2A2,Measurement,Cancer Modifier,standard
+1634494,AJCC/UICC Stage 1B,Measurement,Cancer Modifier,standard
+1634512,AJCC/UICC 8th clinical Stage 1B1,Measurement,Cancer Modifier,standard
+1634542,AJCC/UICC 6th Stage 2B,Measurement,Cancer Modifier,standard
+1634553,AJCC/UICC 6th Stage 1A2,Measurement,Cancer Modifier,standard
+1634593,AJCC/UICC 6th clinical Stage 1E,Measurement,Cancer Modifier,standard
+1634604,AJCC/UICC 6th Stage 1B,Measurement,Cancer Modifier,standard
+1634627,AJCC/UICC 7th clinical Stage 1A2,Measurement,Cancer Modifier,standard
+1634671,AJCC/UICC clinical Stage 1A,Measurement,Cancer Modifier,standard
+1634690,AJCC/UICC 7th Stage 1A1,Measurement,Cancer Modifier,standard
+1634698,AJCC/UICC 8th Stage 1B,Measurement,Cancer Modifier,standard
+1634718,AJCC/UICC 6th clinical Stage 2,Measurement,Cancer Modifier,standard
+1634761,AJCC/UICC 8th clinical Stage 1E,Measurement,Cancer Modifier,standard
+1634794,AJCC/UICC clinical Stage 1B2,Measurement,Cancer Modifier,standard
+1634801,AJCC/UICC 6th clinical Stage 2A,Measurement,Cancer Modifier,standard
+1634813,AJCC/UICC clinical Stage 1C,Measurement,Cancer Modifier,standard
+1634814,AJCC/UICC 6th clinical Stage 1A1,Measurement,Cancer Modifier,standard
+1634860,AJCC/UICC 7th clinical Stage 1A,Measurement,Cancer Modifier,standard
+1634861,AJCC/UICC 7th clinical Stage 1B2,Measurement,Cancer Modifier,standard
+1634868,AJCC/UICC Stage 1C,Measurement,Cancer Modifier,standard
+1634888,AJCC/UICC 6th Stage 1,Measurement,Cancer Modifier,standard
+1634895,AJCC/UICC 8th Stage 1,Measurement,Cancer Modifier,standard
+1634900,AJCC/UICC 8th Stage 2C,Measurement,Cancer Modifier,standard
+1634903,AJCC/UICC Stage 2C,Measurement,Cancer Modifier,standard
+1634912,AJCC/UICC 6th Stage 1s,Measurement,Cancer Modifier,standard
+1634914,AJCC/UICC Stage 2E,Measurement,Cancer Modifier,standard
+1634917,AJCC/UICC clinical Stage 2E,Measurement,Cancer Modifier,standard
+1634927,AJCC/UICC clinical Stage 1A1,Measurement,Cancer Modifier,standard
+1634932,AJCC/UICC 8th clinical Stage 2C,Measurement,Cancer Modifier,standard
+1634937,AJCC/UICC 7th Stage 2A,Measurement,Cancer Modifier,standard
+1634958,AJCC/UICC 7th clinical Stage 1B,Measurement,Cancer Modifier,standard
+1634987,AJCC/UICC 6th clinical Stage 2E,Measurement,Cancer Modifier,standard
+1635020,AJCC/UICC Stage 1B2,Measurement,Cancer Modifier,standard
+1635034,AJCC/UICC 7th clinical Stage 2A2,Measurement,Cancer Modifier,standard
+1635056,AJCC/UICC clinical Stage 2C,Measurement,Cancer Modifier,standard
+1635074,AJCC/UICC 6th Stage 2E,Measurement,Cancer Modifier,standard
+1635115,AJCC/UICC clinical Stage 2A1,Measurement,Cancer Modifier,standard
+1635138,AJCC/UICC 7th Stage 1B,Measurement,Cancer Modifier,standard
+1635182,AJCC/UICC 7th clinical Stage 2,Measurement,Cancer Modifier,standard
+1635184,AJCC/UICC clinical Stage 1B1,Measurement,Cancer Modifier,standard
+1635191,AJCC/UICC 6th Stage 1C,Measurement,Cancer Modifier,standard
+1635193,AJCC/UICC 7th Stage 2C,Measurement,Cancer Modifier,standard
+1635199,AJCC/UICC clinical Stage 1,Measurement,Cancer Modifier,standard
+1635215,AJCC/UICC 7th Stage 2A2,Measurement,Cancer Modifier,standard
+1635216,AJCC/UICC clinical Stage 1A3,Measurement,Cancer Modifier,standard
+1635217,AJCC/UICC 8th clinical Stage 2,Measurement,Cancer Modifier,standard
+1635239,AJCC/UICC 6th Stage 2C,Measurement,Cancer Modifier,standard
+1635243,AJCC/UICC 7th clinical Stage 2E,Measurement,Cancer Modifier,standard
+1635248,AJCC/UICC 8th clinical Stage 1C,Measurement,Cancer Modifier,standard
+1635288,AJCC/UICC 8th Stage 2B,Measurement,Cancer Modifier,standard
+1635293,AJCC/UICC clinical Stage 1s,Measurement,Cancer Modifier,standard
+1635347,AJCC/UICC 6th clinical Stage 2A1,Measurement,Cancer Modifier,standard
+1635458,AJCC/UICC 7th Stage 1s,Measurement,Cancer Modifier,standard
+1635474,AJCC/UICC Stage 1s,Measurement,Cancer Modifier,standard
+1635482,AJCC/UICC clinical Stage 1E,Measurement,Cancer Modifier,standard
+1635486,AJCC/UICC clinical Stage 2A,Measurement,Cancer Modifier,standard
+1635494,AJCC/UICC 8th Stage 2A2,Measurement,Cancer Modifier,standard
+1635546,AJCC/UICC 7th Stage 2A1,Measurement,Cancer Modifier,standard
+1635579,AJCC/UICC 6th clinical Stage 1A3,Measurement,Cancer Modifier,standard
+1635601,AJCC/UICC 8th clinical Stage 2E,Measurement,Cancer Modifier,standard
+1635608,AJCC/UICC 6th Stage 1B1,Measurement,Cancer Modifier,standard
+1635611,AJCC/UICC Stage 1A2,Measurement,Cancer Modifier,standard
+1635659,AJCC/UICC 7th clinical Stage 1s,Measurement,Cancer Modifier,standard
+1635721,AJCC/UICC 8th clinical Stage 1B2,Measurement,Cancer Modifier,standard
+1635726,AJCC/UICC 8th Stage 1s,Measurement,Cancer Modifier,standard
+1635730,AJCC/UICC 8th Stage 2E,Measurement,Cancer Modifier,standard
+1635738,AJCC/UICC 8th Stage 1E,Measurement,Cancer Modifier,standard
+1635758,AJCC/UICC 8th clinical Stage 1,Measurement,Cancer Modifier,standard
+1635786,AJCC/UICC 8th clinical Stage 2A,Measurement,Cancer Modifier,standard
+1635790,AJCC/UICC Stage 1A,Measurement,Cancer Modifier,standard
+1635802,AJCC/UICC 8th clinical Stage 1A3,Measurement,Cancer Modifier,standard
+1635811,AJCC/UICC 8th Stage 2A1,Measurement,Cancer Modifier,standard
+1635814,AJCC/UICC 8th Stage 1A1,Measurement,Cancer Modifier,standard
+1635867,AJCC/UICC 7th Stage 1,Measurement,Cancer Modifier,standard
+1635877,AJCC/UICC 6th Stage 2A2,Measurement,Cancer Modifier,standard
+1635896,AJCC/UICC 7th clinical Stage 2B,Measurement,Cancer Modifier,standard

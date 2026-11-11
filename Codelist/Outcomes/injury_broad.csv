@@ -1,151 +1,145 @@
-concept_id
-73349
-192753
-193242
-193907
-196851
-197037
-197136
-197418
-197422
-198897
-199959
-200566
-200772
-201160
-201353
-201718
-201719
-433629
-434509
-435395
-442257
-442553
-442639
-442789
-443092
-443872
-443878
-444095
-444212
-444215
-602835
-606479
-762644
-764098
-765745
-915730
-915733
-915736
-3169102
-3183128
-3190007
-4016554
-4028907
-4032434
-4053591
-4053592
-4053593
-4053831
-4053832
-4053833
-4053834
-4054059
-4054910
-4056446
-4057835
-4083971
-4085408
-4085409
-4085413
-4086530
-4086532
-4087151
-4092632
-4094324
-4094991
-4095093
-4095097
-4095571
-4096137
-4096139
-4096141
-4096777
-4106869
-4106998
-4119306
-4126267
-4126279
-4129397
-4129400
-4132550
-4132551
-4133718
-4134918
-4134924
-4134925
-4134926
-4134928
-4135623
-4135624
-4135936
-4136809
-4137338
-4137339
-4138269
-4147013
-4147300
-4152493
-4154458
-4155504
-4156639
-4177183
-4178629
-4212235
-4216631
-4219086
-4228298
-4236726
-4251475
-4276784
-4292399
-4302618
-4312723
-4320486
-4331966
-4340233
-4340262
-4340361
-4340364
-4340813
-4341631
-4341635
-4342653
-4342662
-4342749
-4342761
-36686423
-36686424
-36686425
-36686426
-36686429
-36686430
-36686431
-37016343
-37016841
-37108572
-37109933
-37117795
-40491505
-42537219
-42537220
-42575801
-42594402
-42595064
-42595101
-42597111
-42597112
-44782948
-44782949
-44802665
-46273185
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+73349,Injury of rectum without open wound into abdominal cavity,Condition,SNOMED,standard
+192753,Injury of small intestine with open wound into abdominal cavity,Condition,SNOMED,standard
+193242,Perforation of intestine,Condition,SNOMED,standard
+193907,Superior mesenteric artery trunk injury,Condition,SNOMED,standard
+196851,Injury of primary branch of superior mesenteric artery,Condition,SNOMED,standard
+197037,Spontaneous rupture of urinary bladder,Condition,SNOMED,standard
+197136,Injury of small intestine without open wound into abdominal cavity,Condition,SNOMED,standard
+197418,Injury of duodenum with open wound into abdominal cavity,Condition,SNOMED,standard
+197422,Injury of superior mesenteric vein AND/OR primary subdivisions,Condition,SNOMED,standard
+198897,Injury of descending left colon with open wound into abdominal cavity,Condition,SNOMED,standard
+199959,Injury of inferior mesenteric artery,Condition,SNOMED,standard
+200566,Injury of multiple sites of colon and/or rectum with open wound into abdominal cavity,Condition,SNOMED,non-standard
+200772,Radiation gastroenteritis,Condition,SNOMED,standard
+201160,Injury of colon with open wound into abdominal cavity,Condition,SNOMED,standard
+201353,Radiation cystitis,Condition,SNOMED,standard
+201718,Injury of transverse colon with open wound into abdominal cavity,Condition,SNOMED,standard
+201719,Injury of urinary bladder and urethra with open wound into abdominal cavity,Condition,SNOMED,standard
+433629,Injury of transverse colon without open wound into abdominal cavity,Condition,SNOMED,standard
+434509,Injury of duodenum without open wound into abdominal cavity,Condition,SNOMED,standard
+435395,Injury of sigmoid colon without open wound into abdominal cavity,Condition,SNOMED,standard
+442257,Colitis caused by radiation,Condition,SNOMED,standard
+442553,Injury of urinary bladder,Condition,SNOMED,standard
+442639,Injury of colon without open wound into abdominal cavity,Condition,SNOMED,standard
+442789,Injury of inferior mesenteric vein,Condition,SNOMED,standard
+443092,Injury of ascending right colon with open wound into abdominal cavity,Condition,SNOMED,standard
+443872,Injury of ascending right colon without open wound into abdominal cavity,Condition,SNOMED,standard
+443878,Injury of superior mesenteric artery,Condition,SNOMED,standard
+444095,Injury of ureter without open wound into abdominal cavity,Condition,SNOMED,standard
+444212,Injury of descending left colon without open wound into abdominal cavity,Condition,SNOMED,standard
+444215,Injury of sigmoid colon with open wound into abdominal cavity,Condition,SNOMED,standard
+602835,Perforation of transverse colon,Condition,SNOMED,standard
+606479,Gangrenous appendicitis,Condition,SNOMED,standard
+762644,Extraperitoneal rupture of bladder,Condition,SNOMED,standard
+764098,Irradiation cystitis without hematuria,Condition,SNOMED,standard
+765745,Intraperitoneal rupture of bladder,Condition,SNOMED,standard
+915730,Patient sustained bladder injury at the time of surgery or discovered subsequently up to 30 days post-surgery,Observation,HCPCS,standard
+915733,Patient sustained bowel injury at the time of surgery or discovered subsequently up to 30 days post-surgery,Observation,HCPCS,standard
+915736,Patient sustained ureter injury at the time of surgery or discovered subsequently up to 30 days post-surgery (Deprecated),Observation,HCPCS,standard
+3169102,Laceration of small bowel with open peritoneal wound,Condition,Nebraska Lexicon,standard
+3183128,Injury to sigmoid mesentery,Condition,Nebraska Lexicon,standard
+3190007,Left ureteral injury,Condition,Nebraska Lexicon,standard
+4016554,Multiple injuries to colon or rectum with open wound into cavity,Condition,SNOMED,standard
+4028907,Perforation of rectum,Condition,SNOMED,standard
+4032434,Acute radiation cystitis,Condition,SNOMED,standard
+4053591,Injury of small intestine,Condition,SNOMED,standard
+4053592,Injury of colon,Condition,SNOMED,standard
+4053593,Injury of descending colon,Condition,SNOMED,standard
+4053831,Injury of transverse colon,Condition,SNOMED,standard
+4053832,Injury of sigmoid colon,Condition,SNOMED,standard
+4053833,Injury of rectum,Condition,SNOMED,standard
+4053834,Injury of large intestine,Condition,SNOMED,standard
+4054059,Injury of intestine,Condition,SNOMED,standard
+4054910,Open injury of urinary bladder,Condition,SNOMED,standard
+4056446,Superior mesenteric vein injury,Condition,SNOMED,standard
+4057835,Chronic anal fissure,Condition,SNOMED,standard
+4083971,Perforation of ileum,Condition,SNOMED,standard
+4085408,Laceration of jejunum,Condition,SNOMED,standard
+4085409,Rupture of jejunum,Condition,SNOMED,standard
+4085413,Delayed perforation of ileum,Condition,SNOMED,standard
+4086530,Injury of ileum,Condition,SNOMED,standard
+4086532,Laceration of ileum,Condition,SNOMED,standard
+4087151,Injury of ureter,Condition,SNOMED,standard
+4092632,Rupture of urinary bladder,Condition,SNOMED,standard
+4094324,Injury to colon/rectum,Condition,SNOMED,standard
+4094991,Delayed perforation of duodenum,Condition,SNOMED,standard
+4095093,Laceration of cecum,Condition,SNOMED,standard
+4095097,Delayed perforation of colon,Condition,SNOMED,standard
+4095571,Laceration of small intestine,Condition,SNOMED,standard
+4096137,Laceration of duodenum,Condition,SNOMED,standard
+4096139,Delayed perforation of cecum,Condition,SNOMED,standard
+4096141,Laceration of colon,Condition,SNOMED,standard
+4096777,Delayed perforation of small intestine,Condition,SNOMED,standard
+4106869,Perforation of jejunum,Condition,SNOMED,standard
+4106998,Rupture of ileum,Condition,SNOMED,standard
+4119306,Perforation of large intestine,Condition,SNOMED,standard
+4126267,Chronic radiation cystitis,Condition,SNOMED,standard
+4126279,Necrosis of urinary bladder,Condition,SNOMED,standard
+4129397,Injury of duodenum,Condition,SNOMED,standard
+4129400,Injury of ascending colon,Condition,SNOMED,standard
+4132550,Injury of right colic artery,Condition,SNOMED,standard
+4132551,Injury of middle colic artery,Condition,SNOMED,standard
+4133718,Injury of inferior pancreaticoduodenal artery,Condition,SNOMED,standard
+4134918,Laceration of rectum,Condition,SNOMED,standard
+4134924,Rupture of ureter,Condition,SNOMED,standard
+4134925,Transection of ureter,Condition,SNOMED,standard
+4134926,Injury to ureteric wall,Condition,SNOMED,standard
+4134928,Perforation of urinary bladder,Condition,SNOMED,standard
+4135623,Injury of cecum,Condition,SNOMED,standard
+4135624,Delayed perforation of rectum,Condition,SNOMED,standard
+4135936,Hemorrhagic necrosis of intestine,Condition,SNOMED,standard
+4136809,Necrotic enteritis of intestine,Condition,SNOMED,standard
+4137338,Accidental perforation of urinary bladder during operation,Condition,SNOMED,standard
+4137339,Injury of neck of urinary bladder,Condition,SNOMED,standard
+4138269,Injury of ileocolic vein,Condition,SNOMED,standard
+4147013,Closed injury of urinary bladder,Condition,SNOMED,standard
+4147300,Injury of ileocolic artery,Condition,SNOMED,standard
+4152493,Cut of ureter,Condition,SNOMED,standard
+4154458,Laceration of urinary bladder,Condition,SNOMED,standard
+4155504,Laceration of ureter,Condition,SNOMED,standard
+4156639,Duodenal perforation,Condition,SNOMED,standard
+4177183,Perforation of colon,Condition,SNOMED,standard
+4178629,Stricture of rectum due to radiation,Condition,SNOMED,standard
+4212235,Injury of intestine without open wound into abdominal cavity,Condition,SNOMED,standard
+4216631,Enteritis necroticans,Condition,SNOMED,standard
+4219086,Injury of intestine with open wound into abdominal cavity,Condition,SNOMED,standard
+4228298,Nontraumatic perforation of large intestine,Condition,SNOMED,standard
+4236726,Nontraumatic perforation of small intestine,Condition,SNOMED,standard
+4251475,Radiation enteritis of intestine,Condition,SNOMED,standard
+4276784,Traumatic perforation of small intestine,Condition,SNOMED,standard
+4292399,Rupture of rectum,Condition,SNOMED,standard
+4302618,Massive necrosis of intestine,Condition,SNOMED,standard
+4312723,Postoperative perforation of urinary bladder,Condition,SNOMED,standard
+4320486,Rupture of urinary bladder with uroperitoneum,Condition,SNOMED,standard
+4331966,Perforating radiation proctitis,Condition,SNOMED,standard
+4340233,Chronic radiation enteropathy of intestine,Condition,SNOMED,standard
+4340262,Acute radiation proctitis,Condition,SNOMED,standard
+4340361,Rupture of intestine,Condition,SNOMED,standard
+4340364,Stricture of intestine following radiotherapy,Condition,SNOMED,standard
+4340813,Perforation of cecum,Condition,SNOMED,standard
+4341631,Perforation of small intestine,Condition,SNOMED,standard
+4341635,Radiation proctitis,Condition,SNOMED,standard
+4342653,Acute radiation enteritis of intestine,Condition,SNOMED,standard
+4342662,Rupture of small intestine,Condition,SNOMED,standard
+4342749,Chronic radiation proctitis,Condition,SNOMED,standard
+4342761,Rupture of colon,Condition,SNOMED,standard
+36686423,Laceration of right ureter,Condition,SNOMED,standard
+36686424,Laceration of left ureter,Condition,SNOMED,standard
+36686425,Injury of right ureter,Condition,SNOMED,standard
+36686426,Injury of left ureter,Condition,SNOMED,standard
+36686429,Laceration of ascending colon,Condition,SNOMED,standard
+36686430,Laceration of descending colon,Condition,SNOMED,standard
+36686431,Laceration of sigmoid colon,Condition,SNOMED,standard
+37016343,Hematuria co-occurrent and due to irradiation cystitis,Condition,SNOMED,non-standard
+37016841,Injury to rectum during surgery,Condition,SNOMED,standard
+37108572,Injury of ureter during surgery,Condition,SNOMED,standard
+37109933,Duodenitis caused by ionizing radiation,Condition,SNOMED,standard
+37117795,Injury of urinary bladder during surgery,Condition,SNOMED,standard
+40491505,Injury of urinary bladder and urethra,Condition,SNOMED,standard
+42537219,Partial traumatic rupture of ureteropelvic junction,Condition,SNOMED,standard
+42537220,Partial rupture of ureteropelvic junction,Condition,SNOMED,standard
+44782948,Injury of multiple sites of colon,Condition,SNOMED,standard
+44782949,Injury of multiple sites of rectum,Condition,SNOMED,standard
+44802665,Rectum injury without mention of open wound into cavity,Condition,SNOMED,standard
+46273185,Perforation of sigmoid colon,Condition,SNOMED,standard

@@ -1,101 +1,101 @@
-concept_id
-1633315
-1633318
-1633322
-1633331
-1633410
-1633415
-1633435
-1633440
-1633455
-1633485
-1633503
-1633504
-1633527
-1633534
-1633557
-1633562
-1633566
-1633573
-1633621
-1633647
-1633676
-1633686
-1633719
-1633720
-1633726
-1633842
-1633871
-1633889
-1633918
-1633923
-1633938
-1633942
-1634038
-1634054
-1634070
-1634145
-1634151
-1634158
-1634212
-1634241
-1634296
-1634372
-1634396
-1634401
-1634421
-1634469
-1634511
-1634516
-1634520
-1634527
-1634640
-1634642
-1634700
-1634703
-1634704
-1634780
-1634796
-1634823
-1634866
-1634901
-1634915
-1634919
-1634920
-1634948
-1634950
-1634981
-1634985
-1634990
-1635023
-1635087
-1635089
-1635092
-1635093
-1635102
-1635136
-1635156
-1635201
-1635202
-1635244
-1635359
-1635361
-1635444
-1635495
-1635501
-1635523
-1635538
-1635560
-1635563
-1635597
-1635600
-1635622
-1635732
-1635744
-1635765
-1635766
-1635778
-1635819
-1635836
-1635846
-1635847
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+1633315,AJCC/UICC 6th clinical N0 Category,Measurement,Cancer Modifier,standard
+1633318,AJCC/UICC 7th post therapy pathological N0(i+) Category,Measurement,Cancer Modifier,standard
+1633322,AJCC/UICC pathological N0b Category,Measurement,Cancer Modifier,standard
+1633331,AJCC/UICC 8th post therapy pathological N0(mol+) Category,Measurement,Cancer Modifier,standard
+1633410,AJCC/UICC 6th N0b Category,Measurement,Cancer Modifier,standard
+1633415,AJCC/UICC 8th N0(i+) Category,Measurement,Cancer Modifier,standard
+1633435,AJCC/UICC 7th post therapy clinical N0(mol+) Category,Measurement,Cancer Modifier,standard
+1633440,AJCC/UICC N0 Category,Measurement,Cancer Modifier,standard
+1633455,AJCC/UICC 7th pathological N0(mol+) Category,Measurement,Cancer Modifier,standard
+1633485,AJCC/UICC pathological N0(mol+) Category,Measurement,Cancer Modifier,standard
+1633503,AJCC/UICC pathological N0(i+) Category,Measurement,Cancer Modifier,standard
+1633504,AJCC/UICC 8th pathological N0a Category,Measurement,Cancer Modifier,standard
+1633527,AJCC/UICC post therapy pathological N0 Category,Measurement,Cancer Modifier,standard
+1633534,AJCC/UICC 8th clinical N0b Category,Measurement,Cancer Modifier,standard
+1633557,AJCC/UICC 7th clinical N0a Category,Measurement,Cancer Modifier,standard
+1633562,AJCC/UICC 7th clinical N0(mol+) Category,Measurement,Cancer Modifier,standard
+1633566,AJCC/UICC 6th clinical N0(i+) Category,Measurement,Cancer Modifier,standard
+1633573,AJCC/UICC 8th post therapy clinical N0(mol+) Category,Measurement,Cancer Modifier,standard
+1633621,AJCC/UICC N0a Category,Measurement,Cancer Modifier,standard
+1633647,AJCC/UICC 6th pathological N0(mol+) Category,Measurement,Cancer Modifier,standard
+1633676,AJCC/UICC 8th pathological N0(mol+) Category,Measurement,Cancer Modifier,standard
+1633686,AJCC/UICC post therapy clinical N0 Category,Measurement,Cancer Modifier,standard
+1633719,AJCC/UICC 8th clinical N0a Category,Measurement,Cancer Modifier,standard
+1633720,AJCC/UICC 7th N0 Category,Measurement,Cancer Modifier,standard
+1633726,AJCC/UICC 7th pathological N0 Category,Measurement,Cancer Modifier,standard
+1633842,AJCC/UICC 7th N0a Category,Measurement,Cancer Modifier,standard
+1633871,AJCC/UICC 6th N0(i+) Category,Measurement,Cancer Modifier,standard
+1633889,AJCC/UICC 7th N0(mol+) Category,Measurement,Cancer Modifier,standard
+1633918,AJCC/UICC clinical N0(i+) Category,Measurement,Cancer Modifier,standard
+1633923,AJCC/UICC pathological N0a Category,Measurement,Cancer Modifier,standard
+1633938,AJCC/UICC N0(mol+) Category,Measurement,Cancer Modifier,standard
+1633942,AJCC/UICC 7th clinical N0 Category,Measurement,Cancer Modifier,standard
+1634038,AJCC/UICC 8th N0b Category,Measurement,Cancer Modifier,standard
+1634054,AJCC/UICC 6th post therapy pathological N0(i+) Category,Measurement,Cancer Modifier,standard
+1634070,AJCC/UICC 8th clinical N0 Category,Measurement,Cancer Modifier,standard
+1634145,AJCC/UICC clinical N0 Category,Measurement,Cancer Modifier,standard
+1634151,AJCC/UICC 7th clinical N0(i+) Category,Measurement,Cancer Modifier,standard
+1634158,AJCC/UICC post therapy pathological N0a Category,Measurement,Cancer Modifier,standard
+1634212,AJCC/UICC 6th pathological N0 Category,Measurement,Cancer Modifier,standard
+1634241,AJCC/UICC 8th post therapy pathological N0(i+) Category,Measurement,Cancer Modifier,standard
+1634296,AJCC/UICC 6th post therapy clinical N0 Category,Measurement,Cancer Modifier,standard
+1634372,AJCC/UICC post therapy clinical N0(i+) Category,Measurement,Cancer Modifier,standard
+1634396,AJCC/UICC 6th post therapy clinical N0a Category,Measurement,Cancer Modifier,standard
+1634401,AJCC/UICC 6th N0(mol+) Category,Measurement,Cancer Modifier,standard
+1634421,AJCC/UICC 6th clinical N0(mol+) Category,Measurement,Cancer Modifier,standard
+1634469,AJCC/UICC 7th post therapy pathological N0b Category,Measurement,Cancer Modifier,standard
+1634511,AJCC/UICC 7th post therapy pathological N0 Category,Measurement,Cancer Modifier,standard
+1634516,AJCC/UICC post therapy clinical N0a Category,Measurement,Cancer Modifier,standard
+1634520,AJCC/UICC 8th post therapy clinical N0a Category,Measurement,Cancer Modifier,standard
+1634527,AJCC/UICC post therapy clinical N0(mol+) Category,Measurement,Cancer Modifier,standard
+1634640,AJCC/UICC 7th post therapy clinical N0a Category,Measurement,Cancer Modifier,standard
+1634642,AJCC/UICC 8th post therapy clinical N0 Category,Measurement,Cancer Modifier,standard
+1634700,AJCC/UICC post therapy clinical N0b Category,Measurement,Cancer Modifier,standard
+1634703,AJCC/UICC 6th N0a Category,Measurement,Cancer Modifier,standard
+1634704,AJCC/UICC 7th pathological N0(i+) Category,Measurement,Cancer Modifier,standard
+1634780,AJCC/UICC 8th N0 Category,Measurement,Cancer Modifier,standard
+1634796,AJCC/UICC 6th pathological N0b Category,Measurement,Cancer Modifier,standard
+1634823,AJCC/UICC 6th pathological N0a Category,Measurement,Cancer Modifier,standard
+1634866,AJCC/UICC post therapy pathological N0(mol+) Category,Measurement,Cancer Modifier,standard
+1634901,AJCC/UICC 6th post therapy clinical N0b Category,Measurement,Cancer Modifier,standard
+1634915,AJCC/UICC clinical N0(mol+) Category,Measurement,Cancer Modifier,standard
+1634919,AJCC/UICC 8th N0(mol+) Category,Measurement,Cancer Modifier,standard
+1634920,AJCC/UICC 7th N0(i+) Category,Measurement,Cancer Modifier,standard
+1634948,AJCC/UICC 6th post therapy pathological N0 Category,Measurement,Cancer Modifier,standard
+1634950,AJCC/UICC 8th pathological N0(i+) Category,Measurement,Cancer Modifier,standard
+1634981,AJCC/UICC 8th post therapy pathological N0(i+) Category,Measurement,Cancer Modifier,standard
+1634985,AJCC/UICC post therapy pathological N0b Category,Measurement,Cancer Modifier,standard
+1634990,AJCC/UICC 8th pathological N0b Category,Measurement,Cancer Modifier,standard
+1635023,AJCC/UICC 6th N0 Category,Measurement,Cancer Modifier,standard
+1635087,AJCC/UICC 6th post therapy pathological N0b Category,Measurement,Cancer Modifier,standard
+1635089,AJCC/UICC 7th N0b Category,Measurement,Cancer Modifier,standard
+1635092,AJCC/UICC 8th post therapy pathological N0a Category,Measurement,Cancer Modifier,standard
+1635093,AJCC/UICC 7th pathological N0a Category,Measurement,Cancer Modifier,standard
+1635102,AJCC/UICC 6th clinical N0b Category,Measurement,Cancer Modifier,standard
+1635136,AJCC/UICC 6th post therapy clinical N0(mol+) Category,Measurement,Cancer Modifier,standard
+1635156,AJCC/UICC 8th clinical N0(i+) Category,Measurement,Cancer Modifier,standard
+1635201,AJCC/UICC 6th pathological N0(i+) Category,Measurement,Cancer Modifier,standard
+1635202,AJCC/UICC 6th post therapy pathological N0a Category,Measurement,Cancer Modifier,standard
+1635244,AJCC/UICC N0b Category,Measurement,Cancer Modifier,standard
+1635359,AJCC/UICC 7th post therapy clinical N0b Category,Measurement,Cancer Modifier,standard
+1635361,AJCC/UICC 7th pathological N0b Category,Measurement,Cancer Modifier,standard
+1635444,AJCC/UICC post therapy pathological N0(i+) Category,Measurement,Cancer Modifier,standard
+1635495,AJCC/UICC clinical N0b Category,Measurement,Cancer Modifier,standard
+1635501,AJCC/UICC 8th clinical N0(mol+) Category,Measurement,Cancer Modifier,standard
+1635523,AJCC/UICC 8th N0a Category,Measurement,Cancer Modifier,standard
+1635538,AJCC/UICC 7th post therapy pathological N0a Category,Measurement,Cancer Modifier,standard
+1635560,AJCC/UICC 8th pathological N0 Category,Measurement,Cancer Modifier,standard
+1635563,AJCC/UICC 8th post therapy pathological N0 Category,Measurement,Cancer Modifier,standard
+1635597,AJCC/UICC pathological N0 Category,Measurement,Cancer Modifier,standard
+1635600,AJCC/UICC N0(i+) Category,Measurement,Cancer Modifier,standard
+1635622,AJCC/UICC 6th post therapy clinical N0(i+) Category,Measurement,Cancer Modifier,standard
+1635732,AJCC/UICC clinical N0a Category,Measurement,Cancer Modifier,standard
+1635744,AJCC/UICC 7th clinical N0b Category,Measurement,Cancer Modifier,standard
+1635765,AJCC/UICC 8th post therapy clinical N0b Category,Measurement,Cancer Modifier,standard
+1635766,AJCC/UICC 6th post therapy pathological N0(mol+) Category,Measurement,Cancer Modifier,standard
+1635778,AJCC/UICC 7th post therapy clinical N0 Category,Measurement,Cancer Modifier,standard
+1635819,AJCC/UICC 8th post therapy pathological N0b Category,Measurement,Cancer Modifier,standard
+1635836,AJCC/UICC 7th post therapy clinical N0(i+) Category,Measurement,Cancer Modifier,standard
+1635846,AJCC/UICC 6th clinical N0a Category,Measurement,Cancer Modifier,standard
+1635847,AJCC/UICC 7th post therapy pathological N0(mol+) Category,Measurement,Cancer Modifier,standard

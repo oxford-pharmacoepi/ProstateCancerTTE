@@ -1,15 +1,15 @@
-concept_id
-194996
-195589
-197672
-606955
-762439
-762440
-764308
-4032447
-37117194
-40481801
-45757763
-45757764
-45757765
-45772128
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+194996,Postoperative urethral stricture,Condition,SNOMED,standard
+195589,Traumatic urethral stricture,Condition,SNOMED,standard
+197672,Urinary incontinence,Condition,SNOMED,standard
+606955,Postoperative stress incontinence,Condition,SNOMED,standard
+762439,Stricture of male urethra following procedure,Condition,SNOMED,standard
+762440,Stricture of male urethral meatus following trauma,Condition,SNOMED,standard
+764308,Stricture of male urethra following trauma,Condition,SNOMED,standard
+4032447,Post-catheterization urethral stricture,Condition,SNOMED,standard
+37117194,Urethral stricture due to and following procedure,Condition,SNOMED,standard
+40481801,Stress incontinence after prostatectomy,Condition,SNOMED,standard
+45757763,Postprocedural anterior urethral stricture,Condition,SNOMED,standard
+45757764,"Postprocedural meatal urethral stricture, male",Condition,SNOMED,standard
+45757765,Postprocedural membranous urethral stricture,Condition,SNOMED,standard
+45772128,Postprocedural bulbous urethral stricture,Condition,SNOMED,standard

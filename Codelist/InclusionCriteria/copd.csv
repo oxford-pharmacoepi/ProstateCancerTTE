@@ -1,64 +1,64 @@
-concept_id
-255573
-255841
-257004
-257905
-258780
-259043
-261325
-261889
-261895
-440748
-605066
-605067
-3654571
-3654836
-3654837
-4046986
-4050732
-4050733
-4050734
-4050961
-4056405
-4110048
-4110056
-4110635
-4112826
-4112828
-4112836
-4115044
-4136683
-4137525
-4145496
-4148124
-4166508
-4166517
-4169883
-4177944
-4189168
-4190882
-4193588
-4196712
-4209097
-4211648
-4215256
-4215257
-4246105
-4269178
-4281815
-4286497
-4295034
-4315386
-4321845
-37161191
-42538810
-43530693
-44791725
-44804958
-44804959
-44807895
-45766868
-45769389
-46269701
-46270376
-46274062
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+255573,Chronic obstructive pulmonary disease,Condition,SNOMED,standard
+255841,Chronic bronchitis,Condition,SNOMED,standard
+257004,Acute exacerbation of chronic obstructive pulmonary disease,Condition,SNOMED,standard
+257905,Mucopurulent chronic bronchitis,Condition,SNOMED,standard
+258780,Emphysematous bronchitis,Condition,SNOMED,standard
+259043,Emphysematous bleb of lung,Condition,SNOMED,standard
+261325,Pulmonary emphysema,Condition,SNOMED,standard
+261889,Simple chronic bronchitis,Condition,SNOMED,standard
+261895,Compensatory emphysema,Condition,SNOMED,standard
+440748,Interstitial emphysema of lung,Condition,SNOMED,standard
+605066,Emphysema of left lung,Condition,SNOMED,standard
+605067,Emphysema of right lung,Condition,SNOMED,standard
+3654571,Chronic emphysema caused by vapor,Condition,SNOMED,standard
+3654836,Chronic obliterative bronchiolitis caused by chemical fumes,Condition,SNOMED,standard
+3654837,Chronic obliterative bronchiolitis caused by vapor,Condition,SNOMED,standard
+4046986,End stage chronic obstructive pulmonary disease,Condition,SNOMED,standard
+4050732,Pulmonary emphysema in alpha-1 PI deficiency,Condition,SNOMED,standard
+4050733,Toxic emphysema,Condition,SNOMED,standard
+4050734,Scar emphysema,Condition,SNOMED,standard
+4050961,Giant bullous emphysema,Condition,SNOMED,standard
+4056405,Obstructive emphysema,Condition,SNOMED,standard
+4110048,Chronic bullous emphysema,Condition,SNOMED,standard
+4110056,Chronic obstructive pulmonary disease with acute lower respiratory infection,Condition,SNOMED,standard
+4110635,Segmental bullous emphysema,Condition,SNOMED,standard
+4112826,Mixed simple and mucopurulent chronic bronchitis,Condition,SNOMED,standard
+4112828,Zonal bullous emphysema,Condition,SNOMED,standard
+4112836,Chronic emphysema caused by chemical fumes,Condition,SNOMED,standard
+4115044,Acute infective exacerbation of chronic obstructive pulmonary disease,Condition,SNOMED,standard
+4136683,Paraseptal emphysema,Condition,SNOMED,standard
+4137525,Acute exacerbation of chronic bronchitis,Condition,SNOMED,standard
+4145496,Bullous emphysema with collapse,Condition,SNOMED,standard
+4148124,Atrophic (senile) emphysema,Condition,SNOMED,standard
+4166508,Congenital emphysema,Condition,SNOMED,standard
+4166517,Chronic obliterative bronchiolitis,Condition,SNOMED,standard
+4169883,Emphysema,Observation,SNOMED,standard
+4177944,Panacinar emphysema,Condition,SNOMED,standard
+4189168,Emergency chronic obstructive pulmonary disease admission since last appointment,Observation,SNOMED,standard
+4190882,Chronic obstructive pulmonary disease monitoring,Observation,SNOMED,standard
+4193588,Moderate chronic obstructive pulmonary disease,Condition,SNOMED,standard
+4196712,Mild chronic obstructive pulmonary disease,Condition,SNOMED,standard
+4209097,Severe chronic obstructive pulmonary disease,Condition,SNOMED,standard
+4211648,Chronic obstructive pulmonary disease accident and emergency attendance since last visit,Observation,SNOMED,standard
+4215256,Chronic obstructive pulmonary disease follow-up,Observation,SNOMED,standard
+4215257,Chronic obstructive pulmonary disease annual review,Observation,SNOMED,standard
+4246105,Hemolytic anemia with emphysema AND cutis laxa,Condition,SNOMED,standard
+4269178,Chronic obstructive pulmonary disease monitoring by nurse,Observation,SNOMED,standard
+4281815,Congenital lobar emphysema,Condition,SNOMED,standard
+4286497,Centriacinar emphysema,Condition,SNOMED,standard
+4295034,Chronic obstructive pulmonary disease monitoring by doctor,Observation,SNOMED,standard
+4315386,Ruptured emphysematous bleb of lung,Condition,SNOMED,standard
+4321845,Bronchial atresia with segmental pulmonary emphysema,Condition,SNOMED,standard
+37161191,Bronchiolitis obliterans syndrome following allogeneic stem cell transplant,Condition,SNOMED,standard
+42538810,Bronchiolitis obliterans syndrome due to and after lung transplantation,Condition,SNOMED,standard
+43530693,Acute exacerbation of chronic obstructive pulmonary disease with asthma,Condition,SNOMED,standard
+44791725,Very severe chronic obstructive pulmonary disease,Condition,SNOMED,standard
+44804958,Chronic obstructive pulmonary disease 3 monthly review,Observation,SNOMED,standard
+44804959,Chronic obstructive pulmonary disease 6 monthly review,Observation,SNOMED,standard
+44807895,Acute non-infective exacerbation of chronic obstructive pulmonary disease,Condition,SNOMED,standard
+45766868,Step down change in chronic obstructive pulmonary disease management plan,Observation,SNOMED,standard
+45769389,Pulmonary emphysema co-occurrent with fibrosis of lung,Condition,SNOMED,standard
+46269701,Chronic obstructive pulmonary disease with acute bronchitis,Condition,SNOMED,standard
+46270376,Acute exacerbation of chronic obstructive bronchitis,Condition,SNOMED,standard
+46274062,Asthma-chronic obstructive pulmonary disease overlap syndrome,Condition,SNOMED,standard

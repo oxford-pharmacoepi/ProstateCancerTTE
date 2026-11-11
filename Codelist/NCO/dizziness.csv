@@ -1,5 +1,5 @@
-concept_id
-433316
-439383
-4111253
-4223938
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+433316,Dizziness and giddiness,Condition,SNOMED,standard
+439383,Vertigo,Condition,SNOMED,standard
+4111253,Benign paroxysmal positional vertigo or nystagmus,Condition,SNOMED,non-standard
+4223938,Dizziness,Condition,SNOMED,standard

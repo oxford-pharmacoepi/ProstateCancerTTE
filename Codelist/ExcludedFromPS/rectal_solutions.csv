@@ -1,262 +1,262 @@
-concept_id
-586577
-587337
-587515
-587742
-588081
-589348
-589433
-589496
-589853
-590021
-590244
-2908346
-2908347
-2908348
-2908349
-2908350
-2908351
-35419023
-35419024
-35419025
-35419026
-35419027
-35419033
-35419034
-35419035
-35419036
-35419037
-35419529
-35419530
-35419531
-35419532
-35419533
-35419534
-35419535
-35419536
-35419537
-35419538
-35419539
-35419548
-35419549
-35419550
-35419551
-35419552
-35419553
-35419554
-35419555
-35419556
-35419557
-35419558
-36055374
-36055375
-36055376
-36055377
-36055378
-36055379
-36055381
-36055382
-36055383
-36055384
-36055385
-36055386
-36055387
-36055389
-36055390
-36055391
-36055392
-36055393
-36055394
-36055395
-36055396
-36055397
-36055398
-36055399
-36279100
-36279176
-36780848
-36780849
-36780850
-36780851
-36780852
-36780853
-36780854
-36780855
-36810047
-36810048
-36810050
-36810064
-36810072
-36810081
-36810084
-36810094
-36810103
-36810108
-36810109
-36810114
-36810126
-36810128
-36810131
-36810132
-36810134
-36810136
-36810139
-36810143
-36810156
-36810723
-36811201
-36811903
-36812068
-36812087
-36813099
-40739023
-40739024
-40739025
-40739026
-40739027
-40739028
-40739029
-40739030
-40739083
-40739084
-40739125
-42711300
-42712618
-42712619
-42715702
-42715703
-42716629
-42717078
-42718459
-42719741
-42721143
-42722439
-42723311
-42724631
-42725089
-42726441
-42727330
-42727761
-42728654
-42729954
-42731239
-43027208
-43027209
-43027211
-43027212
-43027213
-43027214
-43027215
-43027216
-43027217
-43027218
-43044630
-43044631
-43044632
-43044633
-43044634
-43044697
-43044698
-43044699
-43044700
-43044701
-43044702
-43044703
-43044704
-43044705
-43044706
-43044707
-43134402
-43143742
-43143757
-43143758
-43143759
-43145316
-43154899
-43156497
-43165885
-43167439
-43167440
-43176910
-43176911
-43178490
-43178491
-43187861
-43187862
-43189408
-43198878
-43198904
-43200439
-43209685
-43220708
-43220729
-43220730
-43514906
-43515567
-43515568
-43516109
-43516309
-43516512
-43516938
-43516939
-43517345
-43518312
-43518335
-43518356
-43518362
-43518377
-43518380
-43518404
-43518423
-43518429
-43518447
-43518457
-43590045
-43591433
-43609348
-43620802
-43621691
-43626022
-43645513
-43663686
-43663687
-43676076
-43681556
-43693809
-43693810
-43693811
-43717268
-43747628
-43751965
-43753295
-43753296
-43764669
-43764670
-43765578
-43783747
-43783748
-43783749
-43789181
-43807255
-43807256
-43807257
-43807258
-43807259
-43807260
-43819723
-43837830
-43837831
-43837832
-43843471
-43854904
-43861661
-44033779
-44058144
-44098428
-44108168
-44122864
-44135644
-44135646
-44135647
-44135649
-44135650
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+586577,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+587337,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution,Drug,RxNorm Extension,standard
+587515,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+587742,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Micolette] Box of 50,Drug,RxNorm Extension,standard
+588081,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Micolette] Box of 12,Drug,RxNorm Extension,standard
+589348,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+589433,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Micolette] Box of 4,Drug,RxNorm Extension,standard
+589496,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Micolette],Drug,RxNorm Extension,standard
+589853,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+590021,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+590244,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+2908346,5 ML sodium citrate 90 MG/ML / sodium lauryl sulfoacetate 9 MG/ML / sorbitol 625 MG/ML Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+2908347,5 ML sodium citrate 90 MG/ML / sodium lauryl sulfoacetate 9 MG/ML / sorbitol 625 MG/ML Rectal Solution [Micolette] Box of 50,Drug,RxNorm Extension,standard
+2908348,5 ML sodium citrate 90 MG/ML / sodium lauryl sulfoacetate 9 MG/ML / sorbitol 625 MG/ML Rectal Solution [Micolette] Box of 12,Drug,RxNorm Extension,standard
+2908349,5 ML sodium citrate 90 MG/ML / sodium lauryl sulfoacetate 9 MG/ML / sorbitol 625 MG/ML Rectal Solution [Micolette] Box of 4,Drug,RxNorm Extension,standard
+2908350,5 ML sodium citrate 90 MG/ML / sodium lauryl sulfoacetate 9 MG/ML / sorbitol 625 MG/ML Rectal Solution [Micolette],Drug,RxNorm Extension,standard
+2908351,5 ML sodium citrate 90 MG/ML / sodium lauryl sulfoacetate 9 MG/ML / sorbitol 625 MG/ML Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+35419023,3850 MG sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+35419024,3850 MG sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+35419025,3850 MG sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+35419026,3850 MG sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+35419027,3850 MG sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+35419033,3890 MG sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+35419034,3890 MG sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+35419035,3890 MG sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+35419036,3890 MG sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+35419037,3890 MG sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+35419529,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 50 by Johnson & Johnson,Drug,RxNorm Extension,standard
+35419530,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+35419531,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+35419532,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+35419533,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+35419534,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+35419535,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+35419536,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+35419537,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 12 by Johnson & Johnson,Drug,RxNorm Extension,standard
+35419538,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+35419539,6400 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+35419548,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+35419549,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+35419550,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 50 by Johnson & Johnson,Drug,RxNorm Extension,standard
+35419551,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+35419552,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+35419553,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 12 by Johnson & Johnson,Drug,RxNorm Extension,standard
+35419554,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+35419555,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+35419556,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+35419557,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+35419558,6500 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+36055374,25 ML sodium citrate 90 MG/ML Rectal Solution [Micolette] Box of 12 by Pinewood,Drug,RxNorm Extension,standard
+36055375,25 ML sodium citrate 90 MG/ML Rectal Solution [Micolette] Box of 12,Drug,RxNorm Extension,standard
+36055376,25 ML sodium citrate 90 MG/ML Rectal Solution [Micolette] by Pinewood,Drug,RxNorm Extension,standard
+36055377,25 ML sodium citrate 90 MG/ML Rectal Solution [Micolette],Drug,RxNorm Extension,standard
+36055378,25 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 100 by Supra Enterprises,Drug,RxNorm Extension,standard
+36055379,25 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 100,Drug,RxNorm Extension,standard
+36055381,25 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 12 by Supra Enterprises,Drug,RxNorm Extension,standard
+36055382,25 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 12,Drug,RxNorm Extension,standard
+36055383,25 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 4 by Supra Enterprises,Drug,RxNorm Extension,standard
+36055384,25 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 4,Drug,RxNorm Extension,standard
+36055385,25 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] by Supra Enterprises,Drug,RxNorm Extension,standard
+36055386,25 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit],Drug,RxNorm Extension,standard
+36055387,25 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] Box of 12 by RPH,Drug,RxNorm Extension,standard
+36055389,25 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] Box of 12 by Waymade,Drug,RxNorm Extension,standard
+36055390,25 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] Box of 12,Drug,RxNorm Extension,standard
+36055391,25 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] by RPH,Drug,RxNorm Extension,standard
+36055392,25 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] by Waymade,Drug,RxNorm Extension,standard
+36055393,25 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema],Drug,RxNorm Extension,standard
+36055394,25 ML sodium citrate 90 MG/ML Rectal Solution Box of 100,Drug,RxNorm Extension,standard
+36055395,25 ML sodium citrate 90 MG/ML Rectal Solution Box of 12 by Pinewood,Drug,RxNorm Extension,standard
+36055396,25 ML sodium citrate 90 MG/ML Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+36055397,25 ML sodium citrate 90 MG/ML Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+36055398,25 ML sodium citrate 90 MG/ML Rectal Solution by Pinewood,Drug,RxNorm Extension,standard
+36055399,25 ML sodium citrate 90 MG/ML Rectal Solution,Drug,RxNorm Extension,standard
+36279100,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Microlax] Box of 12 by Johnson & Johnson,Drug,RxNorm Extension,standard
+36279176,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+36780848,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax] Box of 12 by Johnson & Johnson,Drug,RxNorm Extension,standard
+36780849,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+36780850,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+36780851,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+36780852,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+36780853,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+36780854,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+36780855,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution,Drug,RxNorm Extension,standard
+36810047,5 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] by Supra Enterprises,Drug,RxNorm Extension,standard
+36810048,5 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 100,Drug,RxNorm Extension,standard
+36810050,5 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 12 by Supra Enterprises,Drug,RxNorm Extension,standard
+36810064,5 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 4,Drug,RxNorm Extension,standard
+36810072,5 ML sodium citrate 90 MG/ML Rectal Solution Box of 12 by Pinewood,Drug,RxNorm Extension,standard
+36810081,5 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] Box of 12 by RPH,Drug,RxNorm Extension,standard
+36810084,5 ML sodium citrate 90 MG/ML Rectal Solution by Pinewood,Drug,RxNorm Extension,standard
+36810094,5 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 12,Drug,RxNorm Extension,standard
+36810103,5 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] Box of 12,Drug,RxNorm Extension,standard
+36810108,5 ML sodium citrate 90 MG/ML Rectal Solution Box of 100,Drug,RxNorm Extension,standard
+36810109,5 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit],Drug,RxNorm Extension,standard
+36810114,5 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 4 by Supra Enterprises,Drug,RxNorm Extension,standard
+36810126,5 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema],Drug,RxNorm Extension,standard
+36810128,5 ML sodium citrate 90 MG/ML Rectal Solution [Micolette] Box of 12 by Pinewood,Drug,RxNorm Extension,standard
+36810131,5 ML sodium citrate 90 MG/ML Rectal Solution [Micolette] by Pinewood,Drug,RxNorm Extension,standard
+36810132,5 ML sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 100 by Supra Enterprises,Drug,RxNorm Extension,standard
+36810134,5 ML sodium citrate 90 MG/ML Rectal Solution [Micolette],Drug,RxNorm Extension,standard
+36810136,5 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] by Waymade,Drug,RxNorm Extension,standard
+36810139,5 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] by RPH,Drug,RxNorm Extension,standard
+36810143,5 ML sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] Box of 12 by Waymade,Drug,RxNorm Extension,standard
+36810156,5 ML sodium citrate 90 MG/ML Rectal Solution [Micolette] Box of 12,Drug,RxNorm Extension,standard
+36810723,sodium citrate 90 MG/ML Rectal Solution Box of 100,Drug,RxNorm Extension,standard
+36811201,sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 4,Drug,RxNorm Extension,standard
+36811903,sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 100,Drug,RxNorm Extension,standard
+36812068,sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] Box of 12,Drug,RxNorm Extension,standard
+36812087,sodium citrate 90 MG/ML Rectal Solution [Relaxit] Box of 12,Drug,RxNorm Extension,standard
+36813099,sodium citrate 90 MG/ML Rectal Solution [Micolette] Box of 12,Drug,RxNorm Extension,standard
+40739023,sodium citrate 90 MG/ML Rectal Solution [Micolette] by Pinewood,Drug,RxNorm Extension,standard
+40739024,sodium citrate 90 MG/ML Rectal Solution [Micolette],Drug,RxNorm Extension,standard
+40739025,sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] by RPH,Drug,RxNorm Extension,standard
+40739026,sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema] by Waymade,Drug,RxNorm Extension,standard
+40739027,sodium citrate 90 MG/ML Rectal Solution [Micralax Micro-enema],Drug,RxNorm Extension,standard
+40739028,sodium citrate 90 MG/ML Rectal Solution by Pinewood,Drug,RxNorm Extension,standard
+40739029,sodium citrate 90 MG/ML Rectal Solution [Relaxit],Drug,RxNorm Extension,standard
+40739030,sodium citrate 90 MG/ML Rectal Solution [Relaxit] by Supra Enterprises,Drug,RxNorm Extension,standard
+40739083,sodium citrate Rectal Solution [Micralax Micro-enema],Drug,RxNorm Extension,standard
+40739084,sodium citrate Rectal Solution [Relaxit],Drug,RxNorm Extension,standard
+40739125,sodium citrate Rectal Solution [Micolette],Drug,RxNorm Extension,standard
+42711300,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.693 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+42712618,sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+42712619,sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+42715702,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.693 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+42715703,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.693 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+42716629,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+42717078,sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+42718459,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+42719741,sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+42721143,sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+42722439,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+42723311,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+42724631,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.693 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+42725089,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+42726441,sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+42727330,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+42727761,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+42728654,sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+42729954,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+42731239,sodium citrate 0.0699 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43027208,Laurilsulfate / sodium citrate / Sorbitol Rectal Solution,Drug,RxNorm Extension,standard
+43027209,Laurilsulfate / sodium citrate / Sorbitol Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43027211,Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+43027212,Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43027213,Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+43027214,Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+43027215,Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43027216,Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+43027217,Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+43027218,Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+43044630,3870 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+43044631,3870 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43044632,3870 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43044633,3870 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+43044634,3870 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43044697,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+43044698,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43044699,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+43044700,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+43044701,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43044702,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+43044703,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43044704,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+43044705,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 12 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43044706,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+43044707,6450 MG Laurilsulfate 0.01 MG/MG / sodium citrate 0.0698 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 50 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43134402,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+43143742,3870 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.693 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43143757,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+43143758,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+43143759,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+43145316,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+43154899,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 50 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43156497,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43165885,3870 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.693 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+43167439,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+43167440,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+43176910,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43176911,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+43178490,sodium citrate / SODIUM LAURYL SULFOACETATE / Sorbitol Rectal Solution,Drug,RxNorm Extension,standard
+43178491,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+43187861,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43187862,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+43189408,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution,Drug,RxNorm Extension,standard
+43198878,3870 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.693 MG/MG Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43198904,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43200439,sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.692 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43209685,3870 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.693 MG/MG Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43220708,3870 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.693 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+43220729,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+43220730,6450 MG sodium citrate 0.0698 MG/MG / SODIUM LAURYL SULFOACETATE 0.01 MG/MG / Sorbitol 0.691 MG/MG Rectal Solution [Microlax] Box of 12 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43514906,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+43515567,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+43515568,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43516109,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Micolette] Box of 12,Drug,RxNorm Extension,standard
+43516309,sodium citrate / SODIUM LAURYL SULFOACETATE / Sorbitol Rectal Solution [Micolette],Drug,RxNorm Extension,standard
+43516512,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Micolette],Drug,RxNorm Extension,standard
+43516938,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Micolette] Box of 50,Drug,RxNorm Extension,standard
+43516939,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+43517345,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Micolette] Box of 4,Drug,RxNorm Extension,standard
+43518312,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Micolette],Drug,RxNorm Extension,standard
+43518335,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Micolette] Box of 12,Drug,RxNorm Extension,standard
+43518356,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43518362,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43518377,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+43518380,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Micolette] Box of 50,Drug,RxNorm Extension,standard
+43518404,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+43518423,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution,Drug,RxNorm Extension,standard
+43518429,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+43518447,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+43518457,5 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 626 MG/ML Rectal Solution [Micolette] Box of 4,Drug,RxNorm Extension,standard
+43590045,1 ML dodecyl sulfate 12.9 MG/ML / sodium citrate 90 MG/ML / Sorbitol 893 MG/ML Rectal Solution,Drug,RxNorm Extension,standard
+43591433,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 12 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43609348,5 ML sodium citrate 90 MG/ML Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43620802,dodecyl sulfate 12.9 MG/ML / sodium citrate 90 MG/ML / Sorbitol 893 MG/ML Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43621691,sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+43626022,1 ML dodecyl sulfate 12.9 MG/ML / sodium citrate 90 MG/ML / Sorbitol 893 MG/ML Rectal Solution [Microlax] by Johnson & Johnson,Drug,RxNorm Extension,standard
+43645513,5 ML sodium citrate 90 MG/ML Rectal Solution Box of 10,Drug,RxNorm Extension,standard
+43663686,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43663687,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] by Johnson & Johnson,Drug,RxNorm Extension,standard
+43676076,sodium citrate 90 MG/ML Rectal Solution Box of 9,Drug,RxNorm Extension,standard
+43681556,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 10 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43693809,sodium citrate Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43693810,sodium citrate 90 MG/ML Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+43693811,sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 9,Drug,RxNorm Extension,standard
+43717268,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 4 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43747628,sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+43751965,1 ML dodecyl sulfate 12.9 MG/ML / sodium citrate 90 MG/ML / Sorbitol 893 MG/ML Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43753295,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+43753296,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 9,Drug,RxNorm Extension,standard
+43764669,dodecyl sulfate / sodium citrate / Sorbitol Rectal Solution,Drug,RxNorm Extension,standard
+43764670,dodecyl sulfate / sodium citrate / Sorbitol Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43765578,sodium citrate 90 MG/ML Rectal Solution Box of 10,Drug,RxNorm Extension,standard
+43783747,sodium citrate 90 MG/ML Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+43783748,sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 4,Drug,RxNorm Extension,standard
+43783749,sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 10,Drug,RxNorm Extension,standard
+43789181,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 9 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43807255,5 ML sodium citrate 90 MG/ML Rectal Solution Box of 9,Drug,RxNorm Extension,standard
+43807256,5 ML sodium citrate 90 MG/ML Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+43807257,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 10,Drug,RxNorm Extension,standard
+43807258,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 12,Drug,RxNorm Extension,standard
+43807259,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+43807260,5 ML sodium citrate 90 MG/ML Rectal Solution [Microlax] Box of 50 by Johnson & Johnson,Drug,RxNorm Extension,standard
+43819723,sodium citrate 90 MG/ML Rectal Solution Box of 4,Drug,RxNorm Extension,standard
+43837830,sodium citrate Rectal Solution,Drug,RxNorm Extension,standard
+43837831,sodium citrate 90 MG/ML Rectal Solution,Drug,RxNorm Extension,standard
+43837832,sodium citrate 90 MG/ML Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+43843471,5 ML sodium citrate 90 MG/ML Rectal Solution,Drug,RxNorm Extension,standard
+43854904,dodecyl sulfate 12.9 MG/ML / sodium citrate 90 MG/ML / Sorbitol 893 MG/ML Rectal Solution,Drug,RxNorm Extension,standard
+43861661,5 ML sodium citrate 90 MG/ML Rectal Solution Box of 12,Drug,RxNorm Extension,standard
+44033779,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+44058144,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution,Drug,RxNorm Extension,standard
+44098428,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+44108168,sodium citrate / SODIUM LAURYL SULFOACETATE / Sorbitol Rectal Solution [Microlax],Drug,RxNorm Extension,standard
+44122864,sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+44135644,1000 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution,Drug,RxNorm Extension,standard
+44135646,1000 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax] Box of 50,Drug,RxNorm Extension,standard
+44135647,1000 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax] Box of 50 by Kabi,Drug,RxNorm Extension,standard
+44135649,1000 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution Box of 50,Drug,RxNorm Extension,standard
+44135650,1000 ML sodium citrate 90 MG/ML / SODIUM LAURYL SULFOACETATE 9 MG/ML / Sorbitol 625 MG/ML Rectal Solution [Microlax],Drug,RxNorm Extension,standard

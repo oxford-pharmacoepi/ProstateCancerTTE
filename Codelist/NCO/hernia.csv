@@ -1,6 +1,6 @@
-concept_id
-201061
-4224004
-4288544
-4340511
-4341084
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+201061,Diaphragmatic hernia,Condition,SNOMED,standard
+4224004,Hiatal hernia,Condition,SNOMED,standard
+4288544,Inguinal hernia,Condition,SNOMED,standard
+4340511,Right inguinal hernia,Condition,SNOMED,standard
+4341084,Left inguinal hernia,Condition,SNOMED,standard

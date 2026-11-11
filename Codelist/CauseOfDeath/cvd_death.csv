@@ -1,82 +1,82 @@
-concept_id
-134057
-195556
-195559
-196433
-198177
-258449
-312327
-312337
-312343
-314054
-314378
-314383
-314658
-314659
-315286
-315564
-316139
-316428
-316999
-317576
-317585
-318443
-319034
-319835
-319844
-320739
-320744
-321052
-321318
-321319
-321320
-321588
-321887
-373503
-381316
-381591
-434376
-434663
-438168
-439694
-439695
-439696
-439846
-441875
-443454
-443622
-443962
-4029497
-4049659
-4068155
-4103295
-4108356
-4108805
-4110185
-4110189
-4110192
-4110961
-4111720
-4124693
-4148906
-4154290
-4163710
-4189293
-4189343
-4190773
-4203625
-4232337
-4252872
-4261842
-4270024
-4317150
-4331309
-37164777
-42535424
-42535425
-42535426
-42539269
-43530623
-43530674
-43530727
-44784217
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+134057,Disorder of cardiovascular system,Condition,SNOMED,standard
+195556,Hypertensive heart AND renal disease,Condition,SNOMED,standard
+195559,Ruptured abdominal aortic aneurysm,Condition,SNOMED,standard
+196433,Aneurysm of iliac artery,Condition,SNOMED,standard
+198177,Abdominal aortic aneurysm,Condition,SNOMED,standard
+258449,Hemopericardium,Condition,SNOMED,standard
+312327,Acute myocardial infarction,Condition,SNOMED,standard
+312337,Arterial embolus and thrombosis,Condition,SNOMED,standard
+312343,Ruptured aortic aneurysm,Condition,SNOMED,standard
+314054,Aortic valve disorder,Condition,SNOMED,standard
+314378,Hypertensive heart disease with congestive heart failure,Condition,SNOMED,standard
+314383,Myocarditis,Condition,SNOMED,standard
+314658,Cardiomegaly,Condition,SNOMED,standard
+314659,Arteritis,Condition,SNOMED,standard
+315286,Chronic ischemic heart disease,Condition,SNOMED,standard
+315564,Aortic valve regurgitation,Condition,SNOMED,standard
+316139,Heart failure,Condition,SNOMED,standard
+316428,Hypertrophic obstructive cardiomyopathy,Condition,SNOMED,standard
+316999,Conduction disorder of the heart,Condition,SNOMED,standard
+317576,Coronary arteriosclerosis,Condition,SNOMED,standard
+317585,Aortic aneurysm,Condition,SNOMED,standard
+318443,Arteriosclerotic vascular disease,Condition,SNOMED,standard
+319034,Hypertensive heart disease without congestive heart failure,Condition,SNOMED,standard
+319835,Congestive heart failure,Condition,SNOMED,standard
+319844,Acute ischemic heart disease,Condition,SNOMED,standard
+320739,Dissection of aorta,Condition,SNOMED,standard
+320744,Complete atrioventricular block,Condition,SNOMED,standard
+321052,Peripheral vascular disease,Condition,SNOMED,standard
+321318,Angina pectoris,Condition,SNOMED,standard
+321319,Cardiomyopathy,Condition,SNOMED,standard
+321320,Myocardial degeneration,Condition,SNOMED,standard
+321588,Heart disease,Condition,SNOMED,standard
+321887,Disorder of artery,Condition,SNOMED,standard
+373503,Transient cerebral ischemia,Condition,SNOMED,standard
+381316,Cerebrovascular accident,Condition,SNOMED,standard
+381591,Cerebrovascular disease,Condition,SNOMED,standard
+434376,Acute myocardial infarction of anterior wall,Condition,SNOMED,standard
+434663,Acute endocarditis,Condition,SNOMED,standard
+438168,Aneurysm of heart,Condition,SNOMED,standard
+439694,Hypertensive heart and renal disease with both (congestive) heart failure and renal failure,Condition,SNOMED,standard
+439695,Hypertensive heart and renal disease with renal failure,Condition,SNOMED,standard
+439696,Hypertensive heart and renal disease with (congestive) heart failure,Condition,SNOMED,standard
+439846,Left heart failure,Condition,SNOMED,standard
+441875,Thoracic aortic aneurysm which has ruptured,Condition,SNOMED,standard
+443454,Cerebral infarction,Condition,SNOMED,standard
+443622,Aneurysm of thoracic aorta,Condition,SNOMED,standard
+443962,Mitral valve regurgitation,Condition,SNOMED,standard
+4029497,Aneurysm of cerebral artery,Condition,SNOMED,standard
+4049659,Subcortical hemorrhage,Condition,SNOMED,standard
+4068155,Atrial arrhythmia,Condition,SNOMED,standard
+4103295,Ventricular tachycardia,Condition,SNOMED,standard
+4108356,Cerebral infarction due to embolism of cerebral arteries,Condition,SNOMED,standard
+4108805,Acute and subacute endocarditis,Condition,SNOMED,non-standard
+4110185,"Intracerebral hemorrhage, intraventricular",Condition,SNOMED,standard
+4110189,Cerebral infarct due to thrombosis of precerebral arteries,Condition,SNOMED,standard
+4110192,Cerebral infarction due to thrombosis of cerebral arteries,Condition,SNOMED,standard
+4110961,Generalized ischemic myocardial dysfunction,Condition,SNOMED,standard
+4111720,Sequelae of subarachnoid hemorrhage,Condition,SNOMED,standard
+4124693,Hypertrophic cardiomyopathy,Condition,SNOMED,standard
+4148906,Spontaneous subarachnoid hemorrhage,Condition,SNOMED,standard
+4154290,Paroxysmal atrial fibrillation,Condition,SNOMED,standard
+4163710,Dilated cardiomyopathy,Condition,SNOMED,standard
+4189293,Vascular disorder of lower extremity,Condition,SNOMED,standard
+4189343,Aortic valve stenosis,Condition,SNOMED,standard
+4190773,Restrictive cardiomyopathy,Condition,SNOMED,standard
+4203625,Chronic constrictive pericarditis,Condition,SNOMED,standard
+4232337,Valvular endocarditis,Condition,SNOMED,standard
+4252872,Mitral valve prolapse,Condition,SNOMED,standard
+4261842,Sick sinus syndrome,Condition,SNOMED,standard
+4270024,Acute non-ST segment elevation myocardial infarction,Condition,SNOMED,standard
+4317150,Sudden cardiac death,Condition,SNOMED,standard
+4331309,Myocarditis due to infectious agent,Condition,SNOMED,standard
+37164777,Alcoholic cardiomyopathy,Condition,SNOMED,standard
+42535424,Spontaneous hemorrhage of cortical intracerebral hemisphere,Condition,SNOMED,standard
+42535425,Spontaneous hemorrhage of cerebral hemisphere,Condition,SNOMED,standard
+42535426,Acute nontraumatic subdural hemorrhage,Condition,SNOMED,standard
+42539269,Spontaneous hemorrhage of brain stem,Condition,SNOMED,standard
+43530623,Sequela of cerebrovascular accident,Condition,SNOMED,standard
+43530674,Spontaneous cerebellar hemorrhage,Condition,SNOMED,standard
+43530727,Spontaneous cerebral hemorrhage,Condition,SNOMED,standard
+44784217,Cardiac arrhythmia,Condition,SNOMED,standard

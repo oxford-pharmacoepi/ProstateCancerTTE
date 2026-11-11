@@ -1,2 +1,2 @@
-concept_id
-42710045
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+42710045,Cramp in lower limb,Condition,SNOMED,standard

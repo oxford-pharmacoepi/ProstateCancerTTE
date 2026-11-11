@@ -1,71 +1,71 @@
-concept_id
-603130
-603131
-603132
-603133
-603134
-607945
-607995
-607996
-1242725
-2108724
-2108725
-2211856
-2211863
-2211864
-2211865
-2211866
-2211867
-2211868
-2211869
-2211870
-2211872
-2211879
-2211882
-2211883
-2211884
-2211885
-2211892
-2211893
-2211894
-4014410
-4021989
-4024005
-4029715
-4036390
-4056678
-4058600
-4060645
-4060646
-4137529
-4141448
-4191713
-4215577
-4216178
-4242373
-4250900
-4263596
-4271194
-4293738
-4298960
-37156151
-37156211
-37158181
-37159111
-37159112
-40317890
-40483737
-40486247
-40487080
-40487927
-40489482
-40489956
-44517142
-44790293
-44790400
-44790526
-44793224
-44793225
-44793226
-44809885
-44812239
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+603130,Intensity modulated external beam neutron radiation therapy,Procedure,SNOMED,standard
+603131,Mixed beam external beam radiation therapy,Procedure,SNOMED,standard
+603132,Two dimensional external beam radiation therapy,Procedure,SNOMED,standard
+603133,External beam radiation therapy using particle spot scanning technique,Procedure,SNOMED,standard
+603134,External beam radiation therapy using particle passive scattering technique,Procedure,SNOMED,standard
+607945,Pulsed dose rate brachytherapy,Procedure,SNOMED,standard
+607995,External beam radiation therapy using carbon ions,Procedure,SNOMED,standard
+607996,External beam radiation therapy using photons,Procedure,SNOMED,standard
+1242725,Radiotherapy,Procedure,SNOMED,standard
+2108724,External beam radiotherapy as primary therapy to prostate with or without nodal irradiation (PRCA),Observation,CPT4,standard
+2108725,External beam radiotherapy with or without nodal irradiation as adjuvant or salvage therapy for prostate cancer patient (PRCA),Observation,CPT4,standard
+2211856,"Stereotactic body radiation therapy, treatment delivery, per fraction to 1 or more lesions, including image guidance, entire course not to exceed 5 fractions",Procedure,CPT4,standard
+2211863,"Radiation treatment delivery, >=1 MeV; intermediate",Procedure,CPT4,standard
+2211864,"Radiation treatment delivery, 2 separate treatment areas, 3 or more ports on a single treatment area, use of multiple blocks; 6-10 MeV (Deprecated)",Procedure,CPT4,standard
+2211865,"Radiation treatment delivery, 2 separate treatment areas, 3 or more ports on a single treatment area, use of multiple blocks; 11-19 MeV (Deprecated)",Procedure,CPT4,standard
+2211866,"Radiation treatment delivery, 2 separate treatment areas, 3 or more ports on a single treatment area, use of multiple blocks; 20 MeV or greater (Deprecated)",Procedure,CPT4,standard
+2211867,"Radiation treatment delivery, >=1 MeV; complex",Procedure,CPT4,standard
+2211868,"Radiation treatment delivery, 3 or more separate treatment areas, custom blocking, tangential ports, wedges, rotational beam, compensators, electron beam; 6-10 MeV (Deprecated)",Procedure,CPT4,standard
+2211869,"Radiation treatment delivery, 3 or more separate treatment areas, custom blocking, tangential ports, wedges, rotational beam, compensators, electron beam; 11-19 MeV (Deprecated)",Procedure,CPT4,standard
+2211870,"Radiation treatment delivery, 3 or more separate treatment areas, custom blocking, tangential ports, wedges, rotational beam, compensators, electron beam; 20 MeV or greater (Deprecated)",Procedure,CPT4,standard
+2211872,Intensity modulated radiation treatment delivery per session (Deprecated),Procedure,CPT4,standard
+2211879,"Stereotactic body radiation therapy, treatment management, per treatment course, to 1 or more lesions, including image guidance, entire course not to exceed 5 fractions",Procedure,CPT4,standard
+2211882,"Proton treatment delivery; simple, without compensation",Procedure,CPT4,standard
+2211883,"Proton treatment delivery; simple, with compensation",Procedure,CPT4,standard
+2211884,Proton treatment delivery; intermediate,Procedure,CPT4,standard
+2211885,Proton treatment delivery; complex,Procedure,CPT4,standard
+2211892,Intracavitary radiation source application; simple,Procedure,CPT4,standard
+2211893,Intracavitary radiation source application; intermediate,Procedure,CPT4,standard
+2211894,Intracavitary radiation source application; complex,Procedure,CPT4,standard
+4014410,External beam radiation therapy particulate radiation,Procedure,SNOMED,standard
+4021989,Stereotactic radiosurgery,Procedure,SNOMED,standard
+4024005,External beam radiation therapy using protons,Procedure,SNOMED,standard
+4029715,Radiation oncology AND/OR radiotherapy,Procedure,SNOMED,non-standard
+4036390,Brachytherapy implant,Device,SNOMED,standard
+4056678,Radiotherapy started,Observation,SNOMED,standard
+4058600,Proton therapy,Procedure,SNOMED,non-standard
+4060645,High-energy beam therapy,Procedure,SNOMED,standard
+4060646,Linear accelerator photon therapy,Procedure,SNOMED,non-standard
+4137529,Implantation of radioactive seed into prostate,Procedure,SNOMED,standard
+4141448,External beam radiation therapy procedure,Procedure,SNOMED,standard
+4191713,Iodine seed radiotherapy,Procedure,SNOMED,standard
+4215577,Stereotactic radiotherapy,Procedure,SNOMED,standard
+4216178,High dose brachytherapy,Procedure,SNOMED,standard
+4242373,External beam radiation therapy by linear accelerator,Procedure,SNOMED,standard
+4250900,External beam radiation therapy of 1 to 25 MEV (mega electronvolt) protons,Procedure,SNOMED,standard
+4263596,Megavoltage radiation therapy,Procedure,SNOMED,standard
+4271194,External beam radiation therapy with radioactive cesium,Procedure,SNOMED,standard
+4293738,Intracavitary brachytherapy,Procedure,SNOMED,standard
+4298960,External beam radiation therapy with iodine-125,Procedure,SNOMED,standard
+37156151,Three dimensional external beam radiation therapy,Procedure,SNOMED,standard
+37156211,Ultra high dose rate radiotherapy,Procedure,SNOMED,standard
+37158181,Fractionated dose stereotactic radiation therapy,Procedure,SNOMED,standard
+37159111,Real time neoplasm tracking external beam radiotherapy,Procedure,SNOMED,standard
+37159112,External beam radiotherapy using internal target volume approach,Procedure,SNOMED,standard
+40317890,Brachytherapy,Procedure,SNOMED,standard
+40483737,Radiotherapy procedure with explicit context,Observation,SNOMED,standard
+40486247,Megavoltage radiation therapy using photons and electrons,Procedure,SNOMED,standard
+40487080,Fractionated dose stereotactic radiosurgery using linear accelerator system,Procedure,SNOMED,standard
+40487927,Stereotactic destruction of lesion using gamma radiation,Procedure,SNOMED,standard
+40489482,Megavoltage radiation therapy using photons,Procedure,SNOMED,non-standard
+40489956,Stereotactic radiation therapy using megavoltage radiation,Procedure,SNOMED,standard
+44517142,Other specified external beam radiotherapy,Procedure,OPCS4,standard
+44790293,Radiotherapy delivery,Procedure,SNOMED,non-standard
+44790400,Delivery of a fraction of interstitial radiotherapy,Procedure,SNOMED,standard
+44790526,Delivery of a fraction of intracavitary radiotherapy,Procedure,SNOMED,standard
+44793224,Megavoltage treatment for adaptive radiotherapy,Procedure,SNOMED,standard
+44793225,Megavoltage treatment for simple radiotherapy,Procedure,SNOMED,standard
+44793226,Megavoltage treatment for complex radiotherapy,Procedure,SNOMED,standard
+44809885,Hypofractionated stereotactic radiotherapy using megavoltage radiation,Procedure,SNOMED,standard
+44812239,Ultrasound guided brachytherapy of prostate,Procedure,SNOMED,standard

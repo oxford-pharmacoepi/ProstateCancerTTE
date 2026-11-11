@@ -1,15 +1,15 @@
-concept_id
-440417
-762808
-4119607
-4120091
-4121618
-4253796
-35615055
-36713113
-37016922
-40480461
-40761384
-43530605
-45768439
-45768888
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+440417,Pulmonary embolism,Condition,SNOMED,standard
+762808,Infarction of lung due to embolus,Condition,SNOMED,standard
+4119607,Subacute massive pulmonary embolism,Condition,SNOMED,standard
+4120091,Acute massive pulmonary embolism,Condition,SNOMED,standard
+4121618,Pulmonary thromboembolism,Condition,SNOMED,standard
+4253796,Pulmonary microemboli,Condition,SNOMED,standard
+35615055,Saddle embolus of pulmonary artery with acute cor pulmonale,Condition,SNOMED,standard
+36713113,Saddle embolus of pulmonary artery,Condition,SNOMED,standard
+37016922,Pulmonary embolism on long-term anticoagulation therapy,Condition,SNOMED,standard
+40480461,Infarction of lung due to iatrogenic pulmonary embolism,Condition,SNOMED,standard
+40761384,Pulmonary embolism requiring hospitalization,Observation,LOINC,standard
+43530605,Pulmonary embolism with pulmonary infarction,Condition,SNOMED,standard
+45768439,Acute pulmonary embolism,Condition,SNOMED,standard
+45768888,Acute pulmonary thromboembolism,Condition,SNOMED,standard
