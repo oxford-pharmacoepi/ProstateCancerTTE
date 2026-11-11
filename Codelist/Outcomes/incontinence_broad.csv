@@ -1,78 +1,77 @@
-concept_id
-193326
-193871
-194996
-195079
-195589
-195590
-197102
-197378
-197672
-197919
-443424
-443524
-444035
-507594
-606405
-606939
-606955
-762439
-762440
-764308
-764313
-1340492
-3007507
-3010978
-3025805
-3035465
-3043537
-3047302
-3051662
-3197265
-4030763
-4032438
-4032440
-4032444
-4032447
-4032530
-4056050
-4118481
-4126278
-4127703
-4127713
-4128391
-4141775
-4153667
-4236912
-4298377
-4302457
-4314023
-37117194
-37208161
-37309621
-38001435
-40480232
-40481801
-40490423
-40761266
-40761267
-42597021
-42690208
-42872846
-44792557
-44792733
-44808460
-45757352
-45757757
-45757758
-45757759
-45757761
-45757762
-45757763
-45757764
-45757765
-45757766
-45757767
-45757768
-45772128
-46273244
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+193326,Urge incontinence of urine,Condition,SNOMED,standard
+193871,Genuine stress incontinence,Condition,SNOMED,standard
+194996,Postoperative urethral stricture,Condition,SNOMED,standard
+195079,Functional urinary incontinence,Condition,SNOMED,standard
+195589,Traumatic urethral stricture,Condition,SNOMED,standard
+195590,Urethral stricture,Condition,SNOMED,standard
+197102,Unaware of passing urine,Observation,SNOMED,standard
+197378,Overflow incontinence of urine,Condition,SNOMED,standard
+197672,Urinary incontinence,Condition,SNOMED,standard
+197919,Urethral stricture due to infection,Condition,SNOMED,standard
+443424,Neurogenic incontinence,Condition,SNOMED,standard
+443524,Mixed urinary incontinence,Condition,SNOMED,standard
+444035,Incontinence,Condition,SNOMED,standard
+507594,Incontinence TOM (Therapy Outcome Measure) activity score,Measurement,SNOMED,standard
+606405,Extraurethral urinary incontinence,Condition,SNOMED,standard
+606939,Primary stress incontinence,Condition,SNOMED,standard
+606955,Postoperative stress incontinence,Condition,SNOMED,standard
+762439,Stricture of male urethra following procedure,Condition,SNOMED,standard
+762440,Stricture of male urethral meatus following trauma,Condition,SNOMED,standard
+764308,Stricture of male urethra following trauma,Condition,SNOMED,standard
+764313,Stricture of male urethral meatus following circumcision,Condition,SNOMED,standard
+1340492,Exacerbation of urinary incontinence,Condition,OMOP Extension,standard
+3007507,Functional urinary incontinence [CCC],Observation,LOINC,standard
+3010978,Stress urinary incontinence [CCC],Observation,LOINC,standard
+3025805,Reflex urinary incontinence [CCC],Observation,LOINC,standard
+3035465,Urge urinary incontinence [CCC],Observation,LOINC,standard
+3043537,Resident assessment protocol 6--Urinary incontinence - triggered [Minimum Data Set],Observation,LOINC,standard
+3047302,Urinary incontinence and indwelling catherter trigger [Minimum Data Set],Observation,LOINC,standard
+3051662,Urinary incontinence or urinary catheter present during assessment period [CMS Assessment],Observation,LOINC,standard
+3197265,Urinary incontinence without sensory awareness,Condition,Nebraska Lexicon,standard
+4030763,At increased risk for urge incontinence,Observation,SNOMED,standard
+4032438,Urethral stenosis,Condition,SNOMED,standard
+4032440,Giggle incontinence of urine,Condition,SNOMED,standard
+4032444,Psychogenic urinary incontinence,Condition,SNOMED,standard
+4032447,Post-catheterization urethral stricture,Condition,SNOMED,standard
+4032530,Total urinary incontinence,Condition,SNOMED,standard
+4056050,Stenosis of urinary meatus,Condition,SNOMED,standard
+4118481,Incontinent,Meas Value,SNOMED,standard
+4126278,Postural urinary incontinence,Condition,SNOMED,standard
+4127703,Post-micturition incontinence,Condition,SNOMED,standard
+4127713,Post-inflammatory urethral stricture,Condition,SNOMED,standard
+4128391,Cough - urge incontinence of urine,Condition,SNOMED,standard
+4141775,Incontinence control,Observation,SNOMED,standard
+4153667,Urinary incontinence due to urethral sphincter incompetence,Condition,SNOMED,standard
+4236912,Reflex incontinence of urine,Condition,SNOMED,standard
+4298377,Urinary incontinence care: enuresis,Observation,SNOMED,standard
+4302457,Double incontinence,Condition,SNOMED,standard
+4314023,Incontinence due to detrusor instability,Condition,SNOMED,standard
+37117194,Urethral stricture due to and following procedure,Condition,SNOMED,standard
+37208161,Daily urinary incontinence,Condition,SNOMED,standard
+37309621,Male urethral stricture,Condition,SNOMED,standard
+38001435,Urethral stricture,Observation,DRG,standard
+40480232,Male urinary stress incontinence,Condition,SNOMED,standard
+40481801,Stress incontinence after prostatectomy,Condition,SNOMED,standard
+40490423,Incontinence without sensory awareness,Condition,SNOMED,standard
+40761266,Urinary incontinence and indwelling catheter - care area triggered [MDSv3],Observation,LOINC,standard
+40761267,Urinary incontinence and indwelling catheter - addressed in care plan [MDSv3],Observation,LOINC,standard
+42690208,Does manage incontinence products,Observation,SNOMED,standard
+42872846,Intermittent urinary incontinence,Condition,SNOMED,standard
+44792557,Changing incontinence pad,Observation,SNOMED,standard
+44792733,Putting incontinence pad on,Observation,SNOMED,standard
+44808460,Sneezing incontinence of urine,Condition,SNOMED,standard
+45757352,Urinary incontinence due to benign prostatic hypertrophy,Observation,SNOMED,standard
+45757757,Postinfective anterior urethral stricture,Condition,SNOMED,standard
+45757758,Postinfective bulbous urethral stricture,Condition,SNOMED,standard
+45757759,Postinfective membranous urethral stricture,Condition,SNOMED,standard
+45757761,Postinfective urethral stricture of male,Condition,SNOMED,standard
+45757762,Postinfective urethral meatal stricture of male,Condition,SNOMED,standard
+45757763,Postprocedural anterior urethral stricture,Condition,SNOMED,standard
+45757764,"Postprocedural meatal urethral stricture, male",Condition,SNOMED,standard
+45757765,Postprocedural membranous urethral stricture,Condition,SNOMED,standard
+45757766,Traumatic anterior urethral stricture,Condition,SNOMED,standard
+45757767,Traumatic bulbous urethral stricture,Condition,SNOMED,standard
+45757768,Traumatic membranous urethral stricture,Condition,SNOMED,standard
+45772128,Postprocedural bulbous urethral stricture,Condition,SNOMED,standard
+46273244,Care of incontinence appliance,Observation,SNOMED,standard

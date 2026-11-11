@@ -1,8 +1,8 @@
-concept_id
-135287
-136917
-137351
-4066849
-4112752
-4221679
-4316083
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+135287,Non-neoplastic nevus,Condition,SNOMED,standard
+136917,Primary malignant neoplasm of skin of face,Condition,SNOMED,standard
+137351,Epidermoid cyst of skin,Condition,SNOMED,standard
+4066849,Skin tag,Condition,SNOMED,standard
+4112752,Basal cell carcinoma of skin,Condition,SNOMED,standard
+4221679,Melanocytic nevus of skin,Condition,SNOMED,standard
+4316083,Skin lesion,Condition,SNOMED,standard

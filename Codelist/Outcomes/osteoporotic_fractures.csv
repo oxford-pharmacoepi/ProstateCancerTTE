@@ -1,773 +1,773 @@
-concept_id
-73036
-73341
-74138
-74768
-75091
-75375
-75385
-77387
-77403
-78274
-78579
-79165
-79172
-79938
-80552
-80854
-81426
-135939
-136243
-136834
-137111
-137695
-138582
-138876
-195948
-198885
-312462
-313608
-316535
-321694
-432458
-432461
-432463
-433329
-433337
-433856
-433885
-433886
-434183
-434493
-434494
-434500
-434773
-435089
-435093
-435374
-435380
-435933
-435940
-435950
-435956
-436206
-436247
-436251
-436541
-436551
-436826
-436837
-437116
-437123
-437389
-437394
-437400
-437402
-437689
-437703
-437993
-437995
-438269
-438270
-438580
-438881
-439166
-439940
-439941
-440228
-440230
-440511
-440538
-440544
-440556
-440853
-441421
-441422
-441699
-441973
-441974
-441976
-442560
-442568
-442598
-442619
-443428
-443459
-443552
-759877
-760212
-760216
-760217
-760226
-760261
-760262
-760263
-760264
-760265
-760266
-760267
-760268
-760269
-760270
-760271
-760311
-760312
-760313
-760314
-760315
-760316
-760317
-760318
-760319
-760320
-760321
-760322
-760323
-760324
-760325
-760326
-760327
-760328
-760329
-760330
-760331
-760332
-760333
-760334
-760335
-760336
-760337
-760338
-760339
-760340
-760341
-760342
-760343
-760344
-760405
-760406
-760407
-760408
-760409
-760410
-760411
-760412
-760413
-760414
-760415
-760416
-760417
-760418
-760419
-760420
-760421
-760422
-760425
-760440
-760441
-760442
-760443
-760444
-760445
-760446
-760447
-760448
-760449
-760450
-760451
-760490
-760491
-760492
-760493
-760494
-760495
-760496
-760497
-760498
-760499
-760500
-760501
-760502
-760503
-760504
-760505
-760506
-760507
-760508
-760509
-760510
-760515
-760516
-760517
-760518
-760519
-760522
-760523
-760583
-760585
-760586
-760587
-760588
-760589
-760590
-760591
-760592
-760642
-760643
-760651
-760652
-760654
-760655
-760658
-760659
-760662
-760663
-760664
-760665
-760667
-760668
-760669
-760691
-760692
-760694
-760696
-760995
-761015
-761086
-761905
-761933
-761936
-761943
-761956
-761981
-762696
-762697
-762698
-763792
-763793
-763806
-763807
-763808
-763809
-763864
-764378
-764591
-764679
-764899
-765009
-765013
-765017
-765018
-765031
-765036
-765121
-765192
-765324
-765326
-765328
-765333
-765334
-765341
-765342
-765343
-765346
-765347
-765350
-765351
-765893
-1245002
-1245006
-4001458
-4006471
-4008208
-4008209
-4008210
-4008216
-4008217
-4008218
-4008220
-4008221
-4008354
-4008355
-4008360
-4008372
-4008373
-4008374
-4008375
-4008510
-4009285
-4009286
-4009287
-4009296
-4009298
-4009299
-4009302
-4009435
-4009436
-4009439
-4009449
-4009606
-4009607
-4009608
-4009610
-4009902
-4009911
-4010057
-4010060
-4010065
-4010070
-4010071
-4010239
-4010363
-4010371
-4010373
-4010378
-4010379
-4010380
-4010527
-4011653
-4011654
-4011655
-4011657
-4012142
-4012143
-4012145
-4012285
-4012430
-4012431
-4012433
-4013033
-4013035
-4013036
-4013155
-4013158
-4013159
-4013165
-4013166
-4013167
-4013168
-4013169
-4013173
-4013174
-4013305
-4013306
-4013453
-4013454
-4013458
-4013461
-4013462
-4013465
-4013469
-4013476
-4013596
-4013597
-4013598
-4013599
-4013604
-4013606
-4013612
-4013616
-4013747
-4013748
-4013759
-4013920
-4014050
-4014051
-4014057
-4014060
-4014064
-4014065
-4014066
-4014075
-4014076
-4014203
-4014207
-4015055
-4015058
-4015067
-4015068
-4015069
-4015350
-4015494
-4015495
-4015496
-4015501
-4015502
-4015503
-4015969
-4015970
-4015971
-4015979
-4017653
-4017654
-4017655
-4017656
-4017657
-4017661
-4017669
-4017796
-4018213
-4018214
-4018218
-4018221
-4018222
-4018225
-4018226
-4018351
-4018944
-4027460
-4028484
-4028680
-4032935
-4039014
-4044387
-4047787
-4047788
-4048695
-4048846
-4049285
-4050747
-4053828
-4059163
-4063560
-4066995
-4068133
-4068577
-4069524
-4069525
-4071876
-4077752
-4083374
-4083375
-4083488
-4083489
-4083818
-4083819
-4083820
-4083821
-4083822
-4083823
-4083824
-4084432
-4085246
-4085247
-4085248
-4085249
-4085250
-4085251
-4085376
-4085377
-4085543
-4085544
-4085545
-4085546
-4085550
-4085890
-4085891
-4085892
-4085894
-4085895
-4085896
-4085897
-4085898
-4086021
-4095418
-4097991
-4101989
-4103168
-4103202
-4105123
-4105124
-4105126
-4106179
-4106180
-4106181
-4106182
-4106183
-4106184
-4106186
-4117701
-4118017
-4118792
-4129393
-4129394
-4131595
-4133012
-4133610
-4134186
-4134187
-4134303
-4134304
-4134305
-4134321
-4134322
-4134323
-4134325
-4134326
-4135096
-4135097
-4135098
-4135099
-4135637
-4135638
-4135639
-4135641
-4135642
-4135737
-4135742
-4135743
-4135747
-4135748
-4136566
-4136567
-4136568
-4136569
-4136570
-4136571
-4136688
-4136714
-4136715
-4136716
-4136717
-4136718
-4136719
-4136720
-4136839
-4136840
-4137945
-4138271
-4138272
-4138273
-4138275
-4138277
-4138279
-4138280
-4138296
-4138299
-4138300
-4138301
-4138412
-4140300
-4142118
-4142415
-4144784
-4144831
-4145054
-4145731
-4145841
-4146169
-4147419
-4148234
-4149547
-4150352
-4151707
-4152174
-4152842
-4160572
-4164227
-4164228
-4164229
-4164959
-4165047
-4165727
-4166900
-4167098
-4167914
-4170313
-4170631
-4170742
-4173672
-4174520
-4174655
-4175140
-4175616
-4179527
-4179653
-4182555
-4183283
-4185307
-4194599
-4195932
-4197801
-4199290
-4199441
-4199545
-4201447
-4207924
-4208503
-4209549
-4209559
-4210438
-4211244
-4213266
-4216828
-4218146
-4218884
-4219822
-4222457
-4223844
-4230399
-4230454
-4237458
-4240204
-4240329
-4243344
-4246617
-4248416
-4249740
-4253933
-4260258
-4261321
-4263321
-4263567
-4275900
-4278672
-4279139
-4280503
-4281251
-4282857
-4306785
-4307551
-4307813
-4308550
-4311941
-4313341
-4318109
-4319889
-4321893
-4328220
-4328823
-4337263
-4338231
-4338664
-4347301
-36675161
-36675162
-36675163
-36675164
-36686183
-36715617
-36715618
-36715619
-36715620
-36715621
-36715622
-36715623
-36715624
-36715625
-36715679
-36715680
-36715681
-36715682
-36715683
-36715684
-36715685
-36715686
-36715687
-36715688
-36715689
-36715746
-36715747
-36715748
-36715749
-36717169
-36717465
-36717470
-37116502
-37116533
-37116628
-37116629
-37116630
-37116631
-37116632
-37116633
-37116634
-37116635
-37208071
-37208072
-37208089
-37209159
-37209160
-37209161
-37209174
-37209546
-37209547
-37309616
-37309617
-37311955
-37311960
-37311962
-40479208
-40483548
-40484195
-40484196
-40484890
-40489449
-40491988
-40492264
-40493184
-40493210
-40598639
-42537719
-42539096
-42539257
-43021792
-44783966
-44788772
-44792139
-45757303
-45757304
-45757305
-45757306
-45757307
-45757308
-45757309
-45757310
-45757314
-45757316
-45757318
-45757320
-45757322
-45757323
-45757324
-45757329
-45757330
-45763653
-45763685
-45766722
-45766902
-45766905
-45766906
-45766940
-45766942
-45767001
-45767003
-45767004
-45767005
-45767006
-45767010
-45767036
-45767040
-45767041
-45767042
-45767043
-45767045
-45767104
-45767610
-45767634
-45770877
-45771398
-45772065
-45772067
-45772068
-45772685
-45772713
-45772718
-45773541
-46270166
-46270317
-46270329
-46270349
-46270372
-46270373
-46271800
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+73036,Closed fracture of olecranon process of ulna,Condition,SNOMED,standard
+73341,Closed fracture of head of radius,Condition,SNOMED,standard
+74138,Pathological fracture of vertebra,Condition,SNOMED,standard
+74768,Closed fracture of triquetral bone of wrist,Condition,SNOMED,standard
+75091,Closed fracture of carpal bone,Condition,SNOMED,standard
+75375,Closed fracture of lunate bone of wrist,Condition,SNOMED,standard
+75385,"Closed fracture distal humerus, lateral epicondyle",Condition,SNOMED,standard
+77387,Closed fracture of vertebral column with spinal cord injury,Condition,SNOMED,standard
+77403,Closed fracture of vertebral column without spinal cord injury,Condition,SNOMED,non-standard
+78274,Closed fracture of pisiform bone of wrist,Condition,SNOMED,standard
+78579,Closed fracture of first cervical vertebra,Condition,SNOMED,standard
+79165,Closed Monteggia's fracture,Condition,SNOMED,standard
+79172,Closed fracture of coronoid process of ulna,Condition,SNOMED,standard
+79938,Closed fracture of scapula,Condition,SNOMED,standard
+80552,Closed fracture of scaphoid bone of wrist,Condition,SNOMED,standard
+80854,Closed fracture of capitate bone of wrist,Condition,SNOMED,standard
+81426,Closed fracture of clavicle,Condition,SNOMED,standard
+135939,Closed fracture of sternal end of clavicle,Condition,SNOMED,standard
+136243,Closed fracture of T1-T6 level with central cord syndrome,Condition,SNOMED,non-standard
+136834,Closed intertrochanteric fracture,Condition,SNOMED,standard
+137111,"Closed fracture scapula, coracoid",Condition,SNOMED,standard
+137695,Anterior cord syndrome due to closed fracture of T1-T6 level,Condition,SNOMED,standard
+138582,Closed fracture of acromial process of scapula,Condition,SNOMED,standard
+138876,Closed fracture of T1-T6 level with spinal cord injury,Condition,SNOMED,standard
+195948,Closed fracture of lumbar vertebra with spinal cord injury,Condition,SNOMED,standard
+198885,Closed multiple fractures of upper AND lower limbs,Condition,SNOMED,standard
+312462,Anterior cord syndrome due to closed fracture of T7-T12 level,Condition,SNOMED,standard
+313608,Closed fracture of T7-T12 level with spinal cord injury,Condition,SNOMED,standard
+316535,Closed fracture of thoracic vertebra without spinal cord injury,Condition,SNOMED,non-standard
+321694,Closed fracture of T7-T12 level with central cord syndrome,Condition,SNOMED,non-standard
+432458,Closed fracture of C1-C4 level with spinal cord injury,Condition,SNOMED,standard
+432461,Closed fracture of shaft of clavicle,Condition,SNOMED,standard
+432463,Closed fracture of acromial end of clavicle,Condition,SNOMED,standard
+433329,Closed fracture of second cervical vertebra,Condition,SNOMED,standard
+433337,Closed traumatic dislocation of fourth cervical vertebra,Condition,SNOMED,standard
+433856,Fracture of neck of femur,Condition,SNOMED,standard
+433885,Closed supracondylar fracture of humerus,Condition,SNOMED,standard
+433886,Closed fracture of trapezium bone of wrist,Condition,SNOMED,standard
+434183,Closed fracture of medial condyle of humerus,Condition,SNOMED,standard
+434493,Closed fracture of seventh cervical vertebra,Condition,SNOMED,standard
+434494,Closed fracture of upper end of humerus,Condition,SNOMED,standard
+434500,Closed fracture of neck of femur,Condition,SNOMED,standard
+434773,Closed fracture of multiple bones of hand,Condition,SNOMED,standard
+435089,Closed fracture of C1-C4 level with central cord syndrome,Condition,SNOMED,non-standard
+435093,Closed fracture of femur,Condition,SNOMED,standard
+435374,Closed fracture of distal end of ulna,Condition,SNOMED,standard
+435380,Closed fracture of radius AND ulna,Condition,SNOMED,standard
+435933,Closed fracture of lumbar vertebra without spinal cord injury,Condition,SNOMED,non-standard
+435940,Closed fracture of shaft of humerus,Condition,SNOMED,standard
+435950,Closed Colles' fracture,Condition,SNOMED,standard
+435956,Closed fracture of base of neck of femur,Condition,SNOMED,standard
+436206,Pathological fracture - upper arm,Condition,SNOMED,standard
+436247,Closed fracture of midcervical section of femur,Condition,SNOMED,standard
+436251,Closed fracture of proximal end of ulna,Condition,SNOMED,standard
+436541,Closed fracture of ulna,Condition,SNOMED,standard
+436551,Closed fracture of trapezoidal bone of wrist,Condition,SNOMED,standard
+436826,Closed fracture of shaft of radius,Condition,SNOMED,standard
+436837,Closed fracture of neck of radius,Condition,SNOMED,standard
+437116,Closed fracture of distal end of radius,Condition,SNOMED,standard
+437123,Closed fracture of hamate bone of wrist,Condition,SNOMED,standard
+437389,Closed fracture of C5-C7 level with central cord syndrome,Condition,SNOMED,non-standard
+437394,Closed fracture of lower end of forearm,Condition,SNOMED,standard
+437400,Closed fracture of shaft of ulna,Condition,SNOMED,standard
+437402,Closed fracture of sixth cervical vertebra,Condition,SNOMED,standard
+437689,Multiple closed fractures of cervical vertebrae,Condition,SNOMED,standard
+437703,Closed fracture of intracapsular section of femur,Condition,SNOMED,standard
+437993,Closed fracture of cervical spine,Condition,SNOMED,standard
+437995,Closed ill-defined fractures of upper limb,Condition,SNOMED,non-standard
+438269,Closed fracture of fifth cervical vertebra,Condition,SNOMED,standard
+438270,Anterior cord syndrome due to closed fracture of C5-C7 level,Condition,SNOMED,standard
+438580,Closed fracture of C5-C7 level with spinal cord injury,Condition,SNOMED,standard
+438881,Anterior cord syndrome due to closed fracture of C1-C4 level,Condition,SNOMED,standard
+439166,Closed fracture of radius,Condition,SNOMED,standard
+439940,Closed fracture of upper end of forearm,Condition,SNOMED,standard
+439941,Closed fracture of condyle of humerus,Condition,SNOMED,standard
+440228,Closed fracture of lower end of humerus,Condition,SNOMED,standard
+440230,"Closed fracture of proximal humerus, anatomical neck",Condition,SNOMED,standard
+440511,Pathological fracture - forearm,Condition,SNOMED,standard
+440538,Closed fracture of lower end of radius AND ulna,Condition,SNOMED,standard
+440544,Closed fracture of upper end of radius AND ulna,Condition,SNOMED,standard
+440556,Closed transcervical fracture of femur,Condition,SNOMED,standard
+440853,Closed fracture of surgical neck of humerus,Condition,SNOMED,standard
+441421,Closed fracture of fourth cervical vertebra,Condition,SNOMED,standard
+441422,Closed fracture of humerus,Condition,SNOMED,standard
+441699,"Closed fracture proximal humerus, greater tuberosity",Condition,SNOMED,standard
+441973,Closed fracture of proximal end of radius,Condition,SNOMED,standard
+441974,Closed fracture of forearm,Condition,SNOMED,standard
+441976,Closed fracture of third cervical vertebra,Condition,SNOMED,standard
+442560,Fracture of femur,Condition,SNOMED,standard
+442568,Closed fracture of cervical vertebra without spinal cord injury,Condition,SNOMED,non-standard
+442598,Fracture of radius AND ulna,Condition,SNOMED,standard
+442619,Fracture of humerus,Condition,SNOMED,standard
+443428,Torus fracture of radius,Condition,SNOMED,standard
+443459,Pathological fracture of neck of femur,Condition,SNOMED,standard
+443552,Closed torus fracture of radius,Condition,SNOMED,standard
+759877,Closed fracture of right clavicle,Condition,SNOMED,standard
+760212,Closed fracture of epiphyseal plate of distal left ulna,Condition,SNOMED,standard
+760216,Closed fracture of proximal epiphysis of right femur,Condition,SNOMED,non-standard
+760217,Closed fracture of proximal epiphysis of left femur,Condition,SNOMED,standard
+760226,Closed fracture of epiphyseal plate of proximal right humerus,Condition,SNOMED,standard
+760261,Closed fracture of coronoid process of right ulna,Condition,SNOMED,standard
+760262,Closed fracture of coronoid process of left ulna,Condition,SNOMED,standard
+760263,Closed fracture of distal end of right ulna,Condition,SNOMED,standard
+760264,Closed fracture of distal end of left ulna,Condition,SNOMED,standard
+760265,Closed fracture of shaft of right ulna,Condition,SNOMED,standard
+760266,Closed fracture of shaft of left ulna,Condition,SNOMED,standard
+760267,Closed fracture of olecranon process of right ulna,Condition,SNOMED,standard
+760268,Closed fracture of olecranon process of left ulna,Condition,SNOMED,standard
+760269,Closed fracture of proximal end of right ulna,Condition,SNOMED,standard
+760270,Closed fracture of proximal end of left ulna,Condition,SNOMED,standard
+760271,Closed fracture of right ulna,Condition,SNOMED,standard
+760311,Closed fracture of anatomical neck of proximal right humerus,Condition,SNOMED,standard
+760312,Closed fracture of anatomical neck of proximal left humerus,Condition,SNOMED,standard
+760313,Closed fracture of surgical neck of right humerus,Condition,SNOMED,standard
+760314,Closed fracture of surgical neck of left humerus,Condition,SNOMED,standard
+760315,Closed fracture of greater tuberosity of proximal right humerus,Condition,SNOMED,standard
+760316,Closed fracture of greater tuberosity of proximal left humerus,Condition,SNOMED,standard
+760317,Closed fracture of proximal right humerus,Condition,SNOMED,standard
+760318,Closed fracture of proximal left humerus,Condition,SNOMED,standard
+760319,Closed fracture of lesser tuberosity of right humerus,Condition,SNOMED,standard
+760320,Closed fracture of lesser tuberosity of left humerus,Condition,SNOMED,standard
+760321,Closed fracture of shaft of right humerus,Condition,SNOMED,standard
+760322,Closed fracture of shaft of left humerus,Condition,SNOMED,standard
+760323,Closed fracture of medial condyle of right humerus,Condition,SNOMED,standard
+760324,Closed fracture of medial condyle of left humerus,Condition,SNOMED,standard
+760325,Closed fracture of lateral condyle of distal right humerus,Condition,SNOMED,standard
+760326,Closed fracture of lateral condyle of distal left humerus,Condition,SNOMED,standard
+760327,Closed fracture of lateral epicondyle of distal end of right humerus,Condition,SNOMED,standard
+760328,Closed fracture of lateral epicondyle of distal end of left humerus,Condition,SNOMED,standard
+760329,Closed fracture of medial epicondyle of left humerus,Condition,SNOMED,standard
+760330,Closed supracondylar fracture of right humerus,Condition,SNOMED,standard
+760331,Closed supracondylar fracture of left humerus,Condition,SNOMED,standard
+760332,Closed fracture of distal end of right humerus,Condition,SNOMED,standard
+760333,Closed fracture of distal end of left humerus,Condition,SNOMED,standard
+760334,Closed fracture of epiphyseal plate of distal end of right humerus,Condition,SNOMED,standard
+760335,Closed fracture of epiphyseal plate of distal left humerus,Condition,SNOMED,standard
+760336,Closed transcondylar fracture of distal right humerus,Condition,SNOMED,standard
+760337,Closed fracture of left humerus,Condition,SNOMED,standard
+760338,Closed fracture of shaft of right clavicle,Condition,SNOMED,standard
+760339,Closed fracture of shaft of left clavicle,Condition,SNOMED,standard
+760340,Closed fracture of acromial end of right clavicle,Condition,SNOMED,standard
+760341,Closed fracture of acromial end of left clavicle,Condition,SNOMED,standard
+760342,Closed fracture of sternal end of right clavicle,Condition,SNOMED,standard
+760343,Closed fracture of sternal end of left clavicle,Condition,SNOMED,standard
+760344,Closed fracture of left clavicle,Condition,SNOMED,standard
+760405,Closed fracture of midcervical region of right femur,Condition,SNOMED,standard
+760406,Closed fracture of midcervical region of left femur,Condition,SNOMED,standard
+760407,Closed subtrochanteric fracture of right femur,Condition,SNOMED,standard
+760408,Closed subtrochanteric fracture of left femur,Condition,SNOMED,standard
+760409,Closed fracture of base of neck of right femur,Condition,SNOMED,standard
+760410,Closed fracture of base of neck of left femur,Condition,SNOMED,standard
+760411,Closed fracture of neck of right femur,Condition,SNOMED,standard
+760412,Closed fracture of neck of left femur,Condition,SNOMED,standard
+760413,Closed subcapital fracture of neck of right femur,Condition,SNOMED,standard
+760414,Closed subcapital fracture of neck of left femur,Condition,SNOMED,standard
+760415,Closed intra-articular fracture of head of right femur,Condition,SNOMED,standard
+760416,Closed intra-articular fracture of head of left femur,Condition,SNOMED,standard
+760417,Closed intertrochanteric fracture of right femur,Condition,SNOMED,standard
+760418,Closed intertrochanteric fracture of left femur,Condition,SNOMED,standard
+760419,Closed fracture of greater trochanter of right femur,Condition,SNOMED,standard
+760420,Closed fracture of greater trochanter of left femur,Condition,SNOMED,standard
+760421,Closed fracture of lesser trochanter of right femur,Condition,SNOMED,standard
+760422,Closed fracture of lesser trochanter of left femur,Condition,SNOMED,standard
+760425,Closed fracture of epiphyseal plate of proximal end of right femur,Condition,SNOMED,standard
+760440,Closed fracture of head of left radius,Condition,SNOMED,standard
+760441,Closed fracture of glenoid cavity of right scapula,Condition,SNOMED,standard
+760442,Closed fracture of coracoid process of right scapula,Condition,SNOMED,standard
+760443,Closed fracture of coracoid process of left scapula,Condition,SNOMED,standard
+760444,Closed fracture of acromial process of right scapula,Condition,SNOMED,standard
+760445,Closed fracture of acromial process of left scapula,Condition,SNOMED,standard
+760446,Closed fracture of pisiform bone of left wrist,Condition,SNOMED,standard
+760447,Closed fracture of capitate bone of right wrist,Condition,SNOMED,standard
+760448,Closed fracture of navicular bone of right wrist,Condition,SNOMED,standard
+760449,Closed fracture of navicular bone of left wrist,Condition,SNOMED,standard
+760450,Closed fracture of navicular bone of right wrist with dislocation of perilunate joint,Condition,SNOMED,standard
+760451,Closed fracture of navicular bone of left wrist with dislocation of perilunate joint,Condition,SNOMED,standard
+760490,Closed fracture of neck of right scapula,Condition,SNOMED,standard
+760491,Closed fracture of body of right scapula,Condition,SNOMED,standard
+760492,Closed fracture of body of left scapula,Condition,SNOMED,standard
+760493,Closed fracture of right scapula,Condition,SNOMED,standard
+760494,Closed fracture of left scapula,Condition,SNOMED,standard
+760495,Closed fracture of epiphyseal plate of distal end of right radius,Condition,SNOMED,standard
+760496,Closed fracture of distal end of right radius,Condition,SNOMED,standard
+760497,Closed fracture of distal end of left radius,Condition,SNOMED,standard
+760498,Closed fracture of shaft of right radius,Condition,SNOMED,standard
+760499,Closed fracture of shaft of left radius,Condition,SNOMED,standard
+760500,Closed fracture of neck of right radius,Condition,SNOMED,standard
+760501,Closed fracture of neck of left radius,Condition,SNOMED,standard
+760502,Closed fracture of proximal epiphyseal plate of right radius,Condition,SNOMED,standard
+760503,Closed fracture of proximal epiphyseal plate of left radius,Condition,SNOMED,standard
+760504,Closed fracture of proximal end of right radius,Condition,SNOMED,standard
+760505,Closed fracture of right radius,Condition,SNOMED,standard
+760506,Closed fracture of left radius,Condition,SNOMED,standard
+760507,Closed fracture of right forearm,Condition,SNOMED,standard
+760508,Closed fracture of left forearm,Condition,SNOMED,standard
+760509,Closed fracture of hamate bone of right wrist,Condition,SNOMED,standard
+760510,Closed fracture of lunate bone of right wrist,Condition,SNOMED,standard
+760515,Closed fracture of trapezium bone of right wrist,Condition,SNOMED,standard
+760516,Closed fracture of triquetral bone of right wrist,Condition,SNOMED,standard
+760517,Closed fracture of triquetral bone of left wrist,Condition,SNOMED,standard
+760518,Closed fracture of right shoulder,Condition,SNOMED,standard
+760519,Closed fracture of right wrist,Condition,SNOMED,standard
+760522,Closed fracture of right hand,Condition,SNOMED,standard
+760523,Closed fracture of left hand,Condition,SNOMED,standard
+760583,Pathological fracture of right humerus due to osteoporosis,Condition,SNOMED,standard
+760585,Pathological fracture of right humerus,Condition,SNOMED,standard
+760586,Pathological fracture of left humerus,Condition,SNOMED,standard
+760587,Pathological fracture of right humerus due to secondary osteoporosis,Condition,SNOMED,standard
+760588,Pathological fracture of left humerus due to secondary osteoporosis,Condition,SNOMED,standard
+760589,Pathological fracture of right clavicle due to osteoporosis,Condition,SNOMED,standard
+760590,Pathological fracture of left clavicle due to osteoporosis,Condition,SNOMED,standard
+760591,Pathological fracture of right clavicle,Condition,SNOMED,standard
+760592,Pathological fracture of right clavicle due to secondary osteoporosis,Condition,SNOMED,standard
+760642,Pathological fracture of neck of right femur,Condition,SNOMED,standard
+760643,Pathological fracture of neck of left femur,Condition,SNOMED,standard
+760651,Pathological fracture of right hand due to osteoporosis,Condition,SNOMED,standard
+760652,Pathological fracture of left hand due to osteoporosis,Condition,SNOMED,standard
+760654,Pathological fracture of right hand,Condition,SNOMED,standard
+760655,Pathological fracture of left hand,Condition,SNOMED,standard
+760658,Pathological fracture of right ulna due to osteoporosis,Condition,SNOMED,standard
+760659,Pathological fracture of left radius due to osteoporosis,Condition,SNOMED,standard
+760662,Pathological fracture of right ulna,Condition,SNOMED,standard
+760663,Pathological fracture of left ulna,Condition,SNOMED,standard
+760664,Pathological fracture of right radius,Condition,SNOMED,standard
+760665,Pathological fracture of left radius,Condition,SNOMED,standard
+760667,Pathological fracture of left scapula due to osteoporosis,Condition,SNOMED,standard
+760668,Pathological fracture of right scapula,Condition,SNOMED,standard
+760669,Pathological fracture of left scapula,Condition,SNOMED,standard
+760691,Pathological fracture of right hip due to osteoporosis,Condition,SNOMED,standard
+760692,Pathological fracture of left hip due to osteoporosis,Condition,SNOMED,standard
+760694,Pathological fracture of right hip,Condition,SNOMED,standard
+760696,Pathological fracture of left hip due to secondary osteoporosis,Condition,SNOMED,standard
+760995,Fracture of left radius,Condition,SNOMED,standard
+761015,Fracture of left ulna,Condition,SNOMED,standard
+761086,Fracture of distal end of right ulna,Condition,SNOMED,standard
+761905,Fracture of distal end of right radius,Condition,SNOMED,standard
+761933,Subtrochanteric fracture of left femur,Condition,SNOMED,standard
+761936,Fracture of posterior vertebral body of thoracic vertebra,Condition,SNOMED,standard
+761943,Comminuted fracture of left humerus,Condition,SNOMED,standard
+761956,Supracondylar fracture of right humerus,Condition,SNOMED,standard
+761981,Fracture of head of right radius,Condition,SNOMED,standard
+762696,Fracture of odontoid process type I,Condition,SNOMED,non-standard
+762697,Fracture of odontoid process type II,Condition,SNOMED,non-standard
+762698,Fracture of odontoid process type III,Condition,SNOMED,non-standard
+763792,Fracture of right radius,Condition,SNOMED,standard
+763793,Closed subcapital fracture of left femur,Condition,SNOMED,standard
+763806,Closed fracture of left upper limb,Condition,SNOMED,standard
+763807,Closed fracture of right upper limb,Condition,SNOMED,standard
+763808,Fracture of left upper limb,Condition,SNOMED,standard
+763809,Fracture of right upper limb,Condition,SNOMED,standard
+763864,Closed subcapital fracture of right femur,Condition,SNOMED,standard
+764378,Pathological fracture of left ulna due to osteoporosis,Condition,SNOMED,standard
+764591,Closed fracture of pisiform bone of right wrist,Condition,SNOMED,standard
+764679,Compression fracture of thoracic vertebra,Condition,SNOMED,non-standard
+764899,"Compression fracture of thoracic vertebra, nontraumatic",Condition,SNOMED,standard
+765009,Closed fracture of right humerus,Condition,SNOMED,standard
+765013,Closed fracture of epiphyseal plate of proximal end of left femur,Condition,SNOMED,standard
+765017,Closed fracture of trapezium bone of left wrist,Condition,SNOMED,standard
+765018,Closed fracture of left wrist,Condition,SNOMED,standard
+765031,Pathological fracture of left clavicle,Condition,SNOMED,standard
+765036,Pathological fracture of left hip,Condition,SNOMED,standard
+765121,Supracondylar fracture of left humerus,Condition,SNOMED,standard
+765192,Pathological fracture of right radius due to osteoporosis,Condition,SNOMED,standard
+765324,Closed fracture of epiphyseal plate of distal right ulna,Condition,SNOMED,standard
+765326,Closed fracture of epiphyseal plate of proximal left humerus,Condition,SNOMED,standard
+765328,Closed fracture of left ulna,Condition,SNOMED,standard
+765333,Closed fracture of medial epicondyle of right humerus,Condition,SNOMED,standard
+765334,Closed transcondylar fracture of distal left humerus,Condition,SNOMED,standard
+765341,Closed fracture of head of right radius,Condition,SNOMED,standard
+765342,Closed fracture of glenoid cavity of left scapula,Condition,SNOMED,standard
+765343,Closed fracture of capitate bone of left wrist,Condition,SNOMED,standard
+765346,Closed fracture of epiphyseal plate of distal end of left radius,Condition,SNOMED,standard
+765347,Closed fracture of proximal end of left radius,Condition,SNOMED,standard
+765350,Closed fracture of hamate bone of left wrist,Condition,SNOMED,standard
+765351,Closed fracture of left shoulder,Condition,SNOMED,standard
+765893,Pathological fracture of left humerus due to osteoporosis,Condition,SNOMED,standard
+1245002,Osteoporotic fracture due to idiopathic osteoporosis,Condition,SNOMED,standard
+1245006,Osteoporotic fracture due to disuse osteoporosis,Condition,SNOMED,standard
+4001458,Fatigue fracture of vertebra,Condition,SNOMED,standard
+4006471,Closed fracture of third cervical vertebra without spinal cord injury,Condition,SNOMED,non-standard
+4008208,"Closed fracture atlas, isolated arch or articular process",Condition,SNOMED,standard
+4008209,"Closed fracture axis, posterior arch",Condition,SNOMED,standard
+4008210,"Closed fracture cervical vertebra, tricolumnar",Condition,SNOMED,standard
+4008216,"Closed fracture thoracic vertebra, spondylolysis",Condition,SNOMED,standard
+4008217,"Closed fracture thoracic vertebra, transverse process",Condition,SNOMED,standard
+4008218,"Closed fracture thoracic vertebra, tricolumnar",Condition,SNOMED,standard
+4008220,"Closed fracture lumbar vertebra, wedge",Condition,SNOMED,standard
+4008221,"Closed fracture lumbar vertebra, spinous process",Condition,SNOMED,standard
+4008354,Fracture of second cervical vertebra,Condition,SNOMED,standard
+4008355,Multiple fractures of cervical spine,Condition,SNOMED,standard
+4008360,Closed fracture of cervical spine with cord lesion,Condition,SNOMED,non-standard
+4008372,"Closed spinal fracture with central thoracic cord lesion, T1-6",Condition,SNOMED,non-standard
+4008373,"Closed spinal fracture with posterior thoracic cord lesion, T1-6",Condition,SNOMED,standard
+4008374,"Closed spinal fracture with anterior thoracic cord lesion,T7-12",Condition,SNOMED,standard
+4008375,"Closed spinal fracture with central thoracic cord lesion, T7-12",Condition,SNOMED,non-standard
+4008510,Closed spinal fracture with cauda equina lesion,Condition,SNOMED,standard
+4009285,"Closed fracture cervical vertebra, spondylolysis",Condition,SNOMED,standard
+4009286,"Closed fracture cervical vertebra, spinous process",Condition,SNOMED,standard
+4009287,"Closed fracture cervical vertebra, transverse process",Condition,SNOMED,standard
+4009296,Multiple fractures of thoracic spine,Condition,SNOMED,standard
+4009298,"Closed fracture scapula, spine",Condition,SNOMED,standard
+4009299,"Closed fracture scapula, neck",Condition,SNOMED,standard
+4009302,"Closed fracture of humerus, upper epiphysis",Condition,SNOMED,standard
+4009435,"Closed fracture olecranon, extra-articular",Condition,SNOMED,standard
+4009436,"Closed fracture olecranon, intra-articular",Condition,SNOMED,standard
+4009439,Smith's fracture - closed,Condition,SNOMED,non-standard
+4009449,"Closed fracture scaphoid, proximal pole",Condition,SNOMED,standard
+4009606,Closed fracture of head of femur,Condition,SNOMED,standard
+4009607,"Closed fracture proximal femur, subcapital, Garden grade I",Condition,SNOMED,standard
+4009608,"Closed fracture proximal femur, subcapital, Garden grade III",Condition,SNOMED,standard
+4009610,"Closed fracture proximal femur, subtrochanteric",Condition,SNOMED,standard
+4009902,"Closed fracture cervical vertebra, posterior arch",Condition,SNOMED,standard
+4009911,"Closed fracture lumbar vertebra, transverse process",Condition,SNOMED,standard
+4010057,"Closed spinal fracture with posterior cervical cord lesion, C1-4",Condition,SNOMED,standard
+4010060,"Closed spinal fracture with posterior cervical cord lesion, C5-7",Condition,SNOMED,standard
+4010065,"Closed spinal fracture with posterior thoracic cord lesion, T7-12",Condition,SNOMED,standard
+4010070,Closed fracture of lumbar spine with spinal cord lesion,Condition,SNOMED,non-standard
+4010071,Closed spinal fracture with central lumbar cord lesion,Condition,SNOMED,non-standard
+4010239,"Closed fracture proximal humerus, three part",Condition,SNOMED,standard
+4010363,"Closed fracture of distal humerus, trochlea",Condition,SNOMED,standard
+4010371,"Closed fracture of ulna, lower epiphysis",Condition,SNOMED,standard
+4010373,"Closed fracture distal radius, intra-articular, die-punch",Condition,SNOMED,standard
+4010378,"Closed fracture hamate, hook",Condition,SNOMED,standard
+4010379,"Closed fracture scaphoid, waist, comminuted",Condition,SNOMED,standard
+4010380,"Closed fracture scaphoid, tuberosity",Condition,SNOMED,standard
+4010527,Closed fracture of sesamoid bone of hand,Condition,SNOMED,standard
+4011653,"Closed fracture atlas, comminuted",Condition,SNOMED,standard
+4011654,"Closed fracture axis, odontoid process",Condition,SNOMED,standard
+4011655,"Closed fracture axis, spinous process",Condition,SNOMED,standard
+4011657,"Closed fracture cervical vertebra, wedge",Condition,SNOMED,standard
+4012142,Closed fracture dislocation lunate (volar),Condition,SNOMED,standard
+4012143,Closed fracture dislocation perilunate (dorsal),Condition,SNOMED,standard
+4012145,Closed fracture subluxation perilunate (dorsal),Condition,SNOMED,standard
+4012285,Closed fracture dislocation of hip joint,Condition,SNOMED,standard
+4012430,Fractures involving multiple regions of both upper limbs,Condition,SNOMED,standard
+4012431,"Closed fracture proximal femur, midcervical section",Condition,SNOMED,non-standard
+4012433,"Closed fracture proximal femur, subcapital, Garden grade II",Condition,SNOMED,standard
+4013033,Fracture of neck and trunk,Condition,SNOMED,standard
+4013035,"Closed fracture axis, spondylolysis",Condition,SNOMED,standard
+4013036,"Closed fracture axis, transverse process",Condition,SNOMED,standard
+4013155,"Closed fracture thoracic vertebra, burst",Condition,SNOMED,standard
+4013158,"Closed fracture lumbar vertebra, spondylolysis",Condition,SNOMED,standard
+4013159,"Closed fracture lumbar vertebra, posterior arch",Condition,SNOMED,standard
+4013165,"Closed spinal fracture with complete cervical cord lesion, C1-4",Condition,SNOMED,standard
+4013166,"Closed spinal fracture with central cervical cord lesion, C1-4",Condition,SNOMED,non-standard
+4013167,"Closed spinal fracture with complete cervical cord lesion, C5-7",Condition,SNOMED,standard
+4013168,"Closed spinal fracture with anterior cervical cord lesion, C5-7",Condition,SNOMED,standard
+4013169,"Closed spinal fracture with central cervical cord lesion, C5-7",Condition,SNOMED,non-standard
+4013173,"Closed spinal fracture with complete thoracic cord lesion, T1-6",Condition,SNOMED,standard
+4013174,"Closed spinal fracture with anterior thoracic cord lesion, T1-6",Condition,SNOMED,standard
+4013305,Closed spinal fracture with complete lumbar cord lesion,Condition,SNOMED,standard
+4013306,Closed spinal fracture with anterior lumbar cord lesion,Condition,SNOMED,standard
+4013453,"Closed fracture scapula, glenoid",Condition,SNOMED,standard
+4013454,"Closed fracture scapula, blade",Condition,SNOMED,standard
+4013458,"Closed fracture proximal humerus, four part",Condition,SNOMED,standard
+4013461,"Closed fracture distal humerus, lateral condyle",Condition,SNOMED,standard
+4013462,"Closed fracture distal humerus, bicondylar (T-Y fracture)",Condition,SNOMED,standard
+4013465,"Closed fracture of proximal ulna, comminuted",Condition,SNOMED,standard
+4013469,Closed Galeazzi fracture,Condition,SNOMED,standard
+4013476,Closed fracture of multiple carpal bones,Condition,SNOMED,standard
+4013596,Closed fracture thoracic vertebra,Condition,SNOMED,standard
+4013597,"Closed fracture thoracic vertebra, wedge",Condition,SNOMED,standard
+4013598,"Closed fracture thoracic vertebra, spinous process",Condition,SNOMED,standard
+4013599,"Closed fracture thoracic vertebra, posterior arch",Condition,SNOMED,standard
+4013604,Closed fracture lumbar vertebra,Condition,SNOMED,standard
+4013606,"Closed fracture lumbar vertebra, tricolumnar",Condition,SNOMED,standard
+4013612,Fracture of first cervical vertebra,Condition,SNOMED,standard
+4013616,"Closed spinal fracture with anterior cervical cord lesion, C1-4",Condition,SNOMED,standard
+4013747,Closed fracture of thoracic spine with spinal cord lesion,Condition,SNOMED,non-standard
+4013748,"Closed spinal fracture with complete thoracic cord lesion,T7-12",Condition,SNOMED,standard
+4013759,Closed spinal fracture with posterior lumbar cord lesion,Condition,SNOMED,standard
+4013920,"Closed fracture proximal humerus, neck",Condition,SNOMED,standard
+4014050,"Closed fracture distal humerus, capitellum",Condition,SNOMED,standard
+4014051,Multiple closed fractures of distal humerus,Condition,SNOMED,standard
+4014057,"Closed fracture proximal radius, comminuted",Condition,SNOMED,standard
+4014060,"Closed fracture radius and ulna, middle",Condition,SNOMED,standard
+4014064,Closed volar Barton's fracture,Condition,SNOMED,standard
+4014065,Closed dorsal Barton's fracture,Condition,SNOMED,standard
+4014066,Closed fracture radial styloid,Condition,SNOMED,standard
+4014075,"Closed fracture scaphoid, waist, transverse",Condition,SNOMED,standard
+4014076,"Closed fracture scaphoid, waist, oblique",Condition,SNOMED,standard
+4014203,"Closed fracture dislocation sternoclavicular joint, anterior",Condition,SNOMED,standard
+4014207,"Closed fracture subluxation sternoclavicular joint, anterior",Condition,SNOMED,standard
+4015055,Closed fracture dislocation acromioclavicular joint,Condition,SNOMED,standard
+4015058,Closed fracture subluxation shoulder joint,Condition,SNOMED,standard
+4015067,Closed fracture subluxation of distal radioulnar joint,Condition,SNOMED,standard
+4015068,Closed fracture subluxation radiocarpal joint,Condition,SNOMED,standard
+4015069,Closed fracture subluxation lunate (volar),Condition,SNOMED,standard
+4015350,Fracture at wrist and/or hand level,Condition,SNOMED,standard
+4015494,"Closed fracture proximal femur, transcervical",Condition,SNOMED,standard
+4015495,"Closed fracture proximal femur, transepiphyseal",Condition,SNOMED,standard
+4015496,"Closed fracture proximal femur, subcapital, Garden grade IV",Condition,SNOMED,standard
+4015501,"Closed fracture of proximal femur, pertrochanteric",Condition,SNOMED,non-standard
+4015502,"Closed fracture proximal femur, intertrochanteric, two part",Condition,SNOMED,standard
+4015503,Pertrochanteric fracture,Condition,SNOMED,standard
+4015969,Ill-defined fractures of upper limb,Condition,SNOMED,non-standard
+4015970,"Multiple fractures of clavicle, scapula and humerus",Condition,SNOMED,standard
+4015971,Multiple fractures of forearm,Condition,SNOMED,standard
+4015979,"Closed fracture proximal femur, intertrochanteric, comminuted",Condition,SNOMED,standard
+4017653,Closed fracture dislocation superior radioulnar joint,Condition,SNOMED,standard
+4017654,Closed fracture subluxation elbow,Condition,SNOMED,non-standard
+4017655,Closed fracture dislocation distal radioulnar joint,Condition,SNOMED,standard
+4017656,Closed fracture dislocation radiocarpal joint,Condition,SNOMED,standard
+4017657,Closed fracture dislocation perilunate transscaphoid,Condition,SNOMED,standard
+4017661,Closed fracture subluxation midcarpal,Condition,SNOMED,standard
+4017669,Fracture dislocation or subluxation hip,Condition,SNOMED,non-standard
+4017796,"Closed fracture subluxation sternoclavicular joint, posterior",Condition,SNOMED,standard
+4018213,Closed fracture dislocation shoulder joint,Condition,SNOMED,standard
+4018214,Closed fracture subluxation acromioclavicular joint,Condition,SNOMED,standard
+4018218,Closed fracture subluxation superior radioulnar joint,Condition,SNOMED,standard
+4018221,Closed fracture dislocation of wrist,Condition,SNOMED,standard
+4018222,Closed fracture dislocation midcarpal,Condition,SNOMED,standard
+4018225,Closed fracture subluxation of wrist,Condition,SNOMED,standard
+4018226,Closed fracture subluxation perilunate transscaphoid,Condition,SNOMED,standard
+4018351,Closed fracture subluxation of hip joint,Condition,SNOMED,standard
+4018944,"Closed fracture dislocation sternoclavicular joint, posterior",Condition,SNOMED,standard
+4027460,Closed pertrochanteric fracture,Condition,SNOMED,standard
+4028484,Closed fracture of multiple cervical vertebrae without spinal cord injury,Condition,SNOMED,non-standard
+4028680,Closed fracture of T1-T6 level with incomplete spinal cord lesion,Condition,SNOMED,standard
+4032935,Fracture of trapezoidal bone of wrist,Condition,SNOMED,standard
+4039014,Closed fracture of second cervical vertebra without spinal cord injury,Condition,SNOMED,non-standard
+4044387,Fracture of glenoid cavity AND neck of scapula,Condition,SNOMED,standard
+4047787,Colles' fracture,Condition,SNOMED,standard
+4047788,Reversed Colles' fracture,Condition,SNOMED,standard
+4048695,Fracture of vertebral column without spinal cord injury,Condition,SNOMED,standard
+4048846,Monteggia's fracture,Condition,SNOMED,standard
+4049285,Closed reverse Colles' fracture,Condition,SNOMED,standard
+4050747,Fracture of upper limb,Condition,SNOMED,standard
+4053828,Fracture of thoracic spine,Condition,SNOMED,standard
+4059163,Multiple fractures of upper limb with sternum,Condition,SNOMED,standard
+4063560,Fracture of lunate bone of wrist,Condition,SNOMED,standard
+4066995,Fracture of vertebral column with spinal cord injury,Condition,SNOMED,standard
+4068133,Osteoporotic fracture of thoracic vertebra,Condition,SNOMED,standard
+4068577,Closed fracture of seventh cervical vertebra without spinal cord injury,Condition,SNOMED,non-standard
+4069524,Osteoporotic fracture of lumbar vertebra,Condition,SNOMED,standard
+4069525,Osteoporotic fracture of cervical vertebra,Condition,SNOMED,standard
+4071876,Fracture of hand,Condition,SNOMED,standard
+4077752,Closed fracture of T7-T12 level with incomplete spinal cord lesion,Condition,SNOMED,standard
+4083374,Transscaphoid-capitate-perilunate fracture dislocation,Condition,SNOMED,standard
+4083375,Fracture of radial styloid,Condition,SNOMED,standard
+4083488,Fracture of olecranon,Condition,SNOMED,standard
+4083489,Fracture of coronoid process of ulna,Condition,SNOMED,standard
+4083818,Fracture of pedicle of cervical vertebra,Condition,SNOMED,standard
+4083819,Fracture of spinous process of cervical vertebra,Condition,SNOMED,standard
+4083820,Wedge fracture of thoracic vertebra,Condition,SNOMED,standard
+4083821,Fracture of spinous process of thoracic vertebra,Condition,SNOMED,standard
+4083822,Crush fracture of lumbar vertebra,Condition,SNOMED,standard
+4083823,Fracture of pedicle of lumbar vertebra,Condition,SNOMED,standard
+4083824,Fracture of lamina of lumbar vertebra,Condition,SNOMED,standard
+4084432,Fracture of the medial humeral epicondyle,Condition,SNOMED,standard
+4085246,Fracture dislocation of thoracolumbar junction,Condition,SNOMED,standard
+4085247,Fracture dislocation of cervicothoracic junction,Condition,SNOMED,standard
+4085248,Fracture of odontoid process,Condition,SNOMED,standard
+4085249,Teardrop fracture of cervical vertebra,Condition,SNOMED,standard
+4085250,Wedge fracture of cervical vertebra,Condition,SNOMED,standard
+4085251,Fracture of lamina of cervical vertebra,Condition,SNOMED,standard
+4085376,Teardrop fracture of thoracic vertebra,Condition,SNOMED,standard
+4085377,Crush fracture of thoracic vertebra,Condition,SNOMED,standard
+4085543,Transscaphoid-capitate-hamate-triquetral-perilunate fracture dislocation,Condition,SNOMED,standard
+4085544,Transstyloid-scaphoid-perilunate fracture dislocation,Condition,SNOMED,standard
+4085545,Volar transscaphoid-lunate fracture dislocation,Condition,SNOMED,standard
+4085546,Fracture subluxation of joint of upper limb,Condition,SNOMED,standard
+4085550,Fracture of the lateral humeral epicondyle,Condition,SNOMED,standard
+4085890,Crush fracture of cervical vertebra,Condition,SNOMED,standard
+4085891,Fracture of transverse process of cervical vertebra,Condition,SNOMED,standard
+4085892,Three column fracture of cervical vertebra,Condition,SNOMED,standard
+4085894,Fracture of pedicle of thoracic vertebra,Condition,SNOMED,standard
+4085895,Fracture of transverse process of thoracic vertebra,Condition,SNOMED,standard
+4085896,Fracture of lamina of thoracic vertebra,Condition,SNOMED,standard
+4085897,Two column fracture of thoracic vertebra,Condition,SNOMED,standard
+4085898,Wedge fracture of lumbar vertebra,Condition,SNOMED,standard
+4086021,Two column fracture of lumbar vertebra,Condition,SNOMED,standard
+4095418,Fractured hyoid bone,Condition,SNOMED,standard
+4097991,Skillern's fracture,Condition,SNOMED,standard
+4101989,Closed fracture of shaft of bone of forearm,Condition,SNOMED,standard
+4103168,Fracture of greater trochanter,Condition,SNOMED,standard
+4103202,Closed fracture of first cervical vertebra without spinal cord injury,Condition,SNOMED,non-standard
+4105123,Transscaphoid-perilunate fracture dislocation,Condition,SNOMED,standard
+4105124,Transstyloid-perilunate fracture dislocation,Condition,SNOMED,standard
+4105126,Fracture of ulnar styloid,Condition,SNOMED,standard
+4106179,Burst fracture of cervical vertebra,Condition,SNOMED,standard
+4106180,Two column fracture of cervical vertebra,Condition,SNOMED,standard
+4106181,Three column fracture of thoracic vertebra,Condition,SNOMED,standard
+4106182,Teardrop fracture of lumbar vertebra,Condition,SNOMED,standard
+4106183,Fracture of transverse process of lumbar vertebra,Condition,SNOMED,standard
+4106184,Fracture of spinous process of lumbar vertebra,Condition,SNOMED,standard
+4106186,Three column fracture of lumbar vertebra,Condition,SNOMED,standard
+4117701,Pathological fracture - shoulder,Condition,SNOMED,standard
+4118017,Pathological fracture - hand,Condition,SNOMED,standard
+4118792,Elbow fracture - closed,Condition,SNOMED,standard
+4129393,Fracture of cervical spine,Condition,SNOMED,standard
+4129394,Fracture of lumbar spine,Condition,SNOMED,standard
+4131595,Fracture of radius,Condition,SNOMED,standard
+4133012,Intertrochanteric fracture,Condition,SNOMED,standard
+4133610,Fracture of upper end of humerus,Condition,SNOMED,standard
+4134186,Fracture dislocation of sternoclavicular joint,Condition,SNOMED,standard
+4134187,Fracture dislocation of shoulder joint,Condition,SNOMED,standard
+4134303,Fracture subluxation of acromioclavicular joint,Condition,SNOMED,standard
+4134304,Fracture subluxation of wrist,Condition,SNOMED,standard
+4134305,Fracture subluxation of distal radioulnar joint,Condition,SNOMED,standard
+4134321,Fracture of neck of humerus,Condition,SNOMED,standard
+4134322,Fracture of distal end of radius,Condition,SNOMED,standard
+4134323,Volar Barton's fracture,Condition,SNOMED,standard
+4134325,Fracture of shaft of ulna,Condition,SNOMED,standard
+4134326,Fracture of proximal end of radius and ulna,Condition,SNOMED,standard
+4135096,Fracture dislocation of spine,Condition,SNOMED,standard
+4135097,Fracture dislocation of joint of upper limb,Condition,SNOMED,standard
+4135098,Fracture dislocation of radiocarpal joint,Condition,SNOMED,standard
+4135099,Fracture dislocation of midcarpal joint,Condition,SNOMED,standard
+4135637,Fracture subluxation of superior radioulnar joint,Condition,SNOMED,standard
+4135638,Fracture subluxation of radiocarpal joint,Condition,SNOMED,standard
+4135639,Fracture subluxation of midcarpal joint,Condition,SNOMED,standard
+4135641,Fracture subluxation of lunate,Condition,SNOMED,standard
+4135642,Fracture subluxation of perilunate joint,Condition,SNOMED,standard
+4135737,Fracture of transverse process of spine with spinal cord lesion,Condition,SNOMED,standard
+4135742,Dorsal Barton's fracture,Condition,SNOMED,standard
+4135743,Fracture of distal end of ulna,Condition,SNOMED,standard
+4135747,Subcapital fracture of neck of femur,Condition,SNOMED,standard
+4135748,Subtrochanteric fracture of femur,Condition,SNOMED,standard
+4136566,Hangman fracture,Condition,SNOMED,standard
+4136567,Fracture dislocation of lumbar spine,Condition,SNOMED,standard
+4136568,Fracture dislocation of acromioclavicular joint,Condition,SNOMED,standard
+4136569,Fracture dislocation of scapulothoracic joint,Condition,SNOMED,standard
+4136570,Fracture dislocation of lunate,Condition,SNOMED,standard
+4136571,Fracture dislocation of perilunate joint,Condition,SNOMED,standard
+4136688,Fracture subluxation of shoulder joint,Condition,SNOMED,standard
+4136714,Supracondylar fracture of humerus,Condition,SNOMED,standard
+4136715,Fracture of proximal end of radius,Condition,SNOMED,standard
+4136716,Fracture of radial head,Condition,SNOMED,standard
+4136717,Fracture of shaft of radius,Condition,SNOMED,standard
+4136718,Fracture of proximal end of ulna,Condition,SNOMED,standard
+4136719,Fracture of shaft of radius and/or ulna,Condition,SNOMED,standard
+4136720,Fracture of sesamoid bone of hand,Condition,SNOMED,standard
+4136839,Midcervical fracture of neck of femur,Condition,SNOMED,standard
+4136840,Basicervical fracture of neck of femur,Condition,SNOMED,standard
+4137945,Fracture of scaphoid bone of wrist,Condition,SNOMED,standard
+4138271,Fracture dislocation of costovertebral joint,Condition,SNOMED,standard
+4138272,Fracture dislocation of cervical spine,Condition,SNOMED,standard
+4138273,Fracture dislocation of thoracic spine,Condition,SNOMED,standard
+4138275,Fracture dislocation of wrist joint,Condition,SNOMED,non-standard
+4138277,Fracture dislocation of hip joint,Condition,SNOMED,standard
+4138279,Fracture subluxation of sternoclavicular joint,Condition,SNOMED,standard
+4138280,Fracture subluxation of joint of hand,Condition,SNOMED,standard
+4138296,Fracture of transverse process of spine without spinal cord lesion,Condition,SNOMED,non-standard
+4138299,Fracture of distal end of humerus,Condition,SNOMED,standard
+4138300,Fracture of radial neck,Condition,SNOMED,standard
+4138301,Fracture of distal end of radius and ulna,Condition,SNOMED,standard
+4138412,Fracture of proximal end of femur,Condition,SNOMED,standard
+4140300,Compression fracture of lumbar spine,Condition,SNOMED,standard
+4142118,Closed avulsion fracture of lesser trochanter of femur,Condition,SNOMED,standard
+4142415,Hutchinson's fracture,Condition,SNOMED,standard
+4144784,Anterior wedge fracture of vertebra,Condition,SNOMED,standard
+4144831,Closed multiple fractures of upper limb with sternum,Condition,SNOMED,standard
+4145054,Closed avulsion fracture of greater trochanter of femur,Condition,SNOMED,standard
+4145731,Fracture dislocation distal radioulnar joint,Condition,SNOMED,standard
+4145841,Closed fracture of acetabulum with dislocation of hip,Condition,SNOMED,standard
+4146169,Closed Barton's fracture,Condition,SNOMED,standard
+4147419,Pathological fracture of cervical vertebra,Condition,SNOMED,standard
+4148234,Posterior cord syndrome due to closed fracture of C5-C7 level,Condition,SNOMED,standard
+4149547,Fracture of vertebra without spinal cord lesion,Condition,SNOMED,non-standard
+4150352,Posterior cord syndrome due to closed fracture of T1-T6 level,Condition,SNOMED,standard
+4151707,Pathological fracture of lumbar vertebra,Condition,SNOMED,standard
+4152174,Galeazzi fracture dislocation,Condition,SNOMED,standard
+4152842,Pathological fracture of thoracic vertebra,Condition,SNOMED,standard
+4160572,Osteoporotic fracture of neck of femur,Condition,SNOMED,standard
+4164227,Fracture of thoracic spine without spinal cord lesion,Condition,SNOMED,non-standard
+4164228,Fracture of lumbar spine - no cord lesion,Condition,SNOMED,non-standard
+4164229,Fracture of thoracic spine with cord lesion,Condition,SNOMED,standard
+4164959,Closed fracture of styloid process of ulna,Condition,SNOMED,standard
+4165047,Fracture of multiple bones of upper limb,Condition,SNOMED,standard
+4165727,Posterior cord syndrome due to closed fracture of T7-T12 level,Condition,SNOMED,standard
+4166900,Fracture of cervical spine - no cord lesion,Condition,SNOMED,non-standard
+4167098,Fracture of lumbar spine with cord lesion,Condition,SNOMED,standard
+4167914,"Closed fracture of femur, greater trochanter",Condition,SNOMED,standard
+4170313,"Closed fracture of femur, lesser trochanter",Condition,SNOMED,standard
+4170631,Fracture of cervical spine with cord lesion,Condition,SNOMED,standard
+4170742,Closed fracture of vertebral column,Condition,SNOMED,standard
+4173672,"Closed fracture of femur, subcapital",Condition,SNOMED,standard
+4174520,Fracture of vertebral column,Condition,SNOMED,standard
+4174655,Fracture of coracoid process of scapula,Condition,SNOMED,standard
+4175140,Closed fracture of hyoid bone,Condition,SNOMED,standard
+4175616,Fracture of shaft of humerus,Condition,SNOMED,standard
+4179527,Compression fracture of vertebral column,Condition,SNOMED,standard
+4179653,Closed fracture of scapular body,Condition,SNOMED,standard
+4182555,Fracture of ulna,Condition,SNOMED,standard
+4183283,Barton's fracture,Condition,SNOMED,standard
+4185307,Closed fracture of head of humerus,Condition,SNOMED,standard
+4194599,Wedge fracture of vertebra,Condition,SNOMED,standard
+4195932,Closed fracture of thoracic region with spinal cord injury,Condition,SNOMED,standard
+4197801,Posterior cord syndrome due to closed fracture of C1-C4 level,Condition,SNOMED,standard
+4199290,Closed fracture of fourth cervical vertebra without spinal cord injury,Condition,SNOMED,non-standard
+4199441,Fracture of acromial end of clavicle,Condition,SNOMED,standard
+4199545,Fracture subluxation of hip joint,Condition,SNOMED,standard
+4201447,Closed multiple fractures of both upper limbs,Condition,SNOMED,standard
+4207924,Osteoporotic collapse of cervical vertebra,Condition,SNOMED,standard
+4208503,Closed fractures involving multiple regions of both upper limbs,Condition,SNOMED,standard
+4209549,Closed multiple fractures of thoracic spine,Condition,SNOMED,standard
+4209559,Closed fractures involving multiple regions upper with lower limb,Condition,SNOMED,standard
+4210438,Closed multiple fractures of clavicle and/or scapula and/or humerus,Condition,SNOMED,standard
+4211244,Fracture of sternal end of clavicle,Condition,SNOMED,standard
+4213266,Fracture dislocation of joint of shoulder girdle,Condition,SNOMED,standard
+4216828,Closed fracture of cervical region with spinal cord injury,Condition,SNOMED,non-standard
+4218146,Closed fracture dislocation of joint of shoulder girdle,Condition,SNOMED,standard
+4218884,Fracture of carpal bone,Condition,SNOMED,standard
+4219822,Fracture of shaft of clavicle,Condition,SNOMED,standard
+4222457,Fracture of pisiform bone of wrist,Condition,SNOMED,standard
+4223844,Closed fracture of C1-C4 level with incomplete cord lesion,Condition,SNOMED,standard
+4230399,Closed fracture of hip,Condition,SNOMED,standard
+4230454,Fracture of scapular body,Condition,SNOMED,standard
+4237458,Fracture of clavicle,Condition,SNOMED,standard
+4240204,Closed multiple fractures of upper limb with ribs,Condition,SNOMED,standard
+4240329,Moore's fracture,Condition,SNOMED,standard
+4243344,Closed multiple fractures of upper end of radius,Condition,SNOMED,standard
+4246617,Closed fracture of multiple bones of upper limb,Condition,SNOMED,standard
+4248416,Closed multiple fractures of upper end of ulna,Condition,SNOMED,standard
+4249740,Fracture of capitate bone of wrist,Condition,SNOMED,standard
+4253933,Fracture of trapezium of wrist,Condition,SNOMED,standard
+4260258,Closed fracture of the medial epicondyle of humerus,Condition,SNOMED,standard
+4261321,Multiple fractures of upper AND lower limbs,Condition,SNOMED,standard
+4263321,Quervain's fracture,Condition,SNOMED,standard
+4263567,Closed fracture of head of ulna,Condition,SNOMED,standard
+4275900,Fracture of spinous process of vertebra,Condition,SNOMED,standard
+4278672,Fracture of forearm,Condition,SNOMED,standard
+4279139,Fracture of bones of trunk,Condition,SNOMED,standard
+4280503,Multiple fractures of upper limb with ribs,Condition,SNOMED,standard
+4281251,Closed fracture of C5-C7 level with incomplete spinal cord lesion,Condition,SNOMED,standard
+4282857,Closed fracture of upper limb,Condition,SNOMED,standard
+4306785,Fracture of transverse process of vertebra,Condition,SNOMED,standard
+4307551,Pathological fracture of scapula,Condition,SNOMED,standard
+4307813,Closed fracture of sixth cervical vertebra without spinal cord injury,Condition,SNOMED,non-standard
+4308550,Fractures involving multiple regions of upper limb(s) with lower limb(s),Condition,SNOMED,standard
+4311941,Fracture of hamate bone of wrist,Condition,SNOMED,standard
+4313341,Pathological fracture of clavicle,Condition,SNOMED,standard
+4318109,Metaphyseal fracture of bone of upper limb,Condition,SNOMED,standard
+4319889,Fracture of scapula,Condition,SNOMED,standard
+4321893,Fracture of neural arch,Condition,SNOMED,standard
+4328220,Fracture of triquetral bone of wrist,Condition,SNOMED,standard
+4328823,Compression fracture of cervical spine,Condition,SNOMED,standard
+4337263,Fracture of acromial process of scapula,Condition,SNOMED,standard
+4338231,Fracture of interligamentous part of clavicle,Condition,SNOMED,standard
+4338664,Closed fracture of fifth cervical vertebra without spinal cord injury,Condition,SNOMED,non-standard
+4347301,Osteoporotic vertebral collapse,Condition,SNOMED,standard
+36675161,Closed fractures involving multiple regions of left upper limb,Condition,SNOMED,standard
+36675162,Closed fractures involving multiple regions of right upper limb,Condition,SNOMED,standard
+36675163,Fractures involving multiple regions of left upper limb,Condition,SNOMED,standard
+36675164,Fractures involving multiple regions of right upper limb,Condition,SNOMED,standard
+36686183,Closed fracture of neck of left scapula,Condition,SNOMED,standard
+36715617,Fracture of posterior arch of first cervical vertebra,Condition,SNOMED,standard
+36715618,Fracture of lateral mass of first cervical vertebra,Condition,SNOMED,standard
+36715619,Type II fracture of odontoid process of axis,Condition,SNOMED,standard
+36715620,Type III fracture of odontoid process of axis,Condition,SNOMED,standard
+36715621,Fracture of third cervical vertebra,Condition,SNOMED,standard
+36715622,Fracture of fourth cervical vertebra,Condition,SNOMED,standard
+36715623,Fracture of fifth cervical vertebra,Condition,SNOMED,standard
+36715624,Fracture of sixth cervical vertebra,Condition,SNOMED,standard
+36715625,Fracture of seventh cervical vertebra,Condition,SNOMED,standard
+36715679,Fracture of first thoracic vertebra,Condition,SNOMED,standard
+36715680,Fracture of second thoracic vertebra,Condition,SNOMED,standard
+36715681,Fracture of third thoracic vertebra,Condition,SNOMED,standard
+36715682,Fracture of fourth thoracic vertebra,Condition,SNOMED,standard
+36715683,Fracture of sixth thoracic vertebra,Condition,SNOMED,standard
+36715684,Fracture of seventh thoracic vertebra,Condition,SNOMED,standard
+36715685,Fracture of eighth thoracic vertebra,Condition,SNOMED,standard
+36715686,Fracture of ninth thoracic vertebra,Condition,SNOMED,standard
+36715687,Fracture of tenth thoracic vertebra,Condition,SNOMED,standard
+36715688,Fracture of eleventh thoracic vertebra,Condition,SNOMED,standard
+36715689,Fracture of twelfth thoracic vertebra,Condition,SNOMED,standard
+36715746,Fracture of second lumbar vertebra,Condition,SNOMED,standard
+36715747,Fracture of third lumbar vertebra,Condition,SNOMED,standard
+36715748,Fracture of fourth lumbar vertebra,Condition,SNOMED,standard
+36715749,Fracture of fifth lumbar vertebra,Condition,SNOMED,standard
+36717169,Fracture of first lumbar vertebra,Condition,SNOMED,standard
+36717465,Type I fracture of odontoid process of axis,Condition,SNOMED,standard
+36717470,Fracture of fifth thoracic vertebra,Condition,SNOMED,standard
+37116502,Fracture of shaft of ulna and radius,Condition,SNOMED,standard
+37116533,Fracture of head of femur,Condition,SNOMED,standard
+37116628,Multiple fractures of clavicle,Condition,SNOMED,standard
+37116629,Multiple fractures of scapula,Condition,SNOMED,standard
+37116630,Fracture of surgical neck of humerus,Condition,SNOMED,standard
+37116631,Fracture of greater tuberosity of humerus,Condition,SNOMED,standard
+37116632,Fracture of lesser tuberosity of humerus,Condition,SNOMED,standard
+37116633,Fracture of lateral condyle of humerus,Condition,SNOMED,standard
+37116634,Fracture of medial condyle of humerus,Condition,SNOMED,standard
+37116635,Multiple fractures of humerus,Condition,SNOMED,standard
+37208071,Fracture of bone of left hand,Condition,SNOMED,standard
+37208072,Fracture of bone of right hand,Condition,SNOMED,standard
+37208089,Fracture of bone of left shoulder girdle,Condition,SNOMED,standard
+37209159,Closed fracture of trapezoidal bone of right wrist,Condition,SNOMED,standard
+37209160,Closed fracture of trapezoidal bone of left wrist,Condition,SNOMED,standard
+37209161,Closed fracture of lunate bone of left wrist,Condition,SNOMED,standard
+37209174,Pathological fracture of right scapula due to osteoporosis,Condition,SNOMED,standard
+37209546,Closed fracture of metaphysis of distal end of left radius,Condition,SNOMED,standard
+37209547,Closed fracture of metaphysis of distal end of right radius,Condition,SNOMED,standard
+37309616,Closed fracture of capitellum of left humerus,Condition,SNOMED,standard
+37309617,Closed fracture of capitellum of right humerus,Condition,SNOMED,standard
+37311955,Fracture of proximal epiphysis of femur,Condition,SNOMED,standard
+37311960,Fracture of head of humerus,Condition,SNOMED,standard
+37311962,Fracture of anatomical neck of humerus,Condition,SNOMED,standard
+40479208,Transcondylar fracture of distal humerus,Condition,SNOMED,standard
+40483548,Fracture of head of radius with dislocation of distal radioulnar joint and interosseous membrane disruption,Condition,SNOMED,standard
+40484195,Pathological fracture of distal radius,Condition,SNOMED,standard
+40484196,Pathological fracture of distal ulna,Condition,SNOMED,standard
+40484890,Entrapment of intestine in spinal fracture,Condition,SNOMED,standard
+40489449,Greenstick fracture of distal radius,Condition,SNOMED,standard
+40491988,Closed extraarticular fracture of distal radius,Condition,SNOMED,standard
+40492264,Fracture of body of vertebra,Condition,SNOMED,standard
+40493184,Fracture of trochanter of femur,Condition,SNOMED,standard
+40493210,Closed fracture of trochanter of femur,Condition,SNOMED,standard
+40598639,Closed fracture of shaft of radius and ulna,Condition,SNOMED,standard
+42537719,Fracture of lower end of radius with volar tilt,Condition,SNOMED,standard
+42539096,Fracture of lower end of radius with dorsal tilt,Condition,SNOMED,standard
+42539257,Bilateral sacral insufficiency fracture,Condition,SNOMED,standard
+43021792,Chance flexion distraction fracture of vertebra,Condition,SNOMED,standard
+44783966,Compression fracture of thoracic spine,Condition,SNOMED,standard
+44788772,"Closed fracture of femur, upper epiphysis",Condition,SNOMED,standard
+44792139,Stress fracture of pars interarticularis,Condition,SNOMED,standard
+45757303,Closed fracture of first thoracic vertebra,Condition,SNOMED,standard
+45757304,Closed fracture of second thoracic vertebra,Condition,SNOMED,standard
+45757305,Closed fracture of third thoracic vertebra,Condition,SNOMED,standard
+45757306,Closed fracture of fourth thoracic vertebra,Condition,SNOMED,standard
+45757307,Closed fracture of second lumbar vertebra,Condition,SNOMED,standard
+45757308,Closed fracture of third lumbar vertebra,Condition,SNOMED,standard
+45757309,Closed fracture of fourth lumbar vertebra,Condition,SNOMED,standard
+45757310,Closed fracture of fifth lumbar vertebra,Condition,SNOMED,standard
+45757314,Secondary osteoporotic fracture of thoracic vertebra,Condition,SNOMED,standard
+45757316,Secondary osteoporotic fracture of lumbar vertebra,Condition,SNOMED,standard
+45757318,Secondary osteoporotic fracture of cervical vertebra,Condition,SNOMED,standard
+45757320,Osteoporotic fracture of vertebra,Condition,SNOMED,standard
+45757322,Pathological fracture of sacral vertebra,Condition,SNOMED,standard
+45757323,Secondary osteoporotic fracture of vertebra,Condition,SNOMED,standard
+45757324,Secondary osteoporotic fracture of sacral vertebra,Condition,SNOMED,standard
+45757329,Stress fracture of thoracic vertebra,Condition,SNOMED,standard
+45757330,Stress fracture of lumbar vertebra,Condition,SNOMED,standard
+45763653,Fracture of bone of hip region,Condition,SNOMED,standard
+45763685,Avulsion fracture of medial epicondyle of humerus,Condition,SNOMED,standard
+45766722,Closed fracture of lesser tuberosity of humerus,Condition,SNOMED,standard
+45766902,Pathological fracture of ulna,Condition,SNOMED,standard
+45766905,Pathological fracture of radius,Condition,SNOMED,standard
+45766906,Pathological fracture of proximal end of femur,Condition,SNOMED,standard
+45766940,Closed fracture of shoulder,Condition,SNOMED,standard
+45766942,Closed fracture of distal epiphysis of radius,Condition,SNOMED,standard
+45767001,Secondary osteoporotic fracture of ulna,Condition,SNOMED,standard
+45767003,Secondary osteoporotic fracture of scapula,Condition,SNOMED,standard
+45767004,Secondary osteoporotic fracture of humerus,Condition,SNOMED,standard
+45767005,Secondary osteoporotic fracture of proximal femur,Condition,SNOMED,standard
+45767006,Secondary osteoporotic fracture of hand,Condition,SNOMED,standard
+45767010,Secondary osteoporotic fracture of clavicle,Condition,SNOMED,standard
+45767036,Osteoporotic fracture of clavicle,Condition,SNOMED,standard
+45767040,Osteoporotic fracture of hand,Condition,SNOMED,standard
+45767041,Osteoporotic fracture of proximal femur,Condition,SNOMED,standard
+45767042,Osteoporotic fracture of humerus,Condition,SNOMED,standard
+45767043,Osteoporotic fracture of scapula,Condition,SNOMED,standard
+45767045,Osteoporotic fracture of ulna,Condition,SNOMED,standard
+45767104,Closed transcondylar fracture of distal humerus,Condition,SNOMED,standard
+45767610,Closed fracture of epiphyseal plate of distal humerus,Condition,SNOMED,standard
+45767634,Closed fracture of navicular bone of wrist with dislocation of perilunate joint,Condition,SNOMED,standard
+45770877,Stress fracture of cervical vertebra,Condition,SNOMED,standard
+45771398,Closed intra-articular fracture of head of femur,Condition,SNOMED,standard
+45772065,Closed fracture of first lumbar vertebra,Condition,SNOMED,standard
+45772067,Osteoporotic fracture of sacral vertebra,Condition,SNOMED,standard
+45772068,Stress fracture of occipito atlanto axial vertebra,Condition,SNOMED,standard
+45772685,Closed fracture of hand,Condition,SNOMED,standard
+45772713,Secondary osteoporotic fracture of radius,Condition,SNOMED,standard
+45772718,Osteoporotic fracture of radius,Condition,SNOMED,standard
+45773541,Closed fracture of proximal epiphysis of radius,Condition,SNOMED,standard
+46270166,Periprosthetic fracture of hip,Condition,SNOMED,standard
+46270317,Fracture of shoulder,Condition,SNOMED,standard
+46270329,Burst fracture of fourth thoracic vertebra,Condition,SNOMED,standard
+46270349,Compression fracture of L2,Condition,SNOMED,standard
+46270372,Fracture of C4 pedicle,Condition,SNOMED,standard
+46270373,Fracture of C5 pedicle,Condition,SNOMED,standard
+46271800,Pathological fracture of distal radius and distal ulna,Condition,SNOMED,standard

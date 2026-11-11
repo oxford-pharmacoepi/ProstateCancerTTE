@@ -1,62 +1,62 @@
-concept_id
-43531651
-4029890
-4298010
-40482885
-4096215
-4079887
-4301409
-4142496
-43530660
-1340362
-45757432
-4300461
-4029260
-4294296
-4134862
-4104485
-4031945
-4270878
-4143177
-766254
-4029261
-4029891
-4292672
-4223495
-35608140
-437521
-4030618
-4144326
-4029258
-4120314
-4291436
-4029305
-4298733
-432867
-4030586
-437827
-4295609
-4295608
-45757500
-37016144
-4029259
-4079876
-4029892
-4030619
-4077382
-4144529
-4079886
-4294297
-4299409
-36674388
-4079885
-4029263
-4298723
-37162785
-37163227
-438720
-45770880
-36676683
-4031947
-440360
-4220010
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+432867,Hyperlipidemia,Condition,SNOMED,standard
+437521,Familial hyperchylomicronemia,Condition,SNOMED,standard
+437827,Pure hypercholesterolemia,Condition,SNOMED,standard
+438720,Mixed hyperlipidemia,Condition,SNOMED,standard
+440360,Pure hyperglyceridemia,Condition,SNOMED,standard
+766254,Exacerbation of hyperlipidaemia,Condition,OMOP Extension,standard
+1340362,Exacerbation of hypercholesterolemia,Condition,OMOP Extension,standard
+4029258,Polygenic hypercholesterolemia,Condition,SNOMED,standard
+4029259,Familial hypercholesterolemia - heterozygous,Condition,SNOMED,standard
+4029260,Primary hypertriglyceridemia,Condition,SNOMED,standard
+4029261,Fredrickson type IV hyperlipoproteinemia,Condition,SNOMED,standard
+4029263,Primary combined hyperlipidemia,Condition,SNOMED,standard
+4029305,Hypercholesterolemia,Condition,SNOMED,standard
+4029890,Familial defective apolipoprotein B-100,Condition,SNOMED,standard
+4029891,Secondary hypercholesterolemia,Condition,SNOMED,standard
+4029892,Secondary hypertriglyceridemia,Condition,SNOMED,standard
+4030586,Exogenous hyperlipidemia,Condition,SNOMED,standard
+4030618,Endogenous hyperlipidemia,Condition,SNOMED,standard
+4030619,Mixed hypercholesterolemia and hypertriglyceridemia,Condition,SNOMED,standard
+4031945,Primary hypercholesterolemia,Condition,SNOMED,standard
+4031947,Very low density lipoprotinemia,Condition,SNOMED,standard
+4077382,"Hyperlipoproteinemia, type I",Condition,SNOMED,standard
+4079876,Familial combined hyperlipidemia,Condition,SNOMED,standard
+4079885,Familial hypercholesterolemia - homozygous,Condition,SNOMED,standard
+4079886,Hyperalphalipoproteinemia,Condition,SNOMED,standard
+4079887,Secondary combined hyperlipidemia,Condition,SNOMED,standard
+4096215,"Hyperlipidemia, group A",Condition,SNOMED,standard
+4104485,Familial multiple lipoprotein-type hyperlipidemia,Condition,SNOMED,standard
+4120314,Hypertriglyceridemia,Condition,SNOMED,standard
+4134862,Familial hypercholesterolemia,Condition,SNOMED,standard
+4142496,Familial hypertriglyceridemia,Condition,SNOMED,standard
+4143177,Familial apolipoprotein C-II deficiency,Condition,SNOMED,standard
+4144326,Chemically induced hyperlipidemia,Condition,SNOMED,standard
+4144529,Familial type 5 hyperlipoproteinemia,Condition,SNOMED,standard
+4220010,Fredrickson type IIa hyperlipoproteinemia,Condition,SNOMED,standard
+4223495,Primary acquired chylomicronemia,Condition,SNOMED,standard
+4270878,Primary polygenic type IIb combined hyperlipidemia,Condition,SNOMED,standard
+4291436,Primary chylomicronemia,Condition,SNOMED,standard
+4292672,Secondary hyperlipidemia,Condition,SNOMED,standard
+4294296,Chylomicronemia syndrome,Condition,SNOMED,standard
+4294297,Primary genetic mixed hyperlipidemia,Condition,SNOMED,standard
+4295608,Familial hypercholesterolemia due to heterozygous LDL receptor mutation,Condition,SNOMED,standard
+4295609,Familial hypercholesterolemia due to genetic defect of apolipoprotein B,Condition,SNOMED,standard
+4298010,Familial hypercholesterolemia due to homozygous LDL receptor mutation,Condition,SNOMED,standard
+4298723,Hyperlipidemia with lipid deposition in skin,Condition,SNOMED,standard
+4298733,Primary genetic hyperlipidemia,Condition,SNOMED,standard
+4299409,Sporadic primary hypertriglyceridemia,Condition,SNOMED,standard
+4300461,Familial lipoprotein lipase deficiency with type V phenotype,Condition,SNOMED,standard
+4301409,Familial lipoprotein lipase deficiency with type I phenotype,Condition,SNOMED,standard
+35608140,Double heterozygous familial hypercholesterolemia,Condition,SNOMED,standard
+36674388,Hypercholesterolemia due to cholesterol 7alpha-hydroxylase deficiency,Condition,SNOMED,standard
+36676683,Transient infantile hypertriglyceridemia and hepatosteatosis,Condition,SNOMED,standard
+37016144,Hyperlipidemia caused by steroid,Condition,SNOMED,standard
+37162785,Familial chylomicronemia syndrome,Condition,SNOMED,standard
+37163227,TMEM199 congenital disorder of glycosylation,Condition,SNOMED,standard
+40482885,Posttransplant hyperlipidemia,Condition,SNOMED,standard
+43530660,Mixed hyperlipidemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+43531651,Mixed hyperlipidemia due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757432,Hyperlipidemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757500,Familial hyperalphalipoproteinemia,Condition,SNOMED,standard
+45770880,Hyperlipidemia due to type 2 diabetes mellitus,Condition,SNOMED,standard

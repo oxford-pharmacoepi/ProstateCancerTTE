@@ -1,6 +1,6 @@
-concept_id
-376707
-378425
-4036620
-4205680
-4302474
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+376707,Acute conjunctivitis,Condition,SNOMED,standard
+378425,Blepharitis,Condition,SNOMED,standard
+4036620,Dry eyes,Condition,SNOMED,standard
+4205680,Eye symptom,Condition,SNOMED,standard
+4302474,Subconjunctival hemorrhage,Condition,SNOMED,standard

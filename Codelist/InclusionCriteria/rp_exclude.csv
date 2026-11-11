@@ -1,7 +1,7 @@
-concept_id
-4021570
-4119924
-4216658
-4263480
-4341384
-4341893
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+4021570,Radical cystoprostatourethrectomy,Procedure,SNOMED,standard
+4119924,Cystoprostatectomy,Procedure,SNOMED,standard
+4216658,Radical cystoprostatectomy,Procedure,SNOMED,standard
+4263480,Suprapubic prostatectomy,Procedure,SNOMED,standard
+4341384,Salvage cystoprostatectomy,Procedure,SNOMED,standard
+4341893,Salvage cystoprostatourethrectomy,Procedure,SNOMED,standard

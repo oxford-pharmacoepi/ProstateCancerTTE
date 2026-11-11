@@ -1,32 +1,29 @@
-concept_id
-200772
-201353
-442257
-764098
-915730
-915733
-915736
-4032434
-4119306
-4126267
-4135624
-4137338
-4152493
-4178629
-4251475
-4312723
-4331966
-4340233
-4340262
-4340364
-4341635
-4342653
-4342749
-37016343
-37016841
-37108572
-37109933
-37117795
-42575801
-42597111
-42597112
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+200772,Radiation gastroenteritis,Condition,SNOMED,standard
+201353,Radiation cystitis,Condition,SNOMED,standard
+442257,Colitis caused by radiation,Condition,SNOMED,standard
+764098,Irradiation cystitis without hematuria,Condition,SNOMED,standard
+915730,Patient sustained bladder injury at the time of surgery or discovered subsequently up to 30 days post-surgery,Observation,HCPCS,standard
+915733,Patient sustained bowel injury at the time of surgery or discovered subsequently up to 30 days post-surgery,Observation,HCPCS,standard
+915736,Patient sustained ureter injury at the time of surgery or discovered subsequently up to 30 days post-surgery (Deprecated),Observation,HCPCS,standard
+4032434,Acute radiation cystitis,Condition,SNOMED,standard
+4119306,Perforation of large intestine,Condition,SNOMED,standard
+4126267,Chronic radiation cystitis,Condition,SNOMED,standard
+4135624,Delayed perforation of rectum,Condition,SNOMED,standard
+4137338,Accidental perforation of urinary bladder during operation,Condition,SNOMED,standard
+4152493,Cut of ureter,Condition,SNOMED,standard
+4178629,Stricture of rectum due to radiation,Condition,SNOMED,standard
+4251475,Radiation enteritis of intestine,Condition,SNOMED,standard
+4312723,Postoperative perforation of urinary bladder,Condition,SNOMED,standard
+4331966,Perforating radiation proctitis,Condition,SNOMED,standard
+4340233,Chronic radiation enteropathy of intestine,Condition,SNOMED,standard
+4340262,Acute radiation proctitis,Condition,SNOMED,standard
+4340364,Stricture of intestine following radiotherapy,Condition,SNOMED,standard
+4341635,Radiation proctitis,Condition,SNOMED,standard
+4342653,Acute radiation enteritis of intestine,Condition,SNOMED,standard
+4342749,Chronic radiation proctitis,Condition,SNOMED,standard
+37016343,Hematuria co-occurrent and due to irradiation cystitis,Condition,SNOMED,non-standard
+37016841,Injury to rectum during surgery,Condition,SNOMED,standard
+37108572,Injury of ureter during surgery,Condition,SNOMED,standard
+37109933,Duodenitis caused by ionizing radiation,Condition,SNOMED,standard
+37117795,Injury of urinary bladder during surgery,Condition,SNOMED,standard

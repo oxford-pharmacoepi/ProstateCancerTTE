@@ -1,15 +1,15 @@
-concept_id
-30437
-30753
-31317
-75576
-201340
-201618
-318800
-433516
-443344
-4043371
-4144111
-4197094
-4201745
-44783954
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+30437,Gastro-esophageal reflux disease with esophagitis,Condition,SNOMED,standard
+30753,Esophagitis,Condition,SNOMED,standard
+31317,Dysphagia,Condition,SNOMED,standard
+75576,Irritable bowel syndrome,Condition,SNOMED,standard
+201340,Gastritis,Condition,SNOMED,standard
+201618,Disorder of intestine,Condition,SNOMED,standard
+318800,Gastroesophageal reflux disease,Condition,SNOMED,standard
+433516,Duodenitis,Condition,SNOMED,standard
+443344,Barrett's esophagus,Condition,SNOMED,standard
+4043371,Inflammatory disorder of digestive tract,Condition,SNOMED,standard
+4144111,Gastroesophageal reflux disease without esophagitis,Condition,SNOMED,standard
+4197094,Disorder of lower gastrointestinal tract,Condition,SNOMED,standard
+4201745,Disorder of digestive system,Condition,SNOMED,standard
+44783954,Acid reflux,Condition,SNOMED,standard

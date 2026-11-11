@@ -1,10 +1,10 @@
-concept_id
-317009
-4017026
-4017183
-4017184
-4017293
-4152418
-4152911
-4156136
-4161595
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+317009,Asthma,Condition,SNOMED,standard
+4017026,Asthma not limiting activities,Condition,SNOMED,standard
+4017183,Asthma not disturbing sleep,Condition,SNOMED,standard
+4017184,Asthma never disturbs sleep,Condition,SNOMED,standard
+4017293,Asthma never restricts exercise,Condition,SNOMED,standard
+4152418,Asthma never causes daytime symptoms,Condition,SNOMED,standard
+4152911,Asthma causes daytime symptoms most days,Condition,SNOMED,standard
+4156136,Asthma causes daytime symptoms 1 to 2 times per month,Condition,SNOMED,standard
+4161595,Asthma daytime symptoms,Condition,SNOMED,standard

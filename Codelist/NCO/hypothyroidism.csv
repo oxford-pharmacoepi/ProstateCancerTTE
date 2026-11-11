@@ -1,2 +1,2 @@
-concept_id
-140673
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+140673,Hypothyroidism,Condition,SNOMED,standard

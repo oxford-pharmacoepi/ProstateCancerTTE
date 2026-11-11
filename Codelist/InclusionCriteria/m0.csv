@@ -1,9 +1,9 @@
-concept_id
-1633299
-1633468
-1633829
-1634194
-1634757
-1634887
-1635291
-1635624
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+1633299,AJCC/UICC 8th M0 Category,Measurement,Cancer Modifier,standard
+1633468,AJCC/UICC 7th clinical M0 Category,Measurement,Cancer Modifier,standard
+1633829,AJCC/UICC 7th M0 Category,Measurement,Cancer Modifier,standard
+1634194,AJCC/UICC 6th clinical M0 Category,Measurement,Cancer Modifier,standard
+1634757,AJCC/UICC 8th clinical M0 Category,Measurement,Cancer Modifier,standard
+1634887,AJCC/UICC 6th M0 Category,Measurement,Cancer Modifier,standard
+1635291,AJCC/UICC clinical M0 Category,Measurement,Cancer Modifier,standard
+1635624,AJCC/UICC M0 Category,Measurement,Cancer Modifier,standard

@@ -1,4 +1,4 @@
-concept_id
-45770278
-45770280
-45773617
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+45770278,Moderate frailty,Condition,SNOMED,standard
+45770280,Severe frailty,Condition,SNOMED,standard
+45773617,Mild frailty,Condition,SNOMED,standard

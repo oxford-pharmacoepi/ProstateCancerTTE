@@ -1,40 +1,40 @@
-concept_id
-315296
-315830
-315832
-321318
-608952
-608953
-761735
-1340247
-1340441
-4068938
-4078531
-4108670
-4116486
-4119455
-4119942
-4155008
-4155009
-4155963
-4161456
-4161457
-4161973
-4161974
-4184827
-4198141
-4201629
-4231426
-4262446
-4264145
-4310270
-4324893
-35615052
-35615053
-36712982
-36712983
-36712984
-37169384
-37209632
-37309713
-43531588
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+315296,Preinfarction syndrome,Condition,SNOMED,standard
+315830,Prinzmetal angina,Condition,SNOMED,standard
+315832,Angina decubitus,Condition,SNOMED,standard
+321318,Angina pectoris,Condition,SNOMED,standard
+608952,Unstable angina due to arteriosclerosis of coronary artery bypass graft of transplanted heart,Condition,SNOMED,standard
+608953,Unstable angina due to arteriosclerosis of autologous arterial coronary artery bypass graft,Condition,SNOMED,standard
+761735,Arteriosclerosis of autologous arterial coronary artery bypass graft with angina,Condition,SNOMED,standard
+1340247,Exacerbation of angina pectoris,Condition,OMOP Extension,standard
+1340441,Exacerbation of preinfarction syndrome,Condition,OMOP Extension,standard
+4068938,Syncope anginosa,Condition,SNOMED,standard
+4078531,Status anginosus,Condition,SNOMED,standard
+4108670,Acute coronary insufficiency,Condition,SNOMED,standard
+4116486,Exercise-induced angina,Condition,SNOMED,standard
+4119455,New onset angina,Condition,SNOMED,standard
+4119942,Stable angina,Condition,SNOMED,standard
+4155008,Recurrent angina post rotational atherectomy,Condition,SNOMED,standard
+4155009,Recurrent angina after directional coronary atherectomy,Condition,SNOMED,standard
+4155963,Atypical angina,Condition,SNOMED,standard
+4161456,Recurrent angina following placement of coronary artery stent,Condition,SNOMED,standard
+4161457,Recurrent angina after coronary artery bypass graft,Condition,SNOMED,standard
+4161973,Progressive angina,Condition,SNOMED,standard
+4161974,Recurrent angina after percutaneous transluminal coronary angioplasty,Condition,SNOMED,standard
+4184827,"Angina, class II",Condition,SNOMED,standard
+4198141,Post infarct angina,Condition,SNOMED,standard
+4201629,Refractory angina,Condition,SNOMED,standard
+4231426,"Angina, class IV",Condition,SNOMED,standard
+4262446,Nocturnal angina,Condition,SNOMED,standard
+4264145,"Angina, class I",Condition,SNOMED,standard
+4310270,"Angina, class III",Condition,SNOMED,standard
+4324893,Typical angina,Condition,SNOMED,standard
+35615052,Arteriosclerosis of autologous vein coronary artery bypass graft with angina,Condition,SNOMED,standard
+35615053,Unstable angina co-occurrent and due to arteriosclerosis of coronary artery bypass graft,Condition,SNOMED,standard
+36712982,Unstable angina co-occurrent and due to coronary arteriosclerosis,Condition,SNOMED,standard
+36712983,Angina co-occurrent and due to coronary arteriosclerosis,Condition,SNOMED,standard
+36712984,Angina co-occurrent and due to arteriosclerosis of coronary artery bypass graft,Condition,SNOMED,standard
+37169384,Preinfarction syndrome due to arteriosclerosis of nonautologous biological coronary artery bypass graft,Condition,SNOMED,standard
+37209632,Stable angina due to coronary arteriosclerosis,Condition,SNOMED,standard
+37309713,Unstable angina due to arteriosclerosis of autologous vein coronary artery bypass graft,Condition,SNOMED,standard
+43531588,Angina associated with type 2 diabetes mellitus,Condition,SNOMED,standard

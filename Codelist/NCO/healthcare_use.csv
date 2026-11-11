@@ -1,32 +1,32 @@
-concept_id
-3654258
-4039274
-4060865
-4082416
-4114461
-4115241
-4116639
-4118266
-4154774
-4199873
-4217260
-4219972
-4337838
-37311331
-37311332
-37312077
-37312078
-37312087
-37312090
-37312542
-37312543
-37312544
-37312545
-37312546
-37312547
-40480457
-44784329
-44811824
-44811826
-44814093
-44814094
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+3654258,Normal chest,Condition,SNOMED,standard
+4039274,"Ear, nose and throat examination - no abnormality detected",Condition,SNOMED,standard
+4060865,Abdomen examined - NAD,Condition,SNOMED,standard
+4082416,Ear finding,Condition,SNOMED,standard
+4114461,Tympanic membrane normal,Condition,SNOMED,standard
+4115241,Finding of pulse rhythm,Condition,SNOMED,standard
+4116639,Heart sounds normal,Condition,SNOMED,standard
+4118266,Finding of measures of body temperature,Condition,SNOMED,standard
+4154774,Pulse regular,Condition,SNOMED,standard
+4199873,Chest clear,Condition,SNOMED,non-standard
+4217260,Intraocular pressure left eye,Condition,SNOMED,standard
+4219972,Intraocular pressure right eye,Condition,SNOMED,standard
+4337838,Temperature normal,Condition,SNOMED,standard
+37311331,Normal pulse in right dorsalis pedis artery,Condition,SNOMED,standard
+37311332,Normal pulse in left dorsalis pedis artery,Condition,SNOMED,standard
+37312077,Pulse present in left dorsalis pedis artery,Condition,SNOMED,standard
+37312078,Pulse present in right dorsalis pedis artery,Condition,SNOMED,standard
+37312087,Pulse present in left posterior tibial artery,Condition,SNOMED,standard
+37312090,Pulse present in right posterior tibial artery,Condition,SNOMED,standard
+37312542,Normal pulse in left posterior tibial artery,Condition,SNOMED,standard
+37312543,Normal pulse in right posterior tibial artery,Condition,SNOMED,standard
+37312544,All pulses present in right lower limb,Condition,SNOMED,standard
+37312545,All pulses present in left lower limb,Condition,SNOMED,standard
+37312546,All pulses present in left foot,Condition,SNOMED,standard
+37312547,All pulses present in right foot,Condition,SNOMED,standard
+40480457,Evaluation finding,Condition,SNOMED,standard
+44784329,Aortic aneurysm screening normal,Condition,SNOMED,standard
+44811824,Right dorsalis pedis pulse palpable,Condition,SNOMED,standard
+44811826,Left dorsalis pedis pulse palpable,Condition,SNOMED,standard
+44814093,Right posterior tibial pulse palpable,Condition,SNOMED,standard
+44814094,Left posterior tibial pulse palpable,Condition,SNOMED,standard

@@ -1,5 +1,5 @@
-concept_id
-434610
-435515
-437833
-4232311
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+434610,Hyperkalemia,Condition,SNOMED,standard
+435515,Hypo-osmolality and or hyponatremia,Condition,SNOMED,standard
+437833,Hypokalemia,Condition,SNOMED,standard
+4232311,Hyponatremia,Condition,SNOMED,standard

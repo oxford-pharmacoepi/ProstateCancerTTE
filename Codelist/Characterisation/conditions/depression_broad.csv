@@ -1,199 +1,199 @@
-concept_id
-1340305
-1340392
-45757195
-45757196
-45757213
-35609623
-35609824
-607543
-4001733
-4031328
-35615151
-35615152
-35615153
-35615155
-37109052
-37109053
-37109054
-4037669
-4101137
-4103126
-439259
-438998
-432883
-434911
-438727
-435520
-440698
-433751
-4000165
-4051448
-4330846
-4338031
-4333687
-4084900
-4084901
-4084547
-4093584
-4094358
-432285
-43020483
-4126786
-4147991
-4148934
-4205471
-4144519
-440383
-4262272
-4262111
-4152280
-4304140
-4220023
-4226155
-4181807
-4185096
-40481798
-4174987
-4270907
-4283219
-4287238
-44782943
-4324945
-4324959
-37110495
-44805668
-44805669
-4328217
-44805542
-44805549
-44813499
-44805550
-4298317
-4217940
-4224940
-3656234
-37018656
-440078
-433440
-436665
-4107538
-4307951
-4057218
-439253
-4195680
-4224639
-4150047
-44782720
-4243308
-4096229
-4092239
-4133073
-437528
-4263770
-433992
-441834
-439256
-4071442
-4307956
-372599
-44805540
-44804961
-435226
-436386
-439246
-442600
-4322477
-4172156
-4301106
-4166701
-4307804
-439250
-4192865
-4030856
-4154283
-4287544
-42872412
-3172581
-4102603
-440067
-4155798
-4094507
-4336405
-439001
-4197669
-35624747
-4251178
-442570
-4195158
-4210024
-35624745
-441836
-4161200
-439785
-4312736
-4201739
-1340265
-4244078
-35624744
-4073401
-443906
-437529
-4274957
-4028027
-443797
-4215917
-4310821
-4220617
-4141603
-438129
-432876
-4333670
-4182998
-4150985
-437250
-4200385
-4280361
-42872413
-4031928
-43021847
-436072
-37312578
-432290
-4131027
-432866
-4194222
-439249
-440079
-43020451
-4030102
-4276670
-433743
-439248
-4327669
-4033390
-4177651
-4338812
-4151170
-4168858
-4333679
-4308866
-4149320
-4282096
-4114950
-4103574
-4049623
-4195572
-42872411
-4327337
-4307111
-4338029
-4228802
-435220
-439254
-4154309
-4250023
-4336957
-379784
-4323418
-35622934
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+372599,Severe mixed bipolar I disorder without psychotic features,Condition,SNOMED,standard
+379784,Senile dementia with depression,Condition,SNOMED,standard
+432285,Recurrent major depressive episodes,Condition,SNOMED,standard
+432290,"Mild bipolar I disorder, single manic episode",Condition,SNOMED,standard
+432866,"Bipolar I disorder, single manic episode",Condition,SNOMED,standard
+432876,Bipolar I disorder,Condition,SNOMED,standard
+432883,"Recurrent major depressive episodes, moderate",Condition,SNOMED,standard
+433440,Dysthymia,Condition,SNOMED,standard
+433743,Mixed bipolar I disorder in remission,Condition,SNOMED,standard
+433751,Prolonged depressive adjustment reaction,Condition,SNOMED,standard
+433992,"Bipolar affective disorder, currently manic, moderate",Condition,SNOMED,standard
+434911,"Recurrent major depressive episodes, severe, with psychosis",Condition,SNOMED,standard
+435220,Severe recurrent major depression without psychotic features,Condition,SNOMED,standard
+435226,"Bipolar affective disorder, current episode mixed",Condition,SNOMED,standard
+435520,Reactive depressive psychosis,Condition,SNOMED,standard
+436072,Bipolar disorder in partial remission,Condition,SNOMED,standard
+436386,Severe depressed bipolar I disorder with psychotic features,Condition,SNOMED,standard
+436665,Bipolar disorder,Condition,SNOMED,standard
+437250,Mild depressed bipolar I disorder,Condition,SNOMED,standard
+437528,"Bipolar affective disorder, currently depressed, moderate",Condition,SNOMED,standard
+437529,Mixed bipolar I disorder in partial remission,Condition,SNOMED,standard
+438129,"Severe manic bipolar I disorder with psychotic features, mood-congruent",Condition,SNOMED,standard
+438727,Atypical depressive disorder,Condition,SNOMED,standard
+438998,"Recurrent major depressive episodes, mild",Condition,SNOMED,standard
+439001,Severe mixed bipolar I disorder with psychotic features,Condition,SNOMED,standard
+439246,"Mixed bipolar affective disorder, severe, with psychosis",Condition,SNOMED,standard
+439248,"Mixed bipolar affective disorder, moderate",Condition,SNOMED,standard
+439249,"Mixed bipolar affective disorder, mild",Condition,SNOMED,standard
+439250,Mixed bipolar affective disorder,Condition,SNOMED,standard
+439253,"Bipolar affective disorder, currently depressed, mild",Condition,SNOMED,standard
+439254,"Bipolar affective disorder, current episode depression",Condition,SNOMED,standard
+439256,"Bipolar affective disorder, currently manic, severe, with psychosis",Condition,SNOMED,standard
+439259,"Single major depressive episode, severe, with psychosis",Condition,SNOMED,standard
+439785,Moderate mixed bipolar I disorder,Condition,SNOMED,standard
+440067,"Moderate bipolar I disorder, single manic episode",Condition,SNOMED,standard
+440078,"Bipolar affective disorder, current episode manic",Condition,SNOMED,standard
+440079,Mild mixed bipolar I disorder,Condition,SNOMED,standard
+440383,Depressive disorder,Condition,SNOMED,standard
+440698,Brief depressive adjustment reaction,Condition,SNOMED,standard
+441834,"Bipolar affective disorder, currently manic, mild",Condition,SNOMED,standard
+441836,Depressed bipolar I disorder,Condition,SNOMED,standard
+442570,Severe depressed bipolar I disorder without psychotic features,Condition,SNOMED,standard
+442600,Manic bipolar I disorder in partial remission,Condition,SNOMED,standard
+443797,Severe manic bipolar I disorder without psychotic features,Condition,SNOMED,standard
+443906,Mixed bipolar I disorder,Condition,SNOMED,standard
+607543,Persistent depressive disorder,Condition,SNOMED,standard
+1340265,Exacerbation of bipolar disorder,Condition,OMOP Extension,standard
+1340305,Exacerbation of depressive disorder,Condition,OMOP Extension,standard
+1340392,Exacerbation of major depressive disorder,Condition,OMOP Extension,standard
+3172581,Bipolar disease in pregnancy,Condition,Nebraska Lexicon,standard
+3656234,Depressive episode,Observation,SNOMED,standard
+4000165,"Severe bipolar II disorder, most recent episode major depressive with psychotic features, mood-congruent",Condition,SNOMED,standard
+4001733,"Chronic bipolar II disorder, most recent episode major depressive",Condition,SNOMED,standard
+4028027,Mild bipolar disorder,Condition,SNOMED,standard
+4030102,"Severe bipolar I disorder, single manic episode with psychotic features, mood-congruent",Condition,SNOMED,standard
+4030856,"Severe bipolar I disorder, single manic episode without psychotic features",Condition,SNOMED,standard
+4031328,"Chronic major depressive disorder, single episode",Condition,SNOMED,standard
+4031928,"Severe mixed bipolar I disorder with psychotic features, mood-incongruent",Condition,SNOMED,standard
+4033390,"Bipolar I disorder, single manic episode with postpartum onset",Condition,SNOMED,standard
+4037669,"Bipolar II disorder, most recent episode major depressive",Condition,SNOMED,standard
+4049623,"Moderate major depression, single episode",Condition,SNOMED,standard
+4051448,"Severe bipolar II disorder, most recent episode major depressive with psychotic features, mood-incongruent",Condition,SNOMED,standard
+4057218,Late onset dysthymia,Condition,SNOMED,standard
+4071442,"Bipolar I disorder, most recent episode depressed with catatonic features",Condition,SNOMED,standard
+4073401,"Bipolar I disorder, most recent episode manic with catatonic features",Condition,SNOMED,standard
+4084547,Depressive hypochondriacal delusion,Condition,SNOMED,standard
+4084900,Depressive delusion of catastrophe,Condition,SNOMED,standard
+4084901,Depressive delusion of poverty,Condition,SNOMED,standard
+4092239,Seasonal affective disorder,Condition,SNOMED,standard
+4093584,"Major depressive disorder, single episode with postpartum onset",Condition,SNOMED,standard
+4094358,Chronic recurrent major depressive disorder,Condition,SNOMED,standard
+4094507,"Severe depressed bipolar I disorder with psychotic features, mood-incongruent",Condition,SNOMED,standard
+4096229,Early onset dysthymia,Condition,SNOMED,standard
+4101137,Senile dementia with depressive or paranoid features,Condition,SNOMED,standard
+4102603,Severe manic bipolar I disorder with psychotic features,Condition,SNOMED,standard
+4103126,Depressive disorder caused by drug,Condition,SNOMED,standard
+4103574,Chronic depression,Condition,SNOMED,standard
+4107538,"Bipolar I disorder, most recent episode depressed with atypical features",Condition,SNOMED,standard
+4114950,Endogenous depression,Condition,SNOMED,standard
+4126786,Depressive position relationship,Observation,SNOMED,standard
+4131027,"Severe bipolar disorder with psychotic features, mood-incongruent",Condition,SNOMED,standard
+4133073,Maternity blues,Condition,SNOMED,standard
+4141603,"Severe manic bipolar I disorder with psychotic features, mood-incongruent",Condition,SNOMED,standard
+4144519,"Bipolar II disorder, most recent episode major depressive with melancholic features",Condition,SNOMED,standard
+4147991,"Severe bipolar II disorder, most recent episode major depressive with psychotic features",Condition,SNOMED,standard
+4148934,"Bipolar II disorder, most recent episode major depressive with postpartum onset",Condition,SNOMED,standard
+4149320,Mild depression,Condition,SNOMED,standard
+4150047,Secondary dysthymia early onset,Condition,SNOMED,standard
+4150985,"Bipolar I disorder, most recent episode hypomanic",Condition,SNOMED,standard
+4151170,Moderate depression,Condition,SNOMED,standard
+4152280,Major depressive disorder,Condition,SNOMED,standard
+4154283,Severe bipolar I disorder,Condition,SNOMED,standard
+4154309,Severe recurrent major depression with psychotic features,Condition,SNOMED,standard
+4155798,Severe bipolar disorder,Condition,SNOMED,standard
+4161200,Severe bipolar II disorder,Condition,SNOMED,standard
+4166701,Manic bipolar I disorder in remission,Condition,SNOMED,standard
+4168858,Endogenous depression - recurrent,Condition,SNOMED,standard
+4172156,"Bipolar II disorder, most recent episode hypomanic",Condition,SNOMED,standard
+4174987,Minor depressive disorder,Condition,SNOMED,standard
+4177651,Depressed bipolar I disorder in partial remission,Condition,SNOMED,standard
+4181807,"Major depressive disorder, single episode with atypical features",Condition,SNOMED,standard
+4182998,"Severe depressed bipolar I disorder with psychotic features, mood-congruent",Condition,SNOMED,standard
+4185096,"Bipolar II disorder, most recent episode major depressive with atypical features",Condition,SNOMED,standard
+4192865,"Bipolar I disorder, most recent episode depressed with melancholic features",Condition,SNOMED,standard
+4194222,Moderate bipolar disorder,Condition,SNOMED,standard
+4195158,Severe bipolar disorder with psychotic features,Condition,SNOMED,standard
+4195572,"Mild major depression, single episode",Condition,SNOMED,standard
+4195680,Primary dysthymia late onset,Condition,SNOMED,standard
+4197669,"Chronic bipolar I disorder, most recent episode depressed",Condition,SNOMED,standard
+4200385,Severe bipolar disorder without psychotic features,Condition,SNOMED,standard
+4201739,Depressed bipolar I disorder in remission,Condition,SNOMED,standard
+4205471,Recurrent major depressive disorder with melancholic features,Condition,SNOMED,standard
+4210024,"Bipolar I disorder, most recent episode manic with postpartum onset",Condition,SNOMED,standard
+4215917,Mild manic bipolar I disorder,Condition,SNOMED,standard
+4217940,"Severe bipolar II disorder, most recent episode major depressive without psychotic features",Condition,SNOMED,standard
+4220023,Recurrent major depressive disorder with catatonic features,Condition,SNOMED,standard
+4220617,"Severe bipolar I disorder, single manic episode with psychotic features",Condition,SNOMED,standard
+4224639,Secondary dysthymia,Condition,SNOMED,standard
+4224940,"Schizoaffective disorder, depressive type",Condition,SNOMED,standard
+4226155,Recurrent brief depressive disorder,Condition,SNOMED,standard
+4228802,Mild recurrent major depression,Condition,SNOMED,standard
+4243308,Primary dysthymia early onset,Condition,SNOMED,standard
+4244078,"Schizoaffective disorder, bipolar type",Condition,SNOMED,standard
+4250023,Severe major depression with psychotic features,Condition,SNOMED,standard
+4251178,"Bipolar I disorder, most recent episode mixed with catatonic features",Condition,SNOMED,standard
+4262111,"Moderate bipolar II disorder, most recent episode major depressive",Condition,SNOMED,standard
+4262272,"Severe bipolar II disorder, most recent episode major depressive, in remission",Condition,SNOMED,standard
+4263770,Secondary dysthymia late onset,Condition,SNOMED,standard
+4270907,"Major depressive disorder, single episode with melancholic features",Condition,SNOMED,standard
+4274957,"Bipolar I disorder, most recent episode mixed with postpartum onset",Condition,SNOMED,standard
+4276670,"Severe mixed bipolar I disorder with psychotic features, mood-congruent",Condition,SNOMED,standard
+4280361,Moderate depressed bipolar I disorder,Condition,SNOMED,standard
+4282096,"Major depression, single episode",Condition,SNOMED,standard
+4283219,"Severe bipolar II disorder, most recent episode major depressive, in partial remission",Condition,SNOMED,standard
+4287238,"Major depressive disorder, single episode with catatonic features",Condition,SNOMED,standard
+4287544,Manic bipolar I disorder,Condition,SNOMED,standard
+4298317,Mood disorder with major depressive-like episode due to general medical condition,Condition,SNOMED,standard
+4301106,"Bipolar I disorder, single manic episode, in partial remission",Condition,SNOMED,standard
+4304140,Recurrent major depressive disorder with atypical features,Condition,SNOMED,standard
+4307111,Moderate major depression,Condition,SNOMED,standard
+4307804,Moderate manic bipolar I disorder,Condition,SNOMED,standard
+4307951,Primary dysthymia,Condition,SNOMED,standard
+4307956,Bipolar II disorder,Condition,SNOMED,standard
+4308866,Agitated depression,Condition,SNOMED,standard
+4310821,Bipolar disorder in remission,Condition,SNOMED,standard
+4312736,"Severe bipolar I disorder, single manic episode with psychotic features, mood-incongruent",Condition,SNOMED,standard
+4322477,"Severe bipolar disorder with psychotic features, mood-congruent",Condition,SNOMED,standard
+4323418,"Major depression single episode, in partial remission",Condition,SNOMED,standard
+4324945,"Mild bipolar II disorder, most recent episode major depressive",Condition,SNOMED,standard
+4324959,Recurrent major depressive disorder with postpartum onset,Condition,SNOMED,standard
+4327337,Severe major depression without psychotic features,Condition,SNOMED,standard
+4327669,"Bipolar I disorder, single manic episode, in remission",Condition,SNOMED,standard
+4328217,Mood disorder with depressive features due to general medical condition,Condition,SNOMED,standard
+4330846,"Bipolar II disorder, most recent episode major depressive with catatonic features",Condition,SNOMED,standard
+4333670,Organic bipolar disorder,Condition,SNOMED,standard
+4333679,Endogenous depression first episode,Condition,SNOMED,standard
+4333687,Depressive conduct disorder,Condition,SNOMED,standard
+4336405,"Bipolar I disorder, most recent episode depressed with postpartum onset",Condition,SNOMED,standard
+4336957,Mild major depression,Condition,SNOMED,standard
+4338029,Masked depression,Condition,SNOMED,standard
+4338031,Mixed anxiety and depressive disorder,Condition,SNOMED,standard
+4338812,"Bipolar I disorder, single manic episode with catatonic features",Condition,SNOMED,standard
+35609623,Depressive personality disorder,Condition,SNOMED,standard
+35609824,"Recurrent reactive depressive episodes, severe, with psychosis",Condition,SNOMED,standard
+35615151,Recurrent mild major depressive disorder co-occurrent with anxiety,Condition,SNOMED,standard
+35615152,Recurrent severe major depressive disorder co-occurrent with anxiety,Condition,SNOMED,standard
+35615153,Recurrent moderate major depressive disorder co-occurrent with anxiety,Condition,SNOMED,standard
+35615155,Recurrent major depressive disorder in partial remission co-occurrent with anxiety,Condition,SNOMED,standard
+35622934,Psychosis and severe depression co-occurrent and due to bipolar affective disorder,Condition,SNOMED,standard
+35624744,"Bipolar disorder, most recent episode manic",Condition,SNOMED,standard
+35624745,"Bipolar affective disorder, most recent episode mixed",Condition,SNOMED,standard
+35624747,"Bipolar I disorder, most recent episode manic",Condition,SNOMED,standard
+37018656,Depressive disorder in mother complicating pregnancy,Condition,SNOMED,standard
+37109052,Mild major depressive disorder co-occurrent with anxiety single episode,Condition,SNOMED,standard
+37109053,Moderate major depressive disorder co-occurrent with anxiety single episode,Condition,SNOMED,standard
+37109054,Severe major depressive disorder co-occurrent with anxiety single episode,Condition,SNOMED,standard
+37110495,Depressive symptoms due to primary psychotic disorder,Condition,SNOMED,standard
+37312578,Rapid cycling bipolar II disorder,Condition,SNOMED,standard
+40481798,Chronic depressive personality disorder,Condition,SNOMED,standard
+42872411,"Severe major depression, single episode",Condition,SNOMED,standard
+42872412,Severe mixed bipolar I disorder,Condition,SNOMED,standard
+42872413,Severe depressed bipolar I disorder,Condition,SNOMED,standard
+43020451,Severe manic bipolar I disorder,Condition,SNOMED,standard
+43020483,"Reactive depressive psychosis, single episode",Condition,SNOMED,standard
+43021847,Rapid cycling bipolar I disorder,Condition,SNOMED,standard
+44782720,Severe seasonal affective disorder,Condition,SNOMED,standard
+44782943,Depressive disorder in remission,Condition,SNOMED,standard
+44804961,"Mixed bipolar affective disorder, in partial remission",Condition,SNOMED,standard
+44805540,"Mixed bipolar affective disorder, severe",Condition,SNOMED,standard
+44805542,"Recurrent major depressive episodes, severe",Condition,SNOMED,standard
+44805549,"Recurrent major depressive episodes, in partial remission",Condition,SNOMED,standard
+44805550,"Single major depressive episode, in remission",Condition,SNOMED,standard
+44805668,"Single major depressive episode, severe, with psychosis, psychosis in remission",Condition,SNOMED,standard
+44805669,"Recurrent major depressive episodes, severe, with psychosis, psychosis in remission",Condition,SNOMED,standard
+44813499,"Recurrent major depressive episodes, in remission",Condition,SNOMED,standard
+45757195,Major depressive disorder in mother complicating childbirth,Condition,SNOMED,standard
+45757196,Major depressive disorder in mother complicating pregnancy,Condition,SNOMED,standard
+45757213,Depressive disorder in mother complicating childbirth,Condition,SNOMED,standard

@@ -1,113 +1,113 @@
-concept_id
-1633396
-1633417
-1633432
-1633449
-1633451
-1633454
-1633486
-1633492
-1633494
-1633497
-1633520
-1633529
-1633531
-1633549
-1633570
-1633579
-1633742
-1633752
-1633760
-1633764
-1633780
-1633797
-1633858
-1633880
-1633883
-1633921
-1633949
-1633980
-1634100
-1634126
-1634178
-1634184
-1634186
-1634190
-1634211
-1634255
-1634258
-1634309
-1634319
-1634320
-1634360
-1634369
-1634381
-1634402
-1634432
-1634437
-1634501
-1634515
-1634521
-1634547
-1634584
-1634587
-1634588
-1634636
-1634646
-1634659
-1634662
-1634668
-1634674
-1634676
-1634701
-1634728
-1634749
-1634753
-1634783
-1634817
-1634828
-1634843
-1634858
-1634931
-1634945
-1635015
-1635039
-1635069
-1635081
-1635083
-1635180
-1635205
-1635219
-1635220
-1635229
-1635292
-1635306
-1635322
-1635328
-1635348
-1635357
-1635406
-1635447
-1635493
-1635512
-1635553
-1635564
-1635568
-1635583
-1635584
-1635626
-1635647
-1635661
-1635664
-1635666
-1635668
-1635676
-1635678
-1635687
-1635701
-1635713
-1635751
-1635788
-1635793
-1635832
-1635861
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+1633396,AJCC/UICC T1b1 Category,Measurement,Cancer Modifier,standard
+1633417,AJCC/UICC 7th clinical T1a2 Category,Measurement,Cancer Modifier,standard
+1633432,AJCC/UICC 8th clinical T1c1 Category,Measurement,Cancer Modifier,standard
+1633449,AJCC/UICC 8th T1b3 Category,Measurement,Cancer Modifier,standard
+1633451,AJCC/UICC 6th T1a Category,Measurement,Cancer Modifier,standard
+1633454,AJCC/UICC 7th clinical T1b1 Category,Measurement,Cancer Modifier,standard
+1633486,AJCC/UICC 6th T1c Category,Measurement,Cancer Modifier,standard
+1633492,AJCC/UICC 6th clinical T1b Category,Measurement,Cancer Modifier,standard
+1633494,AJCC/UICC clinical T1c3 Category,Measurement,Cancer Modifier,standard
+1633497,AJCC/UICC 6th clinical T1d Category,Measurement,Cancer Modifier,standard
+1633520,AJCC/UICC 6th clinical T1a Category,Measurement,Cancer Modifier,standard
+1633529,AJCC/UICC T1c Category,Measurement,Cancer Modifier,standard
+1633531,AJCC/UICC 8th clinical T1b Category,Measurement,Cancer Modifier,standard
+1633549,AJCC/UICC 7th T1 Category,Measurement,Cancer Modifier,standard
+1633570,AJCC/UICC 7th T1d Category,Measurement,Cancer Modifier,standard
+1633579,AJCC/UICC 8th T1d Category,Measurement,Cancer Modifier,standard
+1633742,AJCC/UICC clinical T1a Category,Measurement,Cancer Modifier,standard
+1633752,AJCC/UICC 6th clinical T1mi Category,Measurement,Cancer Modifier,standard
+1633760,AJCC/UICC T1b3 Category,Measurement,Cancer Modifier,standard
+1633764,AJCC/UICC 7th T1a Category,Measurement,Cancer Modifier,standard
+1633780,AJCC/UICC 6th T1c1 Category,Measurement,Cancer Modifier,standard
+1633797,AJCC/UICC 8th T1a2 Category,Measurement,Cancer Modifier,standard
+1633858,AJCC/UICC 7th clinical T1mi Category,Measurement,Cancer Modifier,standard
+1633880,AJCC/UICC T1a Category,Measurement,Cancer Modifier,standard
+1633883,AJCC/UICC 8th clinical T1 Category,Measurement,Cancer Modifier,standard
+1633921,AJCC/UICC T1b Category,Measurement,Cancer Modifier,standard
+1633949,AJCC/UICC 8th clinical T1mi Category,Measurement,Cancer Modifier,standard
+1633980,AJCC/UICC 8th clinical T1b2 Category,Measurement,Cancer Modifier,standard
+1634100,AJCC/UICC T1d Category,Measurement,Cancer Modifier,standard
+1634126,AJCC/UICC 7th clinical T1b2 Category,Measurement,Cancer Modifier,standard
+1634178,AJCC/UICC 6th T1b Category,Measurement,Cancer Modifier,standard
+1634184,AJCC/UICC clinical T1c2 Category,Measurement,Cancer Modifier,standard
+1634186,AJCC/UICC 7th T1mi Category,Measurement,Cancer Modifier,standard
+1634190,AJCC/UICC 7th clinical T1a1 Category,Measurement,Cancer Modifier,standard
+1634211,AJCC/UICC 8th T1c2 Category,Measurement,Cancer Modifier,standard
+1634255,AJCC/UICC 7th T1b3 Category,Measurement,Cancer Modifier,standard
+1634258,AJCC/UICC 7th clinical T1c1 Category,Measurement,Cancer Modifier,standard
+1634309,AJCC/UICC 6th clinical T1c2 Category,Measurement,Cancer Modifier,standard
+1634319,AJCC/UICC 7th T1b Category,Measurement,Cancer Modifier,standard
+1634320,AJCC/UICC clinical T1c Category,Measurement,Cancer Modifier,standard
+1634360,AJCC/UICC 6th T1b3 Category,Measurement,Cancer Modifier,standard
+1634369,AJCC/UICC 6th T1a1 Category,Measurement,Cancer Modifier,standard
+1634381,AJCC/UICC 6th clinical T1 Category,Measurement,Cancer Modifier,standard
+1634402,AJCC/UICC 8th T1b2 Category,Measurement,Cancer Modifier,standard
+1634432,AJCC/UICC 6th clinical T1a2 Category,Measurement,Cancer Modifier,standard
+1634437,AJCC/UICC 8th clinical T1a1 Category,Measurement,Cancer Modifier,standard
+1634501,AJCC/UICC 6th clinical T1c Category,Measurement,Cancer Modifier,standard
+1634515,AJCC/UICC clinical T1c1 Category,Measurement,Cancer Modifier,standard
+1634521,AJCC/UICC 7th T1a2 Category,Measurement,Cancer Modifier,standard
+1634547,AJCC/UICC 6th clinical T1b2 Category,Measurement,Cancer Modifier,standard
+1634584,AJCC/UICC 8th T1a Category,Measurement,Cancer Modifier,standard
+1634587,AJCC/UICC 6th clinical T1b1 Category,Measurement,Cancer Modifier,standard
+1634588,AJCC/UICC 7th clinical T1c3 Category,Measurement,Cancer Modifier,standard
+1634636,AJCC/UICC 8th clinical T1d Category,Measurement,Cancer Modifier,standard
+1634646,AJCC/UICC 6th T1b2 Category,Measurement,Cancer Modifier,standard
+1634659,AJCC/UICC clinical T1b2 Category,Measurement,Cancer Modifier,standard
+1634662,AJCC/UICC 7th clinical T1b Category,Measurement,Cancer Modifier,standard
+1634668,AJCC/UICC 7th T1b1 Category,Measurement,Cancer Modifier,standard
+1634674,AJCC/UICC T1a1 Category,Measurement,Cancer Modifier,standard
+1634676,AJCC/UICC 7th T1a1 Category,Measurement,Cancer Modifier,standard
+1634701,AJCC/UICC T1c3 Category,Measurement,Cancer Modifier,standard
+1634728,AJCC/UICC 7th clinical T1a Category,Measurement,Cancer Modifier,standard
+1634749,AJCC/UICC 8th clinical T1c2 Category,Measurement,Cancer Modifier,standard
+1634753,AJCC/UICC 7th T1c1 Category,Measurement,Cancer Modifier,standard
+1634783,AJCC/UICC 7th clinical T1b3 Category,Measurement,Cancer Modifier,standard
+1634817,AJCC/UICC 8th T1c Category,Measurement,Cancer Modifier,standard
+1634828,AJCC/UICC 6th clinical T1a1 Category,Measurement,Cancer Modifier,standard
+1634843,AJCC/UICC 6th T1b1 Category,Measurement,Cancer Modifier,standard
+1634858,AJCC/UICC 7th clinical T1c2 Category,Measurement,Cancer Modifier,standard
+1634931,AJCC/UICC clinical T1d Category,Measurement,Cancer Modifier,standard
+1634945,AJCC/UICC 8th clinical T1a2 Category,Measurement,Cancer Modifier,standard
+1635015,AJCC/UICC 8th T1c3 Category,Measurement,Cancer Modifier,standard
+1635039,AJCC/UICC clinical T1b Category,Measurement,Cancer Modifier,standard
+1635069,AJCC/UICC T1c1 Category,Measurement,Cancer Modifier,standard
+1635081,AJCC/UICC clinical T1a2 Category,Measurement,Cancer Modifier,standard
+1635083,AJCC/UICC T1mi Category,Measurement,Cancer Modifier,standard
+1635180,AJCC/UICC 8th T1c1 Category,Measurement,Cancer Modifier,standard
+1635205,AJCC/UICC 6th T1d Category,Measurement,Cancer Modifier,standard
+1635219,AJCC/UICC 7th T1c2 Category,Measurement,Cancer Modifier,standard
+1635220,AJCC/UICC 8th T1a1 Category,Measurement,Cancer Modifier,standard
+1635229,AJCC/UICC 8th clinical T1a Category,Measurement,Cancer Modifier,standard
+1635292,AJCC/UICC 8th T1b1 Category,Measurement,Cancer Modifier,standard
+1635306,AJCC/UICC 6th T1c3 Category,Measurement,Cancer Modifier,standard
+1635322,AJCC/UICC 8th clinical T1c3 Category,Measurement,Cancer Modifier,standard
+1635328,AJCC/UICC 7th T1c3 Category,Measurement,Cancer Modifier,standard
+1635348,AJCC/UICC clinical T1b3 Category,Measurement,Cancer Modifier,standard
+1635357,AJCC/UICC 6th clinical T1c1 Category,Measurement,Cancer Modifier,standard
+1635406,AJCC/UICC 6th clinical T1c3 Category,Measurement,Cancer Modifier,standard
+1635447,AJCC/UICC 6th T1mi Category,Measurement,Cancer Modifier,standard
+1635493,AJCC/UICC 7th T1b2 Category,Measurement,Cancer Modifier,standard
+1635512,AJCC/UICC 8th clinical T1b3 Category,Measurement,Cancer Modifier,standard
+1635553,AJCC/UICC T1a2 Category,Measurement,Cancer Modifier,standard
+1635564,AJCC/UICC T1 Category,Measurement,Cancer Modifier,standard
+1635568,AJCC/UICC 8th clinical T1b1 Category,Measurement,Cancer Modifier,standard
+1635583,AJCC/UICC 7th clinical T1d Category,Measurement,Cancer Modifier,standard
+1635584,AJCC/UICC 6th clinical T1b3 Category,Measurement,Cancer Modifier,standard
+1635626,AJCC/UICC 7th T1c Category,Measurement,Cancer Modifier,standard
+1635647,AJCC/UICC 8th clinical T1c Category,Measurement,Cancer Modifier,standard
+1635661,AJCC/UICC clinical T1 Category,Measurement,Cancer Modifier,standard
+1635664,AJCC/UICC 7th clinical T1 Category,Measurement,Cancer Modifier,standard
+1635666,AJCC/UICC T1b2 Category,Measurement,Cancer Modifier,standard
+1635668,AJCC/UICC T1c2 Category,Measurement,Cancer Modifier,standard
+1635676,AJCC/UICC clinical T1a1 Category,Measurement,Cancer Modifier,standard
+1635678,AJCC/UICC 6th T1a2 Category,Measurement,Cancer Modifier,standard
+1635687,AJCC/UICC 8th T1b Category,Measurement,Cancer Modifier,standard
+1635701,AJCC/UICC clinical T1b1 Category,Measurement,Cancer Modifier,standard
+1635713,AJCC/UICC 6th T1 Category,Measurement,Cancer Modifier,standard
+1635751,AJCC/UICC 8th T1mi Category,Measurement,Cancer Modifier,standard
+1635788,AJCC/UICC 6th T1c2 Category,Measurement,Cancer Modifier,standard
+1635793,AJCC/UICC 8th T1 Category,Measurement,Cancer Modifier,standard
+1635832,AJCC/UICC clinical T1mi Category,Measurement,Cancer Modifier,standard
+1635861,AJCC/UICC 7th clinical T1c Category,Measurement,Cancer Modifier,standard

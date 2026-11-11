@@ -1,55 +1,55 @@
-concept_id
-372924
-443454
-761110
-762933
-762934
-762935
-762937
-762951
-763015
-765515
-4031045
-4043731
-4043732
-4045734
-4045735
-4045736
-4045737
-4045738
-4046237
-4046358
-4046359
-4046360
-4046362
-4048784
-4077086
-4108356
-4110189
-4110190
-4110192
-4111714
-4119140
-4131383
-4141405
-4142739
-4146185
-4310996
-4319146
-4319331
-35610084
-35610085
-36717605
-37110678
-37110679
-37116473
-40479572
-43530683
-43531607
-44782773
-45767658
-45772786
-46270031
-46270380
-46270381
-46273649
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+372924,Cerebral artery occlusion,Condition,SNOMED,standard
+443454,Cerebral infarction,Condition,SNOMED,standard
+761110,Bilateral cerebral infarction due to precerebral arterial occlusion,Condition,SNOMED,standard
+762933,Cerebral infarction due to cerebral artery occlusion,Condition,SNOMED,standard
+762934,Cerebral infarction due to posterior cerebral artery occlusion,Condition,SNOMED,standard
+762935,Cerebral infarction due to internal carotid artery occlusion,Condition,SNOMED,standard
+762937,Cerebral infarction due to cerebral venous thrombosis,Condition,SNOMED,standard
+762951,Cerebral infarction due to anterior cerebral artery occlusion,Condition,SNOMED,standard
+763015,Cerebral infarction due to middle cerebral artery occlusion,Condition,SNOMED,standard
+765515,Cerebral infarction due to basilar artery stenosis,Condition,SNOMED,standard
+4031045,Anterior choroidal artery syndrome,Condition,SNOMED,standard
+4043731,Infarction - precerebral,Condition,SNOMED,standard
+4043732,Posterior cerebral circulation hemorrhagic infarction,Condition,SNOMED,standard
+4045734,CVA - cerebrovascular accident due to cerebral artery occlusion,Condition,SNOMED,standard
+4045735,Anterior cerebral circulation infarction,Condition,SNOMED,standard
+4045736,Posterior cerebral circulation infarction,Condition,SNOMED,standard
+4045737,Pure motor lacunar infarction,Condition,SNOMED,standard
+4045738,Pure sensory lacunar infarction,Condition,SNOMED,standard
+4046237,Infarction of optic radiation,Condition,SNOMED,standard
+4046358,Total anterior cerebral circulation infarction,Condition,SNOMED,standard
+4046359,Partial anterior cerebral circulation infarction,Condition,SNOMED,standard
+4046360,Lacunar infarction,Condition,SNOMED,standard
+4046362,Hemorrhagic cerebral infarction,Condition,SNOMED,standard
+4048784,Anterior cerebral circulation hemorrhagic infarction,Condition,SNOMED,standard
+4077086,Occipital cerebral infarction,Condition,SNOMED,standard
+4108356,Cerebral infarction due to embolism of cerebral arteries,Condition,SNOMED,standard
+4110189,Cerebral infarct due to thrombosis of precerebral arteries,Condition,SNOMED,standard
+4110190,Cerebral infarction due to embolism of precerebral arteries,Condition,SNOMED,standard
+4110192,Cerebral infarction due to thrombosis of cerebral arteries,Condition,SNOMED,standard
+4111714,"Cerebral infarction due to cerebral venous thrombosis, non-pyogenic",Condition,SNOMED,standard
+4119140,Infarction of visual cortex,Condition,SNOMED,standard
+4131383,Infarction of basal ganglia,Condition,SNOMED,standard
+4141405,Left sided cerebral infarction,Condition,SNOMED,standard
+4142739,Thalamic infarction,Condition,SNOMED,standard
+4146185,Right sided cerebral infarction,Condition,SNOMED,standard
+4310996,Ischemic stroke,Condition,SNOMED,standard
+4319146,Pituitary infarction,Condition,SNOMED,standard
+4319331,Cerebellar infarction,Condition,SNOMED,standard
+35610084,Cerebral infarction due to occlusion of cerebral artery,Condition,SNOMED,non-standard
+35610085,Cerebral infarction due to stenosis of cerebral artery,Condition,SNOMED,standard
+36717605,Silent cerebral infarct,Condition,SNOMED,standard
+37110678,Cerebral ischemic stroke due to occlusion of extracranial large artery,Condition,SNOMED,standard
+37110679,Cerebral ischemic stroke due to stenosis of extracranial large artery,Condition,SNOMED,standard
+37116473,Multifocal cerebral infarction due to and following procedure on cardiovascular system,Condition,SNOMED,standard
+40479572,Infarct of cerebrum due to iatrogenic cerebrovascular accident,Condition,SNOMED,non-standard
+43530683,Cerebral infarction due to carotid artery occlusion,Condition,SNOMED,standard
+43531607,Cerebral infarction due to stenosis of carotid artery,Condition,SNOMED,standard
+44782773,Cerebral infarction due to vertebral artery occlusion,Condition,SNOMED,standard
+45767658,Cerebral infarction due to thrombosis of middle cerebral artery,Condition,SNOMED,standard
+45772786,Cerebral infarction due to embolism of middle cerebral artery,Condition,SNOMED,standard
+46270031,Cerebral infarction due to occlusion of precerebral artery,Condition,SNOMED,standard
+46270380,Cerebral infarction due to vertebral artery stenosis,Condition,SNOMED,standard
+46270381,Cerebral infarction due to stenosis of precerebral artery,Condition,SNOMED,standard
+46273649,Cerebral infarction due to occlusion of basilar artery,Condition,SNOMED,standard

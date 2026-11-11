@@ -1,5 +1,5 @@
-concept_id
-256439
-259848
-260123
-4195085
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+256439,Allergic rhinitis caused by pollen,Condition,SNOMED,standard
+259848,Chronic rhinitis,Condition,SNOMED,standard
+260123,Acute sinusitis,Condition,SNOMED,standard
+4195085,Nasal congestion,Condition,SNOMED,standard

@@ -1,201 +1,201 @@
-concept_id
-1234457
-1234458
-1829872
-1829873
-1829874
-1829875
-1829876
-1829877
-1830074
-1830075
-1830076
-1830077
-1832806
-1832807
-1832808
-1832809
-1832810
-21026566
-21036341
-21036342
-21046190
-21055970
-21055971
-21065780
-21065781
-21075719
-21085423
-21095233
-21105090
-21105091
-21114894
-21114895
-21124507
-21124508
-21134407
-21144337
-21164034
-21164035
-35408995
-35409164
-35409911
-35410423
-35410677
-35411083
-35411217
-35411460
-35412583
-35412645
-35412675
-35412879
-35412880
-35413968
-35414011
-35414062
-35414071
-35414099
-35872223
-35872224
-35872225
-35872226
-35872227
-35872228
-35872229
-35872230
-35872231
-35872232
-35872233
-36260307
-36262778
-36262843
-36264513
-36265412
-36266901
-36267049
-36267323
-36267347
-36267348
-36267941
-36268782
-36269312
-36269313
-36269599
-36269855
-36271444
-36272023
-36273073
-36282330
-36282331
-36282333
-36282336
-36282338
-36783479
-36783480
-36880647
-40725623
-40725624
-40725625
-40725626
-40725627
-40725628
-40725629
-40725630
-40725631
-40725632
-40725634
-40725635
-40725636
-40725637
-40725638
-40725639
-40725640
-40725641
-40725642
-40725643
-40725644
-40725645
-40725646
-40725647
-40725648
-40725649
-40725650
-40725651
-40725652
-40725653
-40725654
-42899937
-43023555
-43023556
-43030676
-43030677
-43030678
-43030679
-43030680
-43034879
-43034880
-43034881
-43034882
-43034883
-43034884
-43034885
-43034886
-43044525
-43044762
-43044763
-43044764
-43044765
-43044766
-43045179
-43045180
-43045181
-43045182
-43045183
-43045363
-43139263
-43139264
-43139265
-43139266
-43139267
-43150185
-43150186
-43150187
-43150188
-43154821
-43154822
-43154823
-43161387
-43161388
-43161389
-43161390
-43172358
-43172359
-43172360
-43172361
-43183282
-43183283
-43183284
-43183285
-43183286
-43183287
-43194288
-43194289
-43194290
-43194291
-43194292
-43205247
-43205248
-43205249
-43205250
-43205251
-43205252
-43205253
-43205254
-43205255
-43205256
-43216153
-43216154
-43216155
-43216156
-43220638
-43220639
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+1234457,citric acid / dimethicone / polyethylene glycol 4000 / potassium chloride / sodium chloride / sodium citrate / sodium sulfate Powder for Oral Solution,Drug,RxNorm Extension,standard
+1234458,citric acid 832 MG / dimethicone 80 MG / polyethylene glycol 4000 52500 MG / potassium chloride 380 MG / sodium chloride 730 MG / sodium citrate 1860 MG / sodium sulfate 3750 MG Powder for Oral Solution,Drug,RxNorm Extension,standard
+1829872,polyethylene glycol 4000 59 MG/ML / potassium chloride 0.75 MG/ML / sodium bicarbonate 1.68 MG/ML / sodium chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML [Endopeg],Drug,RxNorm Extension,standard
+1829873,polyethylene glycol 4000 59 MG/ML / potassium chloride 0.75 MG/ML / sodium bicarbonate 1.68 MG/ML / sodium chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution,Drug,RxNorm Extension,standard
+1829874,polyethylene glycol 4000 59 MG/ML / potassium chloride 0.75 MG/ML / sodium bicarbonate 1.68 MG/ML / sodium chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution Box of 6,Drug,RxNorm Extension,standard
+1829875,polyethylene glycol 4000 59 MG/ML / potassium chloride 0.75 MG/ML / sodium bicarbonate 1.68 MG/ML / sodium chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution [Endopeg],Drug,RxNorm Extension,standard
+1829876,polyethylene glycol 4000 59 MG/ML / potassium chloride 0.75 MG/ML / sodium bicarbonate 1.68 MG/ML / sodium chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution [Endopeg] Box of 6,Drug,RxNorm Extension,standard
+1829877,polyethylene glycol 4000 64000 MG / potassium chloride 750 MG / sodium bicarbonate 1680 MG / sodium chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution [Colofort] Box of 4 by Tramedico,Drug,RxNorm Extension,standard
+1830074,polyethylene glycol 4000 59 MG/ML,Drug,RxNorm Extension,standard
+1830075,polyethylene glycol 4000 4000 MG Oral Powder [FORLAX] Box of 20 by PI-Pharma,Drug,RxNorm Extension,standard
+1830076,polyethylene glycol 4000 4000 MG Oral Powder [FORLAX] Box of 20 by Ceres,Drug,RxNorm Extension,standard
+1830077,polyethylene glycol 4000 10000 MG Powder for Oral Solution [FORLAX] Box of 20 by Ceres,Drug,RxNorm Extension,standard
+1832806,1000 ML polyethylene glycol 4000 59 MG/ML / potassium chloride 0.75 MG/ML / sodium bicarbonate 1.68 MG/ML / sodium chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution,Drug,RxNorm Extension,standard
+1832807,1000 ML polyethylene glycol 4000 59 MG/ML / potassium chloride 0.75 MG/ML / sodium bicarbonate 1.68 MG/ML / sodium chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution Box of 6,Drug,RxNorm Extension,standard
+1832808,1000 ML polyethylene glycol 4000 59 MG/ML / potassium chloride 0.75 MG/ML / sodium bicarbonate 1.68 MG/ML / sodium chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution [Endopeg],Drug,RxNorm Extension,standard
+1832809,1000 ML polyethylene glycol 4000 59 MG/ML / potassium chloride 0.75 MG/ML / sodium bicarbonate 1.68 MG/ML / sodium chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution [Endopeg] Box of 6,Drug,RxNorm Extension,standard
+1832810,1000 ML polyethylene glycol 4000 59 MG/ML / potassium chloride 0.75 MG/ML / sodium bicarbonate 1.68 MG/ML / sodium chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution [Endopeg] Box of 6 by B.Braun,Drug,RxNorm Extension,standard
+21026566,polyethylene glycol 4000 10000 MG,Drug,RxNorm Extension,standard
+21036341,polyethylene glycol 4000 10000 MG Injectable Solution [Dulcobalance] Box of 10,Drug,RxNorm Extension,standard
+21036342,polyethylene glycol 4000 10000 MG Injectable Solution [Idrolax] Box of 20 by DE,Drug,RxNorm Extension,standard
+21046190,polyethylene glycol 4000 Injectable Solution [Dulcobalance],Drug,RxNorm Extension,standard
+21055970,polyethylene glycol 4000 10000 MG Injectable Solution [Dulcobalance],Drug,RxNorm Extension,standard
+21055971,polyethylene glycol 4000 10000 MG Injectable Solution [Idrolax] by Waymade,Drug,RxNorm Extension,standard
+21065780,polyethylene glycol 4000 10000 MG Injectable Solution Box of 10,Drug,RxNorm Extension,standard
+21065781,polyethylene glycol 4000 10000 MG Injectable Solution [Idrolax] by Schwarz,Drug,RxNorm Extension,standard
+21075719,polyethylene glycol 4000 10000 MG Injectable Solution Box of 20,Drug,RxNorm Extension,standard
+21085423,polyethylene glycol 4000 Injectable Solution [Idrolax],Drug,RxNorm Extension,standard
+21095233,polyethylene glycol 4000 10000 MG Injectable Solution [Idrolax] Box of 20 by Schwarz,Drug,RxNorm Extension,standard
+21105090,polyethylene glycol 4000 10000 MG Injectable Solution [Dulcobalance] by Boehringer Ingelheim,Drug,RxNorm Extension,standard
+21105091,polyethylene glycol 4000 10000 MG Injectable Solution [Dulcobalance] Box of 10 by Boehringer Ingelheim,Drug,RxNorm Extension,standard
+21114894,polyethylene glycol 4000 10000 MG [Idrolax],Drug,RxNorm Extension,standard
+21114895,polyethylene glycol 4000 10000 MG Injectable Solution [Idrolax] Box of 20,Drug,RxNorm Extension,standard
+21124507,polyethylene glycol 4000 Injectable Solution,Drug,RxNorm Extension,standard
+21124508,polyethylene glycol 4000 10000 MG Injectable Solution [Idrolax] Box of 20 by Waymade,Drug,RxNorm Extension,standard
+21134407,polyethylene glycol 4000 10000 MG Injectable Solution [Idrolax],Drug,RxNorm Extension,standard
+21144337,polyethylene glycol 4000 10000 MG [Dulcobalance],Drug,RxNorm Extension,standard
+21164034,polyethylene glycol 4000 10000 MG Injectable Solution,Drug,RxNorm Extension,standard
+21164035,polyethylene glycol 4000 10000 MG Injectable Solution [Idrolax] by DE,Drug,RxNorm Extension,standard
+35408995,polyethylene glycol 4000 10000 MG Powder for Oral Solution Box of 10,Drug,RxNorm Extension,standard
+35409164,polyethylene glycol 4000 500 MG/ML Oral Solution [CASENLAX] Box of 20,Drug,RxNorm Extension,standard
+35409911,polyethylene glycol 4000 10000 MG Powder for Oral Solution [FORLAXLIB],Drug,RxNorm Extension,standard
+35410423,polyethylene glycol 4000 Powder for Oral Solution [FORLAXLIB],Drug,RxNorm Extension,standard
+35410677,polyethylene glycol 4000 10000 MG Powder for Oral Solution [FORLAXLIB] Box of 10,Drug,RxNorm Extension,standard
+35411083,polyethylene glycol 4000 10000 MG [FORLAXLIB],Drug,RxNorm Extension,standard
+35411217,polyethylene glycol 4000 Oral Solution [CASENLAX],Drug,RxNorm Extension,standard
+35411460,polyethylene glycol 4000 500 MG/ML Oral Solution [CASENLAX],Drug,RxNorm Extension,standard
+35412583,polyethylene glycol 4000 10000 MG Powder for Oral Solution [FORLAXLIB] Box of 10 by Ipsen,Drug,RxNorm Extension,standard
+35412645,polyethylene glycol 4000 500 MG/ML,Drug,RxNorm Extension,standard
+35412675,polyethylene glycol 4000 500 MG/ML [CASENLAX],Drug,RxNorm Extension,standard
+35412879,polyethylene glycol 4000 500 MG/ML Oral Solution Box of 20,Drug,RxNorm Extension,standard
+35412880,polyethylene glycol 4000 500 MG/ML Oral Solution,Drug,RxNorm Extension,standard
+35413968,20 ML polyethylene glycol 4000 500 MG/ML Oral Solution Box of 20,Drug,RxNorm Extension,standard
+35414011,20 ML polyethylene glycol 4000 500 MG/ML Oral Solution [CASENLAX] Box of 20,Drug,RxNorm Extension,standard
+35414062,20 ML polyethylene glycol 4000 500 MG/ML Oral Solution,Drug,RxNorm Extension,standard
+35414071,20 ML polyethylene glycol 4000 500 MG/ML Oral Solution [CASENLAX],Drug,RxNorm Extension,standard
+35414099,20 ML polyethylene glycol 4000 500 MG/ML Oral Solution [CASENLAX] Box of 20 by Casen Recordati,Drug,RxNorm Extension,standard
+35872223,polyethylene glycol 4000 10000 MG Inhalation Powder,Drug,RxNorm Extension,standard
+35872224,polyethylene glycol 4000 10000 MG Inhalation Powder [Yousaile],Drug,RxNorm Extension,standard
+35872225,polyethylene glycol 4000 10000 MG Inhalation Powder [Runkelong],Drug,RxNorm Extension,standard
+35872226,polyethylene glycol 4000 10000 MG Inhalation Powder [Fusong],Drug,RxNorm Extension,standard
+35872227,polyethylene glycol 4000 10000 MG [Yousaile],Drug,RxNorm Extension,standard
+35872228,polyethylene glycol 4000 10000 MG [Runkelong],Drug,RxNorm Extension,standard
+35872229,polyethylene glycol 4000 10000 MG [Fusong],Drug,RxNorm Extension,standard
+35872230,polyethylene glycol 4000 Inhalation Powder,Drug,RxNorm Extension,standard
+35872231,polyethylene glycol 4000 Inhalation Powder [Yousaile],Drug,RxNorm Extension,standard
+35872232,polyethylene glycol 4000 Inhalation Powder [Runkelong],Drug,RxNorm Extension,standard
+35872233,polyethylene glycol 4000 Inhalation Powder [Fusong],Drug,RxNorm Extension,standard
+36260307,polyethylene glycol 4000 64 MG/ML / Potassium Chloride 0.75 MG/ML / Sodium Bicarbonate 1.68 MG/ML / Sodium Chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution [Endopeg] Box of 6,Drug,RxNorm Extension,standard
+36262778,polyethylene glycol 4000 4000 MG Oral Powder [FORLAX],Drug,RxNorm Extension,standard
+36262843,polyethylene glycol 4000 64 MG/ML / Potassium Chloride 0.75 MG/ML / Sodium Bicarbonate 1.68 MG/ML / Sodium Chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution [Endopeg],Drug,RxNorm Extension,standard
+36264513,polyethylene glycol 4000 / Potassium Chloride / Sodium Bicarbonate / Sodium Chloride / sodium sulfate Powder for Oral Solution [Colofort],Drug,RxNorm Extension,standard
+36265412,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution [Colofort],Drug,RxNorm Extension,standard
+36266901,polyethylene glycol 4000 Oral Powder,Drug,RxNorm Extension,standard
+36267049,polyethylene glycol 4000 / Potassium Chloride / Sodium Bicarbonate / Sodium Chloride / sodium sulfate Oral Solution [Endopeg],Drug,RxNorm Extension,standard
+36267323,polyethylene glycol 4000 4000 MG Oral Powder,Drug,RxNorm Extension,standard
+36267347,polyethylene glycol 4000 64 MG/ML / Potassium Chloride 0.75 MG/ML / Sodium Bicarbonate 1.68 MG/ML / Sodium Chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution Box of 6,Drug,RxNorm Extension,standard
+36267348,polyethylene glycol 4000 64 MG/ML / Potassium Chloride 0.75 MG/ML / Sodium Bicarbonate 1.68 MG/ML / Sodium Chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution,Drug,RxNorm Extension,standard
+36267941,polyethylene glycol 4000 4000 MG Oral Powder [FORLAX] Box of 20,Drug,RxNorm Extension,standard
+36268782,polyethylene glycol 4000 4000 MG Oral Powder [FORLAX] Box of 20 by Ipsen,Drug,RxNorm Extension,standard
+36269312,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG [Colofort],Drug,RxNorm Extension,standard
+36269313,polyethylene glycol 4000 64 MG/ML / Potassium Chloride 0.75 MG/ML / Sodium Bicarbonate 1.68 MG/ML / Sodium Chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML [Endopeg],Drug,RxNorm Extension,standard
+36269599,polyethylene glycol 4000 Oral Powder [FORLAX],Drug,RxNorm Extension,standard
+36269855,polyethylene glycol 4000 4000 MG Oral Powder Box of 20,Drug,RxNorm Extension,standard
+36271444,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution [Colofort] Box of 4 by Ipsen,Drug,RxNorm Extension,standard
+36272023,polyethylene glycol 4000 / Potassium Chloride / Sodium Bicarbonate / Sodium Chloride / sodium sulfate Oral Solution,Drug,RxNorm Extension,standard
+36273073,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution [Colofort] Box of 4,Drug,RxNorm Extension,standard
+36282330,1000 ML polyethylene glycol 4000 64 MG/ML / Potassium Chloride 0.75 MG/ML / Sodium Bicarbonate 1.68 MG/ML / Sodium Chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution [Endopeg] Box of 6 by B.Braun,Drug,RxNorm Extension,standard
+36282331,1000 ML polyethylene glycol 4000 64 MG/ML / Potassium Chloride 0.75 MG/ML / Sodium Bicarbonate 1.68 MG/ML / Sodium Chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution [Endopeg],Drug,RxNorm Extension,standard
+36282333,1000 ML polyethylene glycol 4000 64 MG/ML / Potassium Chloride 0.75 MG/ML / Sodium Bicarbonate 1.68 MG/ML / Sodium Chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution [Endopeg] Box of 6,Drug,RxNorm Extension,standard
+36282336,1000 ML polyethylene glycol 4000 64 MG/ML / Potassium Chloride 0.75 MG/ML / Sodium Bicarbonate 1.68 MG/ML / Sodium Chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution Box of 6,Drug,RxNorm Extension,standard
+36282338,1000 ML polyethylene glycol 4000 64 MG/ML / Potassium Chloride 0.75 MG/ML / Sodium Bicarbonate 1.68 MG/ML / Sodium Chloride 1.46 MG/ML / sodium sulfate 5.68 MG/ML Oral Solution,Drug,RxNorm Extension,standard
+36783479,polyethylene glycol 4000 10000 MG Powder for Oral Solution [FORLAX] Box of 20 by Impexeco,Drug,RxNorm Extension,standard
+36783480,polyethylene glycol 4000 10000 MG Powder for Oral Solution [FORLAX] Box of 20 by PI-Pharma,Drug,RxNorm Extension,standard
+36880647,polyethylene glycol 4000 64000 MG,Drug,RxNorm Extension,standard
+40725623,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Idrolax] Box of 20 by Waymade,Drug,RxNorm Extension,standard
+40725624,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Idrolax] Box of 20 by DE,Drug,RxNorm Extension,standard
+40725625,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Idrolax] Box of 20 by Schwarz,Drug,RxNorm Extension,standard
+40725626,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Idrolax] Box of 20,Drug,RxNorm Extension,standard
+40725627,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Idrolax] by Waymade,Drug,RxNorm Extension,standard
+40725628,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Idrolax] by DE,Drug,RxNorm Extension,standard
+40725629,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Idrolax] by Schwarz,Drug,RxNorm Extension,standard
+40725630,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Idrolax],Drug,RxNorm Extension,standard
+40725631,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Dulcobalance] Box of 10 by Boehringer Ingelheim,Drug,RxNorm Extension,standard
+40725632,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Dulcobalance] Box of 10,Drug,RxNorm Extension,standard
+40725634,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Dulcobalance] by Boehringer Ingelheim,Drug,RxNorm Extension,standard
+40725635,polyethylene glycol 4000 10000 MG Powder for Oral Solution [Dulcobalance],Drug,RxNorm Extension,standard
+40725636,polyethylene glycol 4000 10000 MG Oral Powder [Idrolax] Box of 20 by Waymade,Drug,RxNorm Extension,standard
+40725637,polyethylene glycol 4000 10000 MG Oral Powder [Idrolax] Box of 20 by DE,Drug,RxNorm Extension,standard
+40725638,polyethylene glycol 4000 10000 MG Oral Powder [Idrolax] Box of 20 by Schwarz,Drug,RxNorm Extension,standard
+40725639,polyethylene glycol 4000 10000 MG Oral Powder [Idrolax] Box of 20,Drug,RxNorm Extension,standard
+40725640,polyethylene glycol 4000 10000 MG Oral Powder [Idrolax] by Waymade,Drug,RxNorm Extension,standard
+40725641,polyethylene glycol 4000 10000 MG Oral Powder [Idrolax] by DE,Drug,RxNorm Extension,standard
+40725642,polyethylene glycol 4000 10000 MG Oral Powder [Idrolax] by Schwarz,Drug,RxNorm Extension,standard
+40725643,polyethylene glycol 4000 10000 MG Oral Powder [Idrolax],Drug,RxNorm Extension,standard
+40725644,polyethylene glycol 4000 10000 MG Oral Powder [Dulcobalance] Box of 10 by Boehringer Ingelheim,Drug,RxNorm Extension,standard
+40725645,polyethylene glycol 4000 10000 MG Oral Powder [Dulcobalance] Box of 10,Drug,RxNorm Extension,standard
+40725646,polyethylene glycol 4000 10000 MG Oral Powder [Dulcobalance] by Boehringer Ingelheim,Drug,RxNorm Extension,standard
+40725647,polyethylene glycol 4000 10000 MG Oral Powder [Dulcobalance],Drug,RxNorm Extension,standard
+40725648,polyethylene glycol 4000 10000 MG Oral Powder Box of 20,Drug,RxNorm Extension,standard
+40725649,polyethylene glycol 4000 10000 MG Oral Powder Box of 10,Drug,RxNorm Extension,standard
+40725650,polyethylene glycol 4000 10000 MG Oral Powder,Drug,RxNorm Extension,standard
+40725651,polyethylene glycol 4000 Powder for Oral Solution [Idrolax],Drug,RxNorm Extension,standard
+40725652,polyethylene glycol 4000 Powder for Oral Solution [Dulcobalance],Drug,RxNorm Extension,standard
+40725653,polyethylene glycol 4000 Oral Powder [Idrolax],Drug,RxNorm Extension,standard
+40725654,polyethylene glycol 4000 Oral Powder [Dulcobalance],Drug,RxNorm Extension,standard
+42899937,polyethylene glycol 4000,Drug,RxNorm,standard
+43023555,polyethylene glycol 4000 / Simethicone / sodium sulfate Oral Solution,Drug,RxNorm Extension,standard
+43023556,polyethylene glycol 4000 52500 MG / Simethicone 80 MG / sodium sulfate 3750 MG Oral Solution,Drug,RxNorm Extension,standard
+43030676,polyethylene glycol 4000 0.869 MG/MG / Potassium Chloride 0.0106 MG/MG / Sodium Bicarbonate 0.0243 MG/MG / Sodium Chloride 0.0212 MG/MG / sodium sulfate 0.0805 MG/MG [FORTRANS],Drug,RxNorm Extension,standard
+43030677,polyethylene glycol 4000 0.869 MG/MG / Potassium Chloride 0.0106 MG/MG / Sodium Bicarbonate 0.0243 MG/MG / Sodium Chloride 0.0212 MG/MG / sodium sulfate 0.0805 MG/MG Powder for Oral Solution,Drug,RxNorm Extension,standard
+43030678,polyethylene glycol 4000 0.869 MG/MG / Potassium Chloride 0.0106 MG/MG / Sodium Bicarbonate 0.0243 MG/MG / Sodium Chloride 0.0212 MG/MG / sodium sulfate 0.0805 MG/MG Powder for Oral Solution Box of 4,Drug,RxNorm Extension,standard
+43030679,polyethylene glycol 4000 0.869 MG/MG / Potassium Chloride 0.0106 MG/MG / Sodium Bicarbonate 0.0243 MG/MG / Sodium Chloride 0.0212 MG/MG / sodium sulfate 0.0805 MG/MG Powder for Oral Solution [FORTRANS],Drug,RxNorm Extension,standard
+43030680,polyethylene glycol 4000 0.869 MG/MG / Potassium Chloride 0.0106 MG/MG / Sodium Bicarbonate 0.0243 MG/MG / Sodium Chloride 0.0212 MG/MG / sodium sulfate 0.0805 MG/MG Powder for Oral Solution [FORTRANS] Box of 4,Drug,RxNorm Extension,standard
+43034879,polyethylene glycol 4000 0.869 MG/MG,Drug,RxNorm Extension,standard
+43034880,polyethylene glycol 4000 0.983 MG/MG,Drug,RxNorm Extension,standard
+43034881,polyethylene glycol 4000 0.983 MG/MG [FORLAX],Drug,RxNorm Extension,standard
+43034882,polyethylene glycol 4000 0.983 MG/MG Powder for Oral Solution,Drug,RxNorm Extension,standard
+43034883,polyethylene glycol 4000 0.983 MG/MG Powder for Oral Solution Box of 20,Drug,RxNorm Extension,standard
+43034884,polyethylene glycol 4000 0.983 MG/MG Powder for Oral Solution [FORLAX],Drug,RxNorm Extension,standard
+43034885,polyethylene glycol 4000 0.983 MG/MG Powder for Oral Solution [FORLAX] Box of 20,Drug,RxNorm Extension,standard
+43034886,polyethylene glycol 4000 52500 MG,Drug,RxNorm Extension,standard
+43044525,1000 ML polyethylene glycol 4000 64 MG/ML Oral Solution [BIOPEG] by Fresenius,Drug,RxNorm Extension,standard
+43044762,10200 MG polyethylene glycol 4000 0.983 MG/MG Powder for Oral Solution,Drug,RxNorm Extension,standard
+43044763,10200 MG polyethylene glycol 4000 0.983 MG/MG Powder for Oral Solution Box of 20,Drug,RxNorm Extension,standard
+43044764,10200 MG polyethylene glycol 4000 0.983 MG/MG Powder for Oral Solution [FORLAX],Drug,RxNorm Extension,standard
+43044765,10200 MG polyethylene glycol 4000 0.983 MG/MG Powder for Oral Solution [FORLAX] Box of 20,Drug,RxNorm Extension,standard
+43044766,10200 MG polyethylene glycol 4000 0.983 MG/MG Powder for Oral Solution [FORLAX] Box of 20 by Ipsen,Drug,RxNorm Extension,standard
+43045179,73700 MG polyethylene glycol 4000 0.869 MG/MG / Potassium Chloride 0.0106 MG/MG / Sodium Bicarbonate 0.0243 MG/MG / Sodium Chloride 0.0212 MG/MG / sodium sulfate 0.0805 MG/MG Powder for Oral Solution,Drug,RxNorm Extension,standard
+43045180,73700 MG polyethylene glycol 4000 0.869 MG/MG / Potassium Chloride 0.0106 MG/MG / Sodium Bicarbonate 0.0243 MG/MG / Sodium Chloride 0.0212 MG/MG / sodium sulfate 0.0805 MG/MG Powder for Oral Solution Box of 4,Drug,RxNorm Extension,standard
+43045181,73700 MG polyethylene glycol 4000 0.869 MG/MG / Potassium Chloride 0.0106 MG/MG / Sodium Bicarbonate 0.0243 MG/MG / Sodium Chloride 0.0212 MG/MG / sodium sulfate 0.0805 MG/MG Powder for Oral Solution [FORTRANS],Drug,RxNorm Extension,standard
+43045182,73700 MG polyethylene glycol 4000 0.869 MG/MG / Potassium Chloride 0.0106 MG/MG / Sodium Bicarbonate 0.0243 MG/MG / Sodium Chloride 0.0212 MG/MG / sodium sulfate 0.0805 MG/MG Powder for Oral Solution [FORTRANS] Box of 4,Drug,RxNorm Extension,standard
+43045183,73700 MG polyethylene glycol 4000 0.869 MG/MG / Potassium Chloride 0.0106 MG/MG / Sodium Bicarbonate 0.0243 MG/MG / Sodium Chloride 0.0212 MG/MG / sodium sulfate 0.0805 MG/MG Powder for Oral Solution [FORTRANS] Box of 4 by Ipsen,Drug,RxNorm Extension,standard
+43045363,{4 (Citric Acid 0.813 MG / Potassium Chloride 350 MG / Sodium Chloride 0.73 MG / sodium citrate 1860 MG Oral Solution) / 4 (polyethylene glycol 4000 52500 MG / Simethicone 80 MG / sodium sulfate 3750 MG Oral Solution) } Pack,Drug,RxNorm Extension,standard
+43139263,polyethylene glycol 4000 4000 MG Powder for Oral Solution [FORLAX] Box of 20 by Ipsen,Drug,RxNorm Extension,standard
+43139264,polyethylene glycol 4000 10000 MG [MACROGOL BIOGARAN],Drug,RxNorm Extension,standard
+43139265,polyethylene glycol 4000 / Potassium Chloride / Sodium Bicarbonate / Sodium Chloride / sodium sulfate Powder for Oral Solution,Drug,RxNorm Extension,standard
+43139266,polyethylene glycol 4000 / Potassium Chloride / Sodium Bicarbonate / Sodium Chloride / sodium sulfate Powder for Oral Solution [FORTRANS],Drug,RxNorm Extension,standard
+43139267,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution,Drug,RxNorm Extension,standard
+43150185,polyethylene glycol 4000 64 MG/ML Oral Solution,Drug,RxNorm Extension,standard
+43150186,polyethylene glycol 4000 64 MG/ML Oral Solution [BIOPEG],Drug,RxNorm Extension,standard
+43150187,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution [FORTRANS],Drug,RxNorm Extension,standard
+43150188,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution [FORTRANS] Box of 50 by Ipsen,Drug,RxNorm Extension,standard
+43154821,1000 ML polyethylene glycol 4000 64 MG/ML Oral Solution,Drug,RxNorm Extension,standard
+43154822,1000 ML polyethylene glycol 4000 64 MG/ML Oral Solution Box of 1,Drug,RxNorm Extension,standard
+43154823,1000 ML polyethylene glycol 4000 64 MG/ML Oral Solution [BIOPEG] Box of 1 by Fresenius,Drug,RxNorm Extension,standard
+43161387,polyethylene glycol 4000 4000 MG Powder for Oral Solution Box of 20,Drug,RxNorm Extension,standard
+43161388,polyethylene glycol 4000 10000 MG Powder for Oral Solution Box of 20 by Ipsen,Drug,RxNorm Extension,standard
+43161389,polyethylene glycol 4000 10000 MG Powder for Oral Solution [FORLAX],Drug,RxNorm Extension,standard
+43161390,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution [FORTRANS] Box of 50,Drug,RxNorm Extension,standard
+43172358,polyethylene glycol 4000 4000 MG [FORLAX],Drug,RxNorm Extension,standard
+43172359,polyethylene glycol 4000 64 MG/ML Oral Solution [BIOPEG] Box of 1,Drug,RxNorm Extension,standard
+43172360,polyethylene glycol 4000 10000 MG Powder for Oral Solution Box of 20 by Mylan,Drug,RxNorm Extension,standard
+43172361,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution Box of 50,Drug,RxNorm Extension,standard
+43183282,polyethylene glycol 4000 Oral Solution [BIOPEG],Drug,RxNorm Extension,standard
+43183283,polyethylene glycol 4000 Powder for Oral Solution [FORLAX],Drug,RxNorm Extension,standard
+43183284,polyethylene glycol 4000 4000 MG Powder for Oral Solution [FORLAX],Drug,RxNorm Extension,standard
+43183285,polyethylene glycol 4000 10000 MG Powder for Oral Solution,Drug,RxNorm Extension,standard
+43183286,polyethylene glycol 4000 10000 MG Powder for Oral Solution [MACROGOL BIOGARAN],Drug,RxNorm Extension,standard
+43183287,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution Box of 4,Drug,RxNorm Extension,standard
+43194288,polyethylene glycol 4000 Oral Solution,Drug,RxNorm Extension,standard
+43194289,polyethylene glycol 4000 64 MG/ML [BIOPEG],Drug,RxNorm Extension,standard
+43194290,polyethylene glycol 4000 10000 MG Powder for Oral Solution Box of 20,Drug,RxNorm Extension,standard
+43194291,polyethylene glycol 4000 10000 MG Powder for Oral Solution [FORLAX] Box of 20,Drug,RxNorm Extension,standard
+43194292,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution [FORTRANS] Box of 4 by Ipsen,Drug,RxNorm Extension,standard
+43205247,polyethylene glycol 4000 Powder for Oral Solution,Drug,RxNorm Extension,standard
+43205248,polyethylene glycol 4000 4000 MG,Drug,RxNorm Extension,standard
+43205249,polyethylene glycol 4000 4000 MG Powder for Oral Solution,Drug,RxNorm Extension,standard
+43205250,polyethylene glycol 4000 64 MG/ML Oral Solution Box of 1,Drug,RxNorm Extension,standard
+43205251,polyethylene glycol 4000 10000 MG Powder for Oral Solution Box of 20 by Sandoz,Drug,RxNorm Extension,standard
+43205252,polyethylene glycol 4000 10000 MG Powder for Oral Solution [MACROGOL BIOGARAN] Box of 20,Drug,RxNorm Extension,standard
+43205253,polyethylene glycol 4000 10000 MG Powder for Oral Solution [MACROGOL BIOGARAN] Box of 20 by Ipsen,Drug,RxNorm Extension,standard
+43205254,polyethylene glycol 4000 10000 MG Powder for Oral Solution [FORLAX] Box of 20 by Ipsen,Drug,RxNorm Extension,standard
+43205255,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG [FORTRANS],Drug,RxNorm Extension,standard
+43205256,polyethylene glycol 4000 64000 MG / Potassium Chloride 750 MG / Sodium Bicarbonate 1680 MG / Sodium Chloride 1460 MG / sodium sulfate 5700 MG Powder for Oral Solution [FORTRANS] Box of 4,Drug,RxNorm Extension,standard
+43216153,polyethylene glycol 4000 Powder for Oral Solution [MACROGOL BIOGARAN],Drug,RxNorm Extension,standard
+43216154,polyethylene glycol 4000 4000 MG Powder for Oral Solution [FORLAX] Box of 20,Drug,RxNorm Extension,standard
+43216155,polyethylene glycol 4000 64 MG/ML,Drug,RxNorm Extension,standard
+43216156,polyethylene glycol 4000 10000 MG [FORLAX],Drug,RxNorm Extension,standard
+43220638,1000 ML polyethylene glycol 4000 64 MG/ML Oral Solution [BIOPEG],Drug,RxNorm Extension,standard
+43220639,1000 ML polyethylene glycol 4000 64 MG/ML Oral Solution [BIOPEG] Box of 1,Drug,RxNorm Extension,standard

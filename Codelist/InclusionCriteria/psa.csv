@@ -1,12 +1,12 @@
-concept_id
-3001784
-3005013
-3013603
-4272032
-37392151
-37392634
-37398806
-40480170
-44793131
-44811980
-45769987
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+3001784,Prostate Specific Ag Free/Prostate specific Ag.total in Serum or Plasma,Measurement,LOINC,standard
+3005013,Prostate Specific Ag Free [Mass/volume] in Serum or Plasma,Measurement,LOINC,standard
+3013603,Prostate specific Ag [Mass/volume] in Serum or Plasma,Measurement,LOINC,standard
+4272032,Prostate specific antigen measurement,Measurement,SNOMED,standard
+37392151,Serum PSA (prostate specific antigen) level,Measurement,SNOMED,non-standard
+37392634,Total PSA (prostate specific antigen) level,Measurement,SNOMED,non-standard
+37398806,PSA (prostate-specific antigen) level,Measurement,SNOMED,non-standard
+40480170,Measurement of prostate specific antigen using ultrasensitive assay,Measurement,SNOMED,standard
+44793131,Total prostate specific antigen level,Measurement,SNOMED,standard
+44811980,Serum prostate specific antigen measurement,Measurement,SNOMED,standard
+45769987,Prostate specific antigen threshold for referral,Measurement,SNOMED,standard

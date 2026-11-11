@@ -1,119 +1,119 @@
-concept_id
-77310
-193512
-199837
-435565
-439314
-440738
-440750
-443537
-760875
-760876
-760877
-761808
-761809
-761818
-761819
-761820
-761821
-761830
-761831
-761832
-761928
-761980
-762004
-762005
-762008
-762009
-762010
-762013
-762015
-762017
-762018
-762020
-762021
-762022
-762026
-762047
-762048
-762049
-762148
-762417
-762418
-762419
-763941
-763942
-765049
-765155
-765156
-765537
-765540
-765541
-765546
-765922
-3655221
-4028057
-4033521
-4042396
-4055089
-4069561
-4096099
-4109877
-4110339
-4110343
-4111861
-4111868
-4112171
-4112172
-4119760
-4124856
-4133004
-4133975
-4149782
-4153353
-4175649
-4176614
-4179911
-4189004
-4203836
-4207899
-4221821
-4230403
-4250765
-4281689
-4284538
-4309333
-4317289
-4322565
-35615030
-35615031
-35615034
-35615035
-35616027
-35616028
-36712892
-37109253
-40478951
-40480555
-40481089
-42538533
-43531681
-44782421
-44782742
-44782743
-44782744
-44782745
-44782746
-44782747
-44782748
-44782751
-44782752
-44782762
-44782766
-44782767
-44811347
-45757410
-45773536
-46271900
-46285904
-46285905
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+77310,Deep vein phlebitis and thrombophlebitis of the leg,Condition,SNOMED,non-standard
+193512,Embolism and thrombosis of the renal vein,Condition,SNOMED,standard
+199837,Portal vein thrombosis,Condition,SNOMED,standard
+435565,Embolism and thrombosis of the vena cava,Condition,SNOMED,standard
+439314,Thrombophlebitis of the femoral vein,Condition,SNOMED,standard
+440738,Phlebitis of the femoral vein,Condition,SNOMED,standard
+440750,Thrombophlebitis of deep veins of upper extremities,Condition,SNOMED,standard
+443537,Deep venous thrombosis of lower extremity,Condition,SNOMED,standard
+760875,Acute deep venous thrombosis of bilateral calves,Condition,SNOMED,standard
+760876,Acute deep venous thrombosis of left calf,Condition,SNOMED,standard
+760877,Acute deep venous thrombosis of right calf,Condition,SNOMED,standard
+761808,Thrombophlebitis of deep vein of left upper limb,Condition,SNOMED,standard
+761809,Thrombophlebitis of deep vein of right upper limb,Condition,SNOMED,standard
+761818,Thrombophlebitis of right femoral vein,Condition,SNOMED,standard
+761819,Thrombophlebitis of left femoral vein,Condition,SNOMED,standard
+761820,Thrombophlebitis of right deep femoral vein,Condition,SNOMED,standard
+761821,Thrombophlebitis of left deep femoral vein,Condition,SNOMED,standard
+761830,Thrombophlebitis of deep vein of left lower limb,Condition,SNOMED,standard
+761831,Thrombophlebitis of deep vein of bilateral lower limbs,Condition,SNOMED,standard
+761832,Thrombophlebitis of deep vein of right lower limb,Condition,SNOMED,standard
+761928,Deep venous thrombosis of right upper extremity,Condition,SNOMED,standard
+761980,Deep venous thrombosis of left upper extremity,Condition,SNOMED,standard
+762004,Acute deep venous thrombosis of both upper extremities,Condition,SNOMED,standard
+762005,Acute deep venous thrombosis of right upper extremity,Condition,SNOMED,standard
+762008,Acute deep venous thrombosis of bilateral axillary veins,Condition,SNOMED,standard
+762009,Acute deep venous thrombosis of left axillary vein,Condition,SNOMED,standard
+762010,Acute deep venous thrombosis of right axillary vein,Condition,SNOMED,standard
+762013,Acute deep venous thrombosis of right femoral vein,Condition,SNOMED,standard
+762015,Acute deep venous thrombosis of ileofemoral vein of left leg,Condition,SNOMED,standard
+762017,Acute deep venous thrombosis of bilateral internal jugular veins,Condition,SNOMED,standard
+762018,Acute deep venous thrombosis of right internal jugular vein,Condition,SNOMED,standard
+762020,Acute deep venous thrombosis of bilateral popliteal veins,Condition,SNOMED,standard
+762021,Acute deep venous thrombosis of popliteal vein of left leg,Condition,SNOMED,standard
+762022,Acute deep venous thrombosis of popliteal vein of right leg,Condition,SNOMED,standard
+762026,Acute deep venous thrombosis of tibial vein of left leg,Condition,SNOMED,standard
+762047,Acute bilateral thrombosis of subclavian veins,Condition,SNOMED,standard
+762048,Acute thrombosis of left subclavian vein,Condition,SNOMED,standard
+762049,Acute thrombosis of right subclavian vein,Condition,SNOMED,standard
+762148,Acute deep vein thrombosis of bilateral iliac veins,Condition,SNOMED,standard
+762417,Acute deep venous thrombosis of bilateral legs,Condition,SNOMED,standard
+762418,Acute deep venous thrombosis of left lower extremity,Condition,SNOMED,standard
+762419,Acute deep venous thrombosis of right lower extremity,Condition,SNOMED,standard
+763941,Deep venous thrombosis of right lower extremity,Condition,SNOMED,standard
+763942,Deep venous thrombosis of left lower extremity,Condition,SNOMED,standard
+765049,Thrombosis of left peroneal vein,Condition,SNOMED,standard
+765155,Acute deep venous thrombosis of bilateral ileofemoral veins,Condition,SNOMED,standard
+765156,Acute deep venous thrombosis of tibial vein of right leg,Condition,SNOMED,standard
+765537,Acute deep venous thrombosis of left upper extremity,Condition,SNOMED,standard
+765540,Acute deep venous thrombosis of left femoral vein,Condition,SNOMED,standard
+765541,Acute deep venous thrombosis of ileofemoral vein of right lower extremity,Condition,SNOMED,standard
+765546,Acute deep venous thrombosis of bilateral tibial veins,Condition,SNOMED,standard
+765922,Acute deep venous thrombosis of left internal jugular vein,Condition,SNOMED,standard
+3655221,Deep vein thrombosis of lower extremity due to intravenous drug use,Condition,SNOMED,standard
+4028057,Deep venous thrombosis of upper extremity,Condition,SNOMED,standard
+4033521,Splenic vein thrombosis,Condition,SNOMED,standard
+4042396,Deep thrombophlebitis,Condition,SNOMED,standard
+4055089,Superior mesenteric vein thrombosis,Condition,SNOMED,standard
+4069561,Thrombophlebitis of deep femoral vein,Condition,SNOMED,standard
+4096099,Phlebitis of deep veins of lower extremity,Condition,SNOMED,standard
+4109877,Thrombophlebitis of the internal iliac vein,Condition,SNOMED,standard
+4110339,Thrombophlebitis of the anterior tibial vein,Condition,SNOMED,standard
+4110343,Thrombophlebitis of the external iliac vein,Condition,SNOMED,standard
+4111861,Phlebitis of popliteal vein,Condition,SNOMED,standard
+4111868,Thrombophlebitis of the common iliac vein,Condition,SNOMED,standard
+4112171,Thrombophlebitis of the popliteal vein,Condition,SNOMED,standard
+4112172,Thrombophlebitis of the posterior tibial vein,Condition,SNOMED,standard
+4119760,Iliofemoral deep vein thrombosis,Condition,SNOMED,standard
+4124856,Inferior mesenteric vein thrombosis,Condition,SNOMED,standard
+4133004,Deep venous thrombosis,Condition,SNOMED,standard
+4133975,Deep venous thrombosis of pelvic vein,Condition,SNOMED,standard
+4149782,Thrombosis of vein of lower limb,Condition,SNOMED,standard
+4153353,Traumatic thrombosis of axillary vein,Condition,SNOMED,standard
+4175649,Thrombosis of the popliteal vein,Condition,SNOMED,standard
+4176614,Thrombophlebitis of iliac vein,Condition,SNOMED,standard
+4179911,Axillary vein thrombosis,Condition,SNOMED,standard
+4189004,Deep vein thrombosis of leg related to intravenous drug use,Condition,SNOMED,non-standard
+4203836,Thrombosis of subclavian vein,Condition,SNOMED,standard
+4207899,Deep venous thrombosis of tibial vein,Condition,SNOMED,standard
+4221821,Thrombophlebitis of deep veins of lower extremity,Condition,SNOMED,standard
+4230403,Thrombophlebitis of axillary vein,Condition,SNOMED,standard
+4250765,Thrombophlebitis of tibial vein,Condition,SNOMED,standard
+4281689,Phlegmasia alba dolens,Condition,SNOMED,standard
+4284538,Phlegmasia cerulea dolens,Condition,SNOMED,standard
+4309333,Postoperative deep vein thrombosis,Condition,SNOMED,standard
+4317289,Thrombosis of mesenteric vein,Condition,SNOMED,standard
+4322565,Deep venous thrombosis of profunda femoris vein,Condition,SNOMED,standard
+35615030,Acute deep vein thrombosis of right upper limb following procedure,Condition,SNOMED,standard
+35615031,Acute deep vein thrombosis of left upper limb following procedure,Condition,SNOMED,standard
+35615034,Acute deep vein thrombosis of right lower limb following procedure,Condition,SNOMED,standard
+35615035,Acute deep vein thrombosis of left lower limb following procedure,Condition,SNOMED,standard
+35616027,Acute deep vein thrombosis of right iliac vein,Condition,SNOMED,standard
+35616028,Acute deep vein thrombosis of left iliac vein,Condition,SNOMED,standard
+36712892,Acute thrombosis of splenic vein,Condition,SNOMED,standard
+37109253,Bilateral acute deep vein thrombosis of femoral veins,Condition,SNOMED,standard
+40478951,Bilateral deep vein thrombosis of lower extremities,Condition,SNOMED,standard
+40480555,Deep venous thrombosis of peroneal vein,Condition,SNOMED,standard
+40481089,Embolism from thrombosis of vein of lower extremity,Condition,SNOMED,standard
+42538533,Thrombosis of iliac vein,Condition,SNOMED,standard
+43531681,Acute deep vein thrombosis of lower limb,Condition,SNOMED,standard
+44782421,Acute deep venous thrombosis of upper extremity,Condition,SNOMED,standard
+44782742,Acute deep venous thrombosis of calf,Condition,SNOMED,standard
+44782743,Acute deep venous thrombosis of popliteal vein,Condition,SNOMED,standard
+44782744,Acute deep venous thrombosis of tibial vein,Condition,SNOMED,standard
+44782745,Acute deep venous thrombosis of thigh,Condition,SNOMED,standard
+44782746,Acute deep venous thrombosis,Condition,SNOMED,standard
+44782747,Acute deep venous thrombosis of femoral vein,Condition,SNOMED,standard
+44782748,Acute deep venous thrombosis of iliofemoral vein,Condition,SNOMED,standard
+44782751,Acute deep venous thrombosis of axillary vein,Condition,SNOMED,standard
+44782752,Acute deep venous thrombosis of internal jugular vein,Condition,SNOMED,standard
+44782762,Acute thrombosis of subclavian vein,Condition,SNOMED,standard
+44782766,Acute deep venous thrombosis of upper extremity as complication of procedure,Condition,SNOMED,standard
+44782767,Acute deep venous thrombosis of lower extremity as complication of procedure,Condition,SNOMED,standard
+44811347,Thrombosis of internal jugular vein,Condition,SNOMED,standard
+45757410,Acute thrombosis of mesenteric vein,Condition,SNOMED,standard
+45773536,Deep venous thrombosis of femoropopliteal vein,Condition,SNOMED,standard
+46271900,Recurrent deep vein thrombosis,Condition,SNOMED,standard
+46285904,Unprovoked deep vein thrombosis,Condition,SNOMED,standard
+46285905,Provoked deep vein thrombosis,Condition,SNOMED,standard

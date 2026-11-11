@@ -1,21 +1,21 @@
-concept_id
-317576
-609191
-764123
-764149
-1340292
-1340513
-4108673
-4111393
-4124682
-4155007
-4155962
-4168972
-4199962
-4242670
-36712982
-36712983
-36714444
-37309630
-40481919
-46269996
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+317576,Coronary arteriosclerosis,Condition,SNOMED,standard
+609191,Coronary artery disease due to type 1 diabetes mellitus,Condition,SNOMED,standard
+764123,Atherosclerosis of coronary artery without angina pectoris,Condition,SNOMED,standard
+764149,Lipid-rich atherosclerosis of coronary artery,Condition,SNOMED,standard
+1340292,Exacerbation of coronary arteriosclerosis,Condition,OMOP Extension,standard
+1340513,Progression of coronary arteriosclerosis,Condition,OMOP Extension,standard
+4108673,Double coronary vessel disease,Condition,SNOMED,standard
+4111393,Single coronary vessel disease,Condition,SNOMED,standard
+4124682,Triple vessel disease of the heart,Condition,SNOMED,standard
+4155007,Multi vessel coronary artery disease,Condition,SNOMED,standard
+4155962,Left main coronary artery disease,Condition,SNOMED,standard
+4168972,Obliterative coronary artery disease,Condition,SNOMED,standard
+4199962,Asymptomatic coronary heart disease,Condition,SNOMED,standard
+4242670,Calcific coronary arteriosclerosis,Condition,SNOMED,standard
+36712982,Unstable angina co-occurrent and due to coronary arteriosclerosis,Condition,SNOMED,standard
+36712983,Angina co-occurrent and due to coronary arteriosclerosis,Condition,SNOMED,standard
+36714444,Non-obstructive atherosclerosis of coronary artery,Condition,SNOMED,standard
+37309630,Coronary artery disease due to type 2 diabetes mellitus,Condition,SNOMED,standard
+40481919,Coronary atherosclerosis,Condition,SNOMED,standard
+46269996,Coronary arteriosclerosis after percutaneous coronary angioplasty,Condition,SNOMED,non-standard

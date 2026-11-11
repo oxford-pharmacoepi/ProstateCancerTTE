@@ -1,24 +1,24 @@
-concept_id
-4061650
-4083427
-44805213
-4071781
-200962
-44788755
-4082261
-44793209
-4241075
-44790074
-36935860
-4317528
-35774257
-4193579
-1344403
-44792638
-21089544
-21128764
-37151637
-4084843
-4083414
-4078513
-4142388
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+200962,Primary malignant neoplasm of prostate,Condition,SNOMED,standard
+1344403,bicalutamide 50 MG Oral Tablet,Drug,RxNorm,standard
+4061650,Hormone therapy,Procedure,SNOMED,standard
+4071781,Transurethral biopsy of prostate,Procedure,SNOMED,standard
+4078513,Number of neoplasms in excised tissue specimen,Measurement,SNOMED,standard
+4082261,Informed consent for procedure,Observation,SNOMED,standard
+4083414,Seen in urology clinic,Observation,SNOMED,standard
+4083427,Seen in oncology clinic,Observation,SNOMED,standard
+4084843,Discharged from hospital,Observation,SNOMED,standard
+4142388,Transperineal needle biopsy of prostate,Procedure,SNOMED,standard
+4193579,Subcutaneous injection of hormone antagonist,Procedure,SNOMED,standard
+4241075,Injection,Procedure,SNOMED,standard
+4317528,"Echography of prostate, transrectal approach",Procedure,SNOMED,standard
+21089544,Goserelin 10.8 MG Drug Implant [Zoladex LA] by Astrazeneca,Drug,RxNorm Extension,standard
+21128764,Goserelin 3.6 MG Drug Implant [Zoladex] by Astrazeneca,Drug,RxNorm Extension,standard
+35774257,Leuprolide 11.3 MG Injectable Suspension [Prostap] by Takeda,Drug,RxNorm Extension,standard
+36935860,goserelin 3.6 MG Drug Implant [Zoladex] by Astrazeneca,Drug,RxNorm Extension,standard
+37151637,Injection into subcutaneous tissue,Procedure,SNOMED,standard
+44788755,Depression screening using questions,Measurement,SNOMED,standard
+44790074,Choice and booking enhanced services administration,Observation,SNOMED,standard
+44792638,Fast track referral for suspected urological cancer,Observation,SNOMED,standard
+44793209,Preparation for intensity modulated radiation therapy,Observation,SNOMED,standard
+44805213,Implied consent for core Summary Care Record dataset upload,Observation,SNOMED,standard

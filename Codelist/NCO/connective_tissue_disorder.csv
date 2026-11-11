@@ -1,4 +1,4 @@
-concept_id
-80809
-255348
-4002650
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+80809,Rheumatoid arthritis,Condition,SNOMED,standard
+255348,Polymyalgia rheumatica,Condition,SNOMED,standard
+4002650,Plantar fasciitis,Condition,SNOMED,standard

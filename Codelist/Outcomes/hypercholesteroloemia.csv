@@ -1,10 +1,10 @@
-concept_id
-437827
-4029258
-4029305
-4029891
-4030619
-4079886
-4096215
-4220010
-36674388
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+437827,Pure hypercholesterolemia,Condition,SNOMED,standard
+4029258,Polygenic hypercholesterolemia,Condition,SNOMED,standard
+4029305,Hypercholesterolemia,Condition,SNOMED,standard
+4029891,Secondary hypercholesterolemia,Condition,SNOMED,standard
+4030619,Mixed hypercholesterolemia and hypertriglyceridemia,Condition,SNOMED,standard
+4079886,Hyperalphalipoproteinemia,Condition,SNOMED,standard
+4096215,"Hyperlipidemia, group A",Condition,SNOMED,standard
+4220010,Fredrickson type IIa hyperlipoproteinemia,Condition,SNOMED,standard
+36674388,Hypercholesterolemia due to cholesterol 7alpha-hydroxylase deficiency,Condition,SNOMED,standard

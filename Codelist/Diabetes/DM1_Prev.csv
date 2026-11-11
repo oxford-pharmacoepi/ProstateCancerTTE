@@ -1,101 +1,101 @@
-concept_id
-200687
-201254
-201531
-318712
-377821
-435216
-439770
-443412
-443592
-765373
-765533
-765650
-3046418
-4047906
-4063042
-4099214
-4102018
-4128019
-4143689
-4143857
-4152858
-4221344
-4222553
-4222687
-4223303
-4224254
-4224709
-4225055
-4225656
-4227210
-4228112
-4324885
-35626069
-35626765
-36713094
-36715571
-37016179
-37016180
-37016348
-37016353
-37016767
-37017429
-37017431
-37018566
-37312200
-37312201
-37312218
-40484648
-40484649
-42535539
-42535540
-42538169
-42689695
-43021174
-43022017
-43530660
-43531008
-43531009
-43531565
-44791260
-44805527
-44805585
-44807868
-45757073
-45757074
-45757266
-45757362
-45757393
-45757432
-45757507
-45757535
-45757604
-45757674
-45763583
-45763584
-45763585
-45766051
-45768456
-45769829
-45769830
-45769832
-45769833
-45769834
-45769837
-45769873
-45769876
-45769891
-45769892
-45769902
-45769903
-45769904
-45770902
-45770986
-45771067
-45771075
-45771533
-45773567
-45773576
-45773688
-46269764
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+200687,Renal disorder due to type 1 diabetes mellitus,Condition,SNOMED,standard
+201254,Type 1 diabetes mellitus,Condition,SNOMED,standard
+201531,Hyperosmolar coma due to type 1 diabetes mellitus,Condition,SNOMED,standard
+318712,Peripheral circulatory disorder due to type 1 diabetes mellitus,Condition,SNOMED,standard
+377821,Disorder of nervous system due to type 1 diabetes mellitus,Condition,SNOMED,standard
+435216,Disorder due to type 1 diabetes mellitus,Condition,SNOMED,standard
+439770,Ketoacidosis due to type 1 diabetes mellitus,Condition,SNOMED,standard
+443412,Type 1 diabetes mellitus without complication,Condition,SNOMED,non-standard
+443592,Hyperosmolality due to uncontrolled type 1 diabetes mellitus,Condition,SNOMED,standard
+765373,Severe nonproliferative retinopathy due to diabetes mellitus type 1,Condition,SNOMED,standard
+765533,Glaucoma due to diabetes mellitus type 1,Condition,SNOMED,standard
+765650,Cranial nerve palsy due to diabetes mellitus type 1,Condition,SNOMED,non-standard
+3046418,Insulin dependent diabetes mellitus [Presence],Observation,LOINC,standard
+4047906,Insulin dependent diabetes mellitus type 1A,Condition,SNOMED,standard
+4063042,Pre-existing type 1 diabetes mellitus,Condition,SNOMED,standard
+4099214,Type 1 diabetes mellitus with ulcer,Condition,SNOMED,standard
+4102018,Insulin dependent diabetes mellitus type 1B,Condition,SNOMED,standard
+4128019,Brittle type 1 diabetes mellitus,Condition,SNOMED,non-standard
+4143689,Small vessel disease due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4143857,Lumbosacral radiculoplexus neuropathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4152858,Type 1 diabetes mellitus with arthropathy,Condition,SNOMED,standard
+4221344,Exudative maculopathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4222553,Persistent proteinuria due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4222687,Persistent microalbuminuria due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4223303,Gangrene due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4224254,Ketoacidotic coma due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4224709,Multiple complications due to type 1 diabetes mellitus,Condition,SNOMED,non-standard
+4225055,Mononeuropathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4225656,Cataract due to diabetes mellitus type 1,Condition,SNOMED,standard
+4227210,Retinopathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4228112,Hypoglycemic coma due to type 1 diabetes mellitus,Condition,SNOMED,standard
+4324885,Dietary education for type 1 diabetes mellitus,Observation,SNOMED,standard
+35626069,Macular edema due to type 1 diabetes mellitus,Condition,SNOMED,standard
+35626765,Cranial nerve palsy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+36713094,Peripheral angiopathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+36715571,Acidosis due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37016179,Mild nonproliferative retinopathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37016180,Moderate nonproliferative retinopathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37016348,Hyperglycemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37016353,Dyslipidemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37016767,Autonomic neuropathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37017429,Gastroparesis due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37017431,Polyneuropathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37018566,Peripheral neuropathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37312200,Ulcer of midfoot due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37312201,Ulcer of heel due to type 1 diabetes mellitus,Condition,SNOMED,standard
+37312218,Neuropathy due to type 1 diabetes mellitus,Condition,SNOMED,non-standard
+40484648,Uncontrolled type 1 diabetes mellitus,Condition,SNOMED,non-standard
+40484649,Well controlled type 1 diabetes mellitus,Condition,SNOMED,standard
+42535539,Disorder of nerve due to type 1 diabetes mellitus,Condition,SNOMED,standard
+42535540,Hyperosmolarity due to type 1 diabetes mellitus,Condition,SNOMED,standard
+42538169,Disorder of eye due to type 1 diabetes mellitus,Condition,SNOMED,standard
+42689695,Eating disorder co-occurrent with diabetes mellitus type 1,Condition,SNOMED,standard
+43021174,History of diabetes mellitus type 1,Observation,SNOMED,non-standard
+43022017,Discussion about diabetic ketoacidosis in pregnancy,Procedure,SNOMED,standard
+43530660,Mixed hyperlipidemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+43531008,Pre-existing type 1 diabetes mellitus in pregnancy,Condition,SNOMED,standard
+43531009,Pregnancy and type 1 diabetes mellitus,Condition,SNOMED,standard
+43531565,Erectile dysfunction due to type 1 diabetes mellitus,Condition,SNOMED,standard
+44791260,Diabetes type 1 review,Observation,SNOMED,standard
+44805527,Type I diabetic dietary review,Observation,SNOMED,standard
+44805585,Referral to type I diabetes structured education programme,Observation,SNOMED,standard
+44807868,Education about ketoacidosis,Observation,SNOMED,standard
+45757073,Ischemia of retina due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757074,Vitreous hemorrhage due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757266,Retinal edema due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757362,Hypoglycemic unawareness due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757393,Hypertension concurrent and due to end stage renal disease on dialysis due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757432,Hyperlipidemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757507,Ulcer of foot due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757535,Microalbuminuria due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757604,Proteinuria due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45757674,Diabetes mellitus type 1 without retinopathy,Condition,SNOMED,standard
+45763583,Nonproliferative diabetic retinopathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45763584,Proliferative retinopathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45763585,Blindness due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45766051,Type I diabetes mellitus in remission,Condition,SNOMED,standard
+45768456,Neuropathy due to unstable diabetes mellitus type 1,Condition,SNOMED,standard
+45769829,Nephrotic syndrome due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769830,Neuropathic arthropathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769832,Dermopathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769833,Severe malnutrition due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769834,Osteomyelitis due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769837,Chronic ulcer of skin due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769873,Traction detachment of retina due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769876,Hypoglycemia due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769891,Ankle ulcer due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769892,Ulcer of forefoot due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769902,Chronic kidney disease stage 4 due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769903,Chronic kidney disease stage 5 due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45769904,End stage renal disease on dialysis due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45770902,Ulcer of lower limb due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45770986,Retinopathy due to unstable diabetes mellitus type 1,Condition,SNOMED,standard
+45771067,Hypertension in chronic kidney disease due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45771075,Chronic kidney disease stage 3 due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45771533,Rubeosis iridis due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45773567,Sensory neuropathy due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45773576,Chronic kidney disease stage 1 due to type 1 diabetes mellitus,Condition,SNOMED,standard
+45773688,Chronic kidney disease due to type 1 diabetes mellitus,Condition,SNOMED,standard
+46269764,Skin ulcer of toe due to diabetes mellitus type 1,Condition,SNOMED,standard

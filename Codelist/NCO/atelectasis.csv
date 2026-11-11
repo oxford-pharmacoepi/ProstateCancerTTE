@@ -1,2 +1,2 @@
-concept_id
-261880
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+261880,Atelectasis,Condition,SNOMED,standard

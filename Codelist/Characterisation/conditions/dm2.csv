@@ -1,182 +1,182 @@
-concept_id
-4034964
-4321756
-36717156
-43531588
-45769888
-4196141
-4175440
-37016768
-45763582
-4019513
-40483315
-376979
-4221495
-43531578
-43531559
-43531566
-43531653
-43531577
-43531562
-443735
-442793
-37309630
-35626762
-45769894
-43531616
-201820
-4058243
-45766050
-36684827
-45757474
-4008576
-4016045
-443238
-4033942
-4159742
-4114426
-37018912
-443727
-4009303
-4048028
-4311708
-443732
-43531597
-443767
-443733
-192279
-443730
-376065
-4082346
-43531564
-45757280
-45769906
-35626763
-4177050
-4223463
-43530690
-4226354
-4222876
-37017430
-37018728
-45772019
-37311673
-37016349
-45770880
-4226238
-201530
-4147719
-4215719
-45757392
-45771064
-45757447
-45757446
-45757445
-45757444
-4029423
-45757363
-45772060
-4226798
-36714116
-45769875
-4130162
-35626905
-45757075
-765375
-4063569
-45771072
-443734
-4095288
-4228443
-4016047
-4191611
-4140466
-45770830
-380097
-35626070
-42536605
-45769905
-4128221
-378743
-45757435
-43531651
-377552
-45770881
-4222415
-40480000
-4099216
-4027121
-45769828
-760989
-761063
-4114427
-43531563
-4065354
-45757450
-37312203
-37312202
-45770883
-4044391
-37016354
-376683
-43530656
-45769836
-4131908
-443729
-43530689
-45757278
-321822
-4221487
-4223739
-376112
-37017432
-45757079
-43531007
-4063043
-43531010
-4129519
-380096
-43530685
-45770831
-45757499
-4030664
-443731
-35626904
-45770928
-4174977
-4226121
-45769872
-4131117
-45769835
-376114
-761053
-4290822
-4266637
-4227657
-36712670
-46274058
-4142579
-45770832
-4338901
-45773064
-201826
-45757508
-4230254
-4304377
-40485020
-4200875
-4099651
-4193704
-45766052
-40482801
-45769890
-37312207
-37312205
-36712686
-45757277
-37312204
-36712687
-45757449
-4195045
-43531608
-761062
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+192279,Disorder of kidney due to diabetes mellitus,Condition,SNOMED,standard
+201530,Hyperosmolar coma due to type 2 diabetes mellitus,Condition,SNOMED,standard
+201820,Diabetes mellitus,Condition,SNOMED,standard
+201826,Type 2 diabetes mellitus,Condition,SNOMED,standard
+321822,Peripheral vascular disorder due to diabetes mellitus,Condition,SNOMED,standard
+376065,Disorder of nervous system due to type 2 diabetes mellitus,Condition,SNOMED,standard
+376112,Polyneuropathy due to diabetes mellitus,Condition,SNOMED,standard
+376114,Severe nonproliferative retinopathy due to diabetes mellitus,Condition,SNOMED,standard
+376683,Nonproliferative retinopathy due to diabetes mellitus,Condition,SNOMED,standard
+376979,Cataract due to diabetes mellitus,Condition,SNOMED,standard
+377552,Moderate nonproliferative retinopathy due to diabetes mellitus,Condition,SNOMED,standard
+378743,Mild nonproliferative retinopathy due to diabetes mellitus,Condition,SNOMED,standard
+380096,Proliferative retinopathy due to diabetes mellitus,Condition,SNOMED,standard
+380097,Macular edema due to diabetes mellitus,Condition,SNOMED,standard
+442793,Complication due to diabetes mellitus,Condition,SNOMED,standard
+443238,Diabetic - poor control,Condition,SNOMED,non-standard
+443727,Diabetic ketoacidosis,Condition,SNOMED,standard
+443729,Peripheral circulatory disorder due to type 2 diabetes mellitus,Condition,SNOMED,standard
+443730,Disorder of nervous system due to diabetes mellitus,Condition,SNOMED,standard
+443731,Renal disorder due to type 2 diabetes mellitus,Condition,SNOMED,standard
+443732,Disorder due to type 2 diabetes mellitus,Condition,SNOMED,standard
+443733,Disorder of eye due to type 2 diabetes mellitus,Condition,SNOMED,standard
+443734,Ketoacidosis due to type 2 diabetes mellitus,Condition,SNOMED,standard
+443735,Coma due to diabetes mellitus,Condition,SNOMED,standard
+443767,Disorder of eye due to diabetes mellitus,Condition,SNOMED,standard
+760989,Neurogenic erectile dysfunction due to diabetes mellitus type 2,Condition,SNOMED,standard
+761053,Severe nonproliferative retinopathy due to diabetes mellitus type 2,Condition,SNOMED,standard
+761062,Ischemic heel and/or midfoot ulcer due to type 2 diabetes mellitus,Condition,SNOMED,non-standard
+761063,Neuropathic ankle ulcer due to diabetes mellitus type 2,Condition,SNOMED,standard
+765375,Ischemic ankle ulcer due to diabetes mellitus type 2,Condition,SNOMED,standard
+4008576,Diabetes mellitus without complication,Condition,SNOMED,non-standard
+4009303,Diabetic ketoacidosis without coma,Condition,SNOMED,standard
+4016045,Diabetic - good control,Condition,SNOMED,standard
+4016047,Loss of hypoglycemic warning due to diabetes mellitus,Condition,SNOMED,standard
+4019513,Brittle diabetes mellitus,Condition,SNOMED,non-standard
+4027121,Nephrotic syndrome due to diabetes mellitus,Condition,SNOMED,standard
+4029423,Hypoglycemia due to diabetes mellitus,Condition,SNOMED,standard
+4030664,Proteinuric nephropathy due to diabetes mellitus,Condition,SNOMED,standard
+4033942,Diabetic dermopathy,Condition,SNOMED,standard
+4034964,Abnormal metabolic state due to diabetes mellitus,Condition,SNOMED,standard
+4044391,Neuropathy due to diabetes mellitus,Condition,SNOMED,standard
+4048028,Diabetic mononeuropathy,Condition,SNOMED,standard
+4058243,"Diabetes mellitus during pregnancy, childbirth and the puerperium",Condition,SNOMED,standard
+4063043,Pre-existing type 2 diabetes mellitus,Condition,SNOMED,standard
+4063569,Ischemic ulcer of foot due to diabetes mellitus,Condition,SNOMED,standard
+4065354,Neuropathic ulcer of foot due to diabetes mellitus,Condition,SNOMED,standard
+4082346,Disorder of soft tissue due to diabetes mellitus,Condition,SNOMED,standard
+4095288,Ketoacidotic coma due to diabetes mellitus,Condition,SNOMED,standard
+4099216,Multiple complications due to type 2 diabetes mellitus,Condition,SNOMED,non-standard
+4099651,Type 2 diabetes mellitus with ulcer,Condition,SNOMED,standard
+4114426,Diabetic hand syndrome,Condition,SNOMED,standard
+4114427,Neuropathic arthropathy due to diabetes mellitus,Condition,SNOMED,standard
+4128221,Microalbuminuric diabetic nephropathy,Condition,SNOMED,standard
+4129519,Pregnancy and type 2 diabetes mellitus,Condition,SNOMED,standard
+4130162,Insulin treated type 2 diabetes mellitus,Condition,SNOMED,standard
+4131117,Sensory neuropathy due to diabetes mellitus,Condition,SNOMED,standard
+4131908,Peripheral angiopathy due to diabetes mellitus,Condition,SNOMED,standard
+4140466,Lumbosacral radiculoplexus neuropathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4142579,Small vessel disease due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4147719,Hyperosmolar non-ketotic state due to diabetes mellitus,Condition,SNOMED,standard
+4159742,Diabetic foot ulcer,Condition,SNOMED,standard
+4174977,Retinopathy due to diabetes mellitus,Condition,SNOMED,standard
+4175440,Autonomic neuropathy due to diabetes mellitus,Condition,SNOMED,standard
+4177050,Erectile dysfunction due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4191611,Lumbosacral radiculoplexus neuropathy due to diabetes mellitus,Condition,SNOMED,standard
+4193704,Type 2 diabetes mellitus without complication,Condition,SNOMED,non-standard
+4195045,Vitreous hemorrhage due to diabetes mellitus,Condition,SNOMED,standard
+4196141,Arthropathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4200875,Type 2 diabetes mellitus with peripheral angiopathy,Condition,SNOMED,standard
+4215719,Hyperosmolar non-ketotic state due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4221487,Persistent microalbuminuria due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4221495,Cataract due to diabetes mellitus type 2,Condition,SNOMED,standard
+4222415,Mononeuropathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4222876,Gangrene due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4223463,Exudative maculopathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4223739,Persistent proteinuria due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4226121,Retinopathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4226238,Hyperosmolar coma due to diabetes mellitus,Condition,SNOMED,standard
+4226354,Gangrene due to diabetes mellitus,Condition,SNOMED,standard
+4226798,Hypoglycemic coma due to diabetes mellitus,Condition,SNOMED,standard
+4227657,Skin ulcer due to diabetes mellitus,Condition,SNOMED,standard
+4228443,Ketoacidotic coma due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4230254,Type 2 diabetes mellitus in nonobese,Condition,SNOMED,standard
+4266637,Severe nonproliferative retinopathy without macular edema due to diabetes mellitus,Condition,SNOMED,standard
+4290822,Severe nonproliferative retinopathy with clinically significant macular edema due to diabetes mellitus,Condition,SNOMED,standard
+4304377,Type 2 diabetes mellitus in obese,Condition,SNOMED,standard
+4311708,Diabetic peripheral neuropathy,Condition,SNOMED,standard
+4321756,Acanthosis nigricans due to type 2 diabetes mellitus,Condition,SNOMED,standard
+4338901,Traction detachment of retina due to diabetes mellitus,Condition,SNOMED,standard
+35626070,Macular edema due to type 2 diabetes mellitus,Condition,SNOMED,standard
+35626762,Cranial nerve palsy due to diabetes mellitus,Condition,SNOMED,standard
+35626763,Erectile dysfunction due to diabetes mellitus,Condition,SNOMED,standard
+35626904,Retinal edema due to diabetes mellitus,Condition,SNOMED,standard
+35626905,Ischemia of retina due to diabetes mellitus,Condition,SNOMED,standard
+36684827,Diabetes mellitus type 2 with periodontal disease,Condition,SNOMED,standard
+36712670,Skin ulcer due to type 2 diabetes mellitus,Condition,SNOMED,standard
+36712686,Ulcer of left foot due to type 2 diabetes mellitus,Condition,SNOMED,standard
+36712687,Ulcer of right foot due to type 2 diabetes mellitus,Condition,SNOMED,standard
+36714116,Hypoglycemic coma due to type 2 diabetes mellitus,Condition,SNOMED,standard
+36717156,Acidosis due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37016349,Hyperglycemia due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37016354,Neuropathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37016768,Autonomic neuropathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37017430,Gastroparesis due to diabetes mellitus,Condition,SNOMED,standard
+37017432,Polyneuropathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37018728,Gastroparesis due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37018912,Diabetic hand syndrome due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37309630,Coronary artery disease due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37311673,Hyperglycemia due to diabetes mellitus,Condition,SNOMED,standard
+37312202,Neuropathic ulcer of midfoot due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37312203,Neuropathic ulcer of heel due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37312204,Ulcer of midfoot due to diabetes mellitus,Condition,SNOMED,standard
+37312205,Ulcer of heel due to type 2 diabetes mellitus,Condition,SNOMED,standard
+37312207,Ulcer of heel due to diabetes mellitus,Condition,SNOMED,standard
+40480000,Multiple complications due to diabetes mellitus,Condition,SNOMED,non-standard
+40482801,Uncontrolled type 2 diabetes mellitus,Condition,SNOMED,non-standard
+40483315,Brittle type 2 diabetes mellitus,Condition,SNOMED,non-standard
+40485020,Well controlled type 2 diabetes mellitus,Condition,SNOMED,standard
+42536605,Metabolic acidosis due to diabetes mellitus,Condition,SNOMED,standard
+43530656,Nonproliferative retinopathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43530685,Proliferative retinopathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43530689,Peripheral neuropathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43530690,Foot ulcer due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531007,Pre-existing diabetes mellitus in pregnancy,Condition,SNOMED,standard
+43531010,Pre-existing type 2 diabetes mellitus in pregnancy,Condition,SNOMED,standard
+43531559,Chronic kidney disease stage 1 due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531562,Chronic kidney disease stage 5 due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531563,Neuropathic arthropathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531564,Dyslipidemia due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531566,Chronic kidney disease stage 2 due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531577,Chronic kidney disease stage 4 due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531578,Chronic kidney disease due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531588,Angina associated with type 2 diabetes mellitus,Condition,SNOMED,standard
+43531597,Disorder due to well controlled type 2 diabetes mellitus,Condition,SNOMED,standard
+43531608,Vitreous hemorrhage due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531616,Dermopathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531651,Mixed hyperlipidemia due to type 2 diabetes mellitus,Condition,SNOMED,standard
+43531653,Chronic kidney disease stage 3 due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757075,Ischemia of retina due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757079,Pre-existing diabetes mellitus in mother complicating childbirth,Condition,SNOMED,standard
+45757277,Ulcer of lower limb due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757278,Peripheral sensory neuropathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757280,Dyslipidemia with high density lipoprotein below reference range and triglyceride above reference range due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757363,Hypoglycemia due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757392,Hypertension concurrent and due to end stage renal disease on dialysis due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757435,Mild nonproliferative retinopathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757444,Hypertension in chronic kidney disease stage 5 due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757445,Hypertension in chronic kidney disease stage 4 due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757446,Hypertension in chronic kidney disease stage 3 due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757447,Hypertension in chronic kidney disease stage 2 due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757449,Ulcer of toe due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757450,Neuropathic ulcer of foot due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757474,Diabetes mellitus type 2 without retinopathy,Condition,SNOMED,standard
+45757499,Proteinuria due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45757508,Type 2 diabetes mellitus controlled by diet,Condition,SNOMED,standard
+45763582,Blindness due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45766050,Diabetes mellitus in remission,Condition,SNOMED,standard
+45766052,Type II diabetes mellitus in remission,Condition,SNOMED,standard
+45769828,Nephrotic syndrome due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45769835,Severe malnutrition due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45769836,Osteomyelitis due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45769872,Rubeosis iridis due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45769875,Insulin reactive hypoglycemia due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45769888,Ankle ulcer due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45769890,Ulcer of forefoot due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45769894,Cranial nerve palsy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45769905,Microalbuminuria due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45769906,End stage renal disease on dialysis due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45770830,Macular edema and retinopathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45770831,Proliferative retinopathy with retinal edema due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45770832,Stasis ulcer due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45770880,Hyperlipidemia due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45770881,Moderate nonproliferative retinopathy due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45770883,Neuropathic ulcer of toe due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45770928,Retinal edema due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45771064,Hypertension in chronic kidney disease due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45771072,Ischemic ulcer of foot due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45772019,Glaucoma due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45772060,Hypoglycemia unawareness due to type 2 diabetes mellitus,Condition,SNOMED,standard
+45773064,Traction detachment of retina due to type 2 diabetes mellitus,Condition,SNOMED,standard
+46274058,Skin ulcer of toe due to diabetes mellitus type 2,Condition,SNOMED,standard

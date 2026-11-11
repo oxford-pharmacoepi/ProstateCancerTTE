@@ -1,277 +1,275 @@
-concept_id
-381537
-432600
-434613
-434628
-436074
-436075
-436390
-436676
-439786
-440083
-440374
-440690
-440985
-441542
-442077
-443414
-601869
-601870
-602203
-602885
-604974
-604975
-605224
-607120
-763092
-1340250
-1340251
-1340414
-1340425
-1340434
-3171318
-3184939
-3189734
-4001337
-4002897
-4004487
-4005010
-4006459
-4008568
-4008683
-4009184
-4009714
-4009715
-4009716
-4009717
-4009718
-4009719
-4011621
-4011622
-4011623
-4012101
-4012102
-4012104
-4012105
-4012106
-4012107
-4012108
-4012109
-4012566
-4016732
-4021498
-4021501
-4021502
-4021790
-4021793
-4023197
-4023785
-4024443
-4025953
-4029005
-4031888
-4033046
-4033049
-4033937
-4054913
-4058397
-4077954
-4080138
-4080563
-4080564
-4080565
-4080566
-4080567
-4081887
-4082663
-4082664
-4082665
-4082667
-4084699
-4084714
-4084715
-4084717
-4085054
-4085056
-4085058
-4085062
-4085184
-4085666
-4085680
-4087190
-4088141
-4091702
-4092247
-4092250
-4098314
-4098318
-4098320
-4099956
-4100536
-4102965
-4102966
-4103273
-4103275
-4103276
-4103277
-4103278
-4103567
-4109930
-4112929
-4113821
-4115221
-4117364
-4121678
-4135202
-4135575
-4136518
-4137120
-4138454
-4142502
-4143602
-4146608
-4146808
-4147466
-4155074
-4156432
-4162390
-4171336
-4174145
-4174146
-4174147
-4174148
-4174149
-4174271
-4174274
-4175779
-4177015
-4178928
-4182119
-4182847
-4184002
-4185245
-4189538
-4196358
-4199892
-4202389
-4204708
-4205119
-4209114
-4211231
-4214746
-4217601
-4217945
-4218624
-4219627
-4220989
-4221253
-4230494
-4233250
-4234905
-4238682
-4239656
-4242565
-4243153
-4245974
-4246992
-4247433
-4252417
-4261239
-4263429
-4266021
-4268775
-4270890
-4272328
-4273699
-4277739
-4278602
-4288011
-4296648
-4297826
-4297987
-4298550
-4299970
-4303284
-4304010
-4307664
-4321835
-4322025
-4327320
-4328276
-4329036
-4332995
-4332996
-4335172
-4338030
-4338031
-4338032
-4338033
-4338662
-35615151
-35615152
-35615153
-35615154
-35615155
-36684319
-36713391
-36716688
-36716689
-36716863
-36716864
-36716868
-36716869
-36716887
-36716888
-36716889
-36716890
-36716892
-36716893
-36716894
-36717247
-36717607
-37109052
-37109053
-37109054
-37109206
-37109942
-37110256
-37110257
-37110258
-37110259
-37110440
-37110453
-37110465
-37110466
-37110473
-37110550
-37110595
-37111462
-37117155
-37119079
-37119146
-37309777
-37312031
-40484109
-40486521
-40486886
-42537777
-42538592
-42538593
-42538608
-42538738
-42538739
-42538968
-42539557
-42592880
-42592881
-43020470
-43020471
-44783184
-44784526
-44790897
-44792167
-44792168
-44792465
-44808691
-45757095
-45765567
+concept_id,concept_name,domain_id,vocabulary_id,standard_concept
+381537,Organic anxiety disorder,Condition,SNOMED,standard
+432600,Stress reaction causing mixed disturbance of emotion and conduct,Condition,SNOMED,standard
+434613,Generalized anxiety disorder,Condition,SNOMED,standard
+434628,Separation anxiety,Condition,SNOMED,standard
+436074,Panic disorder,Condition,SNOMED,standard
+436075,Adjustment disorder with anxious mood,Condition,SNOMED,standard
+436390,Psychogenic rumination,Condition,SNOMED,non-standard
+436676,Posttraumatic stress disorder,Condition,SNOMED,standard
+439786,Agoraphobia with panic attacks,Condition,SNOMED,standard
+440083,Acute stress disorder,Condition,SNOMED,standard
+440374,Obsessive-compulsive disorder,Condition,SNOMED,standard
+440690,Social phobia,Condition,SNOMED,standard
+440985,Phobia,Condition,SNOMED,standard
+441542,Anxiety,Condition,SNOMED,standard
+442077,Anxiety disorder,Condition,SNOMED,standard
+443414,Chronic post-traumatic stress disorder,Condition,SNOMED,standard
+601869,Fear of contracting disease caused by severe acute respiratory syndrome coronavirus 2,Condition,SNOMED,standard
+601870,Anxiety disorder due to severe acute respiratory syndrome coronavirus 2,Condition,SNOMED,standard
+602203,Anxiety related to clinical environment,Condition,SNOMED,standard
+602885,Fear of cancer of urinary system,Condition,SNOMED,standard
+604974,Primary tocophobia,Condition,SNOMED,standard
+604975,Secondary tocophobia,Condition,SNOMED,standard
+605224,Acute vestibular syndrome due to anxiety and fear,Condition,SNOMED,standard
+607120,Reduced level of anxiety,Observation,SNOMED,standard
+763092,Insomnia due to anxiety and fear,Condition,SNOMED,standard
+1340250,Exacerbation of anxiety,Condition,OMOP Extension,standard
+1340251,Exacerbation of anxiety disorder,Condition,OMOP Extension,standard
+1340414,Exacerbation of obsessional neurosis,Condition,OMOP Extension,standard
+1340425,Exacerbation of panic,Condition,OMOP Extension,standard
+1340434,Exacerbation of phobic disorder,Condition,OMOP Extension,standard
+3171318,Anxiety disorder due to brain injury,Condition,Nebraska Lexicon,standard
+3184939,Fear of cotton,Condition,Nebraska Lexicon,standard
+3189734,Situational anxiety,Condition,Nebraska Lexicon,standard
+4001337,Nervous diarrhea,Condition,SNOMED,standard
+4002897,"Panic disorder with agoraphobia, agoraphobic avoidance in full remission AND panic attacks in full remission",Condition,SNOMED,standard
+4004487,Unrealistic dental phobia,Condition,SNOMED,standard
+4005010,Heightened global phobia,Condition,SNOMED,standard
+4006459,"Panic disorder with agoraphobia, agoraphobic avoidance in partial remission AND severe panic attacks",Condition,SNOMED,standard
+4008568,"Panic disorder with agoraphobia, agoraphobic avoidance in full remission AND panic attacks in partial remission",Condition,SNOMED,standard
+4008683,Anxiety neurosis,Condition,SNOMED,non-standard
+4009184,Dream anxiety disorder,Condition,SNOMED,standard
+4009714,Fear of blood,Condition,SNOMED,standard
+4009715,Microphobia,Condition,SNOMED,standard
+4009716,Fear of contracting HIV infection,Condition,SNOMED,standard
+4009717,Pyrophobia,Condition,SNOMED,standard
+4009718,Astrapophobia,Condition,SNOMED,standard
+4009719,Fear of hypertension,Condition,SNOMED,standard
+4011621,Taphophobia,Condition,SNOMED,standard
+4011622,Theophobia,Condition,SNOMED,standard
+4011623,Androphobia,Condition,SNOMED,standard
+4012101,Nosophobia,Condition,SNOMED,standard
+4012102,Arachnophobia,Condition,SNOMED,standard
+4012104,Toxicophobia,Condition,SNOMED,standard
+4012105,Tocophobia,Condition,SNOMED,standard
+4012106,Teratophobia,Condition,SNOMED,standard
+4012107,Nyctophobia,Condition,SNOMED,standard
+4012108,Gynephobia,Condition,SNOMED,standard
+4012109,Fear of heart attack,Condition,SNOMED,standard
+4012566,Fear of infection,Condition,SNOMED,standard
+4016732,"Anticipatory anxiety, mild",Condition,SNOMED,standard
+4021498,Panic attack,Condition,SNOMED,standard
+4021501,Anxiety about treatment,Observation,SNOMED,standard
+4021502,Anxiety about altered body image,Observation,SNOMED,standard
+4021790,Anxiety about resuming sexual relations,Observation,SNOMED,standard
+4021793,Anxiety about making mistakes,Observation,SNOMED,standard
+4023197,Anxiety about forced dependence,Observation,SNOMED,standard
+4023785,Fear of insects,Condition,SNOMED,standard
+4024443,Occupation-related stress disorder,Condition,SNOMED,standard
+4025953,Anxiety about loss of control,Observation,SNOMED,standard
+4029005,Agoraphobia without history of panic disorder with limited symptom attacks,Condition,SNOMED,standard
+4031888,Death anxiety,Condition,SNOMED,standard
+4033046,Syphilophobia,Condition,SNOMED,standard
+4033049,Bromisodrophobia,Condition,SNOMED,non-standard
+4033937,Venereophobia,Condition,SNOMED,standard
+4054913,"Panic disorder with agoraphobia, mild agoraphobic avoidance AND severe panic attacks",Condition,SNOMED,standard
+4058397,Claustrophobia,Condition,SNOMED,standard
+4077954,Fear of heights,Condition,SNOMED,standard
+4080138,Anxiety about sweating,Observation,SNOMED,standard
+4080563,Anxiety about vomiting in public,Observation,SNOMED,standard
+4080564,Anxiety about dying,Observation,SNOMED,standard
+4080565,Anxiety about becoming fat,Observation,SNOMED,standard
+4080566,Anxiety about fainting,Observation,SNOMED,standard
+4080567,Anxiety about having a heart attack,Observation,SNOMED,standard
+4081887,Bromidrosiphobia,Condition,SNOMED,standard
+4082663,Anxiety about losing control of bowels,Observation,SNOMED,standard
+4082664,Anxiety about swallowing,Observation,SNOMED,standard
+4082665,Anxiety about losing emotional control,Observation,SNOMED,standard
+4082667,Anxiety about appearing ridiculous,Observation,SNOMED,standard
+4084699,Anxiety about body function or health,Observation,SNOMED,standard
+4084714,Fear of enclosed spaces,Condition,SNOMED,standard
+4084715,Fear of phone boxes,Condition,SNOMED,standard
+4084717,Fear of contracting disease,Condition,SNOMED,standard
+4085054,Anxiety and fear,Condition,SNOMED,standard
+4085056,Fear of having a heart attack,Condition,SNOMED,standard
+4085058,Anxiety about behavior or performance,Observation,SNOMED,standard
+4085062,Fear of flying,Condition,SNOMED,standard
+4085184,Fear of contracting sexually transmitted disease,Condition,SNOMED,standard
+4085666,"Panic disorder with agoraphobia, mild agoraphobic avoidance AND panic attacks in full remission",Condition,SNOMED,standard
+4085680,Flying phobia,Condition,SNOMED,standard
+4087190,Performance anxiety,Condition,SNOMED,standard
+4088141,Shell shock,Condition,SNOMED,standard
+4091702,Examination phobia,Condition,SNOMED,standard
+4092247,Fear of tunnels,Condition,SNOMED,standard
+4092250,Fear of contracting radiation sickness,Condition,SNOMED,standard
+4098314,Chronic anxiety,Condition,SNOMED,standard
+4098318,Fear of pregnancy,Condition,SNOMED,standard
+4098320,Obsessional neurosis,Condition,SNOMED,non-standard
+4099956,Acute panic state due to acute stress reaction,Condition,SNOMED,standard
+4100536,Acute post-trauma stress state,Condition,SNOMED,standard
+4102965,Acute fugue state due to acute stress reaction,Condition,SNOMED,standard
+4102966,Acute stupor state due to acute stress reaction,Condition,SNOMED,standard
+4103273,Recurrent anxiety,Condition,SNOMED,standard
+4103275,"Social phobia, fear of eating in public",Condition,SNOMED,standard
+4103276,"Social phobia, fear of public speaking",Condition,SNOMED,standard
+4103277,"Social phobia, fear of public washing",Condition,SNOMED,standard
+4103278,Compulsive neurosis,Condition,SNOMED,non-standard
+4103567,Acute situational disturbance,Condition,SNOMED,standard
+4109930,"Panic disorder with agoraphobia, severe agoraphobic avoidance AND mild panic attacks",Condition,SNOMED,standard
+4112929,Parasitophobia,Condition,SNOMED,non-standard
+4113821,Anxiety state,Condition,SNOMED,standard
+4115221,Anxiety attack,Condition,SNOMED,standard
+4117364,Level of anxiety,Observation,SNOMED,standard
+4121678,Castration anxiety complex,Observation,SNOMED,standard
+4135202,"Panic disorder with agoraphobia, agoraphobic avoidance in partial remission AND panic attacks in partial remission",Condition,SNOMED,standard
+4135575,Fear of school,Condition,SNOMED,standard
+4136518,"Panic disorder with agoraphobia, agoraphobic avoidance in partial remission AND mild panic attacks",Condition,SNOMED,standard
+4137120,"Panic disorder with agoraphobia, agoraphobic avoidance in partial remission AND moderate panic attacks",Condition,SNOMED,standard
+4138454,Chronic stress disorder,Condition,SNOMED,standard
+4142502,Fear of getting cancer,Condition,SNOMED,standard
+4143602,"Panic disorder with agoraphobia, agoraphobic avoidance in full remission AND severe panic attacks",Condition,SNOMED,standard
+4146608,"Panic disorder with agoraphobia, severe agoraphobic avoidance AND moderate panic attacks",Condition,SNOMED,standard
+4146808,Xenophobia,Condition,SNOMED,standard
+4147466,Panic disorder with agoraphobia,Condition,SNOMED,standard
+4155074,School phobia,Condition,SNOMED,standard
+4156432,Noise phobia,Condition,SNOMED,standard
+4162390,Fear of traveling in vehicles,Condition,SNOMED,standard
+4171336,"Panic disorder with agoraphobia, moderate agoraphobic avoidance AND mild panic attacks",Condition,SNOMED,standard
+4174145,Anxiety about wetting self,Observation,SNOMED,standard
+4174146,Anxiety about having a fit,Observation,SNOMED,standard
+4174147,Anxiety about choking,Observation,SNOMED,standard
+4174148,Anxiety about collapsing,Observation,SNOMED,standard
+4174149,Anxiety about shaking,Observation,SNOMED,standard
+4174271,Anxiety about going crazy,Observation,SNOMED,standard
+4174274,Anxiety about saying the wrong thing,Observation,SNOMED,standard
+4175779,"Panic disorder with agoraphobia, mild agoraphobic avoidance AND moderate panic attacks",Condition,SNOMED,standard
+4177015,"Panic disorder with agoraphobia, mild agoraphobic avoidance AND panic attacks in partial remission",Condition,SNOMED,standard
+4178928,Nightmares associated with chronic post-traumatic stress disorder,Condition,SNOMED,standard
+4182119,Panic disorder without agoraphobia with severe panic attacks,Condition,SNOMED,standard
+4182847,Simple phobia,Condition,SNOMED,standard
+4184002,Zoophobia,Condition,SNOMED,standard
+4185245,Erotophobia,Condition,SNOMED,standard
+4189538,Agoraphobia without history of panic disorder,Condition,SNOMED,standard
+4196358,Panic,Condition,SNOMED,standard
+4199892,Anxiety disorder due to a general medical condition,Condition,SNOMED,standard
+4202389,"Posttraumatic stress disorder, delayed onset",Condition,SNOMED,standard
+4204708,Panic disorder with agoraphobia AND severe panic attacks,Condition,SNOMED,standard
+4205119,Panic disorder without agoraphobia with panic attacks in partial remission,Condition,SNOMED,standard
+4209114,Phonophobia,Condition,SNOMED,standard
+4211231,Panic disorder without agoraphobia,Condition,SNOMED,standard
+4214746,Severe anxiety (panic),Condition,SNOMED,standard
+4217601,Panic disorder with agoraphobia AND moderate panic attacks,Condition,SNOMED,standard
+4217945,Free-floating anxiety,Condition,SNOMED,standard
+4218624,Panic disorder without agoraphobia with mild panic attacks,Condition,SNOMED,standard
+4219627,Agoraphobia without history of panic disorder without limited symptom attacks,Condition,SNOMED,standard
+4220989,"Panic disorder with agoraphobia, moderate agoraphobic avoidance AND moderate panic attacks",Condition,SNOMED,standard
+4221253,Panic disorder without agoraphobia with panic attacks in full remission,Condition,SNOMED,standard
+4230494,Anxiety about blushing,Observation,SNOMED,standard
+4233250,Panic disorder with agoraphobia AND mild panic attacks,Condition,SNOMED,standard
+4234905,Aerophobia,Condition,SNOMED,non-standard
+4238682,Physical AND emotional exhaustion state,Condition,SNOMED,standard
+4239656,Acrophobia,Condition,SNOMED,standard
+4242565,"Anticipatory anxiety, severe",Condition,SNOMED,standard
+4243153,"Panic disorder with agoraphobia, severe agoraphobic avoidance AND panic attacks in full remission",Condition,SNOMED,standard
+4245974,Panic disorder with agoraphobia AND panic attacks in full remission,Condition,SNOMED,standard
+4246992,"Panic disorder with agoraphobia, severe agoraphobic avoidance AND severe panic attacks",Condition,SNOMED,standard
+4247433,Combat fatigue,Condition,SNOMED,standard
+4252417,"Panic disorder with agoraphobia, severe agoraphobic avoidance AND panic attacks in partial remission",Condition,SNOMED,standard
+4261239,Anticipatory anxiety,Condition,SNOMED,standard
+4263429,Moderate anxiety,Condition,SNOMED,standard
+4266021,Fear of transport,Condition,SNOMED,standard
+4268775,Generalized social phobia,Condition,SNOMED,standard
+4270890,"Panic disorder with agoraphobia, mild agoraphobic avoidance AND mild panic attacks",Condition,SNOMED,standard
+4272328,"Panic disorder with agoraphobia, moderate agoraphobic avoidance AND panic attacks in full remission",Condition,SNOMED,standard
+4273699,Panic disorder with agoraphobia AND panic attacks in partial remission,Condition,SNOMED,standard
+4277739,Panic disorder without agoraphobia with moderate panic attacks,Condition,SNOMED,standard
+4278602,"Anticipatory anxiety, moderate",Condition,SNOMED,standard
+4288011,Anxiety hyperventilation,Condition,SNOMED,standard
+4296648,Ritual hand washing,Condition,SNOMED,standard
+4297826,Acarophobia,Condition,SNOMED,standard
+4297987,"Panic disorder with agoraphobia, agoraphobic avoidance in full remission AND mild panic attacks",Condition,SNOMED,standard
+4298550,"Panic disorder with agoraphobia, moderate agoraphobic avoidance AND panic attacks in partial remission",Condition,SNOMED,standard
+4299970,Phobic fear of skin cancer,Condition,SNOMED,standard
+4303284,Dental phobia,Condition,SNOMED,standard
+4304010,Phobic disorder,Condition,SNOMED,standard
+4307664,"Panic disorder with agoraphobia, moderate agoraphobic avoidance AND severe panic attacks",Condition,SNOMED,standard
+4321835,Agoraphobia,Condition,SNOMED,standard
+4322025,Mild anxiety,Condition,SNOMED,standard
+4327320,Algophobia,Condition,SNOMED,standard
+4328276,Anxiety about loss of memory,Observation,SNOMED,standard
+4329036,"Panic disorder with agoraphobia, agoraphobic avoidance in partial remission AND panic attacks in full remission",Condition,SNOMED,standard
+4332995,Needle phobia,Condition,SNOMED,standard
+4332996,Non-situational panic attack,Condition,SNOMED,standard
+4335172,Stage fright,Condition,SNOMED,standard
+4338030,Situational panic attack,Condition,SNOMED,standard
+4338031,Mixed anxiety and depressive disorder,Condition,SNOMED,standard
+4338032,Anxiety hysteria,Condition,SNOMED,non-standard
+4338033,Examination fear,Condition,SNOMED,standard
+4338662,"Panic disorder with agoraphobia, agoraphobic avoidance in full remission AND moderate panic attacks",Condition,SNOMED,standard
+35615151,Recurrent mild major depressive disorder co-occurrent with anxiety,Condition,SNOMED,standard
+35615152,Recurrent severe major depressive disorder co-occurrent with anxiety,Condition,SNOMED,standard
+35615153,Recurrent moderate major depressive disorder co-occurrent with anxiety,Condition,SNOMED,standard
+35615154,Recurrent major depressive disorder co-occurrent with anxiety in full remission,Condition,SNOMED,standard
+35615155,Recurrent major depressive disorder in partial remission co-occurrent with anxiety,Condition,SNOMED,standard
+36684319,Adjustment disorder with mixed anxiety and depressed mood,Condition,SNOMED,standard
+36713391,Fear of complications of pregnancy,Condition,SNOMED,standard
+36716688,Fear of having digestive disease,Condition,SNOMED,standard
+36716689,Fear of having cancer of digestive system,Condition,SNOMED,standard
+36716863,Fear of heart disease,Condition,SNOMED,standard
+36716864,Fear of cardiovascular disease,Condition,SNOMED,standard
+36716868,Fear of respiratory disease,Condition,SNOMED,standard
+36716869,Fear of cancer of respiratory system,Condition,SNOMED,standard
+36716887,Fear of endocrine disease,Condition,SNOMED,standard
+36716888,Fear of metabolic disease,Condition,SNOMED,standard
+36716889,Fear of nutritional disease,Condition,SNOMED,standard
+36716890,Fear of cancer of endocrine system,Condition,SNOMED,standard
+36716892,Fear of ear disease,Condition,SNOMED,standard
+36716893,Fear of hematological disease,Condition,SNOMED,standard
+36716894,Fear of hematological cancer,Condition,SNOMED,standard
+36717247,Fear of musculoskeletal disease,Condition,SNOMED,standard
+36717607,Fear of musculoskeletal cancer,Condition,SNOMED,standard
+37109052,Mild major depressive disorder co-occurrent with anxiety single episode,Condition,SNOMED,standard
+37109053,Moderate major depressive disorder co-occurrent with anxiety single episode,Condition,SNOMED,standard
+37109054,Severe major depressive disorder co-occurrent with anxiety single episode,Condition,SNOMED,standard
+37109206,Anxiety disorder caused by drug,Condition,SNOMED,standard
+37109942,Olfactory reference disorder,Condition,SNOMED,standard
+37110256,Fear of breast disease,Condition,SNOMED,standard
+37110257,Fear of genital cancer,Condition,SNOMED,standard
+37110258,Fear of breast cancer,Condition,SNOMED,standard
+37110259,Fear of sexual dysfunction,Condition,SNOMED,standard
+37110440,Obsessive compulsive disorder caused by cocaine,Condition,SNOMED,standard
+37110453,Anxiety disorder caused by methylenedioxymethamphetamine,Condition,SNOMED,standard
+37110465,Anxiety disorder caused by dissociative drug,Condition,SNOMED,standard
+37110466,Anxiety disorder caused by ketamine,Condition,SNOMED,standard
+37110473,Obsessive compulsive disorder caused by psychoactive substance,Condition,SNOMED,standard
+37110550,Fear of neurological disease,Condition,SNOMED,standard
+37110595,Fear of skin disease,Condition,SNOMED,standard
+37111462,Fear of eye disease,Condition,SNOMED,standard
+37117155,Illness anxiety disorder,Condition,SNOMED,standard
+37119079,Fear of genital disease,Condition,SNOMED,standard
+37119146,Anxiety disorder caused by opioid,Condition,SNOMED,standard
+37309777,Anxiety disorder caused by methamphetamine,Condition,SNOMED,standard
+37312031,Anxiety due to dementia,Condition,SNOMED,standard
+40484109,Complex posttraumatic stress disorder,Condition,SNOMED,standard
+40486521,Acute posttraumatic stress disorder following military combat,Condition,SNOMED,standard
+40486886,Delayed posttraumatic stress disorder following military combat,Condition,SNOMED,standard
+42537777,Anxiety disorder caused by synthetic cannabinoid,Condition,SNOMED,standard
+42538592,Anxiety disorder caused by stimulant,Condition,SNOMED,standard
+42538593,Obsessive compulsive disorder caused by stimulant,Condition,SNOMED,standard
+42538608,Fear of mental disorder,Condition,SNOMED,standard
+42538738,Anxiety disorder caused by synthetic cathinone,Condition,SNOMED,standard
+42538739,Obsessive compulsive disorder caused by synthetic cathinone,Condition,SNOMED,standard
+42538968,Anxiety in pregnancy,Condition,SNOMED,non-standard
+42539557,Fear of urinary disease,Condition,SNOMED,standard
+43020470,Fear of bridges,Condition,SNOMED,standard
+43020471,Fear of injury,Condition,SNOMED,standard
+44783184,Chronic post-traumatic stress disorder following military combat,Condition,SNOMED,standard
+44784526,Adjustment disorder with anxious mood in remission,Condition,SNOMED,standard
+44790897,Paruresis,Condition,SNOMED,standard
+44792167,Anxiety about lethargy,Observation,SNOMED,standard
+44792168,Anxiety about mood,Observation,SNOMED,standard
+44792465,Stranger anxiety,Condition,SNOMED,standard
+44808691,Able to manage anxiety,Observation,SNOMED,standard
+45757095,Anxiety disorder in mother complicating childbirth,Condition,SNOMED,standard
+45765567,Anxiety about breathlessness,Observation,SNOMED,standard
